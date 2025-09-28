@@ -39,3 +39,14 @@ footer {
     font-size: 0.9em;
     border-top: 1px solid #ccc;
 }
+
+footer a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+footer a:hover {
+    color: #007bff;
+}
+
