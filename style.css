@@ -2,20 +2,37 @@ body {
     font-family: Arial, sans-serif;
     margin: 40px;
     background-color: #ffffff;
-    color: #333;
+    color: #000000;
 }
 
 h1 {
     text-align: center;
     margin-bottom: 30px;
+    color: #000000;
+    text-transform: uppercase;
 }
 
-#pdf-list {
+#pdf-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.pdf-category {
+    margin-bottom: 20px;
+}
+
+.pdf-category h2 {
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.pdf-list {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    max-width: 600px;
-    margin: 0 auto;
 }
 
 .pdf-item {
@@ -23,7 +40,7 @@ h1 {
     border: 1px solid #ccc;
     border-radius: 6px;
     text-decoration: none;
-    color: #007bff;
+    color: rgb(28, 210, 130);
     transition: background-color 0.2s;
 }
 
@@ -32,21 +49,20 @@ h1 {
 }
 
 footer {
-    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-top: 50px;
-    padding: 20px 0;
-    color: #666;
+    padding: 20px 40px;
     font-size: 0.9em;
     border-top: 1px solid #ccc;
 }
 
-footer a {
-    color: #666;
+footer span, footer a {
+    color: #000;
     text-decoration: none;
-    transition: color 0.2s;
 }
 
 footer a:hover {
-    color: #007bff;
+    text-decoration: underline;
 }
-
