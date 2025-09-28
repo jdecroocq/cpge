@@ -2,5 +2,9 @@
     {
         "name": "02_pc",
         "files": ["01.01_propag_signal.pdf"]
+    },
+    {
+        "name": "07_lv",
+        "files": ["fiche_colle_01.pdf"]
     }
 ]
