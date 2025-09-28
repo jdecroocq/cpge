@@ -1,5 +1,9 @@
 [
     {
+        "name": "01_maths",
+        "files": ["cc_03_memo_complexes.pdf.pdf"]
+    },
+    {
         "name": "02_pc",
         "files": ["01.01_propag_signal.pdf"]
     },
