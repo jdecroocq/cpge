@@ -13,10 +13,12 @@ const categories = [
 
 const container = document.getElementById('pdf-container');
 
-categories.forEach(cat => {
-    fetch(cat.json)
-        .then(res => res.json())
-        .then(matieres => {
+async function loadCategories() {
+    for (const cat of categories) {
+        try {
+            const res = await fetch(cat.json);
+            const matieres = await res.json();
+
             const catDiv = document.createElement('div');
             catDiv.className = 'pdf-category';
             
@@ -47,6 +49,10 @@ categories.forEach(cat => {
             });
 
             container.appendChild(catDiv);
-        })
-        .catch(err => console.error("Erreur chargement PDFs:", err));
-});
+        } catch (err) {
+            console.error("Erreur chargement PDFs:", err);
+        }
+    }
+}
+
+loadCategories();
