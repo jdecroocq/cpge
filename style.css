@@ -50,7 +50,7 @@ h1 {
 
 footer {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     margin-top: 50px;
     padding: 20px 40px;
@@ -64,5 +64,5 @@ footer span, footer a {
 }
 
 footer a:hover {
-    text-decoration: underline;
+    color: rgb(28, 210, 130);
 }
