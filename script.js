@@ -35,7 +35,7 @@ categories.forEach(cat => {
 
                 matiere.files.forEach(file => {
                     const link = document.createElement('a');
-                    link.href = `${cat.folder}/${file}`;
+                    link.href = `${cat.folder}/${matiere.name}/${file}`;
                     link.target = "_blank";
                     link.textContent = file;
                     link.className = 'pdf-item';
