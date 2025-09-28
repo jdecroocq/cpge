@@ -1,10 +1,10 @@
 [
     {
         "name": "01_maths",
-        "files": ["dexemple-test.pdf"]
+        "files": ["exemple-test.pdf"]
     },
     {
         "name": "02_pc",
-        "files": ["dexemple-test.pdf"]
+        "files": ["exemple-test.pdf"]
     }
 ]
