@@ -5,7 +5,10 @@
     },
     {
         "name": "02_pc",
-        "files": ["01.01_propag_signal.pdf"]
+        "files": [
+            "01.01_propag_signal.pdf",
+            "04.01_archi_matiere.pdf"
+                ]
     },
     {
         "name": "07_lv",
