@@ -11,6 +11,12 @@
                 ]
     },
     {
+        "name": "06_fr",
+        "files": [
+            "recap_oeuvres_MH_JV.pdf"
+                ]
+    },
+    {
         "name": "07_lv",
         "files": ["fiche_colle_01.pdf"]
     }
