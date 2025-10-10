@@ -13,6 +13,10 @@
                 ]
     },
     {
+        "name": "04_info",
+        "files": ["memento_python_3.pdf"]
+    },
+    {
         "name": "06_fr",
         "files": [
             "recap_oeuvres_MH_JV.pdf",
