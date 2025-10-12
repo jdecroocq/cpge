@@ -1,7 +1,10 @@
 [
     {
         "name": "01_maths",
-        "files": ["cc_03_memo_complexes.pdf"]
+        "files": [
+            "cc_03_memo_complexes.pdf",
+            "DHC_02.pdf"
+                ]
     },
     {
         "name": "02_pc",
