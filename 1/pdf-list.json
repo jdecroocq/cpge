@@ -16,6 +16,12 @@
                 ]
     },
     {
+        "name": "03_sii",
+        "files": [
+            "temp_fermeture_geom.jpg"
+                ]
+    },
+    {
         "name": "04_info",
         "files": ["memento_python_3.pdf"]
     },
