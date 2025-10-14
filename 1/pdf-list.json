@@ -26,14 +26,14 @@
         "files": ["memento_python_3.pdf"]
     },
     {
-        "name": "06_fr",
+        "name": "05_fr",
         "files": [
             "recap_oeuvres_MH_JV.pdf",
             "methode_vif_resume.pdf"
                 ]
     },
     {
-        "name": "07_lv",
+        "name": "06_lv",
         "files": ["fiche_colle_01.pdf"]
     }
 ]
