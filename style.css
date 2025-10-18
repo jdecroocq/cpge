@@ -27,7 +27,7 @@ html {
 body {
     font-family: 'Orkney', sans-serif;
     margin: 0;
-    padding: var(--header-height) clamp(20px, 5vw, 40px) 40px;
+    padding: 40px clamp(20px, 5vw, 40px);
     background-color: var(--color-0);
     color: var(--color-4);
 }
@@ -49,24 +49,12 @@ body.loaded #page-loader {
     opacity: 0;
 }
 
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: var(--header-height);
-    backdrop-filter: blur(100px);
-    border-bottom: var(--border);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    padding: 0 clamp(20px, 5vw, 40px);
-}
-
 .header-logo {
     display: flex;
     align-items: center;
+    justify-content: center;
     color: var(--color-5);
+    margin: 32px 0 0 0;
 }
 
 .header-logo svg {
@@ -88,8 +76,9 @@ header {
     font-size: 3rem;
     color: var(--color-5);
     text-align: center;
-    margin: 128px 0 128px 0;
     font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 64px;
 }
 
 h2 {
