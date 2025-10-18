@@ -36,14 +36,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                         subcatTitle.textContent = subcat.name;
                         subcatDiv.appendChild(subcatTitle);
 
-                        const listDiv = document.createElement('div');
-                        listDiv.className = 'item-list';
-
+                        // CORRECTION : On vérifie les fichiers AVANT de créer la liste
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
-                            listDiv.appendChild(emptyMsg);
+                            subcatDiv.appendChild(emptyMsg);
                         } else {
+                            const listDiv = document.createElement('div');
+                            listDiv.className = 'item-list';
+
                             subcat.files.forEach(file => {
                                 const link = document.createElement('a');
                                 link.href = `${cat.name}/${subcat.name}/${file}`;
@@ -51,16 +52,15 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 link.rel = "noopener noreferrer";
                                 link.textContent = file;
                                 link.className = 'list-item';
+
                                 const fileNameWithoutExt = file.substring(0, file.lastIndexOf('.'));
                                 if (fileNameWithoutExt.endsWith('_s')) {
                                     link.classList.add('is-protected');
                                 }
-
                                 listDiv.appendChild(link);
                             });
+                            subcatDiv.appendChild(listDiv);
                         }
-                        subcatDiv.appendChild(listDiv);
-                        catDiv.appendChild(subcatDiv);
                     });
                 }
                 container.appendChild(catDiv);
