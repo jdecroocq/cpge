@@ -24,18 +24,24 @@
         ]
     },
     {
-        "name": "Methodes",
+        "name": "2627",
         "subcategories": [
             {
-                "name": "Generales",
-                "files": [
-                    "methode_vif_resume.pdf"
-                ]
+                "name": "01_maths",
+                "files": []
+            },
+            {
+                "name": "02_pc",
+                "files": []
+            },
+            {
+                "name": "03_sii",
+                "files": []
             }
         ]
     },
     {
-        "name": "Archives",
+        "name": "test",
         "subcategories": []
     }
 ]
