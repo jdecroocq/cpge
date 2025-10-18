@@ -15,7 +15,7 @@
                     "01.02_formation_images_s.pdf",
                     "01.03_circuits_elec_arqs.pdf",
                     "04.01_archi_matiere.pdf"
-                ]
+                        ]
             },
             {
                 "name": "03_sii",
@@ -25,19 +25,19 @@
                 "name": "04_info",
                 "files": [
                     "memento_python_3.pdf"
-                ]
+                        ]
             },
             {
                 "name": "05_fr",
                 "files": [
                     "recap_oeuvres_MH_JV.pdf"
-                ]
+                        ]
             },
             {
                 "name": "06_lv",
                 "files": [
                     "fiche_gram_colle_01.pdf"
-                ]
+                        ]
             }
         ]
     },
