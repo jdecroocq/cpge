@@ -59,21 +59,6 @@
         ]
     },
     {
-        "name": "temp",
-        "subcategories": [
-            {
-                "name": "01_maths",
-                "files": []
-            },
-            {
-                "name": "03_sii",
-                "files": [
-                    "fermeture_geom.jpg"
-                ]
-            }
-        ]
-    },
-    {
         "name": "global",
         "subcategories": [
             {
@@ -94,6 +79,21 @@
                 "name": "05_fr",
                 "files": [
                     "methode_resume.pdf"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "temp",
+        "subcategories": [
+            {
+                "name": "01_maths",
+                "files": []
+            },
+            {
+                "name": "03_sii",
+                "files": [
+                    "fermeture_geom.jpg"
                 ]
             }
         ]
