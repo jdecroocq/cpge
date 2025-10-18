@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
+    const mainPageBody = document.getElementById('main-page');
+    if (!mainPageBody) return;
+
     const container = document.getElementById('content-container');
 
     async function loadContent() {
@@ -25,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!cat.subcategories || cat.subcategories.length === 0) {
                     const emptyMsg = document.createElement('p');
                     emptyMsg.className = 'empty-message';
-                    emptyMsg.textContent = 'Aucune sous-catégorie.';
+                    emptyMsg.textContent = 'Aucune sous-catégorie disponible';
                     catDiv.appendChild(emptyMsg);
                 } else {
                     cat.subcategories.forEach(subcat => {
@@ -39,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
-                            emptyMsg.textContent = 'Aucun document.';
+                            emptyMsg.textContent = 'Aucun document disponible';
                             subcatDiv.appendChild(emptyMsg);
                         } else {
                             const listDiv = document.createElement('div');
@@ -71,7 +74,7 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Erreur lors du chargement de la liste:", err);
             container.textContent = 'Impossible de charger le contenu. Vérifiez la console pour plus de détails.';
         } finally {
-            document.body.classList.add('loaded');
+            mainPageBody.classList.add('loaded');
         }
     }
 
