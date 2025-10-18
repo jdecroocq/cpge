@@ -83,36 +83,4 @@
             }
         ]
     },
-    {
-        "title": "Fichiers temporaires",
-        "folder": "temp",
-        "subcategories": [
-            {
-                "name": "01_maths",
-                "files": []
-            },
-            {
-                "name": "02_pc",
-                "files": []
-            },
-            {
-                "name": "03_sii",
-                "files": [
-                    "fermeture_geom.jpg"
-                        ]
-            },
-            {
-                "name": "04_info",
-                "files": []
-            },
-            {
-                "name": "05_fr",
-                "files": []
-            },
-            {
-                "name": "05_lv",
-                "files": []
-            }
-        ]
-    }
 ]
