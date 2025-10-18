@@ -1,1 +1,46 @@
-
+[
+    {
+        "name": "CPGE 2025-2026",
+        "folder": "2526",
+        "matieres": [
+            {
+                "name": "01_maths",
+                "files": [
+                    "cc_03_memo_complexes.pdf",
+                    "dhc_02.pdf",
+                    "consignes_ecrits_01_maths.pdf"
+                ]
+            },
+            {
+                "name": "02_pc",
+                "files": [
+                    "01.01_propag_signal_s.pdf",
+                    "01.02_formation_images_s.pdf",
+                    "01.03_circuits_elec_arqs.pdf",
+                    "04.01_archi_matiere.pdf"
+                ]
+            },
+            {
+                "name": "03_sii",
+                "files": []
+            }
+        ]
+    },
+    {
+        "name": "Méthodes",
+        "folder": "Methodes",
+        "matieres": [
+            {
+                "name": "Generales",
+                "files": [
+                    "methode_vif_resume.pdf"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "Archives",
+        "folder": "Archives",
+        "matieres": []
+    }
+]
