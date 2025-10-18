@@ -36,10 +36,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                         subcatTitle.textContent = subcat.name;
                         subcatDiv.appendChild(subcatTitle);
 
-                        // CORRECTION : On vérifie les fichiers AVANT de créer la liste
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
+                            // CORRECTION 1: Le texte du message avait disparu
+                            emptyMsg.textContent = 'Cette sous-catégorie ne contient aucun document.';
                             subcatDiv.appendChild(emptyMsg);
                         } else {
                             const listDiv = document.createElement('div');
@@ -61,6 +62,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                             });
                             subcatDiv.appendChild(listDiv);
                         }
+                        // CORRECTION 2: La ligne qui attache la sous-catégorie à sa catégorie parente était manquante
+                        catDiv.appendChild(subcatDiv);
                     });
                 }
                 container.appendChild(catDiv);
