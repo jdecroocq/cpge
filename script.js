@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('content-container');
 
     async function loadContent() {
@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (!cat.subcategories || cat.subcategories.length === 0) {
                     const emptyMsg = document.createElement('p');
                     emptyMsg.className = 'empty-message';
-                    emptyMsg.textContent = 'Cette catégorie ne contient aucune sous-catégorie.';
+                    emptyMsg.textContent = 'Aucune sous-catégorie.';
                     catDiv.appendChild(emptyMsg);
                 } else {
                     cat.subcategories.forEach(subcat => {
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
-                            emptyMsg.textContent = 'Cette sous-catégorie ne contient aucun document.';
+                            emptyMsg.textContent = 'Aucun document.';
                             subcatDiv.appendChild(emptyMsg);
                         } else {
                             const listDiv = document.createElement('div');
@@ -70,6 +70,8 @@ document.addEventListener('DOMContentLoaded', async () => {
         } catch (err) {
             console.error("Erreur lors du chargement de la liste:", err);
             container.textContent = 'Impossible de charger le contenu. Vérifiez la console pour plus de détails.';
+        } finally {
+            document.body.classList.add('loaded');
         }
     }
 
