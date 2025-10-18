@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', async () => {
-    const container = document.getElementById('pdf-container');
+    const container = document.getElementById('content-container');
 
     async function loadContent() {
         try {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             categories.forEach(cat => {
                 const catDiv = document.createElement('div');
-                catDiv.className = 'pdf-category';
+                catDiv.className = 'content-category';
 
                 const catTitle = document.createElement('h2');
                 catTitle.textContent = cat.name;
@@ -30,19 +30,18 @@ document.addEventListener('DOMContentLoaded', async () => {
                 } else {
                     cat.subcategories.forEach(subcat => {
                         const subcatDiv = document.createElement('div');
-                        subcatDiv.className = 'pdf-matiere';
+                        subcatDiv.className = 'content-subcategory';
                         
                         const subcatTitle = document.createElement('h3');
                         subcatTitle.textContent = subcat.name;
                         subcatDiv.appendChild(subcatTitle);
 
                         const listDiv = document.createElement('div');
-                        listDiv.className = 'pdf-list';
+                        listDiv.className = 'item-list';
 
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
-                            emptyMsg.textContent = 'Cette sous-catégorie ne contient aucun document.';
                             listDiv.appendChild(emptyMsg);
                         } else {
                             subcat.files.forEach(file => {
@@ -51,7 +50,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 link.target = "_blank";
                                 link.rel = "noopener noreferrer";
                                 link.textContent = file;
-                                link.className = 'pdf-item';
+                                link.className = 'list-item';
                                 listDiv.appendChild(link);
                             });
                         }
