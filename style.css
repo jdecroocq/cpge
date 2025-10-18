@@ -62,18 +62,37 @@ body.loaded #page-loader {
     justify-content: center;
     color: var(--color-5);
     margin: 80px 0 40px 0;
+    padding-top: 30px;
+    border-top: var(--border);
 }
 
 .header-logo svg {
-    height: 32px;
+    height: 24px;
     width: auto;
-    margin-right: 12px;
+    margin-right: 10px;
     fill: var(--color-6);
 }
 
-.header-logo span {
-    font-size: 1.3rem;
+.header-logo > span:first-of-type {
+    font-size: 1.1rem;
     font-weight: bold;
+}
+
+.header-logo .signature-text {
+    font-size: 0.9em;
+    color: var(--color-4);
+    margin-left: 4px;
+}
+
+.header-logo a {
+    font-size: 0.9em;
+    color: var(--color-4);
+    margin-left: 0.3em;
+}
+
+.header-logo a:hover {
+    color: var(--color-6);
+    text-decoration: none;
 }
 
 h2 {
@@ -173,25 +192,6 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     margin: 0;
-}
-
-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 0;
-    padding-top: 30px;
-    font-size: 0.9em;
-    border-top: var(--border);
-}
-
-footer a {
-    color: var(--color-4);
-}
-
-footer a:hover {
-    color: var(--color-6);
-    text-decoration: none;
 }
 
 .page-404 {
