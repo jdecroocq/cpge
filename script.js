@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 catDiv.className = 'content-category';
 
                 const catTitle = document.createElement('h2');
-                catTitle.textContent = cat.name;
+                catTitle.textContent = cat.title;
                 catDiv.appendChild(catTitle);
 
                 if (!cat.subcategories || cat.subcategories.length === 0) {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
-                            emptyMsg.textContent = 'Aucun document.';
+                            emptyMsg.textContent = 'Aucun document disponible';
                             subcatDiv.appendChild(emptyMsg);
                         } else {
                             const listDiv = document.createElement('div');
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             subcat.files.forEach(file => {
                                 const link = document.createElement('a');
-                                link.href = `${cat.name}/${subcat.name}/${file}`;
+                                link.href = `${cat.folder}/${subcat.name}/${file}`;
                                 link.target = "_blank";
                                 link.rel = "noopener noreferrer";
                                 link.textContent = file;
