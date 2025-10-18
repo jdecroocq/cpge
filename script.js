@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!cat.subcategories || cat.subcategories.length === 0) {
                     const emptyMsg = document.createElement('p');
                     emptyMsg.className = 'empty-message';
-                    emptyMsg.textContent = 'Aucune sous-catégorie disponible';
+                    emptyMsg.textContent = 'Aucune catégorie disponible.';
                     catDiv.appendChild(emptyMsg);
                 } else {
                     cat.subcategories.forEach(subcat => {
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
-                            emptyMsg.textContent = 'Aucun document disponible';
+                            emptyMsg.textContent = 'Aucun document.';
                             subcatDiv.appendChild(emptyMsg);
                         } else {
                             const listDiv = document.createElement('div');
