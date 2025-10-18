@@ -43,9 +43,9 @@ body {
 h1 {
     font-size: 1.3rem;
     font-weight: bold;
-    color: var(--color-5);
+    color: var(--color-6);
     text-align: center;
-    margin: 32px 0 -8px 0;
+    margin: 32px 0 0 0;
     letter-spacing: 2px;
 }
 
