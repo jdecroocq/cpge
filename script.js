@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (!subcat.files || subcat.files.length === 0) {
                             const emptyMsg = document.createElement('p');
                             emptyMsg.className = 'empty-message';
-                            emptyMsg.textContent = 'Aucun document disponible';
+                            emptyMsg.textContent = 'Aucun document.';
                             subcatDiv.appendChild(emptyMsg);
                         } else {
                             const listDiv = document.createElement('div');
