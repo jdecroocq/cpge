@@ -7,7 +7,7 @@
 }
 
 :root {
-  /* ARCHITECTURE DES COULEURS AVEC COMPOSANTES RGB */
+  /* Composantes RGB */
   --color-0-rgb: 255, 255, 255;
   --color-1-rgb: 248, 248, 248;
   --color-2-rgb: 235, 235, 235;
@@ -16,23 +16,23 @@
   --color-5-rgb: 63, 63, 63;
   --color-6-rgb: 61, 90, 253;
   
-  --alpha-85: 0.85;
-  --alpha-75: 0.75;
-  --alpha-50: 0.5;
+  --alpha: 0.65; /* Un seul ratio de transparence, plus prononcé */
 
+  /* Variables de couleurs finales */
   --color-0: rgb(var(--color-0-rgb));
   --color-1: rgb(var(--color-1-rgb));
-  --color-1-a75: rgba(var(--color-1-rgb), var(--alpha-75));
+  --color-1-a: rgba(var(--color-1-rgb), var(--alpha)); /* Version transparente */
   --color-2: rgb(var(--color-2-rgb));
-  --color-2-a85: rgba(var(--color-2-rgb), var(--alpha-85));
+  --color-2-a: rgba(var(--color-2-rgb), 0.75); /* Légèrement moins transparent au survol */
   --color-3: rgb(var(--color-3-rgb));
-  --color-3-a50: rgba(var(--color-3-rgb), var(--alpha-50));
+  --color-3-a: rgba(var(--color-3-rgb), 0.5); /* Bordure encore plus subtile */
   --color-4: rgb(var(--color-4-rgb));
   --color-5: rgb(var(--color-5-rgb));
   --color-6: rgb(var(--color-6-rgb));
 
   --border: 1px solid var(--color-3);
   --border-radius-1: 8px;
+  --card-blur: 10px; /* Variable pour le flou des cartes */
 }
 
 html {
@@ -68,11 +68,11 @@ body.loaded #page-loader { opacity: 0; }
 .bubbles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: url(#goo); }
 
 .bubble {
-    position: absolute; border-radius: 50%;
+    position: absolute;
+    border-radius: 50%;
     background: var(--color-6);
     opacity: 0.8;
-    /* FLOU ADAPTATIF: 12vmin = 12% de la plus petite dimension de l'écran */
-    filter: blur(clamp(50px, 12vmin, 120px));
+    filter: blur(16vw);
 }
 
 .bubble.b1 { top: 20%; left: 10%; width: 25vmax; height: 25vmax; background: #93a5ff; animation: move-1 20s infinite alternate; }
@@ -131,18 +131,25 @@ a { color: var(--color-6); text-decoration: none; }
 .content-subcategory { margin-top: 16px; }
 
 .item-list {
-    display: flex; flex-direction: column;
-    background-color: var(--color-1-a75); /* COULEUR TRANSPARENTE */
-    border: 1px solid var(--color-3-a50);   /* BORDURE TRANSPARENTE */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--color-1-a); /* Utilise la nouvelle variable */
+    border: 1px solid var(--color-3-a);   /* Utilise la nouvelle variable */
     border-radius: var(--border-radius-1);
     overflow: hidden;
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(var(--card-blur)); /* Utilise la nouvelle variable */
+}
+.list-item:hover {
+    background-color: var(--color-2-a); /* Utilise la nouvelle variable */
+    text-decoration: none;
+    color: var(--color-6);
+    font-weight: bold;
 }
 
 .list-item {
     position: relative; padding: 10px 16px;
     color: var(--color-5); font-size: 0.9rem;
-    border-bottom: 1px solid var(--color-3-a50);
+    border-bottom: 1px solid var(--color-3-a); /* Utilise la nouvelle variable */
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .item-list .list-item:last-child { border-bottom: none; }
