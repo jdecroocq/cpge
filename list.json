@@ -5,16 +5,16 @@
             {
                 "name": "01_maths",
                 "files": [
-                    "cc_03_memo_complexes.pdf",
-                    "dhc_02.pdf",
-                    "consignes_ecrits_01_maths.pdf"
+                    "consignes_ecrits.pdf"
                 ]
             },
             {
                 "name": "02_pc",
                 "files": [
                     "01.01_propag_signal_s.pdf",
-                    "01.02_formation_images_s.pdf"
+                    "01.02_formation_images_s.pdf",
+                    "01.03_circuits_elec_arqs.pdf",
+                    "04.01_archi_matiere.pdf"
                 ]
             },
             {
