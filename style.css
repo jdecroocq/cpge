@@ -1,19 +1,22 @@
 @font-face {
   font-family: 'Orkney';
-  src: url('/cpge/fonts/orkney-regular-webfont.woff2') format('woff2'),
-       url('/cpge/fonts/orkney-regular-webfont.woff') format('woff');
+  src: url('/fonts/orkney-regular-webfont.woff2') format('woff2'),
+       url('/fonts/orkney-regular-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 :root {
+  /* Thème Clair */
   --color-0-rgb: 255, 255, 255;
   --color-1-rgb: 245, 245, 245;
   --color-2-rgb: 235, 235, 235;
   --color-3-rgb: 225, 225, 225;
   --color-4-rgb: 95, 95, 95;
   --color-5-rgb: 0, 0, 0;
-  --color-6-rgb: 46, 71, 235;
+  
+  /* Nouvelle couleur d'accent Indigo */
+  --color-6-rgb: 108, 99, 255;
   
   --color-0: rgb(var(--color-0-rgb));
   --color-1: rgb(var(--color-1-rgb));
@@ -37,6 +40,7 @@ body {
     padding: 40px;
     background-color: var(--color-0);
     color: var(--color-4);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1 {
@@ -79,7 +83,7 @@ a:hover {
   text-decoration: underline;
 }
 
-#pdf-container {
+#content-container {
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -87,43 +91,44 @@ a:hover {
     margin: 0 auto;
 }
 
-.pdf-category {
+.content-category {
     margin-bottom: 20px;
 }
 
-.pdf-matiere {
+.content-subcategory {
     margin-bottom: 20px;
 }
 
-.pdf-list {
+.item-list {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-}
-
-.pdf-item {
-    padding: 12px 18px;
     background-color: var(--color-1);
     border: var(--border);
     border-radius: var(--border-radius-1);
-    color: var(--color-6);
-    transition: background-color 0.2s, border-color 0.2s;
-    font-size: 0.9rem;
+    overflow: hidden;
 }
 
-.pdf-item:hover {
+.list-item {
+    padding: 12px 18px;
+    color: var(--color-6);
+    transition: background-color 0.2s;
+    font-size: 0.9rem;
+    border-bottom: var(--border);
+}
+
+.item-list .list-item:last-child {
+    border-bottom: none;
+}
+
+.list-item:hover {
     background-color: var(--color-2);
-    border-color: var(--color-6);
     text-decoration: none;
 }
 
 .empty-message {
     font-style: italic;
     color: var(--color-4);
-    padding: 10px;
-    background-color: var(--color-1);
-    border: var(--border);
-    border-radius: var(--border-radius-1);
+    padding: 12px 18px;
 }
 
 footer {
@@ -169,13 +174,13 @@ footer a:hover {
   font-size: 18px;
   padding: 16px 20px;
   display: inline-block;
-  background: linear-gradient(45deg, #05be64, #32e6a0);
-  color: var(--color-0);
+  background: linear-gradient(45deg, #5D50FE, #8479FF);
+  color: #ffffff;
   border-radius: var(--border-radius-1);
   text-decoration: none !important;
   font-weight: bold;
   line-height: 1;
-  border: 1px solid var(--color-0);
+  border: 1px solid transparent;
   transition: background 0.2s, color 0.2s, border 0.2s;
 }
 
