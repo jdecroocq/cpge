@@ -48,7 +48,7 @@ body {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
     background-color: var(--color-0);
     z-index: 9999; opacity: 1; pointer-events: none;
-    transition: opacity 0.8s ease-out;
+    transition: opacity 1.5s ease-out;
 }
 
 body.loaded #page-loader { opacity: 0; }
@@ -57,6 +57,7 @@ body.loaded #page-loader { opacity: 0; }
 .gradient-background {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
     overflow: hidden; z-index: -2;
+    filter: blur(10px);
 }
 .gradient-background svg { display: none; }
 .bubbles { position: absolute; top: 0; left: 0; width: 100%; height: 100%; filter: url(#goo); }
@@ -66,19 +67,16 @@ body.loaded #page-loader { opacity: 0; }
     border-radius: 50%;
     background: var(--color-6);
     opacity: 1;
-    filter: blur(max(10vw, 10vh));
 }
 
-.bubble.b1 { top: 20%; left: 10%; width: 17vmax; height: 15vmax; background: var(--color-6); animation: move-1 10s infinite alternate; }
-.bubble.b2 { top: 60%; left: 70%; width: 23vmax; height: 20vmax; background: var(--color-6); animation: move-2 12s infinite alternate-reverse; }
-.bubble.b3 { top: 10%; left: 80%; width: 22vmax; height: 20vmax; background: var(--color-6); animation: move-3 14s infinite alternate; }
-.bubble.b4 { top: 80%; left: 20%; width: 17vmax; height: 15vmax; background: var(--color-6); animation: move-4 16s infinite alternate-reverse; }
+.bubble.b1 { top: 20%; left: 10%; width: 28vmax; height: 30vmax; animation: move-1 20s infinite alternate; }
+.bubble.b2 { top: 60%; left: 70%; width: 33vmax; height: 30vmax; animation: move-2 25s infinite alternate-reverse; }
+.bubble.b3 { top: 10%; left: 80%; width: 20vmax; height: 22vmax; animation: move-3 22s infinite alternate; }
+.bubble.b4 { top: 80%; left: 20%; width: 28vmax; height: 30vmax; animation: move-4 28s infinite alternate-reverse; }
 
 #interactive-bubble {
     top: 0; left: 0;
-    width: 15vmax; height: 15vmax;
-    opacity: 1;
-    background: var(--color-6);
+    width: 21vmax; height: 22vmax;
 }
 
 @keyframes move-1 { from { transform: translate(-100px, 50px) rotate(0deg); } to { transform: translate(300px, -300px) rotate(360deg); } }
