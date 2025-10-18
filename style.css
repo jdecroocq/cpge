@@ -7,13 +7,13 @@
 }
 
 :root {
-  --color-0-rgb: 0, 0, 0;
-  --color-1-rgb: 10, 10, 10;
-  --color-2-rgb: 20, 20, 20;
-  --color-3-rgb: 31, 31, 31;
-  --color-4-rgb: 160, 160, 160;
-  --color-5-rgb: 255, 255, 255;
-  --color-6-rgb: 28, 210, 130;
+  --color-0-rgb: 255, 255, 255;
+  --color-1-rgb: 245, 245, 245;
+  --color-2-rgb: 235, 235, 235;
+  --color-3-rgb: 225, 225, 225;
+  --color-4-rgb: 95, 95, 95;
+  --color-5-rgb: 0, 0, 0;
+  --color-6-rgb: 46, 71, 235;
   
   --color-0: rgb(var(--color-0-rgb));
   --color-1: rgb(var(--color-1-rgb));
@@ -42,7 +42,6 @@ body {
 h1 {
     font-size: 3rem;
     font-weight: bold;
-    text-transform: uppercase;
     color: var(--color-5);
     text-align: center;
     margin-bottom: 50px;
@@ -51,7 +50,6 @@ h1 {
 h2 {
     font-size: 1.6rem;
     font-weight: bold;
-    text-transform: uppercase;
     color: var(--color-5);
     margin: 0 0 20px 0;
     border-bottom: var(--border);
@@ -61,7 +59,6 @@ h2 {
 h3 {
     font-size: 1.1rem;
     font-weight: normal;
-    text-transform: uppercase;
     color: var(--color-4);
     margin: 0 0 15px 0;
 }
