@@ -15,24 +15,21 @@
   --color-4-rgb: 95, 95, 95;
   --color-5-rgb: 63, 63, 63;
   --color-6-rgb: 61, 90, 253;
-  
-  --alpha: 0.65; /* Un seul ratio de transparence, plus prononcé */
 
-  /* Variables de couleurs finales */
   --color-0: rgb(var(--color-0-rgb));
   --color-1: rgb(var(--color-1-rgb));
-  --color-1-a: rgba(var(--color-1-rgb), var(--alpha)); /* Version transparente */
+  --color-1-a: rgba(var(--color-1-rgb), 0.4);
   --color-2: rgb(var(--color-2-rgb));
-  --color-2-a: rgba(var(--color-2-rgb), 0.75); /* Légèrement moins transparent au survol */
+  --color-2-a: rgba(var(--color-2-rgb), 0.3);
   --color-3: rgb(var(--color-3-rgb));
-  --color-3-a: rgba(var(--color-3-rgb), 0.5); /* Bordure encore plus subtile */
+  --color-3-a: rgba(var(--color-3-rgb), 0.8);
   --color-4: rgb(var(--color-4-rgb));
   --color-5: rgb(var(--color-5-rgb));
   --color-6: rgb(var(--color-6-rgb));
 
   --border: 1px solid var(--color-3);
   --border-radius-1: 8px;
-  --card-blur: 10px; /* Variable pour le flou des cartes */
+  --card-blur: 10px;
 }
 
 html {
@@ -42,9 +39,9 @@ html {
 body {
     font-family: 'Orkney', sans-serif;
     margin: 0;
-    padding: 0; /* Padding maintenant géré par le wrapper */
+    padding: 0;
     background-color: var(--color-0);
-    color: var(--color-4);
+    color: var(--color-5);
     overflow-x: hidden;
 }
 
@@ -57,11 +54,9 @@ body {
 
 body.loaded #page-loader { opacity: 0; }
 
-/* ---- Arrière-plan animé ---- */
 
 .gradient-background {
     position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-    background: #f0f2ff;
     overflow: hidden; z-index: -2;
 }
 .gradient-background svg { display: none; }
@@ -72,18 +67,17 @@ body.loaded #page-loader { opacity: 0; }
     border-radius: 50%;
     background: var(--color-6);
     opacity: 0.8;
-    filter: blur(16vw);
+    filter: blur(max(13vw, 13vh));
 }
 
-.bubble.b1 { top: 20%; left: 10%; width: 25vmax; height: 25vmax; background: #93a5ff; animation: move-1 20s infinite alternate; }
-.bubble.b2 { top: 60%; left: 70%; width: 30vmax; height: 30vmax; background: #4791db; animation: move-2 25s infinite alternate-reverse; }
-.bubble.b3 { top: 10%; left: 80%; width: 20vmax; height: 20vmax; background: #a58fff; animation: move-3 22s infinite alternate; }
-.bubble.b4 { top: 80%; left: 20%; width: 28vmax; height: 28vmax; background: #61dfff; animation: move-4 28s infinite alternate-reverse; }
+.bubble.b1 { top: 20%; left: 10%; width: 28vmax; height: 30vmax; background: #93a5ff; animation: move-1 20s infinite alternate; }
+.bubble.b2 { top: 60%; left: 70%; width: 33vmax; height: 30vmax; background: #4791db; animation: move-2 25s infinite alternate-reverse; }
+.bubble.b3 { top: 10%; left: 80%; width: 20vmax; height: 22vmax; background: #a58fff; animation: move-3 22s infinite alternate; }
+.bubble.b4 { top: 80%; left: 20%; width: 28vmax; height: 30vmax; background: #61dfff; animation: move-4 28s infinite alternate-reverse; }
 
 #interactive-bubble {
-    /* CORRECTION DE POSITION: on démarre à 0,0 et JS gère tout */
     top: 0; left: 0;
-    width: 20vmax; height: 20vmax;
+    width: 21vmax; height: 22vmax;
     background: var(--color-6);
 }
 
@@ -92,11 +86,10 @@ body.loaded #page-loader { opacity: 0; }
 @keyframes move-3 { from { transform: translate(-150px, -100px) rotate(0deg); } to { transform: translate(200px, 300px) rotate(270deg); } }
 @keyframes move-4 { from { transform: translate(50px, 150px) rotate(0deg); } to { transform: translate(-250px, -200px) rotate(90deg); } }
 
-/* ---- Contenu de la page ---- */
 body > .subtitle, main, .site-credit {
     position: relative;
     z-index: 1;
-    padding: 0 clamp(20px, 5vw, 40px); /* Ajout du padding ici */
+    padding: 0 clamp(20px, 5vw, 40px);
 }
 
 .subtitle {
@@ -133,14 +126,14 @@ a { color: var(--color-6); text-decoration: none; }
 .item-list {
     display: flex;
     flex-direction: column;
-    background-color: var(--color-1-a); /* Utilise la nouvelle variable */
-    border: 1px solid var(--color-3-a);   /* Utilise la nouvelle variable */
+    background-color: var(--color-1-a);
+    border: 1px solid var(--color-3-a);
     border-radius: var(--border-radius-1);
     overflow: hidden;
-    backdrop-filter: blur(var(--card-blur)); /* Utilise la nouvelle variable */
+    backdrop-filter: blur(var(--card-blur));
 }
 .list-item:hover {
-    background-color: var(--color-2-a); /* Utilise la nouvelle variable */
+    background-color: var(--color-2-a);
     text-decoration: none;
     color: var(--color-6);
     font-weight: bold;
@@ -149,15 +142,10 @@ a { color: var(--color-6); text-decoration: none; }
 .list-item {
     position: relative; padding: 10px 16px;
     color: var(--color-5); font-size: 0.9rem;
-    border-bottom: 1px solid var(--color-3-a); /* Utilise la nouvelle variable */
+    border-bottom: 1px solid var(--color-3-a);
     white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
 }
 .item-list .list-item:last-child { border-bottom: none; }
-
-.list-item:hover {
-    background-color: var(--color-2-a85); /* COULEUR DE SURVOL TRANSPARENTE */
-    text-decoration: none; color: var(--color-6); font-weight: bold;
-}
 
 .list-item.is-protected:hover::after { background-color: var(--color-6); }
 .list-item.is-protected { padding-right: 32px; }
