@@ -11,7 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function move() {
         curX += (tgX - curX) / 20;
         curY += (tgY - curY) / 20;
-        interactiveBubble.style.transform = `translate(${Math.round(curX)}px, ${Math.round(curY)}px)`;
+        const bubbleSize = interactiveBubble.offsetWidth / 2;
+        interactiveBubble.style.transform = `translate(${Math.round(curX - bubbleSize)}px, ${Math.round(curY - bubbleSize)}px)`;
         requestAnimationFrame(move);
     }
 
