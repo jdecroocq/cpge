@@ -149,10 +149,6 @@ a {
 .empty-message {
     font-style: italic;
     color: var(--color-4);
-    padding: 10px 16px;
-    background-color: var(--color-1);
-    border: var(--border);
-    border-radius: var(--border-radius-1);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
