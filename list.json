@@ -1,8 +1,7 @@
 [
     {
-        "name": "CPGE 2025-2026",
-        "folder": "2526",
-        "matieres": [
+        "name": "2526",
+        "subcategories": [
             {
                 "name": "01_maths",
                 "files": [
@@ -15,9 +14,7 @@
                 "name": "02_pc",
                 "files": [
                     "01.01_propag_signal_s.pdf",
-                    "01.02_formation_images_s.pdf",
-                    "01.03_circuits_elec_arqs.pdf",
-                    "04.01_archi_matiere.pdf"
+                    "01.02_formation_images_s.pdf"
                 ]
             },
             {
@@ -27,9 +24,8 @@
         ]
     },
     {
-        "name": "Méthodes",
-        "folder": "Methodes",
-        "matieres": [
+        "name": "Methodes",
+        "subcategories": [
             {
                 "name": "Generales",
                 "files": [
@@ -40,7 +36,6 @@
     },
     {
         "name": "Archives",
-        "folder": "Archives",
-        "matieres": []
+        "subcategories": []
     }
 ]
