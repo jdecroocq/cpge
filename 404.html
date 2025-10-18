@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Introuvable</title>
+    <link rel="icon" type="image/png" href="/icons/ico.png">
+    <link rel="stylesheet" href="/cpge/style.css">
+</head>
+<body>
+    <div class="page-404">
+        <p id="funny-message">Chargement...</p>
+        <p class="error-code">Erreur 404 : Cette page n'existe pas.</p>
+        <a href="/cpge/" class="back-button">Revenir en lieux sûrs</a>
+    </div>
+
+    <script>
+        const phrases = [
+            "Hmm... je ne sais pas qui est Bernard.",
+            "Il semblerait que quelqu’un ait éteint la lumière.",
+            "Ce n'est pas parce que vous avez raison que je n'ai pas tort."
+        ];
+
+        const messageElement = document.getElementById('funny-message');
+        const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+        messageElement.textContent = `« ${randomPhrase} »`;
+    </script>
+</body>
+</html>
