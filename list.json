@@ -41,6 +41,21 @@
         ]
     },
     {
+        "name": "temp",
+        "subcategories": [
+            {
+                "name": "01_maths",
+                "files": []
+            },
+            {
+                "name": "03_sii",
+                "files": [
+                    "fermeture_geom.jpg"
+                ]
+            }
+        ]
+    }
+    {
         "name": "test",
         "subcategories": []
     }
