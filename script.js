@@ -51,6 +51,11 @@ document.addEventListener('DOMContentLoaded', async () => {
                                 link.rel = "noopener noreferrer";
                                 link.textContent = file;
                                 link.className = 'list-item';
+                                const fileNameWithoutExt = file.substring(0, file.lastIndexOf('.'));
+                                if (fileNameWithoutExt.endsWith('_s')) {
+                                    link.classList.add('is-protected');
+                                }
+
                                 listDiv.appendChild(link);
                             });
                         }
