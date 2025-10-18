@@ -55,25 +55,33 @@ header {
     padding: 0 clamp(20px, 5vw, 40px);
 }
 
-header h1 {
-    font-size: 1.3rem;
-    font-weight: bold;
+.header-logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
     color: var(--color-5);
-    margin: 0;
 }
 
-header h1::before {
-  content: "⛶";
-  margin-right: 0.5rem;
-  color: var(--color-6);
-  font-weight: bold;
+.header-logo svg {
+    height: 42px;
+    width: auto;
+    margin-right: 8px;
+    fill: var(--color-6);
 }
+
+.header-logo span {
+    font-size: 1.4rem;
+    font-weight: normal;
+    letter-spacing: -1px;
+    text-we
+}
+
 
 .subtitle {
     font-size: 3rem;
     color: var(--color-5);
     text-align: center;
-    margin: 40px 0 64px 0;
+    margin: 128px 0 128px 0;
     font-weight: bold;
 }
 
