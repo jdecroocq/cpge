@@ -272,4 +272,62 @@ body.loaded #page-loader {
 
 .page-404 {
   display: flex;
-  flex-dir
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px);
+  text-align: center;
+}
+
+#funny-message {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--color-5);
+}
+
+.error-code {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: var(--color-4);
+}
+
+.back-button {
+  display: inline-block;
+  padding: 16px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  color: var(--color-0);
+  background: var(--color-6);
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-1);
+  text-decoration: none !important;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.back-button:hover {
+  background: transparent;
+  color: var(--color-6);
+  border-color: var(--color-6);
+}
+
+@keyframes move-1 {
+  from { transform: translate(-20vw, 20vh) rotate(0deg); }
+  to   { transform: translate(30vw, -30vh) rotate(360deg); }
+}
+
+@keyframes move-2 {
+  from { transform: translate(-50vw, -5vh) rotate(0deg); }
+  to   { transform: translate(-10vw, 20vh) rotate(180deg); }
+}
+
+@keyframes move-3 {
+  from { transform: translate(20vw, -20vh) rotate(0deg); }
+  to   { transform: translate(30vw, 20vh) rotate(270deg); }
+}
+
+@keyframes move-4 {
+  from { transform: translate(10vw, 10vh) rotate(0deg); }
+  to   { transform: translate(-30vw, -20vh) rotate(90deg); }
+}
