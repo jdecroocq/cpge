@@ -62,6 +62,12 @@
         "folder": "global",
         "subcategories": [
             {
+                "name": "00_global",
+                "files": [
+                    "template_latex.txt"
+                        ]
+            },
+            {
                 "name": "01_maths",
                 "files": []
             },
