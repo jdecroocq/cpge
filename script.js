@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (!cat.subcategories || cat.subcategories.length === 0) {
                     const emptyMsg = document.createElement('p');
                     emptyMsg.className = 'empty-message';
-                    emptyMsg.textContent = 'Aucune catégorie disponible.';
+                    emptyMsg.textContent = 'Aucune section';
                     catDiv.appendChild(emptyMsg);
                 } else {
                     cat.subcategories.forEach(subcat => {
