@@ -222,7 +222,6 @@ body.loaded #page-loader {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .item-list .list-item:last-child {
@@ -253,7 +252,6 @@ body.loaded #page-loader {
   mask-size: contain;
   mask-repeat: no-repeat;
   mask-position: center;
-  transition: background-color 0.2s ease;
 }
 
 .list-item.is-protected:hover::after {
@@ -303,7 +301,6 @@ body.loaded #page-loader {
   border: 1px solid transparent;
   border-radius: var(--border-radius-1);
   text-decoration: none !important;
-  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
 .back-button:hover {
