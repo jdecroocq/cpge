@@ -67,19 +67,6 @@
     },
     {   "title": "2026-2027",
         "folder": "2627",
-        "subcategories": [
-            {
-                "name": "01_maths",
-                "files": []
-            },
-            {
-                "name": "02_pc",
-                "files": []
-            },
-            {
-                "name": "03_sii",
-                "files": []
-            }
-        ]
+        "subcategories": []
     }
 ]
