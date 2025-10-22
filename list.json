@@ -11,14 +11,6 @@
                         ]
             },
             {
-                "name": "01_maths",
-                "files": []
-            },
-            {
-                "name": "03_sii",
-                "files": []
-            },
-            {
                 "name": "04_info",
                 "files": [
                     "memento_python_3.pdf"
