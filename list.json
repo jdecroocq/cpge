@@ -53,15 +53,7 @@
     {   
         "title": "2026-2027",
         "folder": "2627",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "template_latex_tsi2_2627.txt",
-                    "template_latex_tsi2_2627.pdf"
-                        ]
-            }
-        ]
+        "subcategories": []
     },
     {
         "title": "Ressources globales",
