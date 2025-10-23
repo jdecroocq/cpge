@@ -1,0 +1,302 @@
+
+% Ce template est conçu pour générer des fiches de synthèse uniformes.
+
+% ===================================================================
+% PRÉAMBULE
+% ===================================================================
+
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+
+\usepackage{geometry}
+\geometry{
+  margin=2cm,
+  top=1.2cm,
+  bottom=1.8cm,
+  includefoot
+}
+\setlength{\footskip}{2cm}
+\usepackage{parskip}
+
+\usepackage{fancyhdr}
+
+\usepackage{amsmath, amssymb}
+
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[version=4]{mhchem}
+\usepackage{bm}
+
+\usepackage{ragged2e}
+\usepackage{titlesec}
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {\underline}
+
+\usepackage{enumitem}
+\setlist[itemize]{
+    label=\textbf{--},
+    topsep=0pt,
+    itemsep=0\baselineskip,
+    partopsep=0pt,
+    leftmargin=*
+}
+\newlist{subitemize}{itemize}{1}
+\setlist[subitemize]{
+    label=$\circ$,
+    nosep, 
+    topsep=-\parskip, 
+    leftmargin=*,
+    after=\vspace{0pt} 
+}
+
+\usepackage{datetime}
+
+
+% ===================================================================
+% COMMANDES PERSONNALISÉES
+% ===================================================================
+
+\newcommand{\repere}{%
+  00\_global\_%           selon la matière : 00_global, 01_maths, 02__pc, 03_ssi, 04_info, 05_fr, 06_lv
+  \twodigit{\month}%
+  \twodigit{\day}%
+  \twodigit{\currenthour}%
+  \twodigit{\currentminute}%
+}
+
+% Paramétrage du pied de page.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\small 2025--2026}
+\fancyfoot[C]{\small \thepage}
+\fancyfoot[R]{\small TSI1 -- Jean Decroocq}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
+
+
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize\color[HTML]{ebcf82},
+    numbers=left,
+    numberstyle=\color{gray},
+    breaklines=true,
+    showstringspaces=false,
+    frame=none, 
+    tabsize=4,
+    backgroundcolor=\color[HTML]{252525},
+    identifierstyle=\color[HTML]{ffffff},
+    keywordstyle=\color[HTML]{4bb5ea},
+    stringstyle=\color[HTML]{ed6a68},
+    commentstyle=\color[HTML]{75dea0},
+    literate={é}{{\'e}}1
+           {è}{{\`e}}1
+           {à}{{\`a}}1
+           {ç}{{\c c}}1
+           {ù}{{\`u}}1
+           {â}{{\^a}}1
+           {ê}{{\^e}}1
+           {î}{{\^i}}1
+           {ô}{{\^o}}1
+           {û}{{\^u}}1
+}
+
+% ===================================================================
+% DÉBUT DU DOCUMENT
+% ===================================================================
+\begin{document}
+
+% --- EN-TÊTE DE LA FICHE ---
+\noindent
+\begin{minipage}[t]{0.15\textwidth}
+    \small \repere
+\end{minipage}%
+\begin{minipage}[t]{0.7\textwidth}
+    \centering
+    \small Thème principal
+\end{minipage}
+
+\vspace{-0.2cm}
+\noindent
+\begin{center}
+{\large \textbf{Titre du document}}
+\\[0.3cm]
+{\small \textit{Sous-titre optionnel}}
+\end{center}
+\vspace{0.3cm}
+
+% ===================================================================
+% CORPS DE LA FICHE
+% ===================================================================
+
+
+\hspace*{2em}Ceci est un paragraphe de texte normal qui n'est pas dans une liste.
+Il est utile pour les introductions ou les explications générales, mais honnêtement peu utilisé dans les fiches de synthèse.
+
+
+\section{Titre de section}
+
+\begin{itemize}
+    \item Ceci est un item de premier niveau.
+    Un même item peut contenir plusieurs lignes de texte sans problème.
+    Pour revenir à la ligne, on met deux antislash. \\
+    C'est ainsi qu'on revient à la ligne dans un même item, pour compléter le propos par exemple.
+
+    \item Ceci est un autre item. Il contient une sous-liste pour détailler des points :
+    \begin{subitemize}
+        \item Ceci est un sous-item.
+        \item Un autre sous-item pour la démonstration.
+    \end{subitemize}
+    
+    \item Dans ce dernier item de la liste, je me permets de faire remarquer qu'on utilise jamais de mise en relief (gras, italique, souligné).
+\end{itemize}
+
+
+
+\section{Autre section avec des formules}
+
+\begin{itemize}
+    \item Une formule mathématique peut être insérée et centrée sur sa propre ligne de cette manière :
+     \[
+    s(t) = \langle s(t) \rangle + \sum_{n=1}^{\infty} A_n \cos(n\omega t + \varphi_n).
+    \]
+    On veille toujours à la ponctuation, hautement considérée même dans les formules !
+    
+    \item Il est possible de présenter plusieurs formules courtes sur une seule ligne pour économiser de l'espace :
+    
+    \noindent\begin{minipage}{0.33\linewidth}
+        \centering \( \displaystyle f = \frac{1}{T} \)
+    \end{minipage}%
+    \begin{minipage}{0.33\linewidth}
+        \centering \( \displaystyle T = \frac{1}{f} \)
+    \end{minipage}%
+    \begin{minipage}{0.33\linewidth}
+        \centering \( \displaystyle \omega = 2\pi f \)
+    \end{minipage}
+\end{itemize}
+
+
+\section{Exemples de tableaux et images}
+
+\begin{itemize}
+    \item Il est bon d'utiliser des tableaux dès que possible, dont la mise en forme contribue à l'intellect. 
+
+    \item Voici un petit tableau centré, avec des en-têtes non gras.
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Atome & H & C & N \\
+        \hline
+        $\chi$ & 2,20 & 2,55 & 3,04 \\
+        \hline
+    \end{tabular}
+    \end{center}
+
+    \item Voici un tableau commun.
+    \begin{center}
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{5cm}|}
+    \hline
+    \textbf{Catégorie} & \textbf{Formule} & \textbf{Nom} \\
+    \hline
+    Molécule neutre & \ce{NH3} & Ammoniac \\
+    \hline
+    \multirow{2}{*}{Cation (positif)} & \ce{H3O+} & Oxonium \\
+                                    & \ce{NH4+} & Ammonium \\
+    \hline
+    \multirow{4}{*}{Anion (négatif)} & \ce{OH-} & Hydroxyde \\
+                                    & \ce{SO4^{2-}} & Sulfate \\
+                                    & \ce{NO3-} & Nitrate \\
+                                    & \ce{MnO4-} & Permanganate \\
+    \hline
+    \end{tabular}
+    \end{center}
+    \leavevmode %très important
+
+    \item Et voici un tableau plus conséquent qui prend la largeur d'un paragraphe:
+
+    \renewcommand{\arraystretch}{1.3}
+    {\small
+    \begin{tabularx}{\linewidth}{|
+        >{\justifying\arraybackslash}p{0.2\linewidth}|
+        >{\justifying\arraybackslash}X|
+        >{\justifying\arraybackslash}X|
+    }
+        \hline
+        \textbf{Source} &
+        \textbf{Une colonne} &
+        \textbf{Une autre} \\
+        \hline
+        Exemple &
+        Contenu de la case &
+        Autre contenu \\
+        \hline
+        C'est un tableau &
+        En effet &
+        Un tableau de qualité ! \\
+        \hline
+        Pour quoi faire ? &
+        Idéal lorsqu'il y a pas mal de contenu &
+        Pour ne pas s'y perdre... \\
+        \hline
+    \end{tabularx}
+    }
+    \renewcommand{\arraystretch}{1}  
+
+    Lorsque le tableau contient du contenu conséquent, il est preferable d'y adopter les normes de ponctuation.
+
+    \item Il est aisé d'insérer une image et de la centrer :
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{example-image-a}
+    \end{center}    
+
+\end{itemize}
+
+
+\section{Mise en page avancée}
+
+\noindent
+\begin{minipage}[c]{0.55\textwidth}
+    \begin{itemize}[itemsep=0.5\baselineskip]
+        \item L'environnement \texttt{minipage} permet de créer des blocs de contenu.
+        \item On peut ainsi placer une liste d'items à côté d'une illustration, ce qui à la fois fait gagner de la place, et permet d'illustrer directement le propos.
+        \item La largeur de chaque bloc est définie en pourcentage. Veillons à ce que la somme ne dépasse pas 1 !
+    \end{itemize}
+\end{minipage}%
+\begin{minipage}[c]{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.9\linewidth]{example-image-b} 
+\end{minipage}
+
+
+
+\section{Exemple de code informatique (Python)}
+
+\begin{itemize}
+    \item On peut faire référence à des éléments de code directement dans le texte, par exemple en parlant de la fonction \texttt{calculerValeur()} ou de la variable \texttt{resultat}.
+    
+    \item Pour présenter un algorithme, on utilise un bloc de code. En voici un par exemple :
+    
+\begin{lstlisting}
+def calculer_aire(rayon): # Cette fonction calcule l'aire d'un cercle
+    if rayon < 0:
+        return "Rayon non valide."
+    else:
+        aire = 3.14 * (rayon ** 2)
+        return aire
+\end{lstlisting}
+\end{itemize}
+
+\end{document}
