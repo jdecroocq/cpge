@@ -1,33 +1,14 @@
 [
     {
-        "title": "Ressources globales",
-        "folder": "global",
+        "title": "2025-2026",
+        "folder": "2526",
         "subcategories": [
             {
                 "name": "00_global",
                 "files": [
-                    "notice_autonome_concours_s.pdf",
-                    "template_latex.txt"
+                    "template_latex_tsi_2526.txt"
                         ]
             },
-            {
-                "name": "04_info",
-                "files": [
-                    "memento_python_3.pdf"
-                ]
-            },
-            {
-                "name": "05_fr",
-                "files": [
-                    "methode_resume.pdf"
-                ]
-            }
-        ]
-    },
-    {
-        "title": "2025-2026",
-        "folder": "2526",
-        "subcategories": [
             {
                 "name": "01_maths",
                 "files": [
@@ -68,8 +49,39 @@
             }
         ]
     },
+    {
+        "title": "Ressources globales",
+        "folder": "global",
+        "subcategories": [
+            {
+                "name": "00_global",
+                "files": [
+                    "notice_autonome_concours_s.pdf"
+                        ]
+            },
+            {
+                "name": "04_info",
+                "files": [
+                    "memento_python_3.pdf"
+                ]
+            },
+            {
+                "name": "05_fr",
+                "files": [
+                    "methode_resume.pdf"
+                ]
+            }
+        ]
+    },
     {   "title": "2026-2027",
         "folder": "2627",
-        "subcategories": []
+        "subcategories": [
+            {
+                "name": "00_global",
+                "files": [
+                    "template_latex_tsi_2627.txt"
+                        ]
+            }
+        ]
     }
 ]
