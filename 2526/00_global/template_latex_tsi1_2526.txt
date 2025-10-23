@@ -161,7 +161,7 @@ Il est utile pour les introductions ou les explications générales, mais honnê
         \item Un autre sous-item pour la démonstration.
     \end{subitemize}
     
-    \item Dans ce dernier item de la liste, je me permets de faire remarquer qu'on utilise jamais de mise en relief (gras, italique, souligné).
+    \item Dans ce dernier item de la liste, je me permets de faire remarquer qu'on n'utilise jamais de mise en relief (gras, italique, souligné).
 \end{itemize}
 
 
