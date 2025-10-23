@@ -6,7 +6,8 @@
             {
                 "name": "00_global",
                 "files": [
-                    "template_latex_tsi_2526.tex"
+                    "template_latex_tsi1_2526.tex",
+                    "template_latex_tsi1_2526.pdf"
                         ]
             },
             {
