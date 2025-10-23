@@ -255,7 +255,7 @@ Il est utile pour les introductions ou les explications générales, mais honnê
     }
     \renewcommand{\arraystretch}{1}  
 
-    Lorsque le tableau contient du contenu conséquent, il est preferable d'y adopter les normes de ponctuation.
+    Lorsque le tableau contient du contenu conséquent, il est préférable d'y adopter les normes de ponctuation.
 
     \item Il est aisé d'insérer une image et de la centrer :
     \begin{center}
@@ -271,7 +271,7 @@ Il est utile pour les introductions ou les explications générales, mais honnê
 \begin{minipage}[c]{0.55\textwidth}
     \begin{itemize}[itemsep=0.5\baselineskip]
         \item L'environnement \texttt{minipage} permet de créer des blocs de contenu.
-        \item On peut ainsi placer une liste d'items à côté d'une illustration, ce qui à la fois fait gagner de la place, et permet d'illustrer directement le propos.
+        \item On peut ainsi placer une liste d'items à côté d'une illustration, ce qui fait à la fois gagner de la place, et permet d'illustrer directement le propos.
         \item La largeur de chaque bloc est définie en pourcentage. Veillons à ce que la somme ne dépasse pas 1 !
     \end{itemize}
 \end{minipage}%
