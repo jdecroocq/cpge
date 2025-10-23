@@ -49,6 +49,18 @@
             }
         ]
     },
+    {   
+        "title": "2026-2027",
+        "folder": "2627",
+        "subcategories": [
+            {
+                "name": "00_global",
+                "files": [
+                    "template_latex_tsi_2627.txt"
+                        ]
+            }
+        ]
+    },
     {
         "title": "Ressources globales",
         "folder": "global",
@@ -70,17 +82,6 @@
                 "files": [
                     "methode_resume.pdf"
                 ]
-            }
-        ]
-    },
-    {   "title": "2026-2027",
-        "folder": "2627",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "template_latex_tsi_2627.txt"
-                        ]
             }
         ]
     }
