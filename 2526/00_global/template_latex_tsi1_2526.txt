@@ -131,13 +131,12 @@
 
 \vspace{-0.2cm}
 \noindent
-\begin{center}
-{\large \textbf{Titre du document}}
-\\[0.3cm]
+\centering
+{\large \textbf{Titre du document}} \\
 {\small \textit{Sous-titre optionnel}}
-\end{center}
 \vspace{0.3cm}
 
+\justifying
 % ===================================================================
 % CORPS DE LA FICHE
 % ===================================================================
