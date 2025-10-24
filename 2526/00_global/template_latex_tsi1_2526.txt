@@ -15,10 +15,10 @@
 \geometry{
   margin=2cm,
   top=1.2cm,
-  bottom=1.8cm,
+  bottom=1cm,
   includefoot
 }
-\setlength{\footskip}{2cm}
+\setlength{\footskip}{1.2cm}
 \usepackage{parskip}
 
 \usepackage{fancyhdr}
