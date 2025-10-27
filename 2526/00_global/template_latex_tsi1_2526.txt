@@ -195,6 +195,7 @@ Il est utile pour les introductions ou les explications générales, mais honnê
 
     \item Voici un petit tableau centré, avec des en-têtes non gras.
     \begin{center}
+    {\small
     \begin{tabular}{|c|c|c|c|}
         \hline
         Atome & H & C & N \\
@@ -202,10 +203,12 @@ Il est utile pour les introductions ou les explications générales, mais honnê
         $\chi$ & 2,20 & 2,55 & 3,04 \\
         \hline
     \end{tabular}
+    }
     \end{center}
 
     \item Voici un tableau commun.
     \begin{center}
+    {\small
     \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{5cm}|}
     \hline
     \textbf{Catégorie} & \textbf{Formule} & \textbf{Nom} \\
@@ -221,6 +224,7 @@ Il est utile pour les introductions ou les explications générales, mais honnê
                                     & \ce{MnO4-} & Permanganate \\
     \hline
     \end{tabular}
+    }
     \end{center}
     \leavevmode %très important
 
