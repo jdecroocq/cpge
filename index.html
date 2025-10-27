@@ -10,25 +10,6 @@
 </head>
 <body id="main-page">
     <div id="page-loader"></div>
-
-    <div class="gradient-background">
-        <svg xmlns="http://www.w3.org/2000/svg">
-            <defs>
-                <filter id="goo">
-                    <feGaussianBlur in="SourceGraphic" stdDeviation="64" result="blur" />
-                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 32 -8" result="goo" />
-                    <feBlend in="SourceGraphic" in2="goo" />
-                </filter>
-            </defs>
-        </svg>
-        <div class="bubbles">
-            <div class="bubble b1"></div>
-            <div class="bubble b2"></div>
-            <div class="bubble b3"></div>
-            <div class="bubble b4"></div>
-            <div id="interactive-bubble" class="bubble"></div>
-        </div>
-    </div>
     
     <p class="subtitle">Bonjour Jean.</p>
 
@@ -44,6 +25,5 @@
     </div>
 
     <script src="script.js"></script>
-    <script src="background.js"></script>
 </body>
 </html>
