@@ -48,18 +48,47 @@ document.addEventListener('DOMContentLoaded', () => {
                             const listDiv = document.createElement('div');
                             listDiv.className = 'item-list';
 
-                            subcat.files.forEach(file => {
+                            subcat.files.forEach(fileEntry => {
+
+                                const parts = fileEntry.split('_');
+                                const cleanFileName = parts[0];
+                                const flags = parts.slice(1);
+
+                                const isProtected = flags.includes('s');
+                                const isDownloadable = flags.includes('t');
+
                                 const link = document.createElement('a');
-                                link.href = `${cat.folder}/${subcat.name}/${file}`;
+                                link.href = `${cat.folder}/${subcat.name}/${cleanFileName}`;
                                 link.target = "_blank";
                                 link.rel = "noopener noreferrer";
-                                link.textContent = file;
                                 link.className = 'list-item';
 
-                                const fileNameWithoutExt = file.substring(0, file.lastIndexOf('.'));
-                                if (fileNameWithoutExt.endsWith('_s')) {
-                                    link.classList.add('is-protected');
+                                const fileNameSpan = document.createElement('span');
+                                fileNameSpan.className = 'item-name';
+                                fileNameSpan.textContent = cleanFileName;
+                                link.appendChild(fileNameSpan);
+
+                                const iconsContainer = document.createElement('span');
+                                iconsContainer.className = 'item-icons';
+
+                                if (isDownloadable) {
+                                    link.setAttribute('download', '');
+                                    const downloadIcon = document.createElement('span');
+                                    downloadIcon.className = 'icon icon-download';
+                                    iconsContainer.appendChild(downloadIcon);
                                 }
+                                
+                                if (isProtected) {
+                                    link.classList.add('is-protected');
+                                    const protectedIcon = document.createElement('span');
+                                    protectedIcon.className = 'icon icon-protected';
+                                    iconsContainer.appendChild(protectedIcon);
+                                }
+
+                                if (iconsContainer.hasChildNodes()) {
+                                    link.appendChild(iconsContainer);
+                                }
+
                                 listDiv.appendChild(link);
                             });
                             subcatDiv.appendChild(listDiv);
