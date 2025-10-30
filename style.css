@@ -156,6 +156,9 @@ body.loaded #page-loader {
 
 .list-item {
   position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 10px 16px;
   background-color: var(--color-1);
   color: var(--color-5);
@@ -165,6 +168,13 @@ body.loaded #page-loader {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
+.item-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 
 .item-list .list-item:last-child {
   border-bottom: none;
@@ -177,28 +187,36 @@ body.loaded #page-loader {
   text-decoration: none;
 }
 
-.list-item.is-protected {
-  padding-right: 32px;
+
+.item-icons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-left: 16px;
 }
 
-.list-item.is-protected::after {
-  content: '';
-  position: absolute;
-  right: 15px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 18px;
-  height: 18px;
-  background-color: var(--color-5);
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='12' width='14' height='9' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M8 11V9a4 4 0 0 1 8 0v2'%3E%3C/path%3E%3C/svg%3E");
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
+.icon {
+    width: 18px;
+    height: 18px;
+    background-color: var(--color-5);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    flex-shrink: 0;
 }
 
-.list-item.is-protected:hover::after {
-  background-color: var(--color-6);
+.list-item:hover .icon {
+    background-color: var(--color-6);
 }
+
+.icon-protected {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='12' width='14' height='9' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M8 11V9a4 4 0 0 1 8 0v2'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.icon-download {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+}
+
 
 .empty-message {
   margin: 0;
