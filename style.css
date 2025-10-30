@@ -209,14 +209,19 @@ body.loaded #page-loader {
 }
 
 .icon-protected {
-    width: 19px; /* LÉGÈREMENT AGRANDI */
-    height: 19px; /* LÉGÈREMENT AGRANDI */
+    width: 19px;
+    height: 19px;
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='5' y='12' width='14' height='9' rx='2' ry='2'%3E%3C/rect%3E%3Cpath d='M8 11V9a4 4 0 0 1 8 0v2'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .icon-download {
-    cursor: pointer; /* Ajoute un curseur pour indiquer que c'est cliquable */
+    cursor: pointer;
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4'%3E%3C/path%3E%3Cpolyline points='7 10 12 15 17 10'%3E%3C/polyline%3E%3Cline x1='12' y1='15' x2='12' y2='3'%3E%3C/line%3E%3C/svg%3E");
+    transition: transform 0.2s ease-out;
+}
+
+.icon-download:hover {
+    transform: translateY(-2px);
 }
 
 .empty-message {
