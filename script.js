@@ -82,23 +82,20 @@ document.addEventListener('DOMContentLoaded', () => {
                                 if (isDownloadable) {
                                     const downloadIcon = document.createElement('span');
                                     downloadIcon.className = 'icon icon-download';
-                                    downloadIcon.title = 'Télécharger le fichier'; // Ajoute une infobulle
+                                    downloadIcon.title = 'Télécharger le fichier';
 
-                                    // --- DÉBUT DE LA LOGIQUE DE TÉLÉCHARGEMENT MODIFIÉE ---
                                     downloadIcon.addEventListener('click', (e) => {
-                                        e.preventDefault(); // Empêche le lien parent de s'ouvrir
-                                        e.stopPropagation(); // Empêche l'événement de se propager
+                                        e.preventDefault();
+                                        e.stopPropagation();
 
-                                        // Crée un lien temporaire pour forcer le téléchargement
                                         const tempLink = document.createElement('a');
                                         tempLink.href = filePath;
-                                        tempLink.setAttribute('download', cleanFileName); // L'attribut 'download' force le téléchargement
+                                        tempLink.setAttribute('download', cleanFileName);
                                         tempLink.style.display = 'none';
                                         document.body.appendChild(tempLink);
                                         tempLink.click();
                                         document.body.removeChild(tempLink);
                                     });
-                                    // --- FIN DE LA LOGIQUE DE TÉLÉCHARGEMENT MODIFIÉE ---
                                     
                                     iconsContainer.appendChild(downloadIcon);
                                 }
