@@ -13,19 +13,19 @@
             {
                 "name": "01_maths",
                 "files": [
-                    "consignes_ecrits_s.pdf_s",
-                    "coordonnees_11_s.pdf_s",
-                    "cours_besson_s.pdf_s",
-                    "cours_besson_edit_ngambou_s.pdf_s"
+                    "consignes_ecrits.pdf_s",
+                    "coordonnees_11.pdf_s",
+                    "cours_besson.pdf_s",
+                    "cours_besson_edit_ngambou.pdf_s"
                         ]
             },
             {
                 "name": "02_pc",
                 "files": [
-                    "01.01_propag_signal_s.pdf_s_t",
-                    "01.02_formation_images_s.pdf_t_s",
+                    "01.01_propag_signal.pdf_s",
+                    "01.02_formation_images.pdf_s",
                     "01.03_circuits_elec_arqs.pdf",
-                    "04.01_archi_matiere_s.pdf_s"
+                    "04.01_archi_matiere.pdf_s"
                         ]
             },
             {
@@ -39,9 +39,9 @@
             {
                 "name": "05_fr",
                 "files": [
-                    "oe_mh_mur_invisible_s.pdf_s",
-                    "oe_jv_vingt_mille_lieues_s.pdf_s",
-                    "oe_gc_connaissance_vie_s.pdf_s"
+                    "oe_mh_mur_invisible.pdf_s",
+                    "oe_jv_vingt_mille_lieues.pdf_s",
+                    "oe_gc_connaissance_vie.pdf_s"
                         ]
             },
             {
@@ -64,7 +64,7 @@
             {
                 "name": "00_global",
                 "files": [
-                    "notice_autonome_concours_s.pdf_s"
+                    "notice_autonome_concours.pdf_s"
                         ]
             },
             {
@@ -76,8 +76,8 @@
             {
                 "name": "05_fr",
                 "files": [
-                    "methode_resume_s.pdf_s",
-                    "methode_colle_s.pdf_s"
+                    "methode_resume.pdf_s",
+                    "methode_colle.pdf_s"
                 ]
             }
         ]
