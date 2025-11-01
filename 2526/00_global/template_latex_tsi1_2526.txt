@@ -101,8 +101,8 @@
     backgroundcolor=\color{gray!10},
     identifierstyle=\color[HTML]{000000},
     keywordstyle=\color[HTML]{1865ea},
-    stringstyle=\color[HTML]{f74a68},
-    commentstyle=\color[HTML]{25be80},
+    stringstyle=\color[HTML]{e94a4f},
+    commentstyle=\color[HTML]{15af50},
     literate={é}{{\'e}}1
            {è}{{\`e}}1
            {à}{{\`a}}1
@@ -146,24 +146,38 @@
 \hspace*{2em}Ceci est un paragraphe de texte standard, non inclus dans une liste.
 Il sert principalement aux introductions ou aux explications générales, mais il est honnêtement peu utilisé dans les fiches de synthèse.
 
-
 \section{Titre de section}
+
+\hspace*{2em}Il peut toutefois être intéressant de recourir exceptionnellement à du texte simple pour réaliser des titres subdivisant plus finement le contenu interne ou externe d’une section :
+
+\textbf{Voici un exemple}
+\begin{itemize}
+\item C’est un petit titre qui permet donc d’ordonner une section.
+Cependant, il est rarement nécessaire : l’organisation en items au sein d’une section suffit le plus souvent.
+\item En dessous, j’écris du contenu, ou des items.
+\item C’est un cas d’utilisation assez exceptionnel, mais il est à privilégier plutôt que d’utiliser un item suivi de nombreux sous-items !
+Cela reviendrait à perdre un niveau de hiérarchie inutilement.
+\end{itemize}
+
+\section{Autre section typique}
 
 \begin{itemize}
     \item Ceci est un item de premier niveau.
     Un même item peut contenir plusieurs lignes de texte sans difficulté.
     Pour revenir à la ligne, on utilise deux antislashs. \\
-    C’est ainsi qu’on revient à la ligne dans un même item, afin de compléter le propos, par exemple.
+    C’est ainsi qu’on effectue un retour à la ligne dans un même item, afin de compléter le propos, par exemple.
 
     \item Ceci est un autre item. Il contient une sous-liste pour détailler certains points :
     \begin{subitemize}
         \item Ceci est un sous-item.
         \item Un autre sous-item pour l’exemple.
+        \item Attention : les sous-items ne doivent être utilisés que lorsqu’il s’agit de distinguer différents cas (et qu’un tableau ne s’y prête pas).
+        Cela signifie que, pour des remarques, ajouts ou successions d’informations, on ne les utilise pas : on se contente simplement de retours à la ligne.
     \end{subitemize}
 
     \item L’usage d’un registre de langue soutenu me plaît particulièrement, car il favorise la rigueur et la précision dans mon apprentissage. Par ailleurs, la clarté et la concision demeurent des principes essentiels.
     
-    \item J'utilise ce dernier item pour informer qu’il n'est pas permis de faire usage de mises en relief (gras, italique, souligné...) dans les paragraphes et items.
+    \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items.
     % J’insiste : ce point est — par expérience — bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
     % En effet, on tend souvent à abuser du gras (notamment dans les productions d’IA) sous prétexte d’améliorer la clarté.
     % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
@@ -171,7 +185,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
 
 
 
-\section{Autre section avec des formules}
+\section{Section avec des formules}
 
 \begin{itemize}
     \item Une formule mathématique peut être insérée et centrée sur sa propre ligne, de cette manière :
@@ -194,10 +208,10 @@ Il sert principalement aux introductions ou aux explications générales, mais i
 \end{itemize}
 
 
-\section{Exemples de tableaux et d’images}
+\section{Tableaux et images}
 
 \begin{itemize}
-    \item Il est pertinent d’utiliser des tableaux dès que possible : leur mise en forme contribue à la clarté intellectuelle. 
+    \item Il est pertinent d’utiliser des tableaux dès que possible : leur mise en forme visuelle contribue à l'intellect. 
 
     \item Voici un petit tableau centré, avec des en-têtes non gras :
     \begin{center}
@@ -254,7 +268,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
         \hline
         C’est un tableau &
         En effet &
-        Un tableau de qualité. \\
+        Un tableau de qualité \\
         \hline
         Pour quoi faire ? &
         Idéal lorsqu’il y a beaucoup de contenu &
@@ -281,7 +295,8 @@ Il sert principalement aux introductions ou aux explications générales, mais i
     \begin{itemize}[itemsep=0.5\baselineskip]
         \item L’environnement \texttt{minipage} permet de créer des blocs de contenu.
         \item On peut ainsi placer une liste d’éléments à côté d’une illustration, ce qui fait à la fois gagner de la place et permet d’illustrer directement le propos.
-        \item La largeur de chaque bloc est définie en pourcentage. Veillons à ce que leur somme ne dépasse pas 1 !
+        \item La largeur de chaque bloc est définie en pourcentage.
+        Veillons à ce que leur somme ne dépasse pas 1 :) % Petit émoji permis
     \end{itemize}
 \end{minipage}%
 \begin{minipage}[c]{0.45\textwidth}
