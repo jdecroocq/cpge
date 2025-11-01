@@ -60,19 +60,6 @@
     after=\vspace{0pt} 
 }
 
-\newtcbox{\code}{
-  on line,
-  colback=gray!10,
-  colframe=gray!10,
-  arc=2pt,
-  boxrule=0pt,
-  left=2pt,
-  right=2pt,
-  top=1pt,
-  bottom=1pt,
-  fontupper=\ttfamily
-}
-
 \newcommand{\repere}{%
   00\_global\_%           Selon la matière : 00_global, 01_maths, 02_pc, 03_ssi, 04_info, 05_fr, 06_lv.
   \twodigit{\month}%
@@ -86,9 +73,21 @@
 \fancyfoot[L]{\small 2025--2026}
 \fancyfoot[C]{\small \thepage}
 \fancyfoot[R]{\small TSI1 -- Jean Decroocq}
-
-\renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\newtcbox{\code}{
+  on line,
+  colback=gray!10,
+  colframe=gray!10,
+  arc=2pt,
+  boxrule=0pt,
+  left=-1pt,
+  right=-1pt,
+  top=-1pt,
+  bottom=-1pt,
+  fontupper=\ttfamily
+}
 
 \lstset{
     language=Python,
