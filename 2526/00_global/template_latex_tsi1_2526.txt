@@ -1,5 +1,5 @@
-
 % Ce template est conçu pour générer des fiches de synthèse uniformes.
+% Il repose sur des choix personnels que j’ai établis en tant qu’auteur récurrent de documents dans le cadre de ma CPGE.
 
 % ===================================================================
 % PRÉAMBULE
@@ -68,7 +68,7 @@
 % ===================================================================
 
 \newcommand{\repere}{%
-  00\_global\_%           selon la matière : 00_global, 01_maths, 02__pc, 03_ssi, 04_info, 05_fr, 06_lv
+  00\_global\_%           Selon la matière : 00_global, 01_maths, 02_pc, 03_ssi, 04_info, 05_fr, 06_lv.
   \twodigit{\month}%
   \twodigit{\day}%
   \twodigit{\currenthour}%
@@ -90,18 +90,18 @@
 
 \lstset{
     language=Python,
-    basicstyle=\ttfamily\footnotesize\color[HTML]{ebcf82},
+    basicstyle=\ttfamily\footnotesize\color[HTML]{606060},
     numbers=left,
     numberstyle=\color{gray},
     breaklines=true,
     showstringspaces=false,
-    frame=none, 
+    frame=none,
     tabsize=4,
-    backgroundcolor=\color[HTML]{252525},
-    identifierstyle=\color[HTML]{ffffff},
-    keywordstyle=\color[HTML]{4bb5ea},
-    stringstyle=\color[HTML]{ed6a68},
-    commentstyle=\color[HTML]{75dea0},
+    backgroundcolor=\color[HTML]{f2f2f2},
+    identifierstyle=\color[HTML]{000000},
+    keywordstyle=\color[HTML]{1865ea},
+    stringstyle=\color[HTML]{f74a68},
+    commentstyle=\color[HTML]{25be80},
     literate={é}{{\'e}}1
            {è}{{\`e}}1
            {à}{{\`a}}1
@@ -133,7 +133,7 @@
 \noindent
 \centering
 {\large \textbf{Titre du document}} \\
-{\small \textit{Sous-titre optionnel}}
+{\small \textit{Sous-titre optionnel}} % J’insiste : ce sous-titre est prévu en cas de besoin, mais en règle générale, il est parfaitement inutile ! Il ne faut donc pas chercher à le remplir inutilement.
 \vspace{0.3cm}
 
 \justifying
@@ -142,25 +142,30 @@
 % ===================================================================
 
 
-\hspace*{2em}Ceci est un paragraphe de texte normal qui n'est pas dans une liste.
-Il est utile pour les introductions ou les explications générales, mais honnêtement peu utilisé dans les fiches de synthèse.
+\hspace*{2em}Ceci est un paragraphe de texte standard, non inclus dans une liste.
+Il sert principalement aux introductions ou aux explications générales, mais il est honnêtement peu utilisé dans les fiches de synthèse.
 
 
 \section{Titre de section}
 
 \begin{itemize}
     \item Ceci est un item de premier niveau.
-    Un même item peut contenir plusieurs lignes de texte sans problème.
-    Pour revenir à la ligne, on met deux antislash. \\
-    C'est ainsi qu'on revient à la ligne dans un même item, pour compléter le propos par exemple.
+    Un même item peut contenir plusieurs lignes de texte sans difficulté.
+    Pour revenir à la ligne, on utilise deux antislashs. \\
+    C’est ainsi qu’on revient à la ligne dans un même item, afin de compléter le propos, par exemple.
 
-    \item Ceci est un autre item. Il contient une sous-liste pour détailler des points :
+    \item Ceci est un autre item. Il contient une sous-liste pour détailler certains points :
     \begin{subitemize}
         \item Ceci est un sous-item.
-        \item Un autre sous-item pour la démonstration.
+        \item Un autre sous-item pour l’exemple.
     \end{subitemize}
+
+    \item L’usage d’un registre de langue soutenu me plaît particulièrement, car il favorise la rigueur et la précision dans mon apprentissage. Par ailleurs, la clarté et la concision demeurent des principes essentiels.
     
-    \item Dans ce dernier item de la liste, je me permets de faire remarquer qu'on n'utilise jamais de mise en relief (gras, italique, souligné).
+    \item J'utilise ce dernier item pour informer qu’il n'est pas permis de faire usage de mises en relief (gras, italique, souligné...) dans les paragraphes et items.
+    % J’insiste : ce point est — par expérience — bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
+    % En effet, on tend souvent à abuser du gras (notamment dans les productions d’IA) sous prétexte d’améliorer la clarté.
+    % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
 \end{itemize}
 
 
@@ -168,13 +173,13 @@ Il est utile pour les introductions ou les explications générales, mais honnê
 \section{Autre section avec des formules}
 
 \begin{itemize}
-    \item Une formule mathématique peut être insérée et centrée sur sa propre ligne de cette manière :
+    \item Une formule mathématique peut être insérée et centrée sur sa propre ligne, de cette manière :
      \[
     s(t) = \langle s(t) \rangle + \sum_{n=1}^{\infty} A_n \cos(n\omega t + \varphi_n).
     \]
-    On veille toujours à la ponctuation, hautement considérée même dans les formules !
+    On veille toujours à la ponctuation, hautement considérée, même dans les formules. %La ponctuation constitue également un aspect à ne pas sous-estimer : elle doit être rigoureuse et conforme aux normes, tant dans un texte argumentatif que dans un développement mathématique.
     
-    \item Il est possible de présenter plusieurs formules courtes sur une seule ligne pour économiser de l'espace :
+    \item Il est possible de présenter plusieurs formules courtes sur une seule ligne pour économiser de l’espace :
     
     \noindent\begin{minipage}{0.33\linewidth}
         \centering \( \displaystyle f = \frac{1}{T} \)
@@ -188,12 +193,12 @@ Il est utile pour les introductions ou les explications générales, mais honnê
 \end{itemize}
 
 
-\section{Exemples de tableaux et images}
+\section{Exemples de tableaux et d’images}
 
 \begin{itemize}
-    \item Il est bon d'utiliser des tableaux dès que possible, dont la mise en forme contribue à l'intellect. 
+    \item Il est pertinent d’utiliser des tableaux dès que possible : leur mise en forme contribue à la clarté intellectuelle. 
 
-    \item Voici un petit tableau centré, avec des en-têtes non gras.
+    \item Voici un petit tableau centré, avec des en-têtes non gras :
     \begin{center}
     {\small
     \begin{tabular}{|c|c|c|c|}
@@ -206,7 +211,7 @@ Il est utile pour les introductions ou les explications générales, mais honnê
     }
     \end{center}
 
-    \item Voici un tableau commun.
+    \item Voici un tableau plus courant :
     \begin{center}
     {\small
     \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{5cm}|}
@@ -226,9 +231,9 @@ Il est utile pour les introductions ou les explications générales, mais honnê
     \end{tabular}
     }
     \end{center}
-    \leavevmode %très important
+    \leavevmode % Très important
 
-    \item Et voici un tableau plus conséquent qui prend la largeur d'un paragraphe:
+    \item Et voici un tableau plus conséquent, occupant toute la largeur du texte :
 
     \renewcommand{\arraystretch}{1.3}
     {\small
@@ -246,21 +251,21 @@ Il est utile pour les introductions ou les explications générales, mais honnê
         Contenu de la case &
         Autre contenu \\
         \hline
-        C'est un tableau &
+        C’est un tableau &
         En effet &
-        Un tableau de qualité ! \\
+        Un tableau de qualité. \\
         \hline
         Pour quoi faire ? &
-        Idéal lorsqu'il y a pas mal de contenu &
-        Pour ne pas s'y perdre... \\
+        Idéal lorsqu’il y a beaucoup de contenu &
+        Pour ne pas s’y perdre… \\
         \hline
     \end{tabularx}
     }
     \renewcommand{\arraystretch}{1}  
 
-    Lorsque le tableau contient du contenu conséquent, il est préférable d'y adopter les normes de ponctuation.
+    Lorsqu’un tableau contient un contenu conséquent, il est préférable d’y appliquer les règles usuelles de ponctuation.
 
-    \item Il est aisé d'insérer une image et de la centrer :
+    \item Il est également aisé d’insérer une image et de la centrer :
     \begin{center}
         \includegraphics[width=0.5\linewidth]{example-image-a}
     \end{center}    
@@ -273,9 +278,9 @@ Il est utile pour les introductions ou les explications générales, mais honnê
 \noindent
 \begin{minipage}[c]{0.55\textwidth}
     \begin{itemize}[itemsep=0.5\baselineskip]
-        \item L'environnement \texttt{minipage} permet de créer des blocs de contenu.
-        \item On peut ainsi placer une liste d'items à côté d'une illustration, ce qui fait à la fois gagner de la place, et permet d'illustrer directement le propos.
-        \item La largeur de chaque bloc est définie en pourcentage. Veillons à ce que la somme ne dépasse pas 1 !
+        \item L’environnement \texttt{minipage} permet de créer des blocs de contenu.
+        \item On peut ainsi placer une liste d’éléments à côté d’une illustration, ce qui fait à la fois gagner de la place et permet d’illustrer directement le propos.
+        \item La largeur de chaque bloc est définie en pourcentage. Veillons à ce que leur somme ne dépasse pas 1 !
     \end{itemize}
 \end{minipage}%
 \begin{minipage}[c]{0.45\textwidth}
@@ -288,12 +293,12 @@ Il est utile pour les introductions ou les explications générales, mais honnê
 \section{Exemple de code informatique (Python)}
 
 \begin{itemize}
-    \item On peut faire référence à des éléments de code directement dans le texte, par exemple en parlant de la fonction \texttt{calculerValeur()} ou de la variable \texttt{resultat}.
+    \item On peut faire référence à des éléments de code directement dans le texte, par exemple en mentionnant la fonction \texttt{calculerValeur()} ou la variable \texttt{resultat}.
     
-    \item Pour présenter un algorithme, on utilise un bloc de code. En voici un par exemple :
+    \item Pour présenter un algorithme, on recourt à un bloc de code. Oh, en voici justement un exemple ! % Il est permis de recourir à une ponctuation, et plus généralement à un style, dynamiques et vivants pour égayer le propos.
     
 \begin{lstlisting}
-def calculer_aire(rayon): # Cette fonction calcule l'aire d'un cercle
+def calculer_aire(rayon): # Calcule l'aire d'un cercle
     if rayon < 0:
         return "Rayon non valide."
     else:
