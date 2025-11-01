@@ -90,8 +90,6 @@
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0.4pt}
 
-\newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
-
 \lstset{
     language=Python,
     basicstyle=\ttfamily\footnotesize\color[HTML]{606060},
