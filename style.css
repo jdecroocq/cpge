@@ -106,7 +106,7 @@ body.loaded #page-loader {
 
 .subtitle {
   margin: clamp(64px, 10vh, 120px) 0;
-  font-size: 3rem;
+    font-size: 4vh;
   font-weight: bold;
   color: var(--color-5);
   text-align: center;
