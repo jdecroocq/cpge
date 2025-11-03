@@ -10,6 +10,11 @@
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3d62f5">
 </head>
+<script>
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js');
+}
+</script>
 <body id="main-page">
     <div id="page-loader"></div>
     
