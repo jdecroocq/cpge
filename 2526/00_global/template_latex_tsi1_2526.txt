@@ -61,7 +61,7 @@
 }
 
 \newcommand{\repere}{%
-  00\_global\_%           Selon la matière : 00_global, 01_maths, 02_pc, 03_ssi, 04_info, 05_fr, 06_lv.
+  00\_global\_%           Selon la matière : 00_global, 01_math, 02_pc, 03_ssi, 04_info, 05_fr, 06_lv.
   \twodigit{\month}%
   \twodigit{\day}%
   \twodigit{\currenthour}%
