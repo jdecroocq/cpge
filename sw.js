@@ -1,6 +1,5 @@
-self.addEventListener('install', e => {
-  console.log('Kernel SW installé');
-});
-
-self.addEventListener('fetch', e => {
-});
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js')
+    .then(() => console.log('SW enregistré'))
+    .catch(err => console.error('Erreur SW:', err));
+}
