@@ -8,13 +8,8 @@
   "description": "Fiches, cours et documents TSI - Jean D.",
   "icons": [
     {
-      "src": "kernel_icon_192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "kernel_icon_512.png",
-      "sizes": "512x512",
+      "src": "kernel_icon_a_256.png",
+      "sizes": "256x256",
       "type": "image/png"
     }
   ]
