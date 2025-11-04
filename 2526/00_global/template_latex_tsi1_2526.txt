@@ -150,6 +150,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
 
 \hspace*{2em}Il peut toutefois être intéressant de recourir exceptionnellement à du texte simple pour réaliser des titres subdivisant plus finement le contenu interne ou externe d’une section :
 
+\vspace{0.5cm} % S'il y a eu du contenu avant.
 \textbf{Voici un exemple}
 \begin{itemize}
 \item C’est un petit titre qui permet donc d’ordonner une section.
