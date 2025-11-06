@@ -33,7 +33,13 @@
             },
             {
                 "name": "03_sii",
-                "files": []
+                "files": [
+                    "01.01_inge_syst.pdf",
+                    "02.01_model_cine.pdf",
+                    "02.01_liaisons_cine.pdf",
+                    "03.01_perf_cine.pdf",
+                    "04.01_ model_source_rc.pdf"
+                        ]
             },
             {
                 "name": "04_info",
