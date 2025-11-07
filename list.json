@@ -70,9 +70,7 @@
         "subcategories": [
             {
                 "name": "00_global",
-                "files": [
-                    "notice_autonome_concours.pdf_s"
-                        ]
+                "files": []
             },
             {
                 "name": "04_info",
