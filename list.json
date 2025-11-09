@@ -6,6 +6,9 @@
             {
                 "name": "00_global",
                 "files": [
+                    "edt.pdf_s",
+                    "calendrier.pdf_s",
+                    "colloscope.pdf_s",
                     "template_latex_tsi1_2526.txt_t",
                     "template_latex_tsi1_2526.pdf"
                         ]
