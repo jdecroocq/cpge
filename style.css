@@ -102,7 +102,7 @@ main,
 }
 
 .content-subcategory {
-  margin-top: 16px;
+  margin-top: 32px;
 }
 
 #page-loader {
@@ -177,7 +177,7 @@ body.loaded #page-loader {
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 10px 16px;
+  padding: 8px 14px;
   background-color: var(--color-1);
   color: var(--color-5);
   font-size: 0.9rem;
