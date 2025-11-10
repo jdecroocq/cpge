@@ -135,7 +135,7 @@
 \centering
 {\large \textbf{Titre du document}} \\
 {\small \textit{Sous-titre optionnel}} % J’insiste : ce sous-titre est prévu en cas de besoin, mais en règle générale, il est parfaitement inutile ! Il ne faut donc pas chercher à le remplir inutilement.
-\vspace{0.3cm}
+\vspace{0.3cm} % Espace à conserver, qu'il y ait un sous-titre ou non.
 
 \justifying
 % ===================================================================
