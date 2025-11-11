@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadContent();
 
-    const concoursDate = new Date("2026-05-02");
+    const concoursDate = new Date("2027-04-26");
     
     function getDaysLeft(targetDate) {
       const now = new Date();
@@ -149,13 +149,13 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isNaN(days)) {
         el.textContent = "Date invalide.";
       } else if (days > 1) {
-        el.textContent = `Il reste ${days} jours avant les concours.`;
+        el.textContent = `Il reste environ ${days} jours avant les concours :)`;
       } else if (days === 1) {
-        el.textContent = `Il reste 1 jour avant les concours.`;
+        el.textContent = `Il reste 1 jour avant les concours !`;
       } else if (days === 0) {
-        el.textContent = `C'est aujourd'hui !`;
+        el.textContent = `Il reste 0 jour avant les concours !`;
       } else {
-        el.textContent = `Les concours sont passés depuis ${Math.abs(days)} jours.`;
+        el.textContent = `Les concours ont commencé.`;
       }
     }
     
