@@ -129,4 +129,36 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadContent();
+
+    const concoursDate = new Date("2026-05-02");
+    
+    function getDaysLeft(targetDate) {
+      const now = new Date();
+      const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+      const utcTarget = Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+      const msPerDay = 1000 * 60 * 60 * 24;
+      return Math.floor((utcTarget - utcNow) / msPerDay);
+    }
+    
+    function updateCountdown() {
+      const el = document.getElementById("countdown");
+      if (!el) return;
+    
+      const days = getDaysLeft(concoursDate);
+    
+      if (isNaN(days)) {
+        el.textContent = "Date invalide.";
+      } else if (days > 1) {
+        el.textContent = `Il reste ${days} jours avant les concours.`;
+      } else if (days === 1) {
+        el.textContent = `Il reste 1 jour avant les concours.`;
+      } else if (days === 0) {
+        el.textContent = `C'est aujourd'hui !`;
+      } else {
+        el.textContent = `Les concours sont passés depuis ${Math.abs(days)} jours.`;
+      }
+    }
+    
+    updateCountdown();
+    setInterval(updateCountdown, 1000 * 60 * 60);
 });
