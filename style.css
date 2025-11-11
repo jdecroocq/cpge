@@ -49,6 +49,10 @@ html {
   scroll-behavior: smooth;
 }
 
+.main-content {
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -56,6 +60,8 @@ body {
   background-color: var(--color-0);
   color: var(--color-5);
   overflow-x: hidden;
+  min-height: 100vh;
+  padding-bottom: env(safe-area-inset-bottom, 20px); 
 }
 
 h2 {
