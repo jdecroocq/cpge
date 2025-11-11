@@ -3,6 +3,7 @@
   "short_name": "Kernel",
   "start_url": "index.html",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "minimal-ui"],
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "description": "Fiches, cours et documents TSI - Jean D.",
