@@ -130,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadContent();
 
-    const concoursDate = new Date("2027-04-26");
+    const concoursDate = new Date("2025-11-14");
     
     function getDaysLeft(targetDate) {
       const now = new Date();
