@@ -130,6 +130,13 @@ body.loaded #page-loader {
   text-align: center;
 }
 
+#countdown {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 8px;
+  color: #444;
+}
+
 .site-credit {
   display: flex;
   align-items: center;
