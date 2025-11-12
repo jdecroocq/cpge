@@ -72,7 +72,7 @@
         "folder": "global",
         "subcategories": [
             {
-                "name": "00_not_transv",
+                "name": "00_global",
                 "files": [
                     "alphabet_grec.pdf_s",
                     "puissance_dix.pdf_s"
