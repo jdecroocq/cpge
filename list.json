@@ -26,8 +26,6 @@
             {
                 "name": "02_pc",
                 "files": [
-                    "00.01_alphabet_grec.pdf",
-                    "00.02_puissance_dix.pdf_s",
                     "00.02_mesures_incertitudes.pdf_s",
                     "01.01_propag_signal.pdf_s",
                     "01.02_formation_images.pdf",
@@ -74,8 +72,11 @@
         "folder": "global",
         "subcategories": [
             {
-                "name": "00_global",
-                "files": []
+                "name": "00_not_transv",
+                "files": [
+                    "alphabet_grec.pdf_s",
+                    "puissance_dix.pdf_s"
+                        ]
             },
             {
                 "name": "04_info",
