@@ -28,7 +28,7 @@
                 "files": [
                     "00.01_alphabet_grec.pdf",
                     "00.02_puissance_dix.pdf_s",
-                    "00.03_mesures_incertitudes.pdf",
+                    "00.02_mesures_incertitudes.pdf_s",
                     "01.01_propag_signal.pdf_s",
                     "01.02_formation_images.pdf",
                     "01.03_circuits_elec_arqs.pdf",
@@ -70,7 +70,7 @@
         "subcategories": []
     },
     {
-        "title": "Ressources Globales",
+        "title": "Global",
         "folder": "global",
         "subcategories": [
             {
