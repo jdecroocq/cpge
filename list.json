@@ -47,18 +47,6 @@
             {
                 "name": "04_info",
                 "files": []
-            },
-            {
-                "name": "05_fr",
-                "files": [
-                    "oe_mh_mur_invisible.pdf_s",
-                    "oe_jv_vingt_mille_lieues.pdf_s",
-                    "oe_gc_connaissance_vie.pdf_s"
-                        ]
-            },
-            {
-                "name": "06_lv",
-                "files": []
             }
         ]
     },
