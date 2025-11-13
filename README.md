@@ -1,4 +1,4 @@
-Ce dépôt héberge l’instance web dont je fais usage pour le classement et la consultation récurrente de mon corpus didactique de CPGE. Accessible et d’une limpidité prompte, elle s’impose comme l’alternative qui, au regard de mes exigences, se singularise des dispositifs de stockage usuels.
+Ce dépôt héberge l’instance web dont je fais usage pour le classement et la consultation récurrente de mon corpus didactique de CPGE. Accessible et d’une limpidité prompte, elle s’impose comme l’alternative qui, au regard de mes exigences, se singularise des dispositifs de stockage usuels :)
 
 Baptisé Kernel, cet utilitaire ne prétend à aucune extravagance architecturale ; c'est dans son austérité fonctionnelle qu'il puise toute sa sophistication.
 
