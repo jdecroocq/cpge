@@ -10,7 +10,8 @@
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
 \usepackage{geometry}
-\usepackage{parskip}
+\usepackage{multicol}
+\usepackage{indentfirst} % Pour assurer l'alinéa au premier paragraphe de chaque section.
 \usepackage{fancyhdr}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
@@ -37,12 +38,22 @@
 }
 
 \setlength{\footskip}{1.2cm}
+\setlength{\columnsep}{1.2cm}
+\setlength{\columnseprule}{0.4pt}
 
+% --- Formatage des titres de section et sous-section ---
 \titleformat{\section}
   {\large\bfseries}
   {}
   {0em}
   {\underline}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {}
+  {0em}
+  {}
+\titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
 
 \setlist[itemize]{
     label=\textbf{--},
@@ -56,7 +67,7 @@
 \setlist[subitemize]{
     label=$\circ$,
     nosep, 
-    topsep=-\parskip, 
+    topsep=0pt, % Ajusté car parskip est retiré
     leftmargin=*,
     after=\vspace{0pt} 
 }
@@ -133,7 +144,6 @@
     \small Thème principal
 \end{minipage}
 
-\vspace{-0.2cm}
 \noindent
 \centering
 {\large \textbf{Titre du document}} \\
@@ -146,24 +156,11 @@
 % ===================================================================
 
 
-\hspace*{2em}Ceci est un paragraphe de texte standard, non inclus dans une liste.
+Ceci est un paragraphe de texte standard, non inclus dans une liste.
 Il sert principalement aux introductions ou aux explications générales, mais il est honnêtement peu utilisé dans les fiches de synthèse.
 
-\section{Titre de section}
 
-\hspace*{2em}Il peut toutefois être intéressant de recourir exceptionnellement à du texte simple pour réaliser des titres subdivisant plus finement le contenu interne ou externe d’une section :
-
-\vspace{0.5cm} % S'il y a eu du contenu avant.
-\textbf{Voici un exemple}
-\begin{itemize}
-\item C’est un petit titre qui permet donc d’ordonner une section.
-Cependant, il est rarement nécessaire : l’organisation en items au sein d’une section suffit le plus souvent.
-\item En dessous, j’écris du contenu, ou des items.
-\item C’est un cas d’utilisation assez exceptionnel, mais il est à privilégier plutôt que d’utiliser un item suivi de nombreux sous-items !
-Cela reviendrait à perdre un niveau de hiérarchie inutilement.
-\end{itemize}
-
-\section{Autre section typique}
+\section{Section typique}
 
 \begin{itemize}
     \item Ceci est un item de premier niveau.
@@ -181,11 +178,39 @@ Cela reviendrait à perdre un niveau de hiérarchie inutilement.
 
     \item L’usage d’un registre de langue soutenu me plaît particulièrement, car il favorise la rigueur et la précision dans mon apprentissage. Par ailleurs, la clarté et la concision demeurent des principes essentiels.
     
-    \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items.
+    \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items. \\
     % J’insiste : ce point est — par expérience — bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
     % En effet, on tend souvent à abuser du gras (notamment dans les productions d’IA) sous prétexte d’améliorer la clarté.
     % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
+    Il peut toutefois être intéressant de recourir à un niveau de titre inférieur (sous-section) pour subdiviser plus finement le contenu.
 \end{itemize}
+
+
+\section{Usage des sous-sections}
+
+\subsection{Exemple de sous-section}
+\begin{itemize}
+    \item L’usage de sous-sections permet d’organiser plus finement le contenu lorsque la situation l’exige.
+    \item Cette pratique reste relativement rare, mais elle demeure préférable à l’emploi d’un simple item suivi d’une multitude de sous-items, ce qui diluerait inutilement la hiérarchie du document.
+\end{itemize}
+
+\subsection{Principes d’utilisation}
+\begin{itemize}
+    \item Une sous-section doit toujours être accompagnée d’au moins une autre sous-section au sein de la même section ; sans cela, elle perd sa raison d’être.
+    \item Il convient de rappeler qu’une sous-section constitue un espace classique pour accueillir des éléments tels que des items, des images, des tableaux ou des formules.
+    \item En ce qui concerne les conditions d’usage, un ensemble de sous-sections n’est justifié que lorsqu’il existe un parallèle explicite entre plusieurs éléments abordés successivement.
+    Chacun est alors présenté dans une sous-section dédiée. 
+    En revanche, dans la majorité des cas, lorsqu’il s’agit simplement d’énumérer des informations (propriétés, formules, notions, etc.), une liste d’items suffit dès lors qu’aucune analogie forte ne lie plusieurs groupes d'items.
+    \item En somme, un ensemble de sous-sections peut souvent s’interpréter comme un tableau conceptuel dont la structure aurait pu être matérialisée sous forme de tableau, mais dont le format serait parfois trop volumineux ou moins lisible que des sous-sections distinctes.
+\end{itemize}
+
+\subsection{Remarque concernant ce template}
+\begin{itemize}
+    \item En vertu des propriétés citées, le présent document n’illustre pas un usage idéal des sous-sections.
+    \item Ce choix vise à montrer plusieurs sous-sections à la suite, afin de servir d’exemple.
+\end{itemize}
+
+
 
 
 
@@ -247,16 +272,17 @@ Cela reviendrait à perdre un niveau de hiérarchie inutilement.
 
     \item Et voici un tableau plus conséquent, occupant toute la largeur du texte :
 
+    \begin{center}
     \renewcommand{\arraystretch}{1.3}
     {\small
     \begin{tabularx}{\linewidth}{|
-        >{\justifying\arraybackslash}p{0.2\linewidth}|
-        >{\justifying\arraybackslash}X|
-        >{\justifying\arraybackslash}X|
+        >{\noindent\justifying\arraybackslash}p{0.2\linewidth}|
+        >{\noindent\justifying\arraybackslash}X|
+        >{\noindent\justifying\arraybackslash}X|
     }
         \hline
-        \textbf{Source} &
-        \textbf{Une colonne} &
+        \textbf{Colonne} &
+        \textbf{Autre colonne} &
         \textbf{Une autre} \\
         \hline
         Exemple &
@@ -273,7 +299,8 @@ Cela reviendrait à perdre un niveau de hiérarchie inutilement.
         \hline
     \end{tabularx}
     }
-    \renewcommand{\arraystretch}{1}  
+    \renewcommand{\arraystretch}{1}
+    \end{center}
 
     Lorsqu’un tableau contient un contenu conséquent, il est préférable d’y appliquer les règles usuelles de ponctuation.
 
@@ -290,7 +317,7 @@ Cela reviendrait à perdre un niveau de hiérarchie inutilement.
 \noindent
 \begin{minipage}[c]{0.55\textwidth}
     \begin{itemize}[itemsep=0.5\baselineskip]
-        \item L’environnement \texttt{minipage} permet de créer des blocs de contenu.
+        \item L’environnement \code{minipage} permet de créer des blocs de contenu.
         \item On peut ainsi placer une liste d’éléments à côté d’une illustration, ce qui fait à la fois gagner de la place et permet d’illustrer directement le propos.
         \item La largeur de chaque bloc est définie en pourcentage.
         Veillons à ce que leur somme ne dépasse pas 1 :) % Petit émoji permis
@@ -301,6 +328,25 @@ Cela reviendrait à perdre un niveau de hiérarchie inutilement.
     \includegraphics[width=0.9\linewidth]{example-image-b} 
 \end{minipage}
 
+
+\subsection{Mise en page en deux colonnes}
+
+Pour les fiches de type formulaire où le contenu est concis, l'environnement \code{multicols} est idéal. Il permet au texte de remplir la colonne de gauche, puis de passer automatiquement en haut de la colonne de droite, économisant ainsi l'espace vertical.
+
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Ceci est un item dans la première colonne.
+        \item On peut se comporter ici comme dans un environnement classique (titres de section, items, tableaux...).
+        \item Et ainsi de suite, jusqu'à ce que la colonne soit pleine...
+        \item ... ou que l'on décide de passer manuellement à la suivante.
+        
+        \columnbreak % pas obligatoire du tout
+        
+        \item Nous voici dans la deuxième colonne !
+        \item C'est un outil très pratique pour les listes de définitions ou les formulaires.
+        \item La sublime ligne de séparation est définie dans le préambule.
+    \end{itemize}
+\end{multicols}
 
 
 \section{Exemple de code informatique (Python)}
