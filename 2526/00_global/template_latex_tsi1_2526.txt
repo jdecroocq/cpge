@@ -58,7 +58,7 @@
 \setlist[itemize]{
     label=\textbf{--},
     topsep=0pt,
-    itemsep=0\baselineskip,
+    itemsep=0.4\baselineskip,
     partopsep=0pt,
     leftmargin=*
 }
@@ -67,7 +67,7 @@
 \setlist[subitemize]{
     label=$\circ$,
     nosep, 
-    topsep=0pt, % Ajusté car parskip est retiré
+    topsep=0pt,
     leftmargin=*,
     after=\vspace{0pt} 
 }
@@ -178,13 +178,11 @@ Il sert principalement aux introductions ou aux explications générales, mais i
 
     \item L’usage d’un registre de langue soutenu me plaît particulièrement, car il favorise la rigueur et la précision dans mon apprentissage. Par ailleurs, la clarté et la concision demeurent des principes essentiels.
     
-    \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items. \\
+    \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items.
     % J’insiste : ce point est — par expérience — bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
     % En effet, on tend souvent à abuser du gras (notamment dans les productions d’IA) sous prétexte d’améliorer la clarté.
     % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
-    Il peut toutefois être intéressant de recourir à un niveau de titre inférieur (sous-section) pour subdiviser plus finement le contenu.
 \end{itemize}
-
 
 \section{Usage des sous-sections}
 
@@ -331,7 +329,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
 
 \subsection{Mise en page en deux colonnes}
 
-Pour les fiches de type formulaire où le contenu est concis, l'environnement \code{multicols} est idéal. Il permet au texte de remplir la colonne de gauche, puis de passer automatiquement en haut de la colonne de droite, économisant ainsi l'espace vertical.
+Pour les fiches de type formulaire, l'environnement \code{multicols} est idéal. Il permet au texte de remplir la colonne de gauche, puis de passer automatiquement en haut de la colonne de droite, économisant ainsi l'espace vertical. % C'est à dire quand il y a peu ou pas de texte par exemple, et que donc chaque ligne ne serait pas remplie jusqu'à droite.
 
 \begin{multicols}{2}
     \begin{itemize}
