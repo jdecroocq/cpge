@@ -200,12 +200,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
     Chacun est alors présenté dans une sous-section dédiée. 
     En revanche, dans la majorité des cas, lorsqu’il s’agit simplement d’énumérer des informations (propriétés, formules, notions, etc.), une liste d’items suffit dès lors qu’aucune analogie forte ne lie plusieurs groupes d'items.
     \item En somme, un ensemble de sous-sections peut souvent s’interpréter comme un tableau conceptuel dont la structure aurait pu être matérialisée sous forme de tableau, mais dont le format serait parfois trop volumineux ou moins lisible que des sous-sections distinctes.
-\end{itemize}
-
-\subsection{Remarque concernant ce template}
-\begin{itemize}
-    \item En vertu des propriétés citées, le présent document n’illustre pas un usage idéal des sous-sections.
-    \item Ce choix vise à montrer plusieurs sous-sections à la suite, afin de servir d’exemple.
+    \item En vertu des propriétés citées, le présent document n’illustre pas un usage idéal des sous-sections. Ce choix vise à montrer plusieurs sous-sections à la suite, afin de servir d’exemple.
 \end{itemize}
 
 
@@ -223,7 +218,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
     
     \item Il est possible de présenter plusieurs formules courtes sur une seule ligne pour économiser de l’espace :
     \[
-    f = \frac{1}{T} \hspace{2cm} T = \frac{1}{f} \hspace{2cm} \omega = 2\pi f
+    f = \frac{1}{T}; \hspace{2cm} T = \frac{1}{f}; \hspace{2cm} \omega = 2\pi f.
     \]
 \end{itemize}
 
@@ -299,7 +294,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
     }
     \renewcommand{\arraystretch}{1}
     \end{center}
-
+    
     Lorsqu’un tableau contient un contenu conséquent, il est préférable d’y appliquer les règles usuelles de ponctuation.
 
     \item Il est également aisé d’insérer une image et de la centrer :
