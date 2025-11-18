@@ -1,0 +1,150 @@
+% ===================================================================
+% TEMPLATE SPÉCIALISÉ POUR LES FICHES DE COURS DE MATHÉMATIQUES
+% ===================================================================
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amssymb, bm}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{datetime}
+\usepackage[most]{tcolorbox}
+\usepackage{xstring}
+\usepackage{xparse}
+
+\geometry{
+  margin=2cm,
+  top=1.2cm,
+  bottom=1cm,
+  includefoot
+}
+
+\setlength{\footskip}{1.2cm}
+
+\definecolor{r}{HTML}{d04343}
+\definecolor{g}{HTML}{21e492}
+\definecolor{b}{HTML}{3d62f5}
+\definecolor{n}{HTML}{000000}
+
+\newcommand{\repere}{%
+  01\_math\_%
+  \twodigit{\numexpr\year-2000\relax}%
+  \twodigit{\month}%
+  \twodigit{\day}%
+  \twodigit{\currenthour}%
+  \twodigit{\currentminute}%
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\small 2025--2026}
+\fancyfoot[C]{\small \thepage/\pageref{LastPage}}
+\fancyfoot[R]{\small TSI1 -- Jean Decroocq}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {\underline}
+\titlespacing*{\section}{0pt}{1cm}{0.5cm}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {}
+  {0em}
+  {}
+\titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
+
+\NewDocumentEnvironment{itm}{ o o }
+{
+    \begin{tcolorbox}[
+        enhanced, breakable,
+        boxsep=0pt,
+        boxrule=0pt,
+        frame hidden,
+        colback=white,
+        left=0pt, right=0pt, top=0pt, bottom=0pt,
+        before skip=1.5\baselineskip, after skip=1.5\baselineskip,
+        before upper={\parindent=0pt},
+        overlay={
+            \IfNoValueF{#1}{
+                \ifstrequal{#1}{Prop.}{
+                    \draw[b, line width=1pt] 
+                        ([xshift=-5pt]frame.north west) -- ([xshift=-5pt]frame.south west);
+                }{}
+                \ifstrequal{#1}{Défi.}{
+                    \draw[n, line width=1pt] 
+                        ([xshift=-5pt]frame.north west) -- ([xshift=-5pt]frame.south west);
+                }{}
+            }
+        }
+    ]
+    \IfNoValueF{#1}{\noindent\textbf{#1}}%
+    \IfNoValueF{#2}{\IfStrEq{#2}{}{}{\nobreak\ (#2)}}%
+    \par\nobreak
+}
+{
+    \end{tcolorbox}
+}
+
+% ===================================================================
+% DÉBUT DU DOCUMENT
+% ===================================================================
+\begin{document}
+
+\noindent
+\begin{minipage}[t]{0.15\textwidth}
+    \small \repere
+\end{minipage}%
+\begin{minipage}[t]{0.7\textwidth}
+    \centering
+    \small Cours de mathématiques
+\end{minipage}
+
+\noindent
+\centering
+{\large \textbf{00. Titre du chapitre}} \\
+\vspace{0.3cm}
+
+% ===================================================================
+% CORPS DE LA FICHE
+% ===================================================================
+
+\section{01. Titre de la section}
+
+\begin{itm}[Type][Note]
+Ceci est un item classique. Son premier argument est son \textit{type} (qui peut prendre une varitété de valeur comme \textit{définition}, \textit{propriété}, \textit{notation}, \textit{figure}, \textit{démonstration}, \textit{exemple}, \textit{remarque}, \textit{application}, etc.).
+Son second argument optionnel est la \textit{note}, pour nommer ou préciser la notion de l'item. \\
+On écrit toujours le type avec une majuscule initiale et -- lorsque le type fait plus de 5 lettres -- avec une abréviation tronquée en 4 lettres et se terminant par un point.
+\end{itm}
+
+\begin{itm}[Défi.][]
+Ceci est un item de type \textit{définition} -- toujours noté \textit{Défi.} -- facilement reconnaissable grâce à sa ligne noire qui survient automatiquement en marge.
+\end{itm}
+
+\begin{itm}[Prop.][]
+Cet item est quant à lui de type \textit{propriété} -- qu'on notera toujours \textit{Prop.} -- qui se distingue par sa ligne bleue en marge.
+\end{itm}
+
+\begin{itm}[Item][Sous-items]
+Il est possible d'utiliser des sous-items.
+\end{itm}
+
+\begin{itm}[Item][Tableaux]
+Il est possible d'utiliser des tableaux.
+\end{itm}
+
+
+\section{02. Section avec sous-sections}
+
+\section{03. Exemple de section}
+
+\end{document}
