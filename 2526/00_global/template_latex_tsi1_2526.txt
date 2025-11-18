@@ -11,7 +11,7 @@
 \usepackage[french]{babel}
 \usepackage{geometry}
 \usepackage{multicol}
-\usepackage{indentfirst} % Pour assurer l'alinéa au premier paragraphe de chaque section.
+\usepackage{indentfirst}
 \usepackage{fancyhdr}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
