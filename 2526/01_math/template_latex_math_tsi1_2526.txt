@@ -88,7 +88,12 @@
         }
     ]
     \IfNoValueF{#1}{\noindent\textbf{#1}}%
-    \IfNoValueF{#2}{\IfStrEq{#2}{}{}{\nobreak\ (#2)}}%
+    \IfNoValueF{#2}{%
+    \if\relax\detokenize{#2}\relax
+    \else
+        \nobreak\ (#2)%
+    \fi
+    }%
     \par\nobreak
 }
 {
