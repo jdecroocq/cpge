@@ -149,7 +149,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (isNaN(days)) {
         el.textContent = "Date invalide.";
       } else if (days > 1) {
-        el.textContent = `Il reste environ ${days} jours avant les concours.`; /* à modifier quand la date sortira */
+        el.textContent = `Il reste ${days} jours avant les concours.`;
       } else if (days === 1) {
         el.textContent = `Il reste 1 jour avant les concours !`;
       } else if (days === 0) {
