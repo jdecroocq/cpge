@@ -31,10 +31,6 @@ body::-webkit-scrollbar {
   display: none;
 }
 
-body {
-  scrollbar-width: none;
-}
-
 html {
   scroll-behavior: smooth;
 }
