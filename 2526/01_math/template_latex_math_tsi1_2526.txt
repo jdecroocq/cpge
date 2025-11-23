@@ -54,7 +54,6 @@
   {}
   {0em}
   {\underline}
-\titlespacing*{\section}{0pt}{1cm}{0.5cm}
 
 \titleformat{\subsection}
   {\normalfont\bfseries}
@@ -114,9 +113,12 @@
     \small Cours de mathématiques
 \end{minipage}
 
-\noindent
+\vspace{0.4cm}
 \centering
-{\large \textbf{00. Titre du chapitre}} \\
+\parbox{0.8\textwidth}{ % ajuste 0.8\textwidth selon tes besoins
+    \centering
+    {\Large \textbf{\textsc{00. Titre du chapitre  : Assez long pour avoir un beau retour à la ligne}}}
+}
 \vspace{0.3cm}
 
 % ===================================================================
