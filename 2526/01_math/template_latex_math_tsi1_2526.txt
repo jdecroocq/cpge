@@ -123,7 +123,7 @@
 \begin{center}
     \parbox{0.8\textwidth}{
         \centering
-        {\Large \textbf{\textsc{00. Titre du chapitre}}}
+        {\large \textbf{\textsc{00. Titre du chapitre}}}
     }
 \end{center}
 
@@ -137,7 +137,8 @@
 
 \begin{itm}[Type][Note]
 Ceci est un item classique. Le premier argument est le \textit{Type} (en gras) et le second est la \textit{Note} (entre parenthèses).
-Pour alléger la lecture, on tronque généralement le type à la 4\up{e} lettre suivie d'un point (ex. : \texttt{Défi.}, \texttt{Prop.}, \texttt{Rema.}, \texttt{Exem.}). Cependant, pour les types plus exceptionnels, il demeure tout à fait autorisé de les noter en entier.
+Pour alléger la lecture, on tronque généralement le type à la 4\up{e} lettre suivie d'un point (ex. : \texttt{Défi.}, \texttt{Prop.}, \texttt{Rema.}, \texttt{Exem.}). Cependant, pour les types plus exceptionnels, il demeure tout à fait autorisé de les noter en entier. \\
+Il convient de bien respecter les types et notes inscrits dans le cours.
 \end{itm}
 
 \begin{itm}[Défi.]
