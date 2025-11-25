@@ -62,11 +62,9 @@
   {}
 \titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
 
-% Configuration des listes
 \setlist[itemize]{label=\raisebox{0.2ex}{\(\scriptscriptstyle\bullet\)}, leftmargin=*, nosep}
 \setlist[enumerate]{leftmargin=*, nosep}
 
-% --- ENVIRONNEMENT ITEM ---
 \NewDocumentEnvironment{itm}{ o o }
 {
     \begin{tcolorbox}[
@@ -77,7 +75,13 @@
         colback=white,
         left=0pt, right=0pt, top=0pt, bottom=0pt,
         before skip=1.5\baselineskip, after skip=1.5\baselineskip,
-        before upper={\parindent=0pt},
+        before upper={%
+            \parindent=0pt
+            \setlength{\abovedisplayskip}{3pt plus 1pt minus 1pt}%
+            \setlength{\belowdisplayskip}{3pt plus 1pt minus 1pt}%
+            \setlength{\abovedisplayshortskip}{0pt plus 1pt}%
+            \setlength{\belowdisplayshortskip}{0pt plus 1pt}%
+        },
         overlay={
             \IfNoValueF{#1}{
                 \IfStrEq{#1}{Prop.}{
@@ -100,6 +104,7 @@
 {
     \end{tcolorbox}
 }
+
 
 % ===================================================================
 % DÉBUT DU DOCUMENT
@@ -140,7 +145,7 @@ Cet item est de type \texttt{Défi.}, ce qui déclenche automatiquement une barr
 \end{itm}
 
 \begin{itm}[Prop.]
-De manière analogue, cet item \texttt{Prop.} déclenche automatiquement une barre bleue latérale.
+De manière analogue, cet item \texttt{Prop.} déclenche automatiquement une barre latérale bleue. Notons que ce type regroupe un certain nombre de concepts, tels que les lemmes, théorèmes, corollaires, etc.
 \end{itm}
 
 \begin{itm}[Usage][]
@@ -216,7 +221,7 @@ Elles contiennent des items classiques.
 
 \section{03. Exemples}
 
-\begin{itm}[Notion]
+\begin{itm}[Noti.]
 On appelle \emph{fonction} d'une partie $D$ de $\mathbb{R}$ dans $\mathbb{R}$ toute application qui à tout $x\in D$ associe un unique $y\in\mathbb{R}$. Dans ce cas, si la fonction est notée $f$, on écrit $y=f(x)$.
 \end{itm}
 
@@ -230,12 +235,13 @@ Soient $D\subset\mathbb{R}$ et $f:D\to\mathbb{R}$. On dit que $f$ est \emph{pair
 \begin{itm}[Prop.][Formules d'Euler]
 Pour tout $\theta\in\mathbb{R}$, on a
 \[
-\begin{aligned}
-\cos(\theta) &= \frac{e^{i\theta} + e^{-i\theta}}{2},\\
-\sin(\theta) &= \frac{e^{i\theta} - e^{-i\theta}}{2i}.
-\end{aligned}
+\begin{cases}
+\displaystyle \cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2},\\[5mm]
+\displaystyle \sin(\theta) = \frac{e^{i\theta} - e^{-i\theta}}{2i}.
+\end{cases}
 \]
 \end{itm}
+
 
 \begin{itm}[Défi.]
 On considère une fonction $f:D\to\mathbb{R}$. On dit que $f$ est :
