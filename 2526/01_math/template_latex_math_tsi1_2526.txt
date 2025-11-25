@@ -1,5 +1,5 @@
 % ===================================================================
-% TEMPLATE SPÉCIALISÉ POUR LES FICHES DE COURS DE MATHÉMATIQUES
+% TEMPLATE SPÉCIALISÉ POUR LES FICHES DE MATHÉMATIQUES
 % ===================================================================
 
 \documentclass[a4paper,12pt]{article}
@@ -17,6 +17,7 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xstring}
 \usepackage{xparse}
+\usepackage{array}
 
 \geometry{
   margin=2cm,
@@ -27,8 +28,6 @@
 
 \setlength{\footskip}{1.2cm}
 
-\definecolor{r}{HTML}{d04343}
-\definecolor{g}{HTML}{21e492}
 \definecolor{b}{HTML}{3d62f5}
 \definecolor{n}{HTML}{000000}
 
@@ -54,14 +53,20 @@
   {}
   {0em}
   {\underline}
+\titlespacing*{\section}{0pt}{1cm}{0.5cm}
 
 \titleformat{\subsection}
-  {\normalfont\bfseries}
+  {\bfseries\raggedright}
   {}
   {0em}
   {}
 \titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
 
+% Configuration des listes
+\setlist[itemize]{label=\raisebox{0.2ex}{\(\scriptscriptstyle\bullet\)}, leftmargin=*, nosep}
+\setlist[enumerate]{leftmargin=*, nosep}
+
+% --- ENVIRONNEMENT ITEM ---
 \NewDocumentEnvironment{itm}{ o o }
 {
     \begin{tcolorbox}[
@@ -75,11 +80,11 @@
         before upper={\parindent=0pt},
         overlay={
             \IfNoValueF{#1}{
-                \ifstrequal{#1}{Prop.}{
+                \IfStrEq{#1}{Prop.}{
                     \draw[b, line width=1pt] 
                         ([xshift=-5pt]frame.north west) -- ([xshift=-5pt]frame.south west);
                 }{}
-                \ifstrequal{#1}{Défi.}{
+                \IfStrEq{#1}{Défi.}{
                     \draw[n, line width=1pt] 
                         ([xshift=-5pt]frame.north west) -- ([xshift=-5pt]frame.south west);
                 }{}
@@ -88,10 +93,7 @@
     ]
     \IfNoValueF{#1}{\noindent\textbf{#1}}%
     \IfNoValueF{#2}{%
-    \if\relax\detokenize{#2}\relax
-    \else
-        \nobreak\ (#2)%
-    \fi
+        \if\relax\detokenize{#2}\relax\else\nobreak\ (#2)\fi%
     }%
     \par\nobreak
 }
@@ -110,48 +112,148 @@
 \end{minipage}%
 \begin{minipage}[t]{0.7\textwidth}
     \centering
-    \small Cours de mathématiques
+    \small Synthèse
 \end{minipage}
 
-\vspace{0.4cm}
-\centering
-\parbox{0.8\textwidth}{ % ajuste 0.8\textwidth selon tes besoins
-    \centering
-    {\Large \textbf{\textsc{00. Titre du chapitre  : Assez long pour avoir un beau retour à la ligne}}}
-}
-\vspace{0.3cm}
+\begin{center}
+    \parbox{0.8\textwidth}{
+        \centering
+        {\Large \textbf{\textsc{00. Titre du chapitre}}}
+    }
+\end{center}
+
+
 
 % ===================================================================
 % CORPS DE LA FICHE
 % ===================================================================
 
-\section{01. Titre de la section}
+\section{01. Mode d'emploi du template}
 
 \begin{itm}[Type][Note]
-Ceci est un item classique. Son premier argument est son \textit{type} (qui peut prendre une varitété de valeur comme \textit{définition}, \textit{propriété}, \textit{notation}, \textit{figure}, \textit{démonstration}, \textit{exemple}, \textit{remarque}, \textit{application}, etc.).
-Son second argument optionnel est la \textit{note}, pour nommer ou préciser la notion de l'item. \\
-On écrit toujours le type avec une majuscule initiale et -- lorsque le type fait plus de 5 lettres -- avec une abréviation tronquée en 4 lettres et se terminant par un point.
+Ceci est un item classique. Le premier argument est le \textit{Type} (en gras) et le second est la \textit{Note} (entre parenthèses).
+Pour alléger la lecture, on tronque généralement le type à la 4\up{e} lettre suivie d'un point (ex. : \texttt{Défi.}, \texttt{Prop.}, \texttt{Rema.}, \texttt{Exem.}). Cependant, pour les types plus exceptionnels, il demeure tout à fait autorisé de les noter en entier.
 \end{itm}
 
-\begin{itm}[Défi.][]
-Ceci est un item de type \textit{définition} -- toujours noté \textit{Défi.} -- facilement reconnaissable grâce à sa ligne noire qui survient automatiquement en marge.
+\begin{itm}[Défi.]
+Cet item est de type \texttt{Défi.}, ce qui déclenche automatiquement une barre noire latérale.
 \end{itm}
 
-\begin{itm}[Prop.][]
-Cet item est quant à lui de type \textit{propriété} -- qu'on notera toujours \textit{Prop.} -- qui se distingue par sa ligne bleue en marge.
+\begin{itm}[Prop.]
+De manière analogue, cet item \texttt{Prop.} déclenche automatiquement une barre bleue latérale.
 \end{itm}
 
-\begin{itm}[Item][Sous-items]
-Il est possible d'utiliser des sous-items.
+\begin{itm}[Usage][]
+Ce modèle a pour vocation de faciliter la production récurrente de documents de synthèse en mathématiques.
+L'objectif est de rassembler ici les notions fondamentales qui constituent le cours, telles que les définitions et propriétés, en écartant les éléments jugés secondaires comme les démonstrations, exemples ou développements.
 \end{itm}
 
-\begin{itm}[Item][Tableaux]
-Il est possible d'utiliser des tableaux.
+\begin{itm}[Règles]
+Il convient d'observer certaines règles dans la rédaction :
+\begin{itemize}
+    \item la rigueur mathématique demeure essentielle ;
+    \item la ponctuation doit être respectée scrupuleusement, y compris dans les notations mathématiques ;
+    \item l'usage du gras est interdite dans le corps du texte ;
+    \item le langage doit être clair, soutenu et concis ;
+    \item les notions abordées sont extraites du cours complet ; il est généralement préférable d'en conserver la forme initiale, mais il est permis de la modifier lorsque cela sert l'intérêt du document (correction d'erreurs, amélioration du style, etc.).
+\end{itemize}
+\end{itm}
+
+\begin{itm}[Structure][Sous-items]
+Il est possible d'utiliser des listes à puces :
+\begin{itemize}
+    \item premier point ;
+    \item second point.
+\end{itemize}
+Ou d'autres mises en forme ordonnées :
+\begin{enumerate}
+    \item premier élément ;
+    \item second élément ; celui-ci contient encore un autre niveau de hiérarchie :
+        \begin{enumerate}[label=\alph*.]
+        \item ainsi ;
+        \item etc.
+        \end{enumerate}
+\end{enumerate}
+\end{itm}
+
+\begin{itm}[Tableau]
+L'usage de tableaux est également possible.
+\begin{center}\small
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+$P$ & $Q$ & $P \land Q$ & $P \lor Q$ & $P \implies Q$ & $P \iff Q$ \\
+\hline
+V & V & V & V & V & V \\
+\hline
+V & F & F & V & F & F \\
+\hline
+F & V & F & V & V & F \\
+\hline
+F & F & F & F & V & V \\
+\hline
+\end{tabular}
+\end{center}
 \end{itm}
 
 
 \section{02. Section avec sous-sections}
 
-\section{03. Exemple de section}
+\subsection{Titre de la sous-section}
+\begin{itm}[Usage]
+Les sous-sections sont rares. On les utilise pour trier ou étudier plusieurs cas distincts au sein d'une même section.
+\end{itm}
+
+\subsection{Autre sous-section}
+\begin{itm}[Contenu]
+Elles contiennent des items classiques.
+\end{itm}
+
+
+% ===================================================================
+% Exemples rigoureux
+% ===================================================================
+
+\section{03. Exemples}
+
+\begin{itm}[Notion]
+On appelle \emph{fonction} d'une partie $D$ de $\mathbb{R}$ dans $\mathbb{R}$ toute application qui à tout $x\in D$ associe un unique $y\in\mathbb{R}$. Dans ce cas, si la fonction est notée $f$, on écrit $y=f(x)$.
+\end{itm}
+
+\begin{itm}[Défi.]
+Soient $D\subset\mathbb{R}$ et $f:D\to\mathbb{R}$. On dit que $f$ est \emph{paire} si
+\[
+\forall x\in D,\quad (-x\in D)\ \wedge\ (f(-x)=f(x)).
+\]
+\end{itm}
+
+\begin{itm}[Prop.][Formules d'Euler]
+Pour tout $\theta\in\mathbb{R}$, on a
+\[
+\begin{aligned}
+\cos(\theta) &= \frac{e^{i\theta} + e^{-i\theta}}{2},\\
+\sin(\theta) &= \frac{e^{i\theta} - e^{-i\theta}}{2i}.
+\end{aligned}
+\]
+\end{itm}
+
+\begin{itm}[Défi.]
+On considère une fonction $f:D\to\mathbb{R}$. On dit que $f$ est :
+\begin{enumerate}[label=\alph*.]
+    \item croissante si $\forall(x_1,x_2)\in D^2,\ x_1\le x_2 \implies f(x_1)\le f(x_2)$ ;
+    \item strictement croissante si $\forall(x_1,x_2)\in D^2,\ x_1<x_2 \implies f(x_1)< f(x_2)$.
+\end{enumerate}
+On adapte ces définitions de même pour la décroissance et la décroissance stricte.
+\end{itm}
+
+\begin{itm}[Défi.]
+On dit qu'une fonction est \emph{monotone} sur $D$ si elle est croissante sur $D$ ou décroissante sur $D$.
+On adapte de même pour la monotonie stricte.
+\end{itm}
+
+\begin{itm}[Prop.][Théorème des valeurs intermédiaires]
+Soit $I$ un intervalle et $f:I\to\mathbb{R}$ une fonction continue. 
+Si $v\in\mathbb{R}$ est compris entre deux valeurs de $f$, alors $v$ est aussi une valeur de $f$.
+\end{itm}
 
 \end{document}
