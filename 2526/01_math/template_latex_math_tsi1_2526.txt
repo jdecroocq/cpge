@@ -133,7 +133,7 @@
 % CORPS DE LA FICHE
 % ===================================================================
 
-\section{01. Mode d'emploi du template}
+\section{1. Mode d'emploi du template}
 
 \begin{itm}[Type][Note]
 Ceci est un item classique. Le premier argument est le \textit{Type} (en gras) et le second est la \textit{Note} (entre parenthèses).
@@ -203,7 +203,7 @@ F & F & F & F & V & V \\
 \end{itm}
 
 
-\section{02. Section avec sous-sections}
+\section{2. Section avec sous-sections}
 
 \subsection{Titre de la sous-section}
 \begin{itm}[Usage]
@@ -220,7 +220,7 @@ Elles contiennent des items classiques.
 % Exemples rigoureux
 % ===================================================================
 
-\section{03. Exemples}
+\section{3. Exemples}
 
 \begin{itm}[Noti.]
 On appelle \emph{fonction} d'une partie $D$ de $\mathbb{R}$ dans $\mathbb{R}$ toute application qui à tout $x\in D$ associe un unique $y\in\mathbb{R}$. Dans ce cas, si la fonction est notée $f$, on écrit $y=f(x)$.
