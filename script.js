@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadContent() {
         try {
             const response = await fetch('list.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const categories = await response.json();
 
             if (categories.length === 0) {
@@ -20,7 +18,6 @@ document.addEventListener('DOMContentLoaded', () => {
             categories.forEach(cat => {
                 const catDiv = document.createElement('div');
                 catDiv.className = 'content-category';
-
                 const catTitle = document.createElement('h2');
                 catTitle.textContent = cat.title;
                 catDiv.appendChild(catTitle);
@@ -34,7 +31,6 @@ document.addEventListener('DOMContentLoaded', () => {
                     cat.subcategories.forEach(subcat => {
                         const subcatDiv = document.createElement('div');
                         subcatDiv.className = 'content-subcategory';
-                        
                         const subcatTitle = document.createElement('h3');
                         subcatTitle.textContent = subcat.name;
                         subcatDiv.appendChild(subcatTitle);
@@ -86,7 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const downloadIcon = document.createElement('span');
                                     downloadIcon.className = 'icon icon-interactive icon-download';
                                     downloadIcon.title = 'Télécharger le fichier';
-                                    
                                     downloadIcon.addEventListener('click', (e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
@@ -99,6 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                         document.body.removeChild(tempLink);
                                     });
                                     slotDownload.appendChild(downloadIcon);
+                                } else {
+                                    slotDownload.classList.add('slot-empty');
                                 }
                                 iconsContainer.appendChild(slotDownload);
 
@@ -109,6 +106,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                     protectedIcon.className = 'icon icon-protected';
                                     protectedIcon.title = 'Fichier protégé';
                                     slotLock.appendChild(protectedIcon);
+                                } else {
+                                    slotLock.classList.add('slot-empty');
                                 }
                                 iconsContainer.appendChild(slotLock);
 
@@ -130,12 +129,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                         setTimeout(() => {
                                             linkIcon.classList.remove('icon-check');
                                             linkIcon.classList.add('icon-link');
-                                        }, 1500);
+                                        }, 2000);
                                     });
                                 });
                                 slotLink.appendChild(linkIcon);
                                 iconsContainer.appendChild(slotLink);
-                                
+
                                 link.appendChild(iconsContainer);
                                 listDiv.appendChild(link);
                             });
