@@ -12,7 +12,7 @@
 % - Ne pas conserver les démonstrations, les exemples, remarques ou
 %   discussions non essentielles.
 % - Ne pas conserver les notions et points de vocabulaire évidents que l’on
-%   retient naturellementà par la pratique.
+%   retient naturellement à par la pratique.
 % - Faire preuve de discernement : sélectionner intelligemment ce qui doit
 %   être retenu par cœur en fonction de ce qui aide réellement à résoudre
 %   des exercices ou appliquer les méthodes du cours.
@@ -41,7 +41,8 @@
 \usepackage[french]{babel}
 \usepackage{geometry}
 \usepackage{fancyhdr}
-\usepackage{amsmath, amssymb, bm}
+\usepackage{mathtools} % Extension d'amsmath indispensable pour la rigueur (alignements, flèches)
+\usepackage{amssymb, bm}
 \usepackage{xcolor}
 \usepackage{lastpage}
 \usepackage{titlesec}
@@ -94,9 +95,10 @@
   {0em}
   {}
 \titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
-
 \setlist[itemize]{label=\raisebox{0.27ex}{\(\scriptscriptstyle\bullet\)}, leftmargin=*, nosep}
-\setlist[enumerate]{leftmargin=*, nosep}
+\setlist[enumerate,1]{label=\arabic*., leftmargin=*, nosep}
+\setlist[enumerate,2]{label=\alph*., leftmargin=*, nosep}
+\setlist[enumerate,3]{label=\roman*., leftmargin=*, nosep}
 
 \NewDocumentEnvironment{itm}{ o o }
 {
@@ -110,8 +112,8 @@
         before skip=1.5\baselineskip, after skip=1.5\baselineskip,
         before upper={%
             \parindent=0pt
-            \setlength{\abovedisplayskip}{3pt plus 1pt minus 1pt}%
-            \setlength{\belowdisplayskip}{3pt plus 1pt minus 1pt}%
+            \setlength{\abovedisplayskip}{5pt plus 2pt minus 2pt}%
+            \setlength{\belowdisplayskip}{5pt plus 2pt minus 2pt}%
             \setlength{\abovedisplayshortskip}{0pt plus 1pt}%
             \setlength{\belowdisplayshortskip}{0pt plus 1pt}%
         },
@@ -181,6 +183,32 @@ Cet item est de type \texttt{Défi.}, ce qui déclenche automatiquement une barr
 De manière analogue, cet item \texttt{Prop.} déclenche une barre latérale bleue.
 \end{itm}
 
+\begin{itm}[Form.]
+Les formules mathématiques peuvent être insérées au fil du texte, par exemple $f(x) = x^2$;
+en évidence sur une nouvelle ligne :
+\[ \lim_{x \to +\infty} \frac{1}{x} = 0; \]
+ou encore avec des étiquettes dans le cas d'une énumération :
+\begin{itemize}
+    \item $\displaystyle \ln(1) = 0$.
+\end{itemize}
+\end{itm}
+
+\begin{itm}[List.]
+Pour les énumérations, la hiérarchie est gérée automatiquement :
+\begin{itemize}
+    \item Les puces simples (bullets) sont utilisées pour des listes sans ordre logique strict.
+\end{itemize}
+Si un ordre ou une référence est nécessaire, on utilise la numérotation :
+\begin{enumerate}
+    \item Premier niveau numéroté (1., 2., 3.).
+    \item Second élément du premier niveau.
+    \begin{enumerate}
+        \item Deuxième niveau alphabétique (a., b., c.).
+        \item Ce format est conforme aux standards scientifiques.
+    \end{enumerate}
+\end{enumerate}
+\end{itm}
+
 
 % ===================================================================
 % Exemple
@@ -189,34 +217,43 @@ De manière analogue, cet item \texttt{Prop.} déclenche une barre latérale ble
 \section{0.2. Exemples}
 
 \begin{itm}[Noti.]
-On appelle \emph{fonction} d'une partie $D$ de $\mathbb{R}$ dans $\mathbb{R}$ toute application qui à tout $x\in D$ associe un unique $y\in\mathbb{R}$. Dans ce cas, si la fonction est notée $f$, on écrit $y=f(x)$.
+On appelle \emph{fonction} d'une partie $D$ de $\mathbb{R}$ dans $\mathbb{R}$ toute application qui à tout $x\in D$ associe un unique réel $y$;
+auquel cas, on note $y = f(x)$ si la fonction est appelée $f$.
 \end{itm}
 
 \begin{itm}[Défi.]
-Soient $D\subset\mathbb{R}$ et $f:D\to\mathbb{R}$. On dit que $f$ est \emph{paire} si
+Soient $D\subset\mathbb{R}$ un ensemble centré en 0 et $f:D\to\mathbb{R}$. On dit que $f$ est \emph{paire} si :
 \[
-\forall x\in D,\quad (-x\in D)\ \wedge\ (f(-x)=f(x)).
+\forall x\in D,\quad f(-x)=f(x).
 \]
 \end{itm}
 
 \begin{itm}[Prop.][Formules d'Euler]
-Pour tout $\theta\in\mathbb{R}$, on a
+Pour tout réel $\theta$, on a les relations suivantes :
 \[
-\begin{cases}
-\displaystyle \cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2},\\[5mm]
-\displaystyle \sin(\theta) = \frac{e^{i\theta} - e^{-i\theta}}{2i}.
-\end{cases}
+    \cos(\theta) = \frac{e^{i\theta} + e^{-i\theta}}{2}, \qquad
+    \sin(\theta) = \frac{e^{i\theta} - e^{-i\theta}}{2i}.
 \]
 \end{itm}
 
-
 \begin{itm}[Défi.]
 On considère une fonction $f:D\to\mathbb{R}$. On dit que $f$ est :
-\begin{enumerate}[label=\alph*.]
+\begin{enumerate}
     \item croissante si $\forall(x_1,x_2)\in D^2,\ x_1\le x_2 \implies f(x_1)\le f(x_2)$ ;
     \item strictement croissante si $\forall(x_1,x_2)\in D^2,\ x_1<x_2 \implies f(x_1)< f(x_2)$.
 \end{enumerate}
-On adapte ces définitions de même pour la décroissance et la décroissance stricte.
+On adapte ces définitions de même pour la décroissance.
+\end{itm}
+
+\begin{itm}[Prop.][Règle de Cramer]
+Soient $(a,b,c,d,e,f) \in \mathbb{R}^6$. On considère le système d'inconnues $(x,y) \in \mathbb{R}^2$ :
+\[
+(S) : \begin{cases}
+    ax + by = e \\
+    cx + dy = f
+\end{cases}
+\]
+Le système $(S)$ admet une unique solution si et seulement si son déterminant $\Delta = ad-bc$ est non nul.
 \end{itm}
 
 \end{document}
