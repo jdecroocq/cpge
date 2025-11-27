@@ -68,6 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
                                 link.rel = "noopener noreferrer";
                                 link.className = 'list-item';
 
+                                const statusColumn = document.createElement('span');
+                                statusColumn.className = 'status-column';
+                                
+                                if (isProtected) {
+                                    const protectedIcon = document.createElement('span');
+                                    protectedIcon.className = 'icon icon-protected';
+                                    protectedIcon.title = 'Fichier protégé';
+                                    statusColumn.appendChild(protectedIcon);
+                                }
+                                
+                                link.appendChild(statusColumn);
+
                                 const fileNameSpan = document.createElement('span');
                                 fileNameSpan.className = 'item-name';
                                 fileNameSpan.textContent = cleanFileName;
@@ -94,13 +106,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                     iconsContainer.appendChild(downloadIcon);
                                 }
 
-                                if (isProtected) {
-                                    const protectedIcon = document.createElement('span');
-                                    protectedIcon.className = 'icon icon-protected';
-                                    protectedIcon.title = 'Fichier protégé';
-                                    iconsContainer.appendChild(protectedIcon);
-                                }
-
                                 const linkIcon = document.createElement('span');
                                 linkIcon.className = 'icon icon-interactive icon-link';
                                 linkIcon.title = 'Copier le lien';
@@ -110,6 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     e.stopPropagation();
                                     
                                     navigator.clipboard.writeText(fullUrl).then(() => {
+                                        // Feedback visuel
                                         linkIcon.classList.remove('icon-link', 'icon-interactive');
                                         linkIcon.classList.add('icon-check');
                                         
