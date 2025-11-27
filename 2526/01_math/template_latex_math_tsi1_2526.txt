@@ -23,16 +23,15 @@
 %   plus vite ou éviter une répétition.
 % - Le second argument (note) d’un item ne doit être utilisé que si
 %   le cours contient effectivement une note.
-% - Le style doit rester clair, rigoureux et concis.
+% - Le style doit être soutenu, clair et rigoureux.
 % - La rigueur mathématique doit être préservée en toute circonstance.
 % - La ponctuation doit être correctement respectée, y compris dans les
 %   formules et notations mathématiques.
 % - Les formulations et notations du cours doivent être conservées autant
 %   que possible.
 % - Il est toutefois permis de modifier une formulation pour corriger une
-%   erreur, améliorer la fluidité ou simplifier l'écriture (notamment en
-%   utilisant des notations mathématiques plus directes lorsqu’elles
-%   allègent la lecture).
+%   erreur ou améliorer le propos (notamment en utilisant des notations
+%   mathématiques lorsqu’elles allègent la lecture).
 % - Ne pas utiliser le gras dans le corps du texte.
 % ===================================================================
 
@@ -157,7 +156,7 @@
 \begin{center}
     \parbox{0.8\textwidth}{
         \centering
-        {\large \textbf{\textsc{00. Titre du chapitre}}}
+        {\large \textbf{\textsc{0. Titre du chapitre}}}
     }
 \end{center}
 
@@ -167,7 +166,7 @@
 % CORPS DE LA FICHE
 % ===================================================================
 
-\section{1. Mode d'emploi du template}
+\section{0.1. Mode d'emploi du template}
 
 \begin{itm}[Type][Note]
 Ceci est un item classique. Le premier argument est le \textit{Type} (en gras) et le second est la \textit{Note} (entre parenthèses).
@@ -182,17 +181,12 @@ Cet item est de type \texttt{Défi.}, ce qui déclenche automatiquement une barr
 De manière analogue, cet item \texttt{Prop.} déclenche une barre latérale bleue.
 \end{itm}
 
-\subsection{Autre sous-section}
-\begin{itm}[Contenu]
-Elles contiennent des items classiques.
-\end{itm}
-
 
 % ===================================================================
 % Exemple
 % ===================================================================
 
-\section{3. Exemples}
+\section{0.2. Exemples}
 
 \begin{itm}[Noti.]
 On appelle \emph{fonction} d'une partie $D$ de $\mathbb{R}$ dans $\mathbb{R}$ toute application qui à tout $x\in D$ associe un unique $y\in\mathbb{R}$. Dans ce cas, si la fonction est notée $f$, on écrit $y=f(x)$.
@@ -223,16 +217,6 @@ On considère une fonction $f:D\to\mathbb{R}$. On dit que $f$ est :
     \item strictement croissante si $\forall(x_1,x_2)\in D^2,\ x_1<x_2 \implies f(x_1)< f(x_2)$.
 \end{enumerate}
 On adapte ces définitions de même pour la décroissance et la décroissance stricte.
-\end{itm}
-
-\begin{itm}[Défi.]
-On dit qu'une fonction est \emph{monotone} sur $D$ si elle est croissante sur $D$ ou décroissante sur $D$.
-On adapte de même pour la monotonie stricte.
-\end{itm}
-
-\begin{itm}[Prop.][Théorème des valeurs intermédiaires]
-Soit $I$ un intervalle et $f:I\to\mathbb{R}$ une fonction continue. 
-Si $v\in\mathbb{R}$ est compris entre deux valeurs de $f$, alors $v$ est aussi une valeur de $f$.
 \end{itm}
 
 \end{document}
