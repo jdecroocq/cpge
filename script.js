@@ -7,7 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     async function loadContent() {
         try {
             const response = await fetch('list.json');
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const categories = await response.json();
 
             if (categories.length === 0) {
@@ -18,6 +20,7 @@ document.addEventListener('DOMContentLoaded', () => {
             categories.forEach(cat => {
                 const catDiv = document.createElement('div');
                 catDiv.className = 'content-category';
+
                 const catTitle = document.createElement('h2');
                 catTitle.textContent = cat.title;
                 catDiv.appendChild(catTitle);
@@ -31,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     cat.subcategories.forEach(subcat => {
                         const subcatDiv = document.createElement('div');
                         subcatDiv.className = 'content-subcategory';
+                        
                         const subcatTitle = document.createElement('h3');
                         subcatTitle.textContent = subcat.name;
                         subcatDiv.appendChild(subcatTitle);
@@ -60,25 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const isProtected = flagsPart.includes('_s');
                                 const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
-                                const fullUrl = new URL(filePath, window.location.href).href;
 
                                 const link = document.createElement('a');
                                 link.href = filePath;
                                 link.target = "_blank";
                                 link.rel = "noopener noreferrer";
                                 link.className = 'list-item';
-
-                                if (isProtected) {
-                                    const statusColumn = document.createElement('span');
-                                    statusColumn.className = 'status-column';
-                                    
-                                    const protectedIcon = document.createElement('span');
-                                    protectedIcon.className = 'icon icon-protected';
-                                    protectedIcon.title = 'Fichier protégé';
-                                    
-                                    statusColumn.appendChild(protectedIcon);
-                                    link.appendChild(statusColumn);
-                                }
 
                                 const fileNameSpan = document.createElement('span');
                                 fileNameSpan.className = 'item-name';
@@ -90,11 +81,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                 if (isDownloadable) {
                                     const downloadIcon = document.createElement('span');
-                                    downloadIcon.className = 'icon icon-interactive icon-download';
+                                    downloadIcon.className = 'icon icon-download';
                                     downloadIcon.title = 'Télécharger le fichier';
+
                                     downloadIcon.addEventListener('click', (e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
+
                                         const tempLink = document.createElement('a');
                                         tempLink.href = filePath;
                                         tempLink.setAttribute('download', cleanFileName);
@@ -103,33 +96,22 @@ document.addEventListener('DOMContentLoaded', () => {
                                         tempLink.click();
                                         document.body.removeChild(tempLink);
                                     });
+                                    
                                     iconsContainer.appendChild(downloadIcon);
                                 }
+                                
+                                if (isProtected) {
+                                    const protectedIcon = document.createElement('span');
+                                    protectedIcon.className = 'icon icon-protected';
+                                    iconsContainer.appendChild(protectedIcon);
+                                }
 
-                                const linkIcon = document.createElement('span');
-                                linkIcon.className = 'icon icon-interactive icon-link';
-                                linkIcon.title = 'Copier le lien';
+                                if (iconsContainer.hasChildNodes()) {
+                                    link.appendChild(iconsContainer);
+                                }
 
-                                linkIcon.addEventListener('click', (e) => {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    
-                                    navigator.clipboard.writeText(fullUrl).then(() => {
-                                        linkIcon.classList.remove('icon-link', 'icon-interactive');
-                                        linkIcon.classList.add('icon-check');
-                                        
-                                        setTimeout(() => {
-                                            linkIcon.classList.remove('icon-check');
-                                            linkIcon.classList.add('icon-link', 'icon-interactive');
-                                        }, 2000);
-                                    });
-                                });
-                                iconsContainer.appendChild(linkIcon);
-
-                                link.appendChild(iconsContainer);
                                 listDiv.appendChild(link);
                             });
-                            
                             subcatDiv.appendChild(listDiv);
                         }
                         catDiv.appendChild(subcatDiv);
@@ -139,8 +121,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         } catch (err) {
-            console.error("Erreur:", err);
-            container.textContent = 'Erreur de chargement.';
+            console.error("Erreur lors du chargement de la liste:", err);
+            container.textContent = 'Impossible de charger le contenu. Vérifiez la console pour plus de détails.';
         } finally {
             mainPageBody.classList.add('loaded');
         }
@@ -148,22 +130,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadContent();
 
-    const concoursDate = new Date("2027-04-26"); 
+    const concoursDate = new Date("2027-04-26"); /* à modifier quand la date sortira */
+    
     function getDaysLeft(targetDate) {
       const now = new Date();
       const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
       const utcTarget = Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
-      return Math.floor((utcTarget - utcNow) / (1000 * 60 * 60 * 24));
+      const msPerDay = 1000 * 60 * 60 * 24;
+      return Math.floor((utcTarget - utcNow) / msPerDay);
     }
     
     function updateCountdown() {
       const el = document.getElementById("countdown");
       if (!el) return;
+    
       const days = getDaysLeft(concoursDate);
-      if (days > 1) el.textContent = `Il reste ${days} jours avant les concours.`;
-      else if (days === 1) el.textContent = `Il reste 1 jour avant les concours !`;
-      else if (days === 0) el.textContent = `Il reste 0 jour avant les concours !`;
-      else el.textContent = `Les concours ont commencé.`;
+    
+      if (isNaN(days)) {
+        el.textContent = "Date invalide.";
+      } else if (days > 1) {
+        el.textContent = `Il reste ${days} jours avant les concours.`;
+      } else if (days === 1) {
+        el.textContent = `Il reste 1 jour avant les concours !`;
+      } else if (days === 0) {
+        el.textContent = `Il reste 0 jour avant les concours !`;
+      } else {
+        el.textContent = `Les concours ont commencé.`;
+      }
     }
+    
     updateCountdown();
+    setInterval(updateCountdown, 1000 * 60 * 60);
 });
