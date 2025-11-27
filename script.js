@@ -64,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const isProtected = flagsPart.includes('_s');
                                 const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
+                                const fullUrl = new URL(filePath, window.location.href).href;
 
                                 const link = document.createElement('a');
                                 link.href = filePath;
@@ -79,32 +80,57 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const iconsContainer = document.createElement('span');
                                 iconsContainer.className = 'item-icons';
 
-                                if (isDownloadable) {
-                                    const downloadIcon = document.createElement('span');
-                                    downloadIcon.className = 'icon icon-download';
-                                    downloadIcon.title = 'Télécharger le fichier';
-
-                                    downloadIcon.addEventListener('click', (e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-
-                                        const tempLink = document.createElement('a');
-                                        tempLink.href = filePath;
-                                        tempLink.setAttribute('download', cleanFileName);
-                                        tempLink.style.display = 'none';
-                                        document.body.appendChild(tempLink);
-                                        tempLink.click();
-                                        document.body.removeChild(tempLink);
-                                    });
-                                    
-                                    iconsContainer.appendChild(downloadIcon);
-                                }
-                                
                                 if (isProtected) {
                                     const protectedIcon = document.createElement('span');
                                     protectedIcon.className = 'icon icon-protected';
+                                    protectedIcon.title = 'Fichier protégé par mot de passe';
                                     iconsContainer.appendChild(protectedIcon);
                                 }
+                                
+                                 if (isDownloadable) {
+                                        const downloadIcon = document.createElement('span');
+                                        downloadIcon.className = 'icon icon-interactive icon-download'; // Utilise la nouvelle classe partagée
+                                        downloadIcon.title = 'Télécharger le fichier';
+                                
+                                        downloadIcon.addEventListener('click', (e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                
+                                            const tempLink = document.createElement('a');
+                                            tempLink.href = filePath;
+                                            tempLink.setAttribute('download', cleanFileName);
+                                            tempLink.style.display = 'none';
+                                            document.body.appendChild(tempLink);
+                                            tempLink.click();
+                                            document.body.removeChild(tempLink);
+                                        });
+                                        
+                                        iconsContainer.appendChild(downloadIcon);
+                                    }
+                                
+                                    const linkIcon = document.createElement('span');
+                                        linkIcon.className = 'icon icon-interactive icon-link'; // Utilise la nouvelle classe partagée
+                                        linkIcon.title = 'Copier le lien';
+                                    
+                                        linkIcon.addEventListener('click', (e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            
+                                            navigator.clipboard.writeText(fullUrl).then(() => {
+                                                const originalBg = linkIcon.style.backgroundColor;
+                                                linkIcon.style.backgroundColor = 'var(--color-6)';
+                                                setTimeout(() => {
+                                                    linkIcon.style.backgroundColor = originalBg;
+                                                }, 200);
+                                            }).catch(err => {
+                                                console.error('Erreur lors de la copie :', err);
+                                            });
+                                        });
+                                        iconsContainer.appendChild(linkIcon);
+                                
+                                        link.appendChild(iconsContainer);
+                                        listDiv.appendChild(link);
+                                    });
 
                                 if (iconsContainer.hasChildNodes()) {
                                     link.appendChild(iconsContainer);
