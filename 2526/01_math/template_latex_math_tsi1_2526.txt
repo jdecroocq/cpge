@@ -95,7 +95,7 @@
   {}
 \titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
 
-\setlist[itemize]{label=\raisebox{0.2ex}{\(\scriptscriptstyle\bullet\)}, leftmargin=*, nosep}
+\setlist[itemize]{label=\raisebox{0.27ex}{\(\scriptscriptstyle\bullet\)}, leftmargin=*, nosep}
 \setlist[enumerate]{leftmargin=*, nosep}
 
 \NewDocumentEnvironment{itm}{ o o }
