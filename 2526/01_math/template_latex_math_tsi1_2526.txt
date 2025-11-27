@@ -2,6 +2,40 @@
 % TEMPLATE SPÉCIALISÉ POUR LES FICHES DE MATHÉMATIQUES
 % ===================================================================
 
+% ===================================================================
+% COMMENTAIRES À SUPPRIMER AVANT USAGE DU TEMPLATE
+
+% - Conserver uniquement ce qui est réellement indispensable pour réussir
+%   les TD, DS, exercices types et concours.
+% - Garder souvent les définitions essentielles, les propriétés importantes,
+%   les formules fondamentales et les méthodes indispensables.
+% - Ne pas conserver les démonstrations, les exemples, remarques ou
+%   discussions non essentielles.
+% - Ne pas conserver les notions et points de vocabulaire évidents que l’on
+%   retient naturellementà par la pratique.
+% - Faire preuve de discernement : sélectionner intelligemment ce qui doit
+%   être retenu par cœur en fonction de ce qui aide réellement à résoudre
+%   des exercices ou appliquer les méthodes du cours.
+% - Ne pas appliquer ces règles mécaniquement : juger ce qui doit être gardé
+%   ou écarté selon son utilité réelle.
+% - Les trois points "..." doivent être remplacés dans le texte par ce qui
+%   est sous-entendu lorsqu’ils ont été utilisés dans le cours pour aller
+%   plus vite ou éviter une répétition.
+% - Le second argument (note) d’un item ne doit être utilisé que si
+%   le cours contient effectivement une note.
+% - Le style doit rester clair, rigoureux et concis.
+% - La rigueur mathématique doit être préservée en toute circonstance.
+% - La ponctuation doit être correctement respectée, y compris dans les
+%   formules et notations mathématiques.
+% - Les formulations et notations du cours doivent être conservées autant
+%   que possible.
+% - Il est toutefois permis de modifier une formulation pour corriger une
+%   erreur, améliorer la fluidité ou simplifier l'écriture (notamment en
+%   utilisant des notations mathématiques plus directes lorsqu’elles
+%   allègent la lecture).
+% - Ne pas utiliser le gras dans le corps du texte.
+% ===================================================================
+
 \documentclass[a4paper,12pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -137,8 +171,7 @@
 
 \begin{itm}[Type][Note]
 Ceci est un item classique. Le premier argument est le \textit{Type} (en gras) et le second est la \textit{Note} (entre parenthèses).
-Pour alléger la lecture, on tronque généralement le type à la 4\up{e} lettre suivie d'un point (ex. : \texttt{Défi.}, \texttt{Prop.}, \texttt{Rema.}, \texttt{Exem.}). Cependant, pour les types plus exceptionnels, il demeure tout à fait autorisé de les noter en entier. \\
-Il convient de bien respecter les types et notes inscrits dans le cours.
+Pour alléger la lecture, on tronque généralement le type à la 4\up{e} lettre suivie d'un point.
 \end{itm}
 
 \begin{itm}[Défi.]
@@ -146,68 +179,7 @@ Cet item est de type \texttt{Défi.}, ce qui déclenche automatiquement une barr
 \end{itm}
 
 \begin{itm}[Prop.]
-De manière analogue, cet item \texttt{Prop.} déclenche automatiquement une barre latérale bleue. Notons que ce type regroupe un certain nombre de concepts, tels que les lemmes, théorèmes, corollaires, etc.
-\end{itm}
-
-\begin{itm}[Usage][]
-Ce modèle a pour vocation de faciliter la production récurrente de documents de synthèse en mathématiques.
-L'objectif est de rassembler ici les notions fondamentales qui constituent le cours, telles que les définitions et propriétés, en écartant les éléments jugés secondaires comme les démonstrations, exemples ou développements.
-\end{itm}
-
-\begin{itm}[Règles]
-Il convient d'observer certaines règles dans la rédaction :
-\begin{itemize}
-    \item la rigueur mathématique demeure essentielle ;
-    \item la ponctuation doit être respectée scrupuleusement, y compris dans les notations mathématiques ;
-    \item l'usage du gras est interdite dans le corps du texte ;
-    \item le langage doit être clair, soutenu et concis ;
-    \item les notions abordées sont extraites du cours complet ; il est généralement préférable d'en conserver la forme initiale, mais il est permis de la modifier lorsque cela sert l'intérêt du document (correction d'erreurs, amélioration du style, etc.).
-\end{itemize}
-\end{itm}
-
-\begin{itm}[Structure][Sous-items]
-Il est possible d'utiliser des listes à puces :
-\begin{itemize}
-    \item premier point ;
-    \item second point.
-\end{itemize}
-Ou d'autres mises en forme ordonnées :
-\begin{enumerate}
-    \item premier élément ;
-    \item second élément ; celui-ci contient encore un autre niveau de hiérarchie :
-        \begin{enumerate}[label=\alph*.]
-        \item ainsi ;
-        \item etc.
-        \end{enumerate}
-\end{enumerate}
-\end{itm}
-
-\begin{itm}[Tableau]
-L'usage de tableaux est également possible.
-\begin{center}\small
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-$P$ & $Q$ & $P \land Q$ & $P \lor Q$ & $P \implies Q$ & $P \iff Q$ \\
-\hline
-V & V & V & V & V & V \\
-\hline
-V & F & F & V & F & F \\
-\hline
-F & V & F & V & V & F \\
-\hline
-F & F & F & F & V & V \\
-\hline
-\end{tabular}
-\end{center}
-\end{itm}
-
-
-\section{2. Section avec sous-sections}
-
-\subsection{Titre de la sous-section}
-\begin{itm}[Usage]
-Les sous-sections sont rares. On les utilise pour trier ou étudier plusieurs cas distincts au sein d'une même section.
+De manière analogue, cet item \texttt{Prop.} déclenche une barre latérale bleue.
 \end{itm}
 
 \subsection{Autre sous-section}
@@ -217,7 +189,7 @@ Elles contiennent des items classiques.
 
 
 % ===================================================================
-% Exemples rigoureux
+% Exemple
 % ===================================================================
 
 \section{3. Exemples}
