@@ -169,7 +169,6 @@ body.loaded #page-loader {
 .list-item {
   position: relative;
   display: flex; 
-  justify-content: space-between; 
   align-items: center; 
   padding: 8px 14px;
   background-color: var(--color-1);
@@ -177,6 +176,15 @@ body.loaded #page-loader {
   font-size: 0.9rem;
   border-bottom: var(--border);
   text-decoration: none;
+}
+
+.status-column {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 24px;
+    flex-shrink: 0;
+    margin-right: 8px;
 }
 
 .item-name { 
@@ -205,7 +213,6 @@ body.loaded #page-loader {
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
-    padding-left: 4px;
 }
 
 .icon {
