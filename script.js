@@ -52,7 +52,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 let cleanFileName = fileEntry;
                                 let flagsPart = '';
 
-                                // Extraction du nom et des flags
                                 const lastDotIndex = fileEntry.lastIndexOf('.');
                                 if (lastDotIndex > 0) {
                                     const firstFlagIndex = fileEntry.indexOf('_', lastDotIndex);
@@ -65,10 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const isProtected = flagsPart.includes('_s');
                                 const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
-                                // Création de l'URL absolue pour le partage
                                 const fullUrl = new URL(filePath, window.location.href).href;
 
-                                // Création du lien principal
                                 const link = document.createElement('a');
                                 link.href = filePath;
                                 link.target = "_blank";
@@ -83,15 +80,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const iconsContainer = document.createElement('span');
                                 iconsContainer.className = 'item-icons';
 
+                                const slotDownload = document.createElement('span');
+                                slotDownload.className = 'icon-slot';
                                 if (isDownloadable) {
                                     const downloadIcon = document.createElement('span');
-                                    downloadIcon.className = 'icon icon-interactive icon-download'; 
+                                    downloadIcon.className = 'icon icon-interactive icon-download';
                                     downloadIcon.title = 'Télécharger le fichier';
-                            
+                                    
                                     downloadIcon.addEventListener('click', (e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
-                            
                                         const tempLink = document.createElement('a');
                                         tempLink.href = filePath;
                                         tempLink.setAttribute('download', cleanFileName);
@@ -100,39 +98,45 @@ document.addEventListener('DOMContentLoaded', () => {
                                         tempLink.click();
                                         document.body.removeChild(tempLink);
                                     });
-                                    
-                                    iconsContainer.appendChild(downloadIcon);
+                                    slotDownload.appendChild(downloadIcon);
                                 }
+                                iconsContainer.appendChild(slotDownload);
 
+                                const slotLock = document.createElement('span');
+                                slotLock.className = 'icon-slot';
                                 if (isProtected) {
                                     const protectedIcon = document.createElement('span');
                                     protectedIcon.className = 'icon icon-protected';
-                                    protectedIcon.title = 'Fichier protégé par mot de passe';
-                                    iconsContainer.appendChild(protectedIcon);
+                                    protectedIcon.title = 'Fichier protégé';
+                                    slotLock.appendChild(protectedIcon);
                                 }
+                                iconsContainer.appendChild(slotLock);
+
+                                const slotLink = document.createElement('span');
+                                slotLink.className = 'icon-slot';
                                 
                                 const linkIcon = document.createElement('span');
                                 linkIcon.className = 'icon icon-interactive icon-link';
                                 linkIcon.title = 'Copier le lien';
-                            
+
                                 linkIcon.addEventListener('click', (e) => {
                                     e.preventDefault();
                                     e.stopPropagation();
                                     
                                     navigator.clipboard.writeText(fullUrl).then(() => {
-                                        const originalBg = linkIcon.style.backgroundColor;
-                                        linkIcon.style.backgroundColor = 'var(--color-6)';
+                                        linkIcon.classList.remove('icon-link');
+                                        linkIcon.classList.add('icon-check');
+                                        
                                         setTimeout(() => {
-                                            linkIcon.style.backgroundColor = '';
-                                        }, 200);
-                                    }).catch(err => {
-                                        console.error('Erreur lors de la copie :', err);
+                                            linkIcon.classList.remove('icon-check');
+                                            linkIcon.classList.add('icon-link');
+                                        }, 1500);
                                     });
                                 });
-                                iconsContainer.appendChild(linkIcon);
-
-                                link.appendChild(iconsContainer);
+                                slotLink.appendChild(linkIcon);
+                                iconsContainer.appendChild(slotLink);
                                 
+                                link.appendChild(iconsContainer);
                                 listDiv.appendChild(link);
                             });
                             
@@ -145,8 +149,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         } catch (err) {
-            console.error("Erreur lors du chargement de la liste:", err);
-            container.textContent = 'Impossible de charger le contenu. Vérifiez la console pour plus de détails.';
+            console.error("Erreur:", err);
+            container.textContent = 'Erreur de chargement.';
         } finally {
             mainPageBody.classList.add('loaded');
         }
@@ -155,34 +159,21 @@ document.addEventListener('DOMContentLoaded', () => {
     loadContent();
 
     const concoursDate = new Date("2027-04-26"); 
-    
     function getDaysLeft(targetDate) {
       const now = new Date();
       const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
       const utcTarget = Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
-      const msPerDay = 1000 * 60 * 60 * 24;
-      return Math.floor((utcTarget - utcNow) / msPerDay);
+      return Math.floor((utcTarget - utcNow) / (1000 * 60 * 60 * 24));
     }
     
     function updateCountdown() {
       const el = document.getElementById("countdown");
       if (!el) return;
-    
       const days = getDaysLeft(concoursDate);
-    
-      if (isNaN(days)) {
-        el.textContent = "Date invalide.";
-      } else if (days > 1) {
-        el.textContent = `Il reste ${days} jours avant les concours.`;
-      } else if (days === 1) {
-        el.textContent = `Il reste 1 jour avant les concours !`;
-      } else if (days === 0) {
-        el.textContent = `Il reste 0 jour avant les concours !`;
-      } else {
-        el.textContent = `Les concours ont commencé.`;
-      }
+      if (days > 1) el.textContent = `Il reste ${days} jours avant les concours.`;
+      else if (days === 1) el.textContent = `Il reste 1 jour avant les concours !`;
+      else if (days === 0) el.textContent = `Il reste 0 jour avant les concours !`;
+      else el.textContent = `Les concours ont commencé.`;
     }
-    
     updateCountdown();
-    setInterval(updateCountdown, 1000 * 60 * 60);
 });
