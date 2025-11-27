@@ -76,8 +76,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const iconsContainer = document.createElement('span');
                                 iconsContainer.className = 'item-icons';
 
-                                const slotDownload = document.createElement('span');
-                                slotDownload.className = 'icon-slot';
                                 if (isDownloadable) {
                                     const downloadIcon = document.createElement('span');
                                     downloadIcon.className = 'icon icon-interactive icon-download';
@@ -93,27 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                         tempLink.click();
                                         document.body.removeChild(tempLink);
                                     });
-                                    slotDownload.appendChild(downloadIcon);
-                                } else {
-                                    slotDownload.classList.add('slot-empty');
+                                    iconsContainer.appendChild(downloadIcon);
                                 }
-                                iconsContainer.appendChild(slotDownload);
 
-                                const slotLock = document.createElement('span');
-                                slotLock.className = 'icon-slot';
                                 if (isProtected) {
                                     const protectedIcon = document.createElement('span');
                                     protectedIcon.className = 'icon icon-protected';
                                     protectedIcon.title = 'Fichier protégé';
-                                    slotLock.appendChild(protectedIcon);
-                                } else {
-                                    slotLock.classList.add('slot-empty');
+                                    iconsContainer.appendChild(protectedIcon);
                                 }
-                                iconsContainer.appendChild(slotLock);
 
-                                const slotLink = document.createElement('span');
-                                slotLink.className = 'icon-slot';
-                                
                                 const linkIcon = document.createElement('span');
                                 linkIcon.className = 'icon icon-interactive icon-link';
                                 linkIcon.title = 'Copier le lien';
@@ -123,17 +110,16 @@ document.addEventListener('DOMContentLoaded', () => {
                                     e.stopPropagation();
                                     
                                     navigator.clipboard.writeText(fullUrl).then(() => {
-                                        linkIcon.classList.remove('icon-link');
+                                        linkIcon.classList.remove('icon-link', 'icon-interactive');
                                         linkIcon.classList.add('icon-check');
                                         
                                         setTimeout(() => {
                                             linkIcon.classList.remove('icon-check');
-                                            linkIcon.classList.add('icon-link');
+                                            linkIcon.classList.add('icon-link', 'icon-interactive');
                                         }, 2000);
                                     });
                                 });
-                                slotLink.appendChild(linkIcon);
-                                iconsContainer.appendChild(slotLink);
+                                iconsContainer.appendChild(linkIcon);
 
                                 link.appendChild(iconsContainer);
                                 listDiv.appendChild(link);
