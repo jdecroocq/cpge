@@ -68,9 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 link.rel = "noopener noreferrer";
                                 link.className = 'list-item';
 
-                                const statusColumn = document.createElement('span');
-                                statusColumn.className = 'status-column';
-                                
                                 if (isProtected) {
                                     const statusColumn = document.createElement('span');
                                     statusColumn.className = 'status-column';
@@ -82,8 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                     statusColumn.appendChild(protectedIcon);
                                     link.appendChild(statusColumn);
                                 }
-                                
-                                link.appendChild(statusColumn);
 
                                 const fileNameSpan = document.createElement('span');
                                 fileNameSpan.className = 'item-name';
@@ -120,7 +115,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                     e.stopPropagation();
                                     
                                     navigator.clipboard.writeText(fullUrl).then(() => {
-                                        // Feedback visuel
                                         linkIcon.classList.remove('icon-link', 'icon-interactive');
                                         linkIcon.classList.add('icon-check');
                                         
