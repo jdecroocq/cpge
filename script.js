@@ -72,10 +72,15 @@ document.addEventListener('DOMContentLoaded', () => {
                                 statusColumn.className = 'status-column';
                                 
                                 if (isProtected) {
+                                    const statusColumn = document.createElement('span');
+                                    statusColumn.className = 'status-column';
+                                    
                                     const protectedIcon = document.createElement('span');
                                     protectedIcon.className = 'icon icon-protected';
                                     protectedIcon.title = 'Fichier protégé';
+                                    
                                     statusColumn.appendChild(protectedIcon);
+                                    link.appendChild(statusColumn);
                                 }
                                 
                                 link.appendChild(statusColumn);
