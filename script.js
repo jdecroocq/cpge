@@ -68,19 +68,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             subcat.files.forEach(fileEntry => {
                                 let rawFileName = (typeof fileEntry === 'object') ? fileEntry.name : fileEntry;
                                 let cleanFileName = rawFileName;
-                                let flagsPart = '';
+                                let isProtected = false;
+                                let isDownloadable = false;
 
-                                const lastDotIndex = rawFileName.lastIndexOf('.');
-                                if (lastDotIndex > 0) {
-                                    const firstFlagIndex = rawFileName.indexOf('_', lastDotIndex);
-                                    if (firstFlagIndex > -1) {
-                                        cleanFileName = rawFileName.substring(0, firstFlagIndex);
-                                        flagsPart = rawFileName.substring(firstFlagIndex);
-                                    }
+                                if (rawFileName.endsWith('_s')) {
+                                    isProtected = true;
+                                    cleanFileName = rawFileName.substring(0, rawFileName.length - 2);
+                                } else if (rawFileName.endsWith('_t')) {
+                                    isDownloadable = true;
+                                    cleanFileName = rawFileName.substring(0, rawFileName.length - 2);
                                 }
 
-                                const isProtected = flagsPart.includes('_s');
-                                const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
 
                                 const link = document.createElement('a');
