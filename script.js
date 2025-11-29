@@ -7,11 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     async function applyCacheBuster(originalUrl, linkElement) {
         try {
             const response = await fetch(originalUrl, { method: 'HEAD', cache: 'no-cache' });
-            
             if (!response.ok) return;
 
             const lastModified = response.headers.get('Last-Modified');
-            
             if (lastModified) {
                 const timestamp = new Date(lastModified).getTime();
                 const versionedUrl = `${originalUrl}?v=${timestamp}`;
@@ -19,14 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 linkElement.dataset.finalUrl = versionedUrl;
             }
         } catch (error) {
-            
+           
         }
     }
 
     async function loadContent() {
         try {
             const response = await fetch('list.json');
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
             const categories = await response.json();
 
             if (categories.length === 0) {
@@ -66,28 +66,25 @@ document.addEventListener('DOMContentLoaded', () => {
                             listDiv.className = 'item-list';
 
                             subcat.files.forEach(fileEntry => {
-                                let rawFileName = (typeof fileEntry === 'object') ? fileEntry.name : fileEntry;
-                                rawFileName = String(rawFileName).trim(); 
+                                let cleanFileName = fileEntry;
+                                let flagsPart = '';
 
-                                let cleanFileName = rawFileName;
-                                let isProtected = false;
-                                let isDownloadable = false;
-
-                                const suffix = rawFileName.slice(-2);
-
-                                if (suffix === '_s') {
-                                    isProtected = true;
-                                    cleanFileName = rawFileName.substring(0, rawFileName.length - 2);
-                                } else if (suffix === '_t') {
-                                    isDownloadable = true;
-                                    cleanFileName = rawFileName.substring(0, rawFileName.length - 2);
+                                const lastDotIndex = fileEntry.lastIndexOf('.');
+                                if (lastDotIndex > 0) {
+                                    const firstFlagIndex = fileEntry.indexOf('_', lastDotIndex);
+                                    if (firstFlagIndex > -1) {
+                                        cleanFileName = fileEntry.substring(0, firstFlagIndex);
+                                        flagsPart = fileEntry.substring(firstFlagIndex);
+                                    }
                                 }
 
+                                const isProtected = flagsPart.includes('_s');
+                                const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
 
                                 const link = document.createElement('a');
-                                link.href = filePath; 
-                                link.dataset.finalUrl = filePath; 
+                                link.href = filePath;
+                                link.dataset.finalUrl = filePath;
                                 link.target = "_blank";
                                 link.rel = "noopener noreferrer";
                                 link.className = 'list-item';
@@ -146,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         } catch (err) {
-            console.error(err);
+            console.error("Erreur:", err);
             container.textContent = 'Impossible de charger le contenu.';
         } finally {
             mainPageBody.classList.add('loaded');
@@ -168,7 +165,9 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCountdown() {
       const el = document.getElementById("countdown");
       if (!el) return;
+    
       const days = getDaysLeft(concoursDate);
+    
       if (isNaN(days)) {
         el.textContent = "Date invalide.";
       } else if (days > 1) {
