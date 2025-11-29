@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 linkElement.dataset.finalUrl = versionedUrl;
             }
         } catch (error) {
-            console.warn(error);
+            // Silently fail
         }
     }
 
@@ -67,17 +67,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
                             subcat.files.forEach(fileEntry => {
                                 let rawFileName = (typeof fileEntry === 'object') ? fileEntry.name : fileEntry;
-                                let cleanFileName = rawFileName;
-                                let isProtected = false;
-                                let isDownloadable = false;
-
-                                if (rawFileName.endsWith('_s')) {
-                                    isProtected = true;
-                                    cleanFileName = rawFileName.substring(0, rawFileName.length - 2);
-                                } else if (rawFileName.endsWith('_t')) {
-                                    isDownloadable = true;
-                                    cleanFileName = rawFileName.substring(0, rawFileName.length - 2);
-                                }
+                                
+                                const isProtected = rawFileName.endsWith('_s');
+                                const isDownloadable = rawFileName.endsWith('_t');
+                                
+                                const cleanFileName = rawFileName.replace(/_[st]$/, '');
 
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
 
