@@ -4,12 +4,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const container = document.getElementById('content-container');
 
+    async function applyCacheBuster(originalUrl, linkElement) {
+        try {
+            const response = await fetch(originalUrl, { method: 'HEAD', cache: 'no-cache' });
+            
+            const lastModified = response.headers.get('Last-Modified');
+            
+            if (lastModified) {
+                const timestamp = new Date(lastModified).getTime();
+                const versionedUrl = `${originalUrl}?v=${timestamp}`;
+                
+                linkElement.href = versionedUrl;
+                
+                linkElement.dataset.finalUrl = versionedUrl;
+            } else {
+                linkElement.dataset.finalUrl = originalUrl;
+            }
+        } catch (error) {
+            console.warn(`Pas de date pour ${originalUrl}`, error);
+            linkElement.dataset.finalUrl = originalUrl;
+        }
+    }
+
     async function loadContent() {
         try {
             const response = await fetch('list.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const categories = await response.json();
 
             if (categories.length === 0) {
@@ -49,27 +69,31 @@ document.addEventListener('DOMContentLoaded', () => {
                             listDiv.className = 'item-list';
 
                             subcat.files.forEach(fileEntry => {
-                                let cleanFileName = fileEntry;
+                                let rawFileName = (typeof fileEntry === 'object') ? fileEntry.name : fileEntry;
+                                let cleanFileName = rawFileName;
                                 let flagsPart = '';
 
-                                const lastDotIndex = fileEntry.lastIndexOf('.');
+                                const lastDotIndex = rawFileName.lastIndexOf('.');
                                 if (lastDotIndex > 0) {
-                                    const firstFlagIndex = fileEntry.indexOf('_', lastDotIndex);
+                                    const firstFlagIndex = rawFileName.indexOf('_', lastDotIndex);
                                     if (firstFlagIndex > -1) {
-                                        cleanFileName = fileEntry.substring(0, firstFlagIndex);
-                                        flagsPart = fileEntry.substring(firstFlagIndex);
+                                        cleanFileName = rawFileName.substring(0, firstFlagIndex);
+                                        flagsPart = rawFileName.substring(firstFlagIndex);
                                     }
                                 }
 
                                 const isProtected = flagsPart.includes('_s');
                                 const isDownloadable = flagsPart.includes('_t');
-                                const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
+                                const filePath = `${cat.folder}/${subcat.name}/${rawFileName}`;
 
                                 const link = document.createElement('a');
                                 link.href = filePath;
+                                link.dataset.finalUrl = filePath; 
                                 link.target = "_blank";
                                 link.rel = "noopener noreferrer";
                                 link.className = 'list-item';
+
+                                applyCacheBuster(filePath, link);
 
                                 const fileNameSpan = document.createElement('span');
                                 fileNameSpan.className = 'item-name';
@@ -88,8 +112,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                         e.preventDefault();
                                         e.stopPropagation();
 
+                                        const urlToUse = link.dataset.finalUrl || link.href;
+
                                         const tempLink = document.createElement('a');
-                                        tempLink.href = filePath;
+                                        tempLink.href = urlToUse;
                                         tempLink.setAttribute('download', cleanFileName);
                                         tempLink.style.display = 'none';
                                         document.body.appendChild(tempLink);
@@ -121,8 +147,8 @@ document.addEventListener('DOMContentLoaded', () => {
             });
 
         } catch (err) {
-            console.error("Erreur lors du chargement de la liste:", err);
-            container.textContent = 'Impossible de charger le contenu. Vérifiez la console pour plus de détails.';
+            console.error("Erreur:", err);
+            container.textContent = 'Impossible de charger le contenu.';
         } finally {
             mainPageBody.classList.add('loaded');
         }
@@ -130,7 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadContent();
 
-    const concoursDate = new Date("2027-04-26"); /* à modifier quand la date sortira */
+    const concoursDate = new Date("2027-04-26"); 
     
     function getDaysLeft(targetDate) {
       const now = new Date();
@@ -143,22 +169,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function updateCountdown() {
       const el = document.getElementById("countdown");
       if (!el) return;
-    
       const days = getDaysLeft(concoursDate);
-    
-      if (isNaN(days)) {
-        el.textContent = "Date invalide.";
-      } else if (days > 1) {
-        el.textContent = `Il reste ${days} jours avant les concours.`;
-      } else if (days === 1) {
-        el.textContent = `Il reste 1 jour avant les concours !`;
-      } else if (days === 0) {
-        el.textContent = `Il reste 0 jour avant les concours !`;
-      } else {
-        el.textContent = `Les concours ont commencé.`;
-      }
+      if (isNaN(days)) el.textContent = "Date invalide.";
+      else if (days > 1) el.textContent = `Il reste ${days} jours avant les concours.`;
+      else if (days === 1) el.textContent = `Il reste 1 jour avant les concours !`;
+      else if (days === 0) el.textContent = `Il reste 0 jour avant les concours !`;
+      else el.textContent = `Les concours ont commencé.`;
     }
-    
     updateCountdown();
     setInterval(updateCountdown, 1000 * 60 * 60);
 });
