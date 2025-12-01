@@ -1,10 +1,11 @@
 % ===================================================================
+% PRÉAMBULE
+% ===================================================================
+
+% ===================================================================
+% COMMENTAIRES À SUPPRIMER AVANT USAGE
 % TEMPLATE SPÉCIALISÉ POUR LES FICHES DE MATHÉMATIQUES
-% ===================================================================
-
-% ===================================================================
-% COMMENTAIRES À SUPPRIMER AVANT USAGE DU TEMPLATE
-
+% CONSIGNES
 % - Conserver uniquement ce qui est réellement indispensable pour réussir
 %   les TD, DS, exercices types et concours.
 % - Garder souvent les définitions essentielles, les propriétés importantes,
@@ -41,7 +42,7 @@
 \usepackage[french]{babel}
 \usepackage{geometry}
 \usepackage{fancyhdr}
-\usepackage{mathtools} % Extension d'amsmath indispensable pour la rigueur (alignements, flèches)
+\usepackage{mathtools}
 \usepackage{amssymb, bm}
 \usepackage{xcolor}
 \usepackage{lastpage}
