@@ -99,8 +99,8 @@
 \titleformat{\subsection}{\bfseries\raggedright}{}{0em}{}
 \titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
 
-% --- Listes à puces (Normalisées) ---
-\setlist[itemize]{label=\textbullet, leftmargin=*, nosep}
+% --- Listes à puces ---
+\setlist[itemize]{label=\raisebox{0.28ex}{\scalebox{0.70}{$\bullet$}}, leftmargin=*, nosep}
 \setlist[enumerate,1]{label=\arabic*., leftmargin=*, nosep}
 \setlist[enumerate,2]{label=\alph*., leftmargin=*, nosep}
 
