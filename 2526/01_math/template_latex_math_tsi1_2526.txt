@@ -67,6 +67,7 @@
 \geometry{
   margin=2cm, top=1.2cm, bottom=1cm, includefoot
 }
+
 \setlength{\footskip}{1.2cm}
 \setlength{\jot}{10pt}
 \allowdisplaybreaks
@@ -215,7 +216,7 @@
 \end{itm}
 
 \begin{itm}[Stru.]
-    Lorsqu'un raisonnement impose une structuration en plusieurs étapes (disjonction de cas, analyse-synthèse...), on adopte une présentation espacée pour clarifier le propos :
+    Lorsqu'un raisonnement impose une structuration en plusieurs étapes (disjonction de cas, analyse-synthèse, raisonnement par récurrence, voies de rédaction...), on adopte une présentation espacée pour clarifier le propos :
     
     \vspace{0.5em}
     
