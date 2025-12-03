@@ -1,5 +1,5 @@
 % ===================================================================
-% TEMPLATE DE RÉFÉRENCE POUR FICHES DE MATHÉMATIQUES (VERSION 2.2)
+% TEMPLATE DE REFERENCE POUR LES PRODUCTIONS SYTHETIQUES DE MATHEMATIQUES
 % ===================================================================
 
 % ===================================================================
@@ -19,14 +19,14 @@
 % - Ne pas conserver les démonstrations, les exemples, remarques ou
 %   discussions non essentielles.
 % - Ne pas conserver les notions et points de vocabulaire évidents que l’on
-%   retient naturellement à par la pratique.
+%   retient naturellement par la pratique.
 % - Ne pas appliquer ces règles mécaniquement : juger ce qui doit être gardé
 %   ou écarté selon son utilité réelle.
 % - Les trois points "..." doivent être remplacés dans le texte par ce qui
 %   est sous-entendu lorsqu’ils ont été utilisés dans le cours pour aller
-%   plus vite ou éviter une répétition.
+%   plus vite.
 % - Le second argument (note) d’un item ne doit être utilisé que si
-%   le cours contient effectivement une note. IMPORTANT
+%   le cours contient effectivement une note.
 % - Le style doit être soutenu, clair et rigoureux.
 % - La rigueur mathématique doit être préservée en toute circonstance.
 % - La ponctuation doit être correctement respectée, y compris dans les
@@ -62,11 +62,13 @@
 \usepackage[most]{tcolorbox}
 \usepackage{xstring}
 \usepackage{xparse}
+\usepackage{array}
 
 \geometry{
   margin=2cm, top=1.2cm, bottom=1cm, includefoot
 }
 \setlength{\footskip}{1.2cm}
+\setlength{\jot}{10pt}
 \allowdisplaybreaks
 
 \definecolor{b}{HTML}{3d62f5}
@@ -102,7 +104,7 @@
 \setlist[enumerate,1]{label=\arabic*., leftmargin=*, nosep}
 \setlist[enumerate,2]{label=\alph*., leftmargin=*, nosep}
 
-% --- Environnement ITEM ---
+% --- Environnement item ---
 \NewDocumentEnvironment{itm}{ o o }
 {
     \begin{tcolorbox}[
@@ -160,12 +162,12 @@
 % CONTENU
 % ===================================================================
 
-\section{0.1. Items}
+\section{0.1. Items et Typographie}
 
 \begin{itm}[Type][Note]
     Ceci constitue le modèle standard d'item. Il est la brique qui structure l'intégralité de la production.
-    Le premier argument correspond au \textit{Type}. Il est d'usage de tronquer ce dernier à la quatrième lettre, suivie d'un point (ex : Défi., Prop., Méth., Noti.). Toutefois, pour les types moins usuels, il est possible de les écrire en entier afin d'éviter toute confusion.
-    Le second argument correspond à la \textit{Note}. Il demeure strictement facultatif. Si l'objet mathématique ne porte pas de nom spécifique (tel que \og Théorème de Pythagore \fg{} ou \og Inégalité triangulaire \fg{}), on s'abstient de renseigner ce champ.
+    Le premier argument correspond au \textit{Type}. Il est d'usage de tronquer ce dernier à la quatrième lettre, suivie d'un point (ex : Défi., Prop., Méth., Noti.).
+    Le second argument correspond à la \textit{Note}. Il demeure strictement facultatif. Si l'objet mathématique ne porte pas de nom spécifique (tel que \og Inégalité de Cauchy-Schwarz \fg{} ou \og Formule de Taylor-Young \fg{}), on s'abstient de renseigner ce champ.
     
     Chaque item a pour vocation de présenter un concept, une notion ou une méthode de manière concise et rigoureuse.
 \end{itm}
@@ -184,9 +186,6 @@
     L'usage de l'italique dans le corps du texte est réservé à la mise en relief d'un terme spécifique ou encore d'une locution étrangère.
     Il ne faut pas le confondre avec l'italique mathématique géré automatiquement par \LaTeX{} : les variables ($x, y$) sont en italique, tandis que les chiffres et fonctions usuelles ($\cos, \ln$) restent droits.
 \end{itm}
-
-
-
 
 \section{0.2. Structures}
 
@@ -216,15 +215,23 @@
 \end{itm}
 
 \begin{itm}[Stru.]
-    Lorsqu'un raisonnement impose une structuration en plusieurs étapes (disjonction de cas, analyse-synthèse, récurrence, voies multiples...), la présentation doit suivre l'exemple suivant.
-    La mise en page reste similaire pour toutes ces situations.
-    Notons que l'usage de listes à puces pour structurer ces étapes est parfaitement autorisé.
+    Lorsqu'un raisonnement impose une structuration en plusieurs étapes (disjonction de cas, analyse-synthèse...), on adopte une présentation espacée pour clarifier le propos :
+    
+    \vspace{0.5em}
     
     \underline{Cas 1} : On décrit ici l'hypothèse de travail initiale ou la première phase du raisonnement. On développe ensuite les arguments logiques correspondants.
     
-    \underline{Cas 2} : On explicite la démarche alternative ou la seconde phase. Cette présentation unifiée permet d'identifier instantanément la structure logique du raisonnement.
+    \vspace{0.5em}
+    
+    \underline{Cas 2} : On explicite la démarche alternative ou la seconde phase. Les sauts de lignes permettent de bien distinguer les blocs logiques.
+    
+    \vspace{0.5em}
     
     \underline{Conclusion} : On effectue enfin la synthèse globale des résultats obtenus.
+    
+    \vspace{0.5em}
+    
+    Pour marquer davantage la structure des différentes étapes, l'usage de listes à puces est parfaitement autorisé.
 \end{itm}
 
 
@@ -256,15 +263,30 @@
 \end{itm}
 
 \begin{itm}[Form.][Quantificateurs et Fonctions]
-    Une définition d'application rigoureuse nécessite un alignement soigné des espaces de départ, d'arrivée et de la correspondance des éléments. L'environnement \texttt{array} est souvent plus précis que de simples lignes :
+    Pour définir formellement une application en précisant ses ensembles de départ et d'arrivée, la norme rigoureuse impose l'usage d'un alignement strict (via \texttt{array}) :
     \[
         \begin{array}{ccccc}
             f & : & \mathbb{R} & \to & \mathbb{R} \\
               &   & x & \mapsto & x^2
         \end{array}
     \]
+    Dans le fil du texte ou pour des usages moins formels, une écriture en ligne est tolérée : $f : x \mapsto x^2$.
+    
     Pour les phrases logiques avec quantificateurs, il faut penser à aérer la formule avec la commande \texttt{\textbackslash quad} pour séparer le sens :
     \[ \forall \varepsilon > 0, \quad \exists \eta > 0, \quad |x-x_0| < \eta \implies |f(x)-f(x_0)| < \varepsilon. \]
+\end{itm}
+
+\begin{itm}[Calc.]
+    Pour les calculs complexes (intégrales, sommes télescopiques, etc.) nécessitant des justifications, l'environnement \texttt{align*} est idéal.
+    On notera l'utilisation de la commande \texttt{\textbackslash text} pour insérer du français proprement dans les maths.
+    
+    Exemple de calcul d'intégrale avec changement de variable :
+    \begin{align*}
+        I &= \int_0^1 \frac{e^t}{1+e^{2t}} \, \mathrm{d}t \\
+          &= \int_1^e \frac{1}{1+u^2} \, \mathrm{d}u \quad \text{car on pose } u = e^t \\
+          &= \big[ \arctan(u) \big]_1^e \\
+          &= \arctan(e) - \frac{\pi}{4}.
+    \end{align*}
 \end{itm}
 
 \begin{itm}[Tabl.]
@@ -284,5 +306,10 @@
     \end{array}
     \]
 \end{itm}
+
+
+\vspace{1cm}
+Cette liste n’est pas limitative : le respect des conventions typographiques mathématiques, associé à une expression claire et concise, demeure la règle fondamentale à observer.
+
 
 \end{document}
