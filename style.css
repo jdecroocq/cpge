@@ -294,7 +294,6 @@ body.loaded #page-loader {
   color: var(--color-5);
   border: var(--border);
   border-radius: var(--border-radius-1);
-  font-weight: bold;
   text-decoration: none;
   cursor: pointer;
 }
@@ -346,7 +345,7 @@ body.loaded #page-loader {
   background: transparent;
   border: none;
   outline: none;
-  color: var(--color-4);
+  color: var(--color-5);
   font-size: 2rem;
   text-align: center;
   width: 140px;
@@ -356,7 +355,7 @@ body.loaded #page-loader {
 }
 
 #target-time::placeholder {
-  color: var(--color-3);
+  color: var(--color-4);
   opacity: 1;
 }
 
