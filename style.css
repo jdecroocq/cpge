@@ -347,9 +347,7 @@ body.loaded #page-loader {
   border: none;
   outline: none;
   color: var(--color-4);
-  font-family: 'Orkney', sans-serif;
   font-size: 2rem;
-  font-weight: bold;
   text-align: center;
   width: 140px;
   padding: 0;
