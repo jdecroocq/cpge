@@ -327,12 +327,12 @@ body.loaded #page-loader {
 
 #timer-display {
   font-size: clamp(3rem, 12vw, 8rem);
-  font-weight: 900;
+  font-weight: 700;
   color: var(--color-6);
   line-height: 1;
   text-align: center;
   margin-bottom: 20px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: SFMono-Regular;
   font-variant-numeric: tabular-nums;
 }
 
