@@ -305,59 +305,78 @@ body.loaded #page-loader {
   text-decoration: none;
 }
 
+#timer-page {
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-button {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  color: var(--color-4);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--border-radius-1);
+  z-index: 100;
+  transition: color 0.2s ease;
+}
+
+.nav-button:hover {
+  color: var(--color-6);
+  text-decoration: none;
+  background-color: var(--color-1);
+}
+
 #timer-container {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh;
-  gap: 20px;
+  gap: 10px;
+  width: 100%;
 }
 
 #timer-display {
-  font-size: clamp(4rem, 15vw, 10rem);
+  font-size: clamp(3rem, 12vw, 8rem);
   font-weight: 900;
   color: var(--color-6);
   line-height: 1;
   font-variant-numeric: tabular-nums;
+  text-align: center;
 }
 
 .input-wrapper {
   display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.5rem;
-  color: var(--color-4);
+  justify-content: center;
 }
 
 #target-time {
   background: transparent;
   border: none;
-  border-bottom: 2px solid var(--color-3);
-  color: var(--color-5);
+  outline: none;
+  color: var(--color-4);
   font-family: 'Orkney', sans-serif;
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  width: 140px;
-  padding: 5px;
-  outline: none;
-  cursor: pointer;
+  width: auto;
+  padding: 0;
+  cursor: text;
+  transition: color 0.2s;
 }
 
-#target-time:focus {
-  border-bottom-color: var(--color-6);
-  color: var(--color-6);
+#target-time:focus,
+#target-time:active {
+  color: var(--color-5);
 }
 
 #target-time::-webkit-calendar-picker-indicator {
-  cursor: pointer;
-  opacity: 0.6;
-  filter: invert(0.5);
-}
-
-.back-link-container {
-    position: absolute;
-    top: 40px;
-    left: 40px;
+  display: none;
+  -webkit-appearance: none;
 }
