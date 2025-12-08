@@ -8,26 +8,17 @@
     <link rel="stylesheet" href="style.css">
     <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body id="timer-page">
 
-    <div class="back-link-container">
-        <a href="index.html" class="tool-button">← Retour</a>
-    </div>
+    <a href="index.html" class="nav-button">Accueil</a>
 
     <main id="timer-container">
-        <!-- Ligne 1 : Le compte à rebours -->
-        <div id="timer-display">--:--</div>
+        <div id="timer-display">00:00:00</div>
 
-        <!-- Ligne 2 : La saisie -->
         <div class="input-wrapper">
-            <span>Cible :</span>
             <input type="time" id="target-time" required>
         </div>
     </main>
-
-    <div class="site-credit" style="position: fixed; bottom: 0; width: 100%; box-sizing: border-box;">
-        <span class="brand-name">Kernel</span>
-    </div>
 
     <script src="countdown.js"></script>
 </body>
