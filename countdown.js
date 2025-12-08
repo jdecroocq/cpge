@@ -9,7 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const rawValue = input.value;
         
         if (rawValue.length !== 5 || !rawValue.includes(':')) {
-            display.textContent = "00:00:00";
+            const defaultTime = "00:00:00";
+            display.textContent = defaultTime;
+            document.title = "Minuteur";
             return;
         }
 
@@ -19,6 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isNaN(targetHours) || isNaN(targetMinutes) || targetHours > 23 || targetMinutes > 59) {
             display.textContent = "00:00:00";
+            document.title = "Minuteur";
             return;
         }
 
@@ -36,12 +39,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const minutes = Math.floor((diff / (1000 * 60)) % 60);
         const seconds = Math.floor((diff / 1000) % 60);
 
-        display.textContent = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        const timeString = `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+
+        display.textContent = timeString;
+        
+        document.title = timeString;
     }
 
     input.addEventListener('input', (e) => {
         let val = e.target.value.replace(/\D/g, '');
         if (val.length > 4) val = val.slice(0, 4);
+
         if (val.length > 2) {
             e.target.value = val.slice(0, 2) + ':' + val.slice(2);
         } else {
