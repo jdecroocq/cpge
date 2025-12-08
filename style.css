@@ -295,7 +295,8 @@ body.loaded #page-loader {
   border: var(--border);
   border-radius: var(--border-radius-1);
   font-weight: bold;
-  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .tool-button:hover {
@@ -306,40 +307,31 @@ body.loaded #page-loader {
 }
 
 #timer-page {
+  position: relative;
   height: 100vh;
+  margin: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.nav-button {
+.abs-top-left {
   position: absolute;
   top: 30px;
   left: 30px;
-  padding: 10px 20px;
-  font-weight: bold;
-  color: var(--color-4);
-  background: transparent;
-  border: 1px solid transparent;
-  border-radius: var(--border-radius-1);
-  z-index: 100;
-  transition: color 0.2s ease;
-}
-
-.nav-button:hover {
-  color: var(--color-6);
-  text-decoration: none;
-  background-color: var(--color-1);
+  z-index: 10;
 }
 
 #timer-container {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   width: 100%;
+  height: 100%;
+  padding-bottom: 15vh;
+  box-sizing: border-box;
 }
 
 #timer-display {
@@ -349,11 +341,13 @@ body.loaded #page-loader {
   line-height: 1;
   font-variant-numeric: tabular-nums;
   text-align: center;
+  margin-bottom: 20px;
 }
 
 .input-wrapper {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
 
 #target-time {
