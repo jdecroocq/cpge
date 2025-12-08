@@ -296,6 +296,7 @@ body.loaded #page-loader {
   border-radius: var(--border-radius-1);
   font-weight: bold;
   text-decoration: none;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
@@ -307,20 +308,12 @@ body.loaded #page-loader {
 }
 
 #timer-page {
-  position: relative;
   height: 100vh;
   margin: 0;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.abs-top-left {
-  position: absolute;
-  top: 30px;
-  left: 30px;
-  z-index: 10;
 }
 
 #timer-container {
@@ -359,18 +352,18 @@ body.loaded #page-loader {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  width: auto;
+  width: 140px;
   padding: 0;
   cursor: text;
   transition: color 0.2s;
 }
 
+#target-time::placeholder {
+  color: var(--color-3);
+  opacity: 1;
+}
+
 #target-time:focus,
 #target-time:active {
   color: var(--color-5);
-}
-
-#target-time::-webkit-calendar-picker-indicator {
-  display: none;
-  -webkit-appearance: none;
 }
