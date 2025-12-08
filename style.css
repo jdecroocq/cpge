@@ -286,3 +286,78 @@ body.loaded #page-loader {
   color: var(--color-6);
   border-color: var(--color-6);
 }
+
+.tool-button {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-1);
+  color: var(--color-5);
+  border: var(--border);
+  border-radius: var(--border-radius-1);
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+.tool-button:hover {
+  background-color: var(--color-6);
+  color: var(--color-0);
+  border-color: var(--color-6);
+  text-decoration: none;
+}
+
+#timer-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh;
+  gap: 20px;
+}
+
+#timer-display {
+  font-size: clamp(4rem, 15vw, 10rem);
+  font-weight: 900;
+  color: var(--color-6);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.5rem;
+  color: var(--color-4);
+}
+
+#target-time {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--color-3);
+  color: var(--color-5);
+  font-family: 'Orkney', sans-serif;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 140px;
+  padding: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+#target-time:focus {
+  border-bottom-color: var(--color-6);
+  color: var(--color-6);
+}
+
+#target-time::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+  opacity: 0.6;
+  filter: invert(0.5);
+}
+
+.back-link-container {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
