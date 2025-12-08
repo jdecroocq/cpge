@@ -9,17 +9,12 @@
     <meta name="theme-color" content="#ffffff">
 </head>
 <body id="timer-page">
-
-    <a href="index.html" class="tool-button abs-top-left">Accueil</a>
-
     <main id="timer-container">
         <div id="timer-display">00:00:00</div>
-        
         <div class="input-wrapper">
-            <input type="time" id="target-time" required>
+            <input type="text" id="target-time" placeholder="--:--" inputmode="numeric" maxlength="5" autocomplete="off">
         </div>
     </main>
-
     <script src="countdown.js"></script>
 </body>
 </html>
