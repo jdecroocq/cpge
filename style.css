@@ -296,7 +296,6 @@ body.loaded #page-loader {
   border-radius: var(--border-radius-1);
   font-weight: bold;
   text-decoration: none;
-  transition: all 0.2s ease;
   cursor: pointer;
 }
 
