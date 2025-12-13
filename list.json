@@ -1,33 +1,5 @@
 [    
     {
-        "title": "Global",
-        "folder": "global",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "nt_alphabet_grec.pdf_s",
-                    "nt_puissance_dix.pdf_s",
-                    "nt_long_air_vol.pdf_s"
-                        ]
-            },
-            {
-                "name": "04_info",
-                "files": [
-                    "python_3.pdf",
-                    "memento_python_3.pdf"
-                ]
-            },
-            {
-                "name": "05_fr",
-                "files": [
-                    "methode_resume.pdf_s",
-                    "methode_colle.pdf_s"
-                ]
-            }
-        ]
-    },
-    {
         "title": "2025-2026",
         "folder": "2526",
         "subcategories": [
@@ -84,5 +56,33 @@
         "title": "2026-2027",
         "folder": "2627",
         "subcategories": []
+    },
+    {
+        "title": "Global",
+        "folder": "global",
+        "subcategories": [
+            {
+                "name": "00_global",
+                "files": [
+                    "nt_alphabet_grec.pdf_s",
+                    "nt_puissance_dix.pdf_s",
+                    "nt_long_air_vol.pdf_s"
+                        ]
+            },
+            {
+                "name": "04_info",
+                "files": [
+                    "python_3.pdf",
+                    "memento_python_3.pdf"
+                ]
+            },
+            {
+                "name": "05_fr",
+                "files": [
+                    "methode_resume.pdf_s",
+                    "methode_colle.pdf_s"
+                ]
+            }
+        ]
     }
 ]
