@@ -64,10 +64,11 @@
     partopsep=0pt,
     leftmargin=*
 }
+
 \newlist{subitemize}{itemize}{1}
 
 \setlist[subitemize]{
-    label=$\circ$,
+    label=\raisebox{0.28ex}{\scalebox{0.70}{$\bullet$}},
     nosep, 
     topsep=0pt,
     leftmargin=*,
