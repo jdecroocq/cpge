@@ -57,6 +57,7 @@
 \usepackage{amssymb, bm}
 \usepackage{stmaryrd}
 \usepackage{mathrsfs}
+\usepackage{dsfont}
 
 \usepackage{xcolor}
 \usepackage[most]{tcolorbox}
@@ -163,6 +164,7 @@
 % CONTENU
 % ===================================================================
 
+
 \section{0.1. Items et Typographie}
 
 \begin{itm}[Type][Note]
@@ -187,6 +189,8 @@
     L'usage de l'italique dans le corps du texte est réservé à la mise en relief d'un terme spécifique ou encore d'une locution étrangère.
     Il ne faut pas le confondre avec l'italique mathématique géré automatiquement par \LaTeX{} : les variables ($x, y$) sont en italique, tandis que les chiffres et fonctions usuelles ($\cos, \ln$) restent droits.
 \end{itm}
+
+
 
 \section{0.2. Structures}
 
