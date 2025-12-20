@@ -19,13 +19,13 @@
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{array}
+\usepackage{lastpage}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{multirow}
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage[version=4]{mhchem}
-\usepackage{lastpage}
 \usepackage{bm}
 \usepackage{ragged2e}
 \usepackage{titlesec}
