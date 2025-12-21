@@ -16,10 +16,6 @@
             {
                 "name": "01_math",
                 "files": [
-                    "template_latex_math_tsi1_2526.txt_t",
-                    "template_latex_math_tsi1_2526.pdf",
-                    "consignes_ecrits.pdf_s",
-                    "coordonnees_11.pdf_s",
                     "01_prat_calc_1.pdf‎",
                     "02_fond_2_logique.pdf",
                     "09_fonc_var_ree_1_etud_glob.pdf",
@@ -31,7 +27,11 @@
                     "15_prat_calc_4_primi_integ.pdf",
                     "00.01_cours_eb.pdf_s",
                     "00.01_cours_eb_edit_wn.pdf_s",
-                    "00.02_calc_derivees_wn.pdf_s"
+                    "00.02_calc_derivees_wn.pdf_s",
+                    "consignes_ecrits.pdf_s",
+                    "coordonnees_11.pdf_s",
+                    "template_latex_math_tsi1_2526.txt_t",
+                    "template_latex_math_tsi1_2526.pdf"
                         ]
             },
             {
