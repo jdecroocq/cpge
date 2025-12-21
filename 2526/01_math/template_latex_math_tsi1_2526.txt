@@ -2,8 +2,7 @@
 % PRÉAMBULE 
 % ===================================================================
 
-% DIRECTIVES
-%
+% DIRECTIVES :
 % - Ce template définit la FORME. Le FOND doit être une synthèse
 %   rigoureuse du cours.
 % - Les textes présents ci-dessous sont des "Lorem Ipsum" intelligents :
@@ -24,7 +23,11 @@
 %   est sous-entendu lorsqu’ils ont été utilisés dans le cours pour aller
 %   plus vite.
 % - Le second argument (note) d’un item ne doit être utilisé que si
-%   le cours contient effectivement une note.
+%   le cours manuscrit contient effectivement une note.
+% - Écrire la note entre parenthèses s'il s'agit d'une appellation
+%   personnelle ou d'un repère structurel (ex : Prop. (Absorbance 
+%   et produit nul)). Mais ne pas mettre de parenthèses s'il s'agit d'une
+%   dénomination usuelle ou d'un théorème reconnu (ex : Prop. Formule de Pascal).
 % - Le style doit être soutenu, clair et rigoureux.
 % - La rigueur mathématique doit être préservée en toute circonstance.
 % - La ponctuation doit être correctement respectée, y compris dans les
@@ -35,6 +38,7 @@
 %   erreur ou améliorer le propos (notamment en utilisant des notations
 %   mathématiques lorsqu’elles allègent la lecture).
 % - Ne pas utiliser le gras dans le corps du texte. STRICTEMENT interdit.
+% - Il est bon de faire usage d'espaces insécables lorsque nécessaire.
 % ===================================================================
 
 \documentclass[a4paper,12pt]{article}
@@ -42,7 +46,6 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[french]{babel}
-
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
@@ -50,14 +53,14 @@
 \usepackage{enumitem}
 \usepackage{datetime}
 \usepackage{multicol}
-
 \usepackage{mathtools}
 \usepackage{amssymb, bm}
 \usepackage{stmaryrd}
 \usepackage{mathrsfs}
 \usepackage{dsfont}
-
 \usepackage{xcolor}
+\usepackage{tikz}
+\usepackage{tkz-tab}
 \usepackage[most]{tcolorbox}
 \usepackage{xstring}
 \usepackage{xparse}
@@ -127,7 +130,7 @@
     ]
     \IfNoValueF{#1}{\noindent\textbf{#1}}%
     \IfNoValueF{#2}{%
-        \if\relax\detokenize{#2}\relax\else\nobreak\ (#2)\fi%
+        \if\relax\detokenize{#2}\relax\else\nobreak\ #2\fi%
     }%
     \par\nobreak
 }
@@ -165,12 +168,11 @@
 
 \section{0.1. Items et Typographie}
 
-\begin{itm}[Type][Note]
+\begin{itm}[Type][(Note)]
     Ceci constitue le modèle standard d'item. Il est la brique qui structure l'intégralité de la production.
-    Le premier argument correspond au \textit{Type}. Il est d'usage de tronquer ce dernier à la quatrième lettre, suivie d'un point (ex : Défi., Prop., Méth., Noti.).
-    Le second argument correspond à la \textit{Note}. Il demeure strictement facultatif. Si l'objet mathématique ne porte pas de nom spécifique (tel que \og Inégalité de Cauchy-Schwarz \fg{} ou \og Formule de Taylor-Young \fg{}), on s'abstient de renseigner ce champ.
-    
-    Chaque item a pour vocation de présenter un concept, une notion ou une méthode de manière concise et rigoureuse.
+    Le premier argument correspond au \textit{Type}. Il est d'usage de tronquer ce dernier à la quatrième lettre (ex : Défi., Prop., Méth., Noti., Figu.).\\
+    Le second argument correspond à la \textit{Note}. S'il s'agit d'une appellation personnelle ou d'un repère structurel, on l'écrit entre parenthèses.
+    Mais si la note est une dénomination usuelle ou officielle, on l'écrit sans parenthèses.
 \end{itm}
 
 \begin{itm}[Défi.]
@@ -226,7 +228,7 @@
     
     \vspace{0.5em}
     
-    \underline{Cas 2} : On explicite la démarche alternative ou la seconde phase. Les sauts de lignes permettent de bien distinguer les blocs logiques.
+    \underline{Cas 2} : On explicite la démarche alternative ou la seconde phase. Les sauts de ligne permettent de bien distinguer les blocs logiques.
     
     \vspace{0.5em}
     
@@ -241,7 +243,7 @@
 
 \section{0.3. Mise en page avancée}
 
-\begin{itm}[Méth.][Alignements et Systèmes]
+\begin{itm}[Méth.][(Alignements et Systèmes)]
     Pour rédiger une succession d'équivalences ou résoudre un système d'équations, il convient d'utiliser des environnements assurant un alignement vertical rigoureux des symboles.
     \begin{align*}
         (S) \iff & 2x + 3y = 5 \\
@@ -265,7 +267,7 @@
     L'usage de notations compactes et lisibles est essentiel pour la compréhension globale.
 \end{itm}
 
-\begin{itm}[Form.][Quantificateurs et Fonctions]
+\begin{itm}[Form.][(Quantificateurs et Fonctions)]
     Pour définir formellement une application en précisant ses ensembles de départ et d'arrivée, la norme rigoureuse impose l'usage d'un alignement strict (via \texttt{array}) :
     \[
         \begin{array}{ccccc}
@@ -273,7 +275,7 @@
               &   & x & \mapsto & x^2
         \end{array}
     \]
-    Dans le fil du texte ou pour des usages moins formels, une écriture en ligne est tolérée : $f : x \mapsto x^2$.
+    Dans le fil du texte ou pour des usages moins formels, une écriture en ligne est tolérée : $f~:~x~\mapsto~x^2$.
     
     Pour les phrases logiques avec quantificateurs, il faut penser à aérer la formule avec la commande \texttt{\textbackslash quad} pour séparer le sens :
     \[ \forall \varepsilon > 0, \quad \exists \eta > 0, \quad |x-x_0| < \eta \implies |f(x)-f(x_0)| < \varepsilon. \]
@@ -310,8 +312,54 @@
     \]
 \end{itm}
 
+\begin{itm}[Tabl.][(Variations)]
+    Exemple de tableau de signes et de variations.
+\begin{center}
+    \shorthandoff{:}
+    \small
+    \begin{tikzpicture}
+        \tkzTabInit[lgt=1.5, espcl=2]{ $x$ / 0.7, $f'(x)$ / 0.7, $f(x)$ / 1.5 }{ $-\infty$, $-1$, $1$, $+\infty$ }
+        \tkzTabLine{ , +, z, -, z, +, }
+        \tkzTabVar{ -/ $-\infty$, +/ $3$, -/ $-1$, +/ $+\infty$ }
+    \end{tikzpicture}
+    \end{center}
+\end{itm}
 
-\vspace{1cm}
+\begin{itm}[Figu.]
+    Il est bon de faire usage de figures pour illustrer certains concepts.
+    \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \draw[->] (-1.5,0) -- (1.5,0);
+        \draw[->] (0,-1.2) -- (0,1.5);
+        \draw[thin] (0,0) circle (1);
+        \draw[very thick] (1,0) arc (0:180:1);
+        \coordinate (X) at (-0.6, 0);
+        \coordinate (M) at ({acos(-0.6)}:1);
+        \draw (X) node[below] {$x$} -- (M);
+        \draw (X) -- +(0, 0.05) -- +(0, -0.05);
+        \draw[dashed] (0,0) -- (M);
+        \fill (M) circle (1pt) node[above left] {$\text{Arccos}(x)$};
+        \node[below right] at (1,0) {\small $1$};
+        \node[below left] at (-1,0) {\small $-1$};
+    \end{tikzpicture}
+    \end{center}
+\end{itm}
+
+\begin{itm}[Figu.]
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+        \draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
+        \draw[thick] plot [domain=-1:1, samples=100] (\x, {rad(acos(\x))});
+        \draw[dashed] (-1,0) node[below] {-1} -- (-1,3.14) -- (0,3.14) node[right] {$\pi$};
+        \draw (1,0.1) -- (1,-0.1) node[below] {1};
+    \end{tikzpicture}
+    \end{center}
+\end{itm}
+
+
+
+\vspace{2cm}
 Cette liste n’est pas limitative : le respect des conventions typographiques mathématiques, associé à une expression claire et concise, demeure la règle fondamentale à observer.
 
 
