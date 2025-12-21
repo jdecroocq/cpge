@@ -1,10 +1,8 @@
 % ===================================================================
-% TEMPLATE DE REFERENCE POUR LES PRODUCTIONS SYTHETIQUES DE MATHEMATIQUES
+% PRÉAMBULE 
 % ===================================================================
 
-% ===================================================================
 % DIRECTIVES
-% ===================================================================
 %
 % - Ce template définit la FORME. Le FOND doit être une synthèse
 %   rigoureuse du cours.
