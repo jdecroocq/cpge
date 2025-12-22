@@ -1,7 +1,7 @@
 {
   "name": "Kernel",
   "short_name": "Kernel",
-  "start_url": "index.html",
+  "start_url": "https://jdecroocq.github.io/cpge/index.html",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
