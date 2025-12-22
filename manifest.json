@@ -1,8 +1,9 @@
 {
   "name": "Kernel",
   "short_name": "Kernel",
-  "start_url": "https://jdecroocq.github.io/cpge/index.html",
-  "display": "standalone",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
   "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "description": "Documents CPGE TSI - Jean D.",
