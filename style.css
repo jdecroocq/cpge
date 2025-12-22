@@ -256,7 +256,9 @@ body.loaded #page-loader {
 }
 
 #funny-message {
-  margin: 0;
+  margin: 8px;
+  padding: 0 32px;
+  line-height: 1;
   font-size: 1.5rem;
   color: var(--color-5);
 }
