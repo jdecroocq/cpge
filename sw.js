@@ -1,20 +1,22 @@
-const CACHE_NAME = 'kernel-v1';
-const ASSETS_TO_CACHE = [
-  '/',
-  '/index.html',
-  '/style.css',
-  '/script.js',
-  '/manifest.json',
-  '/kernel_icon_round_32.png',
-  '/kernel_icon_a_256.png'
+const CACHE_NAME = 'kernel';
+const FILES_TO_CACHE = [
+  './',
+  './index.html',
+  './style.css',
+  './script.js',
+  './manifest.json',
+  './kernel_icon_round_32.png',
+  './kernel_icon_a_256.png'
 ];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      return cache.addAll(ASSETS_TO_CACHE);
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
+
+  self.skipWaiting();
 });
 
 self.addEventListener('activate', (event) => {
@@ -27,13 +29,24 @@ self.addEventListener('activate', (event) => {
       }));
     })
   );
+  self.clients.claim();
 });
 
 self.addEventListener('fetch', (event) => {
-  
   event.respondWith(
-    caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request)
+      .then((response) => {
+        if (!response || response.status !== 200 || response.type !== 'basic') {
+          return response;
+        }
+        const responseToCache = response.clone();
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(event.request, responseToCache);
+        });
+        return response;
+      })
+      .catch(() => {
+        return caches.match(event.request);
+      })
   );
 });
