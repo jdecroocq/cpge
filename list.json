@@ -80,6 +80,13 @@
                         ]
             },
             {
+                "name": "01_math",
+                "files": [
+                    "cahier_de_calcul_enonces.pdf_s",
+                    "cahier_de_calcul_corriges.pdf_s"
+                        ]
+            },
+            {
                 "name": "04_info",
                 "files": [
                     "python_3.pdf",
