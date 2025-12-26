@@ -38,6 +38,8 @@
 %   erreur ou améliorer le propos (notamment en utilisant des notations
 %   mathématiques lorsqu’elles allègent la lecture).
 % - Ne pas utiliser le gras dans le corps du texte. STRICTEMENT interdit.
+% - Il est necessaire de faire usage de l'italique pour mettre en évidence
+%   un terme défini.
 % - Il est bon de faire usage d'espaces insécables lorsque nécessaire.
 % ===================================================================
 
