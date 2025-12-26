@@ -22,8 +22,10 @@
 % - Les trois points "..." doivent être remplacés dans le texte par ce qui
 %   est sous-entendu lorsqu’ils ont été utilisés dans le cours pour aller
 %   plus vite.
-% - Le second argument (note) d’un item ne doit être utilisé que si
-%   le cours manuscrit contient effectivement une note.
+% - Le second argument (note) d’un item doit être utilisé uniquement pour
+%   préciser le contenu de l'itm (permettant ainsi de le nommer).
+%   Par exemple une définition qui introduit déjà un terme (en italique)
+%   n'a donc pas besoin de note précisant le contenu de la définition.
 % - Écrire la note entre parenthèses s'il s'agit d'une appellation
 %   personnelle ou d'un repère structurel (ex : Prop. (Absorbance 
 %   et produit nul)). Mais ne pas mettre de parenthèses s'il s'agit d'une
