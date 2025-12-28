@@ -28,7 +28,12 @@
 \usepackage[version=4]{mhchem}
 \usepackage{bm}
 \usepackage{ragged2e}
+\usepackage{dsfont}
 \usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{xstring}
+\usepackage{xparse}
 \usepackage{enumitem}
 \usepackage{datetime}
 \usepackage[most]{tcolorbox}
@@ -310,7 +315,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
 \end{itemize}
 
 
-\section{Mise en page avancée}
+\section{Mises en page avancées}
 
 \noindent
 \begin{minipage}[c]{0.55\textwidth}
@@ -361,6 +366,43 @@ def calculer_aire(rayon): # Calcule l'aire d'un cercle
         aire = 3.14 * (rayon ** 2)
         return aire
 \end{lstlisting}
+\end{itemize}
+
+
+
+\section{Figures}
+
+\begin{itemize}
+    \item Il est bon de faire usage de figures pour illustrer certains concepts.
+    \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \draw[->] (-1.5,0) -- (1.5,0);
+        \draw[->] (0,-1.2) -- (0,1.5);
+        \draw[thin] (0,0) circle (1);
+        \draw[very thick] (1,0) arc (0:180:1);
+        \coordinate (X) at (-0.6, 0);
+        \coordinate (M) at ({acos(-0.6)}:1);
+        \draw (X) node[below] {$x$} -- (M);
+        \draw (X) -- +(0, 0.05) -- +(0, -0.05);
+        \draw[dashed] (0,0) -- (M);
+        \fill (M) circle (1pt) node[above left] {$\text{Arccos}(x)$};
+        \node[below right] at (1,0) {\small $1$};
+        \node[below left] at (-1,0) {\small $-1$};
+    \end{tikzpicture}
+    \end{center}
+
+
+    \item En voici une autre. Pour que la vue contribue à l'intellect !
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+        \draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
+        \draw[thick] plot [domain=-1:1, samples=100] (\x, {rad(acos(\x))});
+        \draw[dashed] (-1,0) node[below] {-1} -- (-1,3.14) -- (0,3.14) node[right] {$\pi$};
+        \draw (1,0.1) -- (1,-0.1) node[below] {1};
+    \end{tikzpicture}
+    \end{center}
+
 \end{itemize}
 
 \end{document}
