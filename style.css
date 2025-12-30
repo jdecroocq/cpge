@@ -125,7 +125,7 @@ body.loaded #page-loader {
   text-align: center;
 }
 
-quick-actions-container {
+.quick-actions-container {
   position: relative;
   display: flex;
   align-items: center;
