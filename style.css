@@ -120,7 +120,7 @@ body.loaded #page-loader {
 
 #countdown {
   font-size: 1.1rem;
-  margin: 0 0 clamp(64px, 10vh, 120px) 0;
+  margin: 0 0 32px 0;
   color: var(--color-4);
   text-align: center;
 }
@@ -129,32 +129,29 @@ body.loaded #page-loader {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
-  margin: 0 0 64px 0;
+  gap: 16px;
+  margin: 0 0 clamp(64px, 10vh, 120px) 0;
 }
 
 .action-btn {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60px;
-  height: 60px;
+  width: 42px;
+  height: 42px;
   background-color: var(--color-1);
   border: var(--border);
   border-radius: 50%;
-  transition: all 0.2s ease-out;
 }
 
 .action-btn:hover {
   background-color: var(--color-2);
-  border-color: var(--color-6);
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  text-decoration: none;
 }
 
 .q-icon {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   background-color: var(--color-5);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -166,7 +163,11 @@ body.loaded #page-loader {
 }
 
 .icon-timer {
-  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='14' r='8'%3E%3C/circle%3E%3Cline x1='12' y1='14' x2='15.5' y2='17.5'%3E%3C/line%3E%3Cline x1='12' y1='6' x2='12' y2='2'%3E%3C/line%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='13' r='8'%3E%3C/circle%3E%3Cpath d='M12 9v4l2 2'%3E%3C/path%3E%3Cpath d='M5 3L2 6'%3E%3C/path%3E%3Cpath d='M22 6L19 3'%3E%3C/path%3E%3Cpath d='M12 2v4'%3E%3C/path%3E%3C/svg%3E");
+}
+
+.icon-todo {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 11l3 3L22 4'%3E%3C/path%3E%3Cpath d='M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11'%3E%3C/path%3E%3C/svg%3E");
 }
 
 .icon-github {
