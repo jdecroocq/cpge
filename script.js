@@ -183,4 +183,21 @@ document.addEventListener('DOMContentLoaded', () => {
     
     updateCountdown();
     setInterval(updateCountdown, 1000 * 60 * 60);
+
+
+    const forceExternalLinks = document.querySelectorAll('a[data-force-external="true"]');
+    
+    const isPWA = window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+
+    if (isPWA) {
+        forceExternalLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                let targetUrl = link.href;
+
+                window.open(targetUrl, '_blank');
+            });
+        });
+    }
 });
