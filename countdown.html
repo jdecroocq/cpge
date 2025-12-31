@@ -7,6 +7,14 @@
     <link rel="icon" type="image/png" href="kernel_icon_round_32.png">
     <link rel="stylesheet" href="style.css">
     <meta name="theme-color" content="#ffffff">
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 <body id="timer-page">
     <main id="timer-container">
