@@ -6,10 +6,10 @@
   font-style: normal;
 }
 
-.theme-transition body,
-.theme-transition .action-btn,
-.theme-transition .q-icon {
-  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+.theme-transition,
+.theme-transition * {
+  transition: all 0.4s ease !important;
+  transition-delay: 0s !important;
 }
 
 :root {
