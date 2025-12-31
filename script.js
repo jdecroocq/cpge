@@ -1,23 +1,31 @@
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'dark') {
+(function () {
+  const savedTheme = localStorage.getItem('theme');
+  if (savedTheme === 'dark') {
     document.body.classList.add('dark-mode');
-}
+  }
 
-document.addEventListener('DOMContentLoaded', () => {
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            document.body.classList.toggle('dark-mode');
-            
-            if (document.body.classList.contains('dark-mode')) {
-                localStorage.setItem('theme', 'dark');
-            } else {
-                localStorage.setItem('theme', 'light');
-            }
-        });
+  document.addEventListener('DOMContentLoaded', () => {
+    const themeBtn = document.getElementById('theme-toggle');
+
+    if (themeBtn) {
+      themeBtn.addEventListener('click', function () {
+        document.documentElement.classList.add('theme-transition');
+
+        document.body.classList.toggle('dark-mode');
+
+        if (document.body.classList.contains('dark-mode')) {
+          localStorage.setItem('theme', 'dark');
+        } else {
+          localStorage.setItem('theme', 'light');
+        }
+
+        setTimeout(() => {
+          document.documentElement.classList.remove('theme-transition');
+        }, 1000);
+      });
     }
-});
+  });
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
     const mainPageBody = document.getElementById('main-page');
