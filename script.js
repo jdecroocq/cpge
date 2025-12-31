@@ -6,16 +6,18 @@
 
   document.addEventListener('DOMContentLoaded', () => {
     const themeBtn = document.getElementById('theme-toggle');
-
     if (themeBtn) {
       themeBtn.addEventListener('click', function () {
+        document.documentElement.classList.add('theme-transition');
         document.documentElement.classList.toggle('dark-mode');
-
         if (document.documentElement.classList.contains('dark-mode')) {
           localStorage.setItem('theme', 'dark');
         } else {
           localStorage.setItem('theme', 'light');
         }
+        setTimeout(() => {
+          document.documentElement.classList.remove('theme-transition');
+        }, 500); 
       });
     }
   });
