@@ -271,8 +271,6 @@ body.dark-mode .icon-theme {
 
 .list-item:hover {
   background-color: var(--color-2);
-  color: var(--color-6);
-  font-weight: bold;
   text-decoration: none;
 }
 
@@ -291,10 +289,6 @@ body.dark-mode .icon-theme {
     mask-repeat: no-repeat;
     mask-position: center;
     flex-shrink: 0;
-}
-
-.list-item:hover .icon {
-    background-color: var(--color-6);
 }
 
 .icon-protected {
