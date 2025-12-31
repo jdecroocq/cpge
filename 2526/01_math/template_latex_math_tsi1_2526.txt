@@ -53,6 +53,7 @@
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
+\usepackage{soul}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{datetime}
