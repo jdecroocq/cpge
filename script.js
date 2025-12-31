@@ -1,7 +1,7 @@
 (function () {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
-    document.body.classList.add('dark-mode');
+    document.documentElement.classList.add('dark-mode');
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -9,19 +9,13 @@
 
     if (themeBtn) {
       themeBtn.addEventListener('click', function () {
-        document.documentElement.classList.add('theme-transition');
+        document.documentElement.classList.toggle('dark-mode');
 
-        document.body.classList.toggle('dark-mode');
-
-        if (document.body.classList.contains('dark-mode')) {
+        if (document.documentElement.classList.contains('dark-mode')) {
           localStorage.setItem('theme', 'dark');
         } else {
           localStorage.setItem('theme', 'light');
         }
-
-        setTimeout(() => {
-          document.documentElement.classList.remove('theme-transition');
-        }, 1000);
       });
     }
   });
