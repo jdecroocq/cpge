@@ -16,7 +16,7 @@
 \usepackage{multicol}
 \usepackage{indentfirst}
 \usepackage{fancyhdr}
- \usepackage{soul}
+\usepackage{soul}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{array}
