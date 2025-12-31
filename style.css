@@ -33,7 +33,7 @@
   --border-radius-1: 8px;
 }
 
-body.dark-mode {
+:root.dark-mode {
   --color-0-rgb: 18, 18, 18;
   --color-1-rgb: 30, 30, 30;
   --color-2-rgb: 45, 45, 45;
