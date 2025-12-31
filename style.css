@@ -34,12 +34,12 @@
 }
 
 :root.dark-mode {
-  --color-0-rgb: 18, 18, 18;
-  --color-1-rgb: 30, 30, 30;
-  --color-2-rgb: 45, 45, 45;
-  --color-3-rgb: 64, 64, 64;
-  --color-4-rgb: 150, 150, 150;
-  --color-5-rgb: 230, 230, 230;
+  --color-0-rgb: 0, 0, 0;
+  --color-1-rgb: 12, 12, 12;
+  --color-2-rgb: 24, 24, 24;
+  --color-3-rgb: 32, 32, 32;
+  --color-4-rgb: 194, 194, 194;
+  --color-5-rgb: 235, 235, 235;
 }
 
 body::-webkit-scrollbar {
