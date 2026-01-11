@@ -6,7 +6,6 @@ import re
 import subprocess
 import datetime
 
-# --- CONFIGURATION ---
 PARENT_DIR = ".." 
 OUTPUT_FILENAME = "cours_complet_math_tsi1_jean_decroocq"
 
