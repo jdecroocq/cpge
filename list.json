@@ -91,6 +91,12 @@
                         ]
             },
             {
+                "name": "02_pc",
+                "files": [
+                    "molecules_ions.pdf"
+                        ]
+            },
+            {
                 "name": "04_info",
                 "files": [
                     "python_3.pdf",
