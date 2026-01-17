@@ -274,14 +274,15 @@
 \end{itm}
 
 \begin{itm}[Form.][(Quantificateurs et Fonctions)]
-    Pour définir formellement une application en précisant ses ensembles de départ et d'arrivée, la norme rigoureuse impose l'usage d'un alignement strict (via \texttt{array}) :
+    Pour définir formellement une application en précisant ses ensembles de départ et d'arrivée, la norme rigoureuse impose l'usage d'un alignement :
     \[
-        \begin{array}{ccccc}
-            f & : & \mathbb{R} & \to & \mathbb{R} \\
-              &   & x & \mapsto & x^2
-        \end{array}
+        \setlength{\jot}{0pt}
+        \begin{aligned}
+            f \colon \mathbb{R} &\to \mathbb{R} \\
+            x &\mapsto x^2 + \ln(x) - 1.
+        \end{aligned}
     \]
-    Dans le fil du texte ou pour des usages moins formels, une écriture en ligne est tolérée : $f~:~x~\mapsto~x^2$.
+    Dans le fil du texte ou pour des usages moins formels, une écriture en ligne est tolérée : $ {f \colon x \mapsto x^2} $.
     
     Pour les phrases logiques avec quantificateurs, il faut penser à aérer la formule avec la commande \texttt{\textbackslash quad} pour séparer le sens :
     \[ \forall \varepsilon > 0, \quad \exists \eta > 0, \quad |x-x_0| < \eta \implies |f(x)-f(x_0)| < \varepsilon. \]
