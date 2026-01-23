@@ -9,16 +9,6 @@
 %   ils expliquent comment utiliser le template. Ils doivent être
 %   remplacés par le vrai cours.
 % - Supprimer tous les commentaires (%) avant l'export final.
-% - Conserver uniquement ce qui est réellement indispensable pour réussir
-%   les TD, DS, exercices types et concours.
-% - Garder souvent les définitions essentielles, les propriétés importantes,
-%   les formules fondamentales et les méthodes indispensables.
-% - Ne pas conserver les démonstrations, les exemples, remarques ou
-%   discussions non essentielles.
-% - Ne pas conserver les notions et points de vocabulaire évidents que l’on
-%   retient naturellement par la pratique.
-% - Ne pas appliquer ces règles mécaniquement : juger ce qui doit être gardé
-%   ou écarté selon son utilité réelle.
 % - Les trois points "..." doivent être remplacés dans le texte par ce qui
 %   est sous-entendu lorsqu’ils ont été utilisés dans le cours pour aller
 %   plus vite.
