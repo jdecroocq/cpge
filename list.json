@@ -115,6 +115,13 @@
                 ]
             },
             {
+                "name": "06_lv",
+                "files": [
+                    "meth_synthese.pdf_s",
+                    "meth_colle.pdf_s"
+                        ]
+            },
+            {
                 "name": "07_tipe",
                 "files": [
                     "support_presentation.pdf_s"
