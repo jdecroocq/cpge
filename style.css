@@ -1,21 +1,21 @@
 @font-face {
   font-family: 'Orkney';
-  src: url('/fonts/orkney-regular-webfont.woff2') format('woff2'),
-       url('/fonts/orkney-regular-webfont.woff') format('woff');
+  src: url('/cpge/fonts/orkney-regular-webfont.woff2') format('woff2'),
+       url('/cpge/fonts/orkney-regular-webfont.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SFMono';
-  src: url('/fonts/SFMonoRegular.woff') format('woff');
+  src: url('/cpge/fonts/SFMonoRegular.woff') format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'SFMono';
-  src: url('/fonts/SFMonoBold.woff') format('woff');
+  src: url('/cpge/fonts/SFMonoBold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
 }
