@@ -6,6 +6,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'SFMono';
+  src: url('/fonts/SFMonoRegular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'SFMono';
+  src: url('/fonts/SFMonoBold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
 .theme-transition,
 .theme-transition * {
   transition: all 0.4s ease !important;
@@ -405,7 +419,7 @@ button.action-btn {
   line-height: 1;
   text-align: center;
   margin-bottom: 20px;
-  font-family: SFMono-Regular;
+  font-family: 'SFMono', monospace; 
   font-variant-numeric: tabular-nums;
 }
 
