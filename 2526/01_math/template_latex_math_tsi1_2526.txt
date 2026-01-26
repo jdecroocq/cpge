@@ -260,15 +260,14 @@
     En algèbre linéaire, la clarté des notations vectorielles et matricielles est primordiale.
     Un vecteur colonne doit être noté avec des parenthèses ajustées, par exemple $\vec{u}\binom{x}{y}$.
     
-    De même, les matrices sont encadrées de parenthèses via l'environnement approprié :
-    \[ M = \begin{pmatrix} 
+    De même, les matrices sont encadrées de crochets via l'environnement approprié :
+    \[ M = \begin{bmatrix} 
         a & b \\ 
         c & d 
-    \end{pmatrix}. \]
-    L'usage de notations compactes et lisibles est essentiel pour la compréhension globale.
+    \end{bmatrix}. \]
 \end{itm}
 
-\begin{itm}[Form.][(Quantificateurs et Fonctions)]
+\begin{itm}[Form.][(Quantificateurs et fonctions)]
     Pour définir formellement une application en précisant ses ensembles de départ et d'arrivée, la norme rigoureuse impose l'usage d'un alignement :
     \[
         \setlength{\jot}{0pt}
