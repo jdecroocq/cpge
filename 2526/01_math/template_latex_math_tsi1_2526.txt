@@ -5,13 +5,16 @@
 % DIRECTIVES :
 % - Ce template définit la FORME. Le FOND doit être une synthèse
 %   rigoureuse du cours.
+% - L'objectif est de conserver toutes les notions nécessaires pour
+%   réussir TD, DS et concours. Par exemple les démonstrations sont
+%   systématiquement retirées, mais la majorité du rèste est gardée. 
 % - Les textes présents ci-dessous sont des "Lorem Ipsum" intelligents :
 %   ils expliquent comment utiliser le template. Ils doivent être
 %   remplacés par le vrai cours.
 % - Supprimer tous les commentaires (%) avant l'export final.
 % - Les trois points "..." doivent être remplacés dans le texte par ce qui
-%   est sous-entendu lorsqu’ils ont été utilisés dans le cours pour aller
-%   plus vite.
+%   est sous-entendu lorsqu’ils ont été utilisés dans le cours par manque
+%   de temps.
 % - Le second argument (note) d’un item doit être utilisé uniquement pour
 %   préciser le contenu de l'itm (permettant ainsi de le nommer).
 %   Par exemple une définition qui introduit déjà un terme (en italique)
