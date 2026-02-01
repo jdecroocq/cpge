@@ -14,13 +14,6 @@
                         ]
             },
             {
-                "name": "01_math",
-                "files": [
-                    "cahier_de_calcul_enonces.pdf_s",
-                    "cahier_de_calcul_corriges.pdf_s"
-                        ]
-            },
-            {
                 "name": "02_pc",
                 "files": [
                     "molecules_ions.pdf"
@@ -115,7 +108,9 @@
                     "37_fonc_var_ree_7_inte.pdf",
                     "38_al_8_clas_matr.pdf",
                     "39_prob_univ_fini_3_espe_vari.pdf",
-                    "cours_eb_edit_wn.pdf_s"
+                    "cours_eb_edit_wn.pdf_s",
+                    "cahier_de_calcul_enonces.pdf_s",
+                    "cahier_de_calcul_corriges.pdf_s"
                         ]
             },
             {
