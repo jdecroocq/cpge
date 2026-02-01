@@ -3,15 +3,15 @@
 % ===================================================================
 
 % DIRECTIVES :
-% - Ce template définit la FORME. Le FOND doit être une synthèse
+% - Ce template définit la forme : le fOND doit être une synthèse
 %   rigoureuse du cours.
 % - L'objectif est de conserver toutes les notions nécessaires pour
-%   réussir TD, DS et concours. Par exemple les démonstrations sont
-%   systématiquement retirées, mais la majorité du rèste est gardée. 
+%   réussir TD, DS et concours.
+% - Par exemple les démonstrations sont ôtées.
 % - Les textes présents ci-dessous sont des "Lorem Ipsum" intelligents :
 %   ils expliquent comment utiliser le template. Ils doivent être
 %   remplacés par le vrai cours.
-% - Supprimer tous les commentaires (%) avant l'export final.
+% - Il faut supprimer tous les commentaires de ce type.
 % - Les trois points "..." doivent être remplacés dans le texte par ce qui
 %   est sous-entendu lorsqu’ils ont été utilisés dans le cours par manque
 %   de temps.
@@ -201,6 +201,7 @@
     
     Toutefois, pour conférer à une expression fondamentale l'importance qu'elle requiert, on privilégiera l'affichage hors-texte. Cela permet d'aérer la lecture et d'éviter les collisions verticales :
     \[ \lim_{x \to +\infty} \frac{1}{x} = 0. \]
+    Comme ci-avant, il est naturel d’employer les deux-points. En revanche, lorsqu’une expression hors texte s’inscrit dans la continuité fluide d’une phrase, il ne faut pas les utiliser.
     L'usage des listes à puces est également recommandé pour énumérer des propriétés conjointes. Cela structure le propos sans alourdir la syntaxe :
     \begin{itemize}
         \item Première propriété notable, énoncée clairement ;
