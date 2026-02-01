@@ -1,63 +1,5 @@
 [    
     {
-        "title": "Global",
-        "folder": "global",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "nt_alphabet_grec.pdf_s",
-                    "nt_puissance_dix.pdf_s",
-                    "nt_long_air_vol.pdf_s",
-                    "nt_derivees.pdf",
-                    "formulaire_hd.pdf_s"
-                        ]
-            },
-            {
-                "name": "01_math",
-                "files": [
-                    "cahier_de_calcul_enonces.pdf_s",
-                    "cahier_de_calcul_corriges.pdf_s"
-                        ]
-            },
-            {
-                "name": "02_pc",
-                "files": [
-                    "molecules_ions.pdf"
-                        ]
-            },
-            {
-                "name": "04_info",
-                "files": [
-                    "cours_python_3_jean_decroocq.pdf",
-                    "memento_python_3.pdf"
-                ]
-            },
-            {
-                "name": "05_fr",
-                "files": [
-                    "methode_resume.pdf_s",
-                    "methode_resume_cc.pdf_s",
-                    "methode_dissertation.pdf_s",
-                    "methode_colle.pdf_s"
-                ]
-            },
-            {
-                "name": "06_lv",
-                "files": [
-                    "meth_synthese.pdf_s",
-                    "meth_colle.pdf_s"
-                        ]
-            },
-            {
-                "name": "07_tipe",
-                "files": [
-                    "support_presentation.pdf_s"
-                ]
-            }
-        ]
-    },
-    {
         "title": "2025–2026",
         "folder": "2526",
         "subcategories": [
@@ -149,5 +91,63 @@
         "title": "2026–2027",
         "folder": "2627",
         "subcategories": []
+    },
+    {
+        "title": "Global",
+        "folder": "global",
+        "subcategories": [
+            {
+                "name": "00_global",
+                "files": [
+                    "nt_alphabet_grec.pdf_s",
+                    "nt_puissance_dix.pdf_s",
+                    "nt_long_air_vol.pdf_s",
+                    "nt_derivees.pdf",
+                    "formulaire_hd.pdf_s"
+                        ]
+            },
+            {
+                "name": "01_math",
+                "files": [
+                    "cahier_de_calcul_enonces.pdf_s",
+                    "cahier_de_calcul_corriges.pdf_s"
+                        ]
+            },
+            {
+                "name": "02_pc",
+                "files": [
+                    "molecules_ions.pdf"
+                        ]
+            },
+            {
+                "name": "04_info",
+                "files": [
+                    "cours_python_3_jean_decroocq.pdf",
+                    "memento_python_3.pdf"
+                ]
+            },
+            {
+                "name": "05_fr",
+                "files": [
+                    "methode_resume.pdf_s",
+                    "methode_resume_cc.pdf_s",
+                    "methode_dissertation.pdf_s",
+                    "methode_colle.pdf_s"
+                ]
+            },
+            {
+                "name": "06_lv",
+                "files": [
+                    "meth_synthese.pdf_s",
+                    "meth_colle.pdf_s"
+                        ]
+            },
+            {
+                "name": "07_tipe",
+                "files": [
+                    "support_presentation.pdf_s"
+                ]
+            }
+        ]
     }
 ]
