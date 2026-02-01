@@ -16,11 +16,11 @@
 \usepackage{multicol}
 \usepackage{indentfirst}
 \usepackage{fancyhdr}
-\usepackage{soul}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{lastpage}
+\usepackage{soul}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{multirow}
@@ -190,7 +190,7 @@ Il sert principalement aux introductions ou aux explications générales, mais i
     \item L’usage d’un registre de langue soutenu me plaît particulièrement, car il favorise la rigueur et la précision dans mon apprentissage. Par ailleurs, la clarté et la concision demeurent des principes essentiels.
     
     \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items.
-    % J’insiste : ce point est — par expérience — bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
+    % J’insiste : ce point est par expérience bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
     % En effet, on tend souvent à abuser du gras (notamment dans les productions d’IA) sous prétexte d’améliorer la clarté.
     % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
 \end{itemize}
@@ -225,12 +225,13 @@ Il sert principalement aux introductions ou aux explications générales, mais i
      \[
     s(t) = \langle s(t) \rangle + \sum_{n=1}^{\infty} A_n \cos(n\omega t + \varphi_n).
     \]
-    On veille toujours à la ponctuation, hautement considérée, même dans les formules. %La ponctuation constitue également un aspect à ne pas sous-estimer : elle doit être rigoureuse et conforme aux normes, tant dans un texte argumentatif que dans un développement mathématique.
+    On veille toujours à la ponctuation, hautement considérée, même dans les formules. % La ponctuation constitue également un aspect à ne pas sous-estimer : elle doit être rigoureuse et conforme aux normes, tant dans un texte argumentatif que dans un développement mathématique.
     
     \item Il est possible de présenter plusieurs formules courtes sur une seule ligne pour économiser de l’espace :
     \[
     f = \frac{1}{T}; \hspace{2cm} T = \frac{1}{f}; \hspace{2cm} \omega = 2\pi f.
     \]
+    \item Comme ci-avant, il est naturel d’employer les deux-points. En revanche, lorsqu’une expression hors texte s’inscrit dans la continuité fluide d’une phrase, il ne faut pas les utiliser.
 \end{itemize}
 
 
