@@ -209,11 +209,11 @@ document.addEventListener('DOMContentLoaded', () => {
                                         collapseDiv.scrollHeight + 'px' :
                                         '0px';
 
-                                    gradientDiv.classList.toggle('expanded', expanded);
                                     chevron.classList.toggle('expanded', expanded);
                                     chevron.setAttribute('aria-expanded', expanded);
-
                                     chevron.innerHTML = '<span class="chevron-icon"></span>';
+                                    gradientDiv.style.opacity = expanded ? '0' : '1';
+                                    gradientDiv.style.pointerEvents = expanded ? 'none' : 'auto';
                                 };
 
                                 gradientDiv.appendChild(chevron);
