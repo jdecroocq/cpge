@@ -278,7 +278,6 @@ button.action-btn {
     text-overflow: ellipsis;
 }
 
-
 .item-list .list-item:last-child {
   border-bottom: none;
 }
@@ -334,100 +333,92 @@ button.action-btn {
 
 
 
+/* ===== COLLAPSE/EXPAND POUR LISTES ===== */
 
-
-.item-list.collapsible-list {
+.item-list.has-collapse {
     position: relative;
-    max-height: none;
+    padding-bottom: 0;
 }
 
-.item-list.collapsible-list:not(.expanded) {
-    max-height: none;
-}
-
-.file-item.hidden-item {
+.file-entry.collapse-hidden {
     display: none;
-    animation: slideOut 0.3s ease-out forwards;
 }
 
-.item-list.expanded .file-item {
-    animation: slideIn 0.3s ease-in forwards;
-}
-
-.item-list.expanded .file-item.hidden-item {
+/* Wrapper pour le gradient et bouton */
+.collapse-wrapper {
+    position: relative;
     display: flex;
-}
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes slideOut {
-    from {
-        opacity: 1;
-        transform: translateY(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateY(-8px);
-    }
-}
-
-.expand-button {
-    display: flex;
+    align-items: flex-end;
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding: 12px 14px;
-    background-color: var(--color-1);
-    color: var(--color-5);
-    border: none;
+    height: 80px;
+    pointer-events: none;
+}
+
+/* Gradient fade-out */
+.collapse-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 20%,
+        rgba(var(--color-1-rgb), 0.3) 40%,
+        rgba(var(--color-1-rgb), 0.8) 70%,
+        rgba(var(--color-1-rgb), 1) 100%
+    );
     border-top: var(--border);
+    pointer-events: none;
+}
+
+/* Bouton expand/collapse */
+.collapse-button {
+    position: relative;
+    z-index: 10;
+    padding: 8px 12px;
+    background: transparent;
+    border: none;
     cursor: pointer;
-    font-size: 0.9rem;
-    font-family: 'Orkney', sans-serif;
-    font-weight: 500;
-    transition: all 0.2s ease-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease-out;
+    pointer-events: all;
     outline: none;
+    color: var(--color-5);
 }
 
-.expand-button:hover {
-    background-color: var(--color-2);
+.collapse-button:hover {
+    transform: scale(1.1);
 }
 
-.expand-button:active {
-    transform: scale(0.98);
+.collapse-button:active {
+    transform: scale(0.95);
 }
 
-.expand-icon {
+/* Chevron icon */
+.chevron {
     display: inline-block;
+    font-size: 0.8rem;
     transition: transform 0.3s ease-out;
-    font-size: 1.1rem;
 }
 
-.expand-icon-up {
+.chevron-up {
     transform: rotate(180deg);
 }
 
-.item-list.collapsible-list .file-item:not(.hidden-item):last-of-type {
-    border-bottom: var(--border);
-}
-
-:root.dark-mode .expand-button {
-    background-color: var(--color-1);
-    color: var(--color-5);
-    border-top: var(--border);
-}
-
-:root.dark-mode .expand-button:hover {
-    background-color: var(--color-2);
+/* Mode sombre */
+:root.dark-mode .collapse-gradient {
+    background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 20%,
+        rgba(var(--color-1-rgb), 0.3) 40%,
+        rgba(var(--color-1-rgb), 0.8) 70%,
+        rgba(var(--color-1-rgb), 1) 100%
+    );
 }
 
 
