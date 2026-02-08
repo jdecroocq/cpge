@@ -336,7 +336,7 @@ button.action-btn {
 
 
 .item-list-collapsed {
-  transition: max-height 0.45s cubic-bezier(.4,0,.2,1);
+  transition: max-height 0.8s cubic-bezier(.22,.68,.34,1.02);
   overflow: hidden;
 }
 
