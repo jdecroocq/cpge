@@ -1,3 +1,6 @@
+const COLLAPSE_THRESHOLD = 10;
+const COLLAPSE_VISIBLE_COUNT = 5;
+
 (function () {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
