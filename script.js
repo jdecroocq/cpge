@@ -218,9 +218,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
         let greetingMessage;
         if (hour >= 4 && hour < 18) {
-            greetingMessage = "Bonjour ツ";
+            greetingMessage = "Bonjour";
         } else {
-            greetingMessage = "Bonsoir ツ";
+            greetingMessage = "Bonsoir";
         }
     
         greetingEl.textContent = greetingMessage;
