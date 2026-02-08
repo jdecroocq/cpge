@@ -255,7 +255,6 @@ button.action-btn {
   border: var(--border);
   border-radius: var(--border-radius-1);
   overflow: hidden;
-  position: relative;
 }
 
 .list-item {
@@ -331,90 +330,6 @@ button.action-btn {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
-
-
-
-.item-list-collapsed {
-  transition: max-height 0.8s cubic-bezier(.22,.68,.34,1.02);
-  overflow: hidden;
-}
-
-.collapse-gradient {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 60px; /* Ajuste selon la hauteur de 2-3 items */
-  background: linear-gradient(
-    to bottom,
-    rgba(var(--color-1-rgb), 0) 0%,
-    rgba(var(--color-1-rgb), 0.6) 50%,
-    var(--color-1) 100%
-  );
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  pointer-events: none;
-  transition: opacity 0.4s;
-  z-index: 2;
-}
-
-.collapse-gradient .collapse-chevron {
-  pointer-events: auto;
-  background: none;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin-bottom: 4px;
-  padding: 8px;
-  border-radius: 50%;
-  transition: background 0.2s;
-}
-
-.collapse-gradient .collapse-chevron:hover {
-  background: var(--color-2);
-}
-
-/* Chevron (▼) SVG en fond */
-.collapse-chevron .chevron-icon {
-  display: inline-block;
-  width: 28px;
-  height: 28px;
-  background-color: var(--color-6);
-  mask-image: url("data:image/svg+xml,%3Csvg width='24' height='24' xmlns='http://www.w3.org/2000/svg' fill='currentColor'%3E%3Cpath d='M7 10l5 5 5-5'/%3E%3C/svg%3E");
-  mask-size: contain;
-  mask-repeat: no-repeat;
-  mask-position: center;
-  transition: transform 0.3s;
-}
-
-/* Chevron inversé (▲) quand déplié */
-.collapse-chevron.expanded .chevron-icon {
-  transform: rotate(180deg);
-}
-
-.collapse-gradient.expanded {
-  opacity: 0 !important;
-  pointer-events: none !important;
-}
-
-/* Dark mode adaptation */
-:root.dark-mode .collapse-gradient {
-  background: linear-gradient(
-    to bottom,
-    rgba(var(--color-1-rgb),0),
-    rgba(var(--color-1-rgb),0.67) 35%,
-    rgba(var(--color-1-rgb),0.97) 82%,
-    var(--color-1) 100%
-  );
-}
-
-
-
-
-
-
 
 .page-404 {
   display: flex;
