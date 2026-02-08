@@ -208,4 +208,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
     updateCountdown();
     setInterval(updateCountdown, 1000 * 60 * 60);
+
+    function updateGreeting() {
+      const greetingEl = document.getElementById("greeting");
+      if (!greetingEl) return;
+  
+      const now = new Date();
+      const hour = now.getHours();
+  
+      let greetingMessage;
+      if (hour >= 4 && hour < 18) {
+          greetingMessage = "Bonjour";
+      } else {
+          greetingMessage = "Bonsoir";
+      }
+  
+      greetingEl.textContent = greetingMessage + ".";
+  }
+  
+  updateGreeting();
 });
+
+
+
+
