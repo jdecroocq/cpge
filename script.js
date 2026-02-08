@@ -23,14 +23,52 @@
   });
 })();
 
+// Countdown timer
+document.addEventListener('DOMContentLoaded', () => {
+  const countdownElement = document.getElementById('countdown');
+  if (!countdownElement) return;
+
+  function updateCountdown() {
+    const now = new Date();
+    const currentYear = now.getFullYear();
+    const concourseDate = new Date(currentYear, 5, 1); // 1er juin
+
+    if (now > concourseDate) {
+      concourseDate.setFullYear(currentYear + 1);
+    }
+
+    const diff = concourseDate - now;
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    let text = '';
+    if (days > 0) {
+      text = `${days} jour${days > 1 ? 's' : ''}, ${hours}h ${minutes}min`;
+    } else if (hours > 0) {
+      text = `${hours}h ${minutes}min`;
+    } else {
+      text = `${minutes}min`;
+    }
+
+    countdownElement.textContent = text;
+  }
+
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+});
+
+// Main content loading
 document.addEventListener('DOMContentLoaded', () => {
     const mainPageBody = document.getElementById('main-page');
     if (!mainPageBody) return;
 
     const container = document.getElementById('content-container');
 
-    const THRESHOLD_FOR_COLLAPSE = 10;
-    const INITIAL_VISIBLE_COUNT = 5;
+    // Configuration - MODIFIEZ CES VALEURS SI BESOIN
+    const COLLAPSE_THRESHOLD = 10;      // Nombre de docs avant de replier
+    const INITIAL_VISIBLE = 5;          // Nombre de docs visibles initialement
+    // =====================================
 
     async function applyCacheBuster(originalUrl, linkElement) {
         try {
@@ -93,14 +131,11 @@ document.addEventListener('DOMContentLoaded', () => {
                             const listDiv = document.createElement('div');
                             listDiv.className = 'item-list';
 
-                          
-                            const shouldCollapse = subcat.files.length > THRESHOLD_FOR_COLLAPSE;
-                            
+                            // Vérifie si collapsible
+                            const shouldCollapse = subcat.files.length > COLLAPSE_THRESHOLD;
                             if (shouldCollapse) {
-                                listDiv.classList.add('collapsible-list');
-                                listDiv.dataset.fullCount = subcat.files.length;
-                                listDiv.dataset.visibleCount = INITIAL_VISIBLE_COUNT;
-                                listDiv.dataset.isCollapsed = 'true';
+                                listDiv.classList.add('has-collapse');
+                                listDiv.dataset.isExpanded = 'false';
                             }
 
                             subcat.files.forEach((fileEntry, index) => {
@@ -119,63 +154,62 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const isProtected = flagsPart.includes('_s');
                                 const isTemplate = flagsPart.includes('_t');
 
-                                const listItem = document.createElement('a');
-                                listItem.className = 'list-item';
-                                listItem.classList.add('file-item');
-                                
+                                const link = document.createElement('a');
+                                link.className = 'list-item file-entry';
+                                link.href = `${cat.folder}/${subcat.name}/${cleanFileName}`;
+                                link.target = '_blank';
+                                link.rel = 'noopener noreferrer';
 
-                              if (shouldCollapse && index >= INITIAL_VISIBLE_COUNT) {
-                                    listItem.classList.add('hidden-item');
+                                // Marquer les items cachés au début
+                                if (shouldCollapse && index >= INITIAL_VISIBLE) {
+                                    link.classList.add('collapse-hidden');
                                 }
 
-                                const itemName = document.createElement('span');
-                                itemName.className = 'item-name';
-                                itemName.textContent = cleanFileName;
-                                listItem.appendChild(itemName);
+                                applyCacheBuster(link.href, link);
 
-                                const itemIcons = document.createElement('div');
-                                itemIcons.className = 'item-icons';
+                                const nameSpan = document.createElement('span');
+                                nameSpan.className = 'item-name';
+                                nameSpan.textContent = cleanFileName;
+                                link.appendChild(nameSpan);
+
+                                const iconsSpan = document.createElement('span');
+                                iconsSpan.className = 'item-icons';
 
                                 if (isProtected) {
                                     const protectedIcon = document.createElement('span');
                                     protectedIcon.className = 'icon icon-protected';
-                                    itemIcons.appendChild(protectedIcon);
+                                    iconsSpan.appendChild(protectedIcon);
                                 }
 
-                                if (isTemplate) {
-                                    const templateIcon = document.createElement('span');
-                                    templateIcon.className = 'icon icon-template';
-                                    itemIcons.appendChild(templateIcon);
-                                }
-
-                                const downloadIcon = document.createElement('span');
-                                downloadIcon.className = 'icon icon-download';
-                                itemIcons.appendChild(downloadIcon);
-
-                                listItem.appendChild(itemIcons);
-
-                                const baseUrl = `2526/${subcat.name}/${fileEntry}`;
-                                listItem.href = baseUrl;
-                                listItem.target = '_blank';
-                                listItem.rel = 'noopener noreferrer';
-
-                                applyCacheBuster(baseUrl, listItem);
-
-                                listDiv.appendChild(listItem);
+                                link.appendChild(iconsSpan);
+                                listDiv.appendChild(link);
                             });
 
+                            // Crée le bouton de collapse s'il y a trop d'items
                             if (shouldCollapse) {
-                                const expandBtn = document.createElement('button');
-                                expandBtn.className = 'expand-button';
-                                expandBtn.innerHTML = '<span class="expand-icon">▼</span>';
-                                expandBtn.setAttribute('aria-label', 'Afficher tous les documents');
-                                
-                                expandBtn.addEventListener('click', (e) => {
+                                const collapseWrapper = document.createElement('div');
+                                collapseWrapper.className = 'collapse-wrapper';
+
+                                const collapseGradient = document.createElement('div');
+                                collapseGradient.className = 'collapse-gradient';
+
+                                const collapseButton = document.createElement('button');
+                                collapseButton.className = 'collapse-button';
+                                collapseButton.setAttribute('aria-label', 'Afficher plus');
+
+                                const chevron = document.createElement('span');
+                                chevron.className = 'chevron';
+                                chevron.innerHTML = '▼';
+                                collapseButton.appendChild(chevron);
+
+                                collapseButton.addEventListener('click', (e) => {
                                     e.preventDefault();
-                                    toggleListExpand(listDiv, expandBtn);
+                                    toggleCollapse(listDiv, collapseButton);
                                 });
 
-                                listDiv.appendChild(expandBtn);
+                                collapseWrapper.appendChild(collapseGradient);
+                                collapseWrapper.appendChild(collapseButton);
+                                listDiv.appendChild(collapseWrapper);
                             }
 
                             subcatDiv.appendChild(listDiv);
@@ -191,38 +225,32 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.classList.add('loaded');
 
         } catch (error) {
-            console.error('Erreur lors du chargement du contenu:', error);
+            console.error('Erreur lors du chargement:', error);
             container.textContent = 'Erreur lors du chargement du contenu.';
         }
     }
 
-    function toggleListExpand(listDiv, button) {
-        const isCollapsed = listDiv.dataset.isCollapsed === 'true';
-        const hiddenItems = listDiv.querySelectorAll('.hidden-item');
+    function toggleCollapse(listDiv, button) {
+        const isExpanded = listDiv.dataset.isExpanded === 'true';
+        const hiddenItems = listDiv.querySelectorAll('.collapse-hidden');
 
-        if (isCollapsed) {
-
-            hiddenItems.forEach(item => {
-                item.classList.remove('hidden-item');
-            });
-            listDiv.dataset.isCollapsed = 'false';
-            listDiv.classList.add('expanded');
-            button.innerHTML = '<span class="expand-icon expand-icon-up">▲</span>';
-            button.setAttribute('aria-label', 'Masquer les documents supplémentaires');
+        if (!isExpanded) {
+            // Expand
+            hiddenItems.forEach(item => item.classList.remove('collapse-hidden'));
+            listDiv.dataset.isExpanded = 'true';
+            listDiv.classList.add('is-expanded');
+            button.innerHTML = '<span class="chevron chevron-up">▼</span>';
+            button.setAttribute('aria-label', 'Afficher moins');
         } else {
-
-            const visibleCount = parseInt(listDiv.dataset.visibleCount);
-            const fileItems = listDiv.querySelectorAll('.file-item');
-            
-            fileItems.forEach((item, index) => {
-                if (index >= visibleCount) {
-                    item.classList.add('hidden-item');
-                }
+            // Collapse
+            const fileEntries = listDiv.querySelectorAll('.file-entry');
+            fileEntries.forEach((item, idx) => {
+                if (idx >= INITIAL_VISIBLE) item.classList.add('collapse-hidden');
             });
-            listDiv.dataset.isCollapsed = 'true';
-            listDiv.classList.remove('expanded');
-            button.innerHTML = '<span class="expand-icon">▼</span>';
-            button.setAttribute('aria-label', 'Afficher tous les documents');
+            listDiv.dataset.isExpanded = 'false';
+            listDiv.classList.remove('is-expanded');
+            button.innerHTML = '<span class="chevron">▼</span>';
+            button.setAttribute('aria-label', 'Afficher plus');
         }
     }
 
