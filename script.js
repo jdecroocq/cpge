@@ -29,6 +29,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const container = document.getElementById('content-container');
 
+    const THRESHOLD_FOR_COLLAPSE = 10;
+    const INITIAL_VISIBLE_COUNT = 5;
+
     async function applyCacheBuster(originalUrl, linkElement) {
         try {
             const response = await fetch(originalUrl, { method: 'HEAD', cache: 'no-cache' });
@@ -90,7 +93,17 @@ document.addEventListener('DOMContentLoaded', () => {
                             const listDiv = document.createElement('div');
                             listDiv.className = 'item-list';
 
-                            subcat.files.forEach(fileEntry => {
+                          
+                            const shouldCollapse = subcat.files.length > THRESHOLD_FOR_COLLAPSE;
+                            
+                            if (shouldCollapse) {
+                                listDiv.classList.add('collapsible-list');
+                                listDiv.dataset.fullCount = subcat.files.length;
+                                listDiv.dataset.visibleCount = INITIAL_VISIBLE_COUNT;
+                                listDiv.dataset.isCollapsed = 'true';
+                            }
+
+                            subcat.files.forEach((fileEntry, index) => {
                                 let cleanFileName = fileEntry;
                                 let flagsPart = '';
 
@@ -104,108 +117,114 @@ document.addEventListener('DOMContentLoaded', () => {
                                 }
 
                                 const isProtected = flagsPart.includes('_s');
-                                const isDownloadable = flagsPart.includes('_t');
-                                const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
+                                const isTemplate = flagsPart.includes('_t');
 
-                                const link = document.createElement('a');
-                                link.href = filePath;
-                                link.dataset.finalUrl = filePath;
-                                link.target = "_blank";
-                                link.rel = "noopener noreferrer";
-                                link.className = 'list-item';
-
-                                applyCacheBuster(filePath, link);
-
-                                const fileNameSpan = document.createElement('span');
-                                fileNameSpan.className = 'item-name';
-                                fileNameSpan.textContent = cleanFileName;
-                                link.appendChild(fileNameSpan);
-
-                                const iconsContainer = document.createElement('span');
-                                iconsContainer.className = 'item-icons';
-
-                                if (isDownloadable) {
-                                    const downloadIcon = document.createElement('span');
-                                    downloadIcon.className = 'icon icon-download';
-                                    downloadIcon.title = 'Télécharger le fichier';
-
-                                    downloadIcon.addEventListener('click', (e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-
-                                        const urlToUse = link.dataset.finalUrl || link.href;
-
-                                        const tempLink = document.createElement('a');
-                                        tempLink.href = urlToUse;
-                                        tempLink.setAttribute('download', cleanFileName);
-                                        tempLink.style.display = 'none';
-                                        document.body.appendChild(tempLink);
-                                        tempLink.click();
-                                        document.body.removeChild(tempLink);
-                                    });
-                                    
-                                    iconsContainer.appendChild(downloadIcon);
-                                }
+                                const listItem = document.createElement('a');
+                                listItem.className = 'list-item';
+                                listItem.classList.add('file-item');
                                 
+
+                              if (shouldCollapse && index >= INITIAL_VISIBLE_COUNT) {
+                                    listItem.classList.add('hidden-item');
+                                }
+
+                                const itemName = document.createElement('span');
+                                itemName.className = 'item-name';
+                                itemName.textContent = cleanFileName;
+                                listItem.appendChild(itemName);
+
+                                const itemIcons = document.createElement('div');
+                                itemIcons.className = 'item-icons';
+
                                 if (isProtected) {
                                     const protectedIcon = document.createElement('span');
                                     protectedIcon.className = 'icon icon-protected';
-                                    iconsContainer.appendChild(protectedIcon);
+                                    itemIcons.appendChild(protectedIcon);
                                 }
 
-                                if (iconsContainer.hasChildNodes()) {
-                                    link.appendChild(iconsContainer);
+                                if (isTemplate) {
+                                    const templateIcon = document.createElement('span');
+                                    templateIcon.className = 'icon icon-template';
+                                    itemIcons.appendChild(templateIcon);
                                 }
 
-                                listDiv.appendChild(link);
+                                const downloadIcon = document.createElement('span');
+                                downloadIcon.className = 'icon icon-download';
+                                itemIcons.appendChild(downloadIcon);
+
+                                listItem.appendChild(itemIcons);
+
+                                const baseUrl = `2526/${subcat.name}/${fileEntry}`;
+                                listItem.href = baseUrl;
+                                listItem.target = '_blank';
+                                listItem.rel = 'noopener noreferrer';
+
+                                applyCacheBuster(baseUrl, listItem);
+
+                                listDiv.appendChild(listItem);
                             });
+
+                            if (shouldCollapse) {
+                                const expandBtn = document.createElement('button');
+                                expandBtn.className = 'expand-button';
+                                expandBtn.innerHTML = '<span class="expand-icon">▼</span>';
+                                expandBtn.setAttribute('aria-label', 'Afficher tous les documents');
+                                
+                                expandBtn.addEventListener('click', (e) => {
+                                    e.preventDefault();
+                                    toggleListExpand(listDiv, expandBtn);
+                                });
+
+                                listDiv.appendChild(expandBtn);
+                            }
+
                             subcatDiv.appendChild(listDiv);
                         }
+
                         catDiv.appendChild(subcatDiv);
                     });
                 }
+
                 container.appendChild(catDiv);
             });
 
-        } catch (err) {
-            console.error("Erreur:", err);
-            container.textContent = 'Impossible de charger le contenu.';
-        } finally {
-            mainPageBody.classList.add('loaded');
+            document.body.classList.add('loaded');
+
+        } catch (error) {
+            console.error('Erreur lors du chargement du contenu:', error);
+            container.textContent = 'Erreur lors du chargement du contenu.';
+        }
+    }
+
+    function toggleListExpand(listDiv, button) {
+        const isCollapsed = listDiv.dataset.isCollapsed === 'true';
+        const hiddenItems = listDiv.querySelectorAll('.hidden-item');
+
+        if (isCollapsed) {
+
+            hiddenItems.forEach(item => {
+                item.classList.remove('hidden-item');
+            });
+            listDiv.dataset.isCollapsed = 'false';
+            listDiv.classList.add('expanded');
+            button.innerHTML = '<span class="expand-icon expand-icon-up">▲</span>';
+            button.setAttribute('aria-label', 'Masquer les documents supplémentaires');
+        } else {
+
+            const visibleCount = parseInt(listDiv.dataset.visibleCount);
+            const fileItems = listDiv.querySelectorAll('.file-item');
+            
+            fileItems.forEach((item, index) => {
+                if (index >= visibleCount) {
+                    item.classList.add('hidden-item');
+                }
+            });
+            listDiv.dataset.isCollapsed = 'true';
+            listDiv.classList.remove('expanded');
+            button.innerHTML = '<span class="expand-icon">▼</span>';
+            button.setAttribute('aria-label', 'Afficher tous les documents');
         }
     }
 
     loadContent();
-
-    const concoursDate = new Date("2027-04-26");
-    
-    function getDaysLeft(targetDate) {
-      const now = new Date();
-      const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-      const utcTarget = Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
-      const msPerDay = 1000 * 60 * 60 * 24;
-      return Math.floor((utcTarget - utcNow) / msPerDay);
-    }
-    
-    function updateCountdown() {
-      const el = document.getElementById("countdown");
-      if (!el) return;
-    
-      const days = getDaysLeft(concoursDate);
-    
-      if (isNaN(days)) {
-        el.textContent = "Date invalide.";
-      } else if (days > 1) {
-        el.textContent = `Il reste ${days} jours avant les concours.`;
-      } else if (days === 1) {
-        el.textContent = `Il reste 1 jour avant les concours !`;
-      } else if (days === 0) {
-        el.textContent = `Il reste 0 jour avant les concours !`;
-      } else {
-        el.textContent = `Les concours ont commencé.`;
-      }
-    }
-    
-    updateCountdown();
-    setInterval(updateCountdown, 1000 * 60 * 60);
 });
