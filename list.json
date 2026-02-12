@@ -132,10 +132,10 @@
             {
                 "name": "05_fr",
                 "files": [
-                    "methode_resume.pdf_s",
+                    "methode_resume.pdf",
                     "methode_resume_cc.pdf_s",
-                    "methode_dissertation.pdf_s",
-                    "methode_colle.pdf_s"
+                    "methode_dissertation.pdf",
+                    "methode_colle.pdf"
                 ]
             },
             {
