@@ -63,7 +63,7 @@
             {
                 "name": "02_pc",
                 "files": [
-                    "00.02_mesures_incertitudes.pdf_s",
+                    "00.02_mesures_incertitudes.pdf",
                     "01.01_propag_signal.pdf",
                     "01.02_formation_images.pdf",
                     "01.03_circuits_elec_arqs.pdf",
