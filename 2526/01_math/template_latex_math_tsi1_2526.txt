@@ -80,7 +80,7 @@
 \newcommand{\numchap}{0} 
 
 \newcommand{\repere}{%
-  \twodigit{\numchap}\_math\_%
+  01\_math\_%
   \twodigit{\numexpr\year-2000\relax}%
   \twodigit{\month}%
   \twodigit{\day}%
