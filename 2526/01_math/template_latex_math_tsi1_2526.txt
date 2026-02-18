@@ -19,10 +19,6 @@
 %   préciser le contenu de l'itm (permettant ainsi de le nommer).
 %   Par exemple une définition qui introduit déjà un terme (en italique)
 %   n'a donc pas besoin de note précisant le contenu de la définition.
-% - Écrire la note entre parenthèses s'il s'agit d'une appellation
-%   personnelle ou d'un repère structurel (ex : Prop. (Absorbance 
-%   et produit nul)). Mais ne pas mettre de parenthèses s'il s'agit d'une
-%   dénomination usuelle ou d'un théorème reconnu (ex : Prop. Formule de Pascal).
 % - Le style doit être soutenu, clair et rigoureux.
 % - La rigueur mathématique doit être préservée en toute circonstance.
 % - La ponctuation doit être correctement respectée, y compris dans les
@@ -35,7 +31,6 @@
 % - Ne pas utiliser le gras dans le corps du texte. STRICTEMENT interdit.
 % - Il est necessaire de faire usage de l'italique pour mettre en évidence
 %   un terme défini.
-% - Il ne faut pas employer les deux points (:) à tout va avant des maths.
 % - Il est bon de faire usage d'espaces insécables lorsque nécessaire.
 % ===================================================================
 
@@ -131,7 +126,7 @@
     ]
     \IfNoValueF{#1}{\noindent\textbf{#1}}%
     \IfNoValueF{#2}{%
-        \if\relax\detokenize{#2}\relax\else\nobreak\ #2\fi%
+        \if\relax\detokenize{#2}\relax\else\nobreak\ (#2)\fi%
     }%
     \par\nobreak
 }
@@ -169,11 +164,10 @@
 
 \section{Items et Typographie}
 
-\begin{itm}[Type][(Note)]
+\begin{itm}[Type][Note]
     Ceci constitue le modèle standard d'item. Il est la brique qui structure l'intégralité de la production.
     Le premier argument correspond au \textit{Type}. Il est d'usage de tronquer ce dernier à la quatrième lettre (ex : Défi., Prop., Méth., Noti., Figu.).\\
-    Le second argument correspond à la \textit{Note}. S'il s'agit d'une appellation personnelle ou d'un repère structurel, on l'écrit entre parenthèses.
-    Mais si la note est une dénomination usuelle ou officielle, on l'écrit sans parenthèses.
+    Le second argument correspond à la \textit{Note}, qui permet de nomer le contenu de l'item.
 \end{itm}
 
 \begin{itm}[Défi.]
@@ -245,7 +239,7 @@
 
 \section{Mise en page avancée}
 
-\begin{itm}[Méth.][(Alignements et Systèmes)]
+\begin{itm}[Méth.][Alignements et Systèmes]
     Pour rédiger une succession d'équivalences ou résoudre un système d'équations, il convient d'utiliser des environnements assurant un alignement vertical rigoureux des symboles.
     \begin{align*}
         (S) \iff & 2x + 3y = 5 \\
@@ -268,7 +262,7 @@
     \end{bmatrix}. \]
 \end{itm}
 
-\begin{itm}[Form.][(Quantificateurs et fonctions)]
+\begin{itm}[Form.][Quantificateurs et fonctions]
     Pour définir formellement une application en précisant ses ensembles de départ et d'arrivée, la norme rigoureuse impose l'usage d'un alignement :
     \[
         \setlength{\jot}{0pt}
@@ -314,7 +308,7 @@
     \]
 \end{itm}
 
-\begin{itm}[Tabl.][(Variations)]
+\begin{itm}[Tabl.][Variations]
     Exemple de tableau de signes et de variations.
 \begin{center}
     \shorthandoff{:}
@@ -343,18 +337,6 @@
         \fill (M) circle (1pt) node[above left] {$\text{Arccos}(x)$};
         \node[below right] at (1,0) {\small $1$};
         \node[below left] at (-1,0) {\small $-1$};
-    \end{tikzpicture}
-    \end{center}
-\end{itm}
-
-\begin{itm}[Figu.]
-    \begin{center}
-    \begin{tikzpicture}[scale=1]
-        \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
-        \draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
-        \draw[thick] plot [domain=-1:1, samples=100] (\x, {rad(acos(\x))});
-        \draw[dashed] (-1,0) node[below] {-1} -- (-1,3.14) -- (0,3.14) node[right] {$\pi$};
-        \draw (1,0.1) -- (1,-0.1) node[below] {1};
     \end{tikzpicture}
     \end{center}
 \end{itm}
