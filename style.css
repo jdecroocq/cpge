@@ -398,7 +398,7 @@ button.action-btn {
   line-height: 1;
   text-align: center;
   margin-bottom: 20px;
-  font-family: 'Orkney', 'Avenir Next', 'Segoe UI', sans-serif;
+  font-family: 'DM Mono', monospace;
   font-variant-numeric: tabular-nums;
 }
 
