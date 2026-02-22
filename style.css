@@ -6,12 +6,6 @@
   font-style: normal;
 }
 
-.theme-transition,
-.theme-transition * {
-  transition: all 0.4s ease !important;
-  transition-delay: 0s !important;
-}
-
 * {
   -webkit-tap-highlight-color: transparent;
 }
