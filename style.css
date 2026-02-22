@@ -26,6 +26,10 @@
   transition-delay: 0s !important;
 }
 
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
 :root {
   --color-0-rgb: 255, 255, 255;
   --color-1-rgb: 250, 250, 250;
