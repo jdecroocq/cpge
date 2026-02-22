@@ -395,6 +395,8 @@ button.action-btn {
 }
 
 #target-time {
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 100;
   background: var(--color-1);
   border: var(--border);
   border-radius: 99px;
@@ -403,7 +405,7 @@ button.action-btn {
   font-size: 2rem;
   text-align: center;
   height: 42px;
-  width: 94px;
+  width: 98px;
   padding: 0;
   cursor: text;
   transition: color 0.2s;
