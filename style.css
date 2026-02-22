@@ -326,7 +326,7 @@ button.action-btn {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height : 95vh;
+  height: 95vh;
   text-align: center;
 }
 
