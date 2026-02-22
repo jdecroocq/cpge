@@ -6,20 +6,6 @@
   font-style: normal;
 }
 
-@font-face {
-  font-family: 'SFMono';
-  src: url('/cpge/fonts/SFMonoRegular.woff') format('woff');
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'SFMono';
-  src: url('/cpge/fonts/SFMonoBold.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-}
-
 .theme-transition,
 .theme-transition * {
   transition: all 0.4s ease !important;
