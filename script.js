@@ -9,14 +9,10 @@
     const themeBtn = document.getElementById('theme-toggle');
     if (themeBtn) {
       themeBtn.addEventListener('click', function () {
-        document.documentElement.classList.add('theme-transition');
         document.documentElement.classList.toggle('dark-mode');
         const isDark = document.documentElement.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#000000' : '#ffffff');
-        setTimeout(() => {
-          document.documentElement.classList.remove('theme-transition');
-        }, 500); 
       });
     }
   });
