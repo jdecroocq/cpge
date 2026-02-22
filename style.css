@@ -446,18 +446,5 @@ button.action-btn {
   .icon-download:hover {
     transform: translateY(-2px);
   }
-
-  .back-button:hover {
-    background: transparent;
-    color: var(--color-6);
-    border-color: var(--color-6);
-  }
-
-  .tool-button:hover {
-    background-color: var(--color-6);
-    color: var(--color-0);
-    border-color: var(--color-6);
-    text-decoration: none;
-  }
 }
 
