@@ -137,7 +137,7 @@ body.loaded #page-loader {
 #countdown {
   font-size: 1.1rem;
   margin: 0 0 32px 0;
-  color: var(--color-4);
+  color: var(--color-1);
   text-align: center;
 }
 
@@ -380,7 +380,7 @@ button.action-btn {
 #timer-display {
   font-size: clamp(3rem, 12vw, 8rem);
   font-weight: 700;
-  color: var(--color-6);
+  color: var(--color-5);
   line-height: 1;
   text-align: center;
   margin-bottom: 20px;
@@ -409,7 +409,7 @@ button.action-btn {
 }
 
 #target-time::placeholder {
-  color: var(--color-6);
+  color: var(--color-3);
   opacity: 1;
 }
 
@@ -428,6 +428,11 @@ button.action-btn {
   }
 
   .action-btn:hover {
+    background-color: var(--color-2);
+    text-decoration: none;
+  }
+
+  #target-time:hover {
     background-color: var(--color-2);
     text-decoration: none;
   }
