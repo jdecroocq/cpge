@@ -94,9 +94,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  text-decoration: underline;
-}
 
 body > .subtitle,
 main,
@@ -181,10 +178,6 @@ button.action-btn {
 }
 
 
-.action-btn:hover {
-  background-color: var(--color-2);
-  text-decoration: none;
-}
 
 .q-icon {
   width: 20px;
@@ -240,10 +233,6 @@ button.action-btn {
   color: var(--color-5);
 }
 
-.site-credit a:hover {
-  color: var(--color-6);
-  text-decoration: none;
-}
 
 .item-list {
   display: flex;
@@ -279,10 +268,6 @@ button.action-btn {
   border-bottom: none;
 }
 
-.list-item:hover {
-  background-color: var(--color-2);
-  text-decoration: none;
-}
 
 .item-icons {
     display: flex;
@@ -313,9 +298,6 @@ button.action-btn {
     transition: transform 0.2s ease-out;
 }
 
-.icon-download:hover {
-    transform: translateY(-2px);
-}
 
 .empty-message {
   margin: 0;
@@ -364,11 +346,6 @@ button.action-btn {
   text-decoration: none !important;
 }
 
-.back-button:hover {
-  background: transparent;
-  color: var(--color-6);
-  border-color: var(--color-6);
-}
 
 .tool-button {
   display: inline-block;
@@ -381,12 +358,6 @@ button.action-btn {
   cursor: pointer;
 }
 
-.tool-button:hover {
-  background-color: var(--color-6);
-  color: var(--color-0);
-  border-color: var(--color-6);
-  text-decoration: none;
-}
 
 #timer-page {
   height: 100vh;
@@ -415,7 +386,7 @@ button.action-btn {
   line-height: 1;
   text-align: center;
   margin-bottom: 20px;
-  font-family: 'SFMono', monospace; 
+  font-family: 'Orkney', 'Avenir Next', 'Segoe UI', sans-serif;
   font-variant-numeric: tabular-nums;
 }
 
@@ -447,3 +418,46 @@ button.action-btn {
 #target-time:active {
   color: var(--color-5);
 }
+
+.timer-home-button {
+  margin-top: 28px;
+}
+
+@media (hover: hover) {
+  a:hover {
+    text-decoration: underline;
+  }
+
+  .action-btn:hover {
+    background-color: var(--color-2);
+    text-decoration: none;
+  }
+
+  .site-credit a:hover {
+    color: var(--color-6);
+    text-decoration: none;
+  }
+
+  .list-item:hover {
+    background-color: var(--color-2);
+    text-decoration: none;
+  }
+
+  .icon-download:hover {
+    transform: translateY(-2px);
+  }
+
+  .back-button:hover {
+    background: transparent;
+    color: var(--color-6);
+    border-color: var(--color-6);
+  }
+
+  .tool-button:hover {
+    background-color: var(--color-6);
+    color: var(--color-0);
+    border-color: var(--color-6);
+    text-decoration: none;
+  }
+}
+
