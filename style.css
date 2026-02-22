@@ -137,7 +137,7 @@ body.loaded #page-loader {
 #countdown {
   font-size: 1.1rem;
   margin: 0 0 32px 0;
-  color: var(--color-1);
+  color: var(--color-4);
   text-align: center;
 }
 
@@ -402,7 +402,6 @@ button.action-btn {
   border-radius: 99px;
   outline: none;
   color: var(--color-5);
-  font-size: 2rem;
   text-align: center;
   height: 42px;
   width: 98px;
