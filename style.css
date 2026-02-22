@@ -396,19 +396,20 @@ button.action-btn {
 
 #target-time {
   background: transparent;
-  border: none;
+  border: var(--border);
+  border-radius: var(--border-radius-1);
   outline: none;
   color: var(--color-5);
   font-size: 2rem;
   text-align: center;
-  width: 140px;
+  width: 100px;
   padding: 0;
   cursor: text;
   transition: color 0.2s;
 }
 
 #target-time::placeholder {
-  color: var(--color-4);
+  color: var(--color-6);
   opacity: 1;
 }
 
