@@ -2,6 +2,7 @@
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     document.documentElement.classList.add('dark-mode');
+    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000');
   }
 
   document.addEventListener('DOMContentLoaded', () => {
@@ -10,11 +11,9 @@
       themeBtn.addEventListener('click', function () {
         document.documentElement.classList.add('theme-transition');
         document.documentElement.classList.toggle('dark-mode');
-        if (document.documentElement.classList.contains('dark-mode')) {
-          localStorage.setItem('theme', 'dark');
-        } else {
-          localStorage.setItem('theme', 'light');
-        }
+        const isDark = document.documentElement.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#000000' : '#ffffff');
         setTimeout(() => {
           document.documentElement.classList.remove('theme-transition');
         }, 500); 
@@ -171,7 +170,9 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error("Erreur:", err);
             container.textContent = 'Impossible de charger le contenu.';
         } finally {
-            mainPageBody.classList.add('loaded');
+            setTimeout(() => {
+                mainPageBody.classList.add('loaded');
+            }, 300);
         }
     }
 
@@ -228,7 +229,3 @@ document.addEventListener('DOMContentLoaded', () => {
   
     updateGreeting()
 });
-
-
-
-
