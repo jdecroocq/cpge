@@ -29,6 +29,7 @@
 
   --border: 1px solid var(--color-3);
   --border-radius-1: 8px;
+  --border-radius-card: 16px;
 }
 
 :root.dark-mode {
@@ -476,7 +477,7 @@ button.action-btn {
 
 .deck-title {
     width: 100%;
-    max-width: 560px;
+    max-width: 400px;
     padding: 0 24px;
     text-align: center;
     box-sizing: border-box;
@@ -486,12 +487,12 @@ button.action-btn {
     margin: 0 0 20px;
     font-size: 1.3rem;
     font-weight: 900;
-    color: var(--color-6);
+    color: var(--color-5);
 }
 
 .progress-wrap {
     width: 100%;
-    max-width: 560px;
+    max-width: 400px;
     padding: 0 24px 14px;
     box-sizing: border-box;
 }
@@ -518,10 +519,9 @@ button.action-btn {
 }
 
 .scene {
-    width: 100%;
-    max-width: 512px;
-    padding: 0 24px;
-    height: 260px;
+    width: calc(100% - 48px);
+    max-width: 352px;
+    aspect-ratio: 1;
     perspective: 900px;
     cursor: pointer;
     box-sizing: border-box;
@@ -533,7 +533,7 @@ button.action-btn {
     position: relative;
     transform-style: preserve-3d;
     transition: transform 0.45s cubic-bezier(.4,0,.2,1);
-    border-radius: 16px;
+    border-radius: var(--border-radius-card);
 }
 
 .card.flipped {
@@ -545,7 +545,7 @@ button.action-btn {
     inset: 0;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
-    border-radius: 16px;
+    border-radius: var(--border-radius-card);
     border: var(--border);
     background: var(--color-1);
     display: flex;
@@ -580,12 +580,6 @@ button.action-btn {
     font-size: 1.9rem;
 }
 
-.card-hint {
-    font-size: 0.78rem;
-    color: var(--color-3);
-    margin-top: 4px;
-}
-
 .side-dots {
     display: flex;
     gap: 6px;
@@ -611,16 +605,15 @@ button.action-btn {
     justify-content: center;
     align-items: center;
     margin-top: 22px;
-    width: 100%;
-    max-width: 512px;
-    padding: 0 24px;
+    width: calc(100% - 48px);
+    max-width: 352px;
     box-sizing: border-box;
 }
 
 .btn {
     flex: 1;
     padding: 13px 0;
-    border-radius: 12px;
+    border-radius: var(--border-radius-1);
     border: var(--border);
     background: var(--color-1);
     color: var(--color-5);
@@ -628,19 +621,15 @@ button.action-btn {
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.15s, transform 0.1s;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
     appearance: none;
     outline: none;
-}
-
-.btn:active {
-    transform: scale(.97);
 }
 
 .btn-primary {
     background: var(--color-6);
     color: #fff;
-    border-color: transparent;
+    border-color: var(--color-6);
 }
 
 .flashcard-status {
@@ -650,6 +639,9 @@ button.action-btn {
     text-align: center;
     padding: 0 24px;
 }
+
+
+
 
 @media (hover: hover) {
   a:hover {
@@ -682,10 +674,11 @@ button.action-btn {
 
   .btn:hover {
     background: var(--color-2);
-   }
+  }
   
   .btn-primary:hover {
-    filter: brightness(1.1);
-    background: var(--color-6);
+    background: var(--color-0);
+    color: var(--color-6);
+    border-color: var(--color-6);
   }
 }
