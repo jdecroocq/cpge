@@ -488,6 +488,7 @@ button.action-btn {
     font-size: 1.3rem;
     font-weight: 900;
     color: var(--color-5);
+    text-transform: uppercase;
 }
 
 .progress-wrap {
@@ -508,7 +509,7 @@ button.action-btn {
     height: 100%;
     border-radius: 99px;
     background: var(--color-6);
-    transition: width 0.35s ease;
+    transition: width 0.32s ease;
 }
 
 .progress-label {
@@ -532,8 +533,7 @@ button.action-btn {
     height: 100%;
     position: relative;
     transform-style: preserve-3d;
-    transition: transform 0.45s cubic-bezier(.4,0,.2,1);
-    border-radius: var(--border-radius-card);
+    transition: transform 0.32s ease-in-out;
 }
 
 .card.flipped {
@@ -592,7 +592,6 @@ button.action-btn {
     height: 7px;
     border-radius: 50%;
     background: var(--color-3);
-    transition: background 0.25s;
 }
 
 .side-dot.active {
@@ -621,14 +620,13 @@ button.action-btn {
     font-size: 0.95rem;
     font-weight: 700;
     cursor: pointer;
-    transition: background 0.15s, color 0.15s, border-color 0.15s;
     appearance: none;
     outline: none;
 }
 
 .btn-primary {
     background: var(--color-6);
-    color: #fff;
+    color: var(--color-0);
     border-color: var(--color-6);
 }
 
