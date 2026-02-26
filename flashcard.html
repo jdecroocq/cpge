@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
-  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
 </head>
 <body id="flashcard-page">
 
@@ -37,13 +36,12 @@
       return;
     }
 
-    let deck       = [];
-    let labelA     = 'Recto';
-    let labelB     = 'Verso';
-    let queue      = [];
-    let queueIndex = 0;
+    let deck        = [];
+    let labelA      = 'Recto';
+    let labelB      = 'Verso';
+    let queue       = [];
+    let queueIndex  = 0;
     let currentCard = null;
-    let showAFront  = true;
     let flipped     = false;
 
     let cardEl, frontLabel, frontContent, backLabel, backContent,
@@ -58,18 +56,18 @@
       return a;
     }
 
-    function renderMath(el) {
-      if (window.renderMathInElement) {
-        renderMathInElement(el, {
-          delimiters: [
-            { left: '$$', right: '$$', display: true },
-            { left: '$',  right: '$',  display: false },
-            { left: '\\(', right: '\\)', display: false },
-            { left: '\\[', right: '\\]', display: true }
-          ],
-          throwOnError: false
-        });
+    function renderContent(el, text) {
+      const displayMatch = text.match(/^\$\$(.+)\$\$$/s);
+      const inlineMatch  = text.match(/^\$(.+)\$$/s);
+      if (window.katex && displayMatch) {
+        el.innerHTML = katex.renderToString(displayMatch[1], { throwOnError: false, displayMode: true });
+        return;
       }
+      if (window.katex && inlineMatch) {
+        el.innerHTML = katex.renderToString(inlineMatch[1], { throwOnError: false, displayMode: false });
+        return;
+      }
+      el.textContent = text;
     }
 
     function buildUI(title) {
@@ -98,7 +96,6 @@
           <div class="card-face front">
             <span class="card-label" id="front-label"></span>
             <div class="card-content" id="front-content"></div>
-            <span class="card-hint">Appuyer pour retourner</span>
           </div>
           <div class="card-face back">
             <span class="card-label" id="back-label"></span>
@@ -147,27 +144,6 @@
       });
     }
 
-    function setCardContent() {
-      showAFront = Math.random() < 0.5;
-
-      if (showAFront) {
-        frontLabel.textContent   = labelA;
-        frontContent.textContent = currentCard.a;
-        backLabel.textContent    = labelB;
-        backContent.textContent  = currentCard.b;
-      } else {
-        frontLabel.textContent   = labelB;
-        frontContent.textContent = currentCard.b;
-        backLabel.textContent    = labelA;
-        backContent.textContent  = currentCard.a;
-      }
-
-      requestAnimationFrame(() => {
-        renderMath(frontContent);
-        renderMath(backContent);
-      });
-    }
-
     function showCard() {
       cardEl.style.transition = 'none';
       cardEl.classList.remove('flipped');
@@ -178,7 +154,18 @@
       dot0.classList.add('active');
       dot1.classList.remove('active');
 
-      setCardContent();
+      const showAFront = Math.random() < 0.5;
+      if (showAFront) {
+        frontLabel.textContent = labelA;
+        renderContent(frontContent, currentCard.a);
+        backLabel.textContent = labelB;
+        renderContent(backContent, currentCard.b);
+      } else {
+        frontLabel.textContent = labelB;
+        renderContent(frontContent, currentCard.b);
+        backLabel.textContent = labelA;
+        renderContent(backContent, currentCard.a);
+      }
 
       const pct = Math.round((queueIndex / deck.length) * 100);
       progressFill.style.width  = pct + '%';
@@ -215,7 +202,7 @@
         queueIndex = 0;
 
         function tryStart() {
-          if (window.renderMathInElement) {
+          if (window.katex) {
             buildUI(data.title);
             nextCard();
           } else {
