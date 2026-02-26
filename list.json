@@ -124,7 +124,8 @@
             {
                 "name": "02_pc",
                 "files": [
-                    "molecules_ions.pdf"
+                    "molecules_ions.pdf",
+                    {"name": "fc_molecules_ions", "url": "flashcard.html?deck=molecules_ions"}
                         ]
             },
             {
