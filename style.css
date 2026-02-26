@@ -674,8 +674,6 @@ button.action-btn {
   }
   
   .btn-primary:hover {
-    background: var(--color-0);
-    color: var(--color-6);
-    border-color: var(--color-6);
+    background: color-mix(in srgb, var(--color-6) 95%, #ffffff 5%);
   }
 }
