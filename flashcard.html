@@ -29,7 +29,7 @@
   <script src="script.js"></script>
   <script>
   (function () {
-    const params = new URLSearchParams(window.location.search);
+    const params    = new URLSearchParams(window.location.search);
     const deckParam = params.get('deck');
 
     if (!deckParam) {
@@ -37,14 +37,17 @@
       return;
     }
 
-    let deck = [];
-    let queue = [];
+    let deck       = [];
+    let labelA     = 'Recto';
+    let labelB     = 'Verso';
+    let queue      = [];
     let queueIndex = 0;
     let currentCard = null;
-    let frontIsFormula = true;
-    let flipped = false;
+    let showAFront  = true;
+    let flipped     = false;
 
-    let cardEl, frontContent, backContent, progressFill, progressLabel, dot0, dot1;
+    let cardEl, frontLabel, frontContent, backLabel, backContent,
+        progressFill, progressLabel, dot0, dot1;
 
     function shuffleFY(arr) {
       const a = [...arr];
@@ -60,7 +63,7 @@
         renderMathInElement(el, {
           delimiters: [
             { left: '$$', right: '$$', display: true },
-            { left: '$', right: '$', display: false },
+            { left: '$',  right: '$',  display: false },
             { left: '\\(', right: '\\)', display: false },
             { left: '\\[', right: '\\]', display: true }
           ],
@@ -82,7 +85,9 @@
       const progWrap = document.createElement('div');
       progWrap.className = 'progress-wrap';
       progWrap.innerHTML = `
-        <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:0%"></div></div>
+        <div class="progress-bar-bg">
+          <div class="progress-bar-fill" id="prog-fill" style="width:0%"></div>
+        </div>
         <div class="progress-label" id="prog-label">0 / ${deck.length}</div>`;
       app.appendChild(progWrap);
 
@@ -104,18 +109,22 @@
 
       const dots = document.createElement('div');
       dots.className = 'side-dots';
-      dots.innerHTML = `<div class="side-dot active" id="dot0"></div><div class="side-dot" id="dot1"></div>`;
+      dots.innerHTML = `
+        <div class="side-dot active" id="dot0"></div>
+        <div class="side-dot" id="dot1"></div>`;
       app.appendChild(dots);
 
       const ctrl = document.createElement('div');
       ctrl.className = 'flashcard-controls';
       ctrl.innerHTML = `
         <button class="btn" id="btn-flip">Retourner</button>
-        <button class="btn btn-primary" id="btn-next">Suivante →</button>`;
+        <button class="btn btn-primary" id="btn-next">Suivante</button>`;
       app.appendChild(ctrl);
 
       cardEl        = document.getElementById('card');
+      frontLabel    = document.getElementById('front-label');
       frontContent  = document.getElementById('front-content');
+      backLabel     = document.getElementById('back-label');
       backContent   = document.getElementById('back-content');
       progressFill  = document.getElementById('prog-fill');
       progressLabel = document.getElementById('prog-label');
@@ -138,46 +147,54 @@
       });
     }
 
-    function showCard() {
-      flipped = false;
-      cardEl.classList.remove('flipped');
-      frontIsFormula = Math.random() < 0.5;
+    function setCardContent() {
+      showAFront = Math.random() < 0.5;
 
-      if (frontIsFormula) {
-        document.getElementById('front-label').textContent = 'Formule';
-        frontContent.textContent = `$${currentCard.formula}$`;
-        document.getElementById('back-label').textContent = 'Nom';
-        backContent.textContent = currentCard.name;
+      if (showAFront) {
+        frontLabel.textContent   = labelA;
+        frontContent.textContent = currentCard.a;
+        backLabel.textContent    = labelB;
+        backContent.textContent  = currentCard.b;
       } else {
-        document.getElementById('front-label').textContent = 'Nom';
-        frontContent.textContent = currentCard.name;
-        document.getElementById('back-label').textContent = 'Formule';
-        backContent.textContent = `$${currentCard.formula}$`;
+        frontLabel.textContent   = labelB;
+        frontContent.textContent = currentCard.b;
+        backLabel.textContent    = labelA;
+        backContent.textContent  = currentCard.a;
       }
 
       requestAnimationFrame(() => {
         renderMath(frontContent);
         renderMath(backContent);
       });
+    }
 
-      const pct = Math.round((queueIndex / deck.length) * 100);
-      progressFill.style.width = pct + '%';
-      progressLabel.textContent = `${queueIndex} / ${deck.length}`;
+    function showCard() {
+      cardEl.style.transition = 'none';
+      cardEl.classList.remove('flipped');
+      void cardEl.offsetWidth;
+      cardEl.style.transition = '';
 
+      flipped = false;
       dot0.classList.add('active');
       dot1.classList.remove('active');
+
+      setCardContent();
+
+      const pct = Math.round((queueIndex / deck.length) * 100);
+      progressFill.style.width  = pct + '%';
+      progressLabel.textContent = `${queueIndex} / ${deck.length}`;
     }
 
     function flipCard() {
       flipped = !flipped;
       cardEl.classList.toggle('flipped', flipped);
       dot0.classList.toggle('active', !flipped);
-      dot1.classList.toggle('active', flipped);
+      dot1.classList.toggle('active',  flipped);
     }
 
     function nextCard() {
       if (queueIndex >= queue.length) {
-        queue = shuffleFY(deck);
+        queue      = shuffleFY(deck);
         queueIndex = 0;
       }
       currentCard = queue[queueIndex++];
@@ -191,8 +208,10 @@
         const data = await res.json();
         if (!data.cards || data.cards.length === 0) throw new Error('Jeu vide.');
 
-        deck  = data.cards;
-        queue = shuffleFY(deck);
+        deck   = data.cards;
+        labelA = data.labelA || 'Recto';
+        labelB = data.labelB || 'Verso';
+        queue  = shuffleFY(deck);
         queueIndex = 0;
 
         function tryStart() {
