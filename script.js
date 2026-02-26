@@ -86,6 +86,30 @@ document.addEventListener('DOMContentLoaded', () => {
                             listDiv.className = 'item-list';
 
                             subcat.files.forEach(fileEntry => {
+
+                                if (typeof fileEntry === 'object' && fileEntry !== null && fileEntry.url) {
+                                    const link = document.createElement('a');
+                                    link.href = fileEntry.url;
+                                    link.target = '_blank';
+                                    link.rel = 'noopener noreferrer';
+                                    link.className = 'list-item';
+
+                                    const nameSpan = document.createElement('span');
+                                    nameSpan.className = 'item-name';
+                                    nameSpan.textContent = fileEntry.name || fileEntry.url;
+                                    link.appendChild(nameSpan);
+
+                                    const iconsContainer = document.createElement('span');
+                                    iconsContainer.className = 'item-icons';
+                                    const linkIcon = document.createElement('span');
+                                    linkIcon.className = 'icon icon-link';
+                                    iconsContainer.appendChild(linkIcon);
+                                    link.appendChild(iconsContainer);
+
+                                    listDiv.appendChild(link);
+                                    return;
+                                }
+
                                 let cleanFileName = fileEntry;
                                 let flagsPart = '';
 
