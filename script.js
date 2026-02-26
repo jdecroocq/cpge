@@ -24,18 +24,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const container = document.getElementById('content-container');
 
-    const DOC_EXTENSIONS  = ['pdf','doc','docx','xls','xlsx','ppt','pptx','odt','ods','odp'];
-    const CODE_EXTENSIONS = ['py','js','ts','jsx','tsx','json','html','htm','css','c','cpp','h','hpp','java','sh','bash','txt','md','rb','go','rs','php','sql','yaml','yml','xml','csv','vue','svelte','kt','swift'];
-    const PHOTO_EXTENSIONS = ['png','jpg','jpeg','svg','tiff','exr'];
-  
-    function getExtension(cleanName) {
-        const parts = cleanName.split('.');
+    const DOC_EXTENSIONS   = ['pdf','doc','docx','xls','xlsx','ppt','pptx','odt','ods','odp','epub','pages','numbers','key'];
+    const CODE_EXTENSIONS  = ['py','js','ts','jsx','tsx','json','html','htm','css','c','cpp','h','hpp','java','sh','bash','txt','md','rb','go','rs','php','sql','yaml','yml','xml','csv','vue','svelte','kt','swift','r','lua','pl','scala','dart','ex','exs','hs','ml','f90','f95','asm','s','toml','ini','env','dockerfile','makefile'];
+    const PHOTO_EXTENSIONS = ['jpg','jpeg','png','gif','webp','svg','bmp','tiff','tif','avif','heic','heif','ico','raw','cr2','nef','arw','rw2','dng','exr'];
+
+    function getExtension(name) {
+        const parts = name.split('.');
         return parts.length > 1 ? parts.pop().toLowerCase() : '';
     }
 
     function getTypeIconClass(entry) {
         if (typeof entry === 'object' && entry !== null) {
-            return entry.type === 'flashcard' ? 'icon-type-flashcard' : 'icon-type-link';
+            if (entry.type === 'flashcard') return 'icon-type-flashcard';
+            return 'icon-type-link';
         }
         let cleanName = entry;
         const lastDot = entry.lastIndexOf('.');
@@ -44,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (flagIdx > -1) cleanName = entry.substring(0, flagIdx);
         }
         const ext = getExtension(cleanName);
-        if (DOC_EXTENSIONS.includes(ext)) return 'icon-type-file';
-        if (CODE_EXTENSIONS.includes(ext)) return 'icon-type-code';
-        if (PHOTO_EXTENIONS.include(ext)) return 'icon-type-photo';
+        if (DOC_EXTENSIONS.includes(ext))   return 'icon-type-file';
+        if (CODE_EXTENSIONS.includes(ext))  return 'icon-type-code';
+        if (PHOTO_EXTENSIONS.includes(ext)) return 'icon-type-photo';
         return 'icon-type-file';
     }
 
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     }
                                 }
 
-                                const isProtected = flagsPart.includes('_s');
+                                const isProtected   = flagsPart.includes('_s');
                                 const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
 
@@ -210,10 +211,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getDaysLeft(targetDate) {
         const now = new Date();
-        const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+        const utcNow    = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
         const utcTarget = Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
-        const msPerDay = 1000 * 60 * 60 * 24;
-        return Math.floor((utcTarget - utcNow) / msPerDay);
+        return Math.floor((utcTarget - utcNow) / (1000 * 60 * 60 * 24));
     }
 
     function updateCountdown() {
