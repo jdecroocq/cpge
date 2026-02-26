@@ -486,9 +486,8 @@ button.action-btn {
 .deck-title h1 {
     margin: 0 0 20px;
     font-size: 1.3rem;
-    font-weight: 900;
+    font-weight: 500;
     color: var(--color-5);
-    text-transform: uppercase;
 }
 
 .progress-wrap {
