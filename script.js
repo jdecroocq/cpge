@@ -24,11 +24,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const container = document.getElementById('content-container');
 
+    const DOC_EXTENSIONS  = ['pdf','doc','docx','xls','xlsx','ppt','pptx','odt','ods','odp'];
+    const CODE_EXTENSIONS = ['py','js','ts','jsx','tsx','json','html','htm','css','c','cpp','h','hpp','java','sh','bash','txt','md','rb','go','rs','php','sql','yaml','yml','xml','csv','vue','svelte','kt','swift'];
+    const PHOTO_EXTENSIONS = ['png','jpg','jpeg','svg','tiff','exr'];
+  
+    function getExtension(cleanName) {
+        const parts = cleanName.split('.');
+        return parts.length > 1 ? parts.pop().toLowerCase() : '';
+    }
+
+    function getTypeIconClass(entry) {
+        if (typeof entry === 'object' && entry !== null) {
+            return entry.type === 'flashcard' ? 'icon-type-flashcard' : 'icon-type-link';
+        }
+        let cleanName = entry;
+        const lastDot = entry.lastIndexOf('.');
+        if (lastDot > 0) {
+            const flagIdx = entry.indexOf('_', lastDot);
+            if (flagIdx > -1) cleanName = entry.substring(0, flagIdx);
+        }
+        const ext = getExtension(cleanName);
+        if (DOC_EXTENSIONS.includes(ext)) return 'icon-type-file';
+        if (CODE_EXTENSIONS.includes(ext)) return 'icon-type-code';
+        if (PHOTO_EXTENIONS.include(ext)) return 'icon-type-photo';
+        return 'icon-type-file';
+    }
+
     async function applyCacheBuster(originalUrl, linkElement) {
         try {
             const response = await fetch(originalUrl, { method: 'HEAD', cache: 'no-cache' });
             if (!response.ok) return;
-
             const lastModified = response.headers.get('Last-Modified');
             if (lastModified) {
                 const timestamp = new Date(lastModified).getTime();
@@ -36,17 +61,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 linkElement.href = versionedUrl;
                 linkElement.dataset.finalUrl = versionedUrl;
             }
-        } catch (error) {
-           
-        }
+        } catch (error) {}
     }
 
     async function loadContent() {
         try {
             const response = await fetch('list.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             const categories = await response.json();
 
             if (categories.length === 0) {
@@ -71,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     cat.subcategories.forEach(subcat => {
                         const subcatDiv = document.createElement('div');
                         subcatDiv.className = 'content-subcategory';
-                        
+
                         const subcatTitle = document.createElement('h3');
                         subcatTitle.textContent = subcat.name;
                         subcatDiv.appendChild(subcatTitle);
@@ -86,25 +107,22 @@ document.addEventListener('DOMContentLoaded', () => {
                             listDiv.className = 'item-list';
 
                             subcat.files.forEach(fileEntry => {
+                                const link = document.createElement('a');
+                                link.className = 'list-item';
+                                link.target = '_blank';
+                                link.rel = 'noopener noreferrer';
+
+                                const typeIcon = document.createElement('span');
+                                typeIcon.className = `icon item-type-icon ${getTypeIconClass(fileEntry)}`;
+                                link.appendChild(typeIcon);
 
                                 if (typeof fileEntry === 'object' && fileEntry !== null && fileEntry.url) {
-                                    const link = document.createElement('a');
                                     link.href = fileEntry.url;
-                                    link.target = '_blank';
-                                    link.rel = 'noopener noreferrer';
-                                    link.className = 'list-item';
 
                                     const nameSpan = document.createElement('span');
                                     nameSpan.className = 'item-name';
                                     nameSpan.textContent = fileEntry.name || fileEntry.url;
                                     link.appendChild(nameSpan);
-
-                                    const iconsContainer = document.createElement('span');
-                                    iconsContainer.className = 'item-icons';
-                                    const linkIcon = document.createElement('span');
-                                    linkIcon.className = 'icon icon-link';
-                                    iconsContainer.appendChild(linkIcon);
-                                    link.appendChild(iconsContainer);
 
                                     listDiv.appendChild(link);
                                     return;
@@ -112,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
                                 let cleanFileName = fileEntry;
                                 let flagsPart = '';
-
                                 const lastDotIndex = fileEntry.lastIndexOf('.');
                                 if (lastDotIndex > 0) {
                                     const firstFlagIndex = fileEntry.indexOf('_', lastDotIndex);
@@ -126,13 +143,8 @@ document.addEventListener('DOMContentLoaded', () => {
                                 const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
 
-                                const link = document.createElement('a');
                                 link.href = filePath;
                                 link.dataset.finalUrl = filePath;
-                                link.target = "_blank";
-                                link.rel = "noopener noreferrer";
-                                link.className = 'list-item';
-
                                 applyCacheBuster(filePath, link);
 
                                 const fileNameSpan = document.createElement('span');
@@ -147,13 +159,10 @@ document.addEventListener('DOMContentLoaded', () => {
                                     const downloadIcon = document.createElement('span');
                                     downloadIcon.className = 'icon icon-download';
                                     downloadIcon.title = 'Télécharger le fichier';
-
                                     downloadIcon.addEventListener('click', (e) => {
                                         e.preventDefault();
                                         e.stopPropagation();
-
                                         const urlToUse = link.dataset.finalUrl || link.href;
-
                                         const tempLink = document.createElement('a');
                                         tempLink.href = urlToUse;
                                         tempLink.setAttribute('download', cleanFileName);
@@ -162,10 +171,9 @@ document.addEventListener('DOMContentLoaded', () => {
                                         tempLink.click();
                                         document.body.removeChild(tempLink);
                                     });
-                                    
                                     iconsContainer.appendChild(downloadIcon);
                                 }
-                                
+
                                 if (isProtected) {
                                     const protectedIcon = document.createElement('span');
                                     protectedIcon.className = 'icon icon-protected';
@@ -199,53 +207,41 @@ document.addEventListener('DOMContentLoaded', () => {
     loadContent();
 
     const concoursDate = new Date("2027-04-26");
-    
+
     function getDaysLeft(targetDate) {
-      const now = new Date();
-      const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
-      const utcTarget = Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
-      const msPerDay = 1000 * 60 * 60 * 24;
-      return Math.floor((utcTarget - utcNow) / msPerDay);
+        const now = new Date();
+        const utcNow = Date.UTC(now.getFullYear(), now.getMonth(), now.getDate());
+        const utcTarget = Date.UTC(targetDate.getFullYear(), targetDate.getMonth(), targetDate.getDate());
+        const msPerDay = 1000 * 60 * 60 * 24;
+        return Math.floor((utcTarget - utcNow) / msPerDay);
     }
-    
+
     function updateCountdown() {
-      const el = document.getElementById("countdown");
-      if (!el) return;
-    
-      const days = getDaysLeft(concoursDate);
-    
-      if (isNaN(days)) {
-        el.textContent = "Date invalide.";
-      } else if (days > 1) {
-        el.textContent = `Il reste ${days} jours avant les concours.`;
-      } else if (days === 1) {
-        el.textContent = `Il reste 1 jour avant les concours !`;
-      } else if (days === 0) {
-        el.textContent = `Il reste 0 jour avant les concours !`;
-      } else {
-        el.textContent = `Les concours ont commencé.`;
-      }
+        const el = document.getElementById("countdown");
+        if (!el) return;
+        const days = getDaysLeft(concoursDate);
+        if (isNaN(days)) {
+            el.textContent = "Date invalide.";
+        } else if (days > 1) {
+            el.textContent = `Il reste ${days} jours avant les concours.`;
+        } else if (days === 1) {
+            el.textContent = `Il reste 1 jour avant les concours !`;
+        } else if (days === 0) {
+            el.textContent = `Il reste 0 jour avant les concours !`;
+        } else {
+            el.textContent = `Les concours ont commencé.`;
+        }
     }
-    
+
     updateCountdown();
     setInterval(updateCountdown, 1000 * 60 * 60);
 
     function updateGreeting() {
         const greetingEl = document.getElementById("greeting");
         if (!greetingEl) return;
-    
-        const now = new Date();
-        const hour = now.getHours();
-    
-        let greetingMessage;
-        if (hour >= 4 && hour < 18) {
-            greetingMessage = "Bonjour";
-        } else {
-            greetingMessage = "Bonsoir";
-        }
-    
-        greetingEl.textContent = greetingMessage;
+        const hour = new Date().getHours();
+        greetingEl.textContent = (hour >= 4 && hour < 18) ? "Bonjour" : "Bonsoir";
     }
-  
-    updateGreeting()
+
+    updateGreeting();
 });
