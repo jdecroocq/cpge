@@ -6,462 +6,214 @@
   <meta name="theme-color" content="#ffffff">
   <title>Kernel – Flash cards</title>
   <link rel="icon" type="image/png" href="kernel_icon_round_32.png">
-
-  <!-- KaTeX -->
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js"></script>
-
-  <style>
-    /* ── Fonts ─────────────────────────────────────────────────── */
-    @font-face {
-      font-family: 'Orkney';
-      src: url('/cpge/fonts/orkney-regular-webfont.woff2') format('woff2'),
-           url('/cpge/fonts/orkney-regular-webfont.woff') format('woff');
-      font-weight: 400;
-      font-style: normal;
-    }
-
-    /* ── Tokens ─────────────────────────────────────────────────── */
-    :root {
-      --c0: 255,255,255; --c1: 250,250,250; --c2: 242,242,242;
-      --c3: 210,210,210; --c4: 99,99,99;   --c5: 63,63,63;
-      --c6: 61,98,245;
-      --color-0: rgb(var(--c0)); --color-1: rgb(var(--c1));
-      --color-2: rgb(var(--c2)); --color-3: rgb(var(--c3));
-      --color-4: rgb(var(--c4)); --color-5: rgb(var(--c5));
-      --color-6: rgb(var(--c6));
-      --border: 1px solid var(--color-3);
-      --radius: 16px;
-    }
-    :root.dark-mode {
-      --c0: 0,0,0; --c1: 12,12,12; --c2: 24,24,24;
-      --c3: 32,32,32; --c4: 194,194,194; --c5: 235,235,235;
-    }
-
-    /* ── Reset ──────────────────────────────────────────────────── */
-    *, *::before, *::after { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Orkney', sans-serif;
-      background: var(--color-0); color: var(--color-5);
-      min-height: 100dvh;
-      display: flex; flex-direction: column; align-items: center;
-    }
-    body::-webkit-scrollbar { display: none; }
-
-    /* ── Top bar ─────────────────────────────────────────────────── */
-    .topbar {
-      width: 100%; max-width: 560px;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 20px 24px 0;
-    }
-    .quick-actions {
-      display: flex; gap: 10px; align-items: center;
-    }
-    .action-btn {
-      display: flex; justify-content: center; align-items: center;
-      width: 38px; height: 38px;
-      background: var(--color-1); border: var(--border); border-radius: 50%;
-      cursor: pointer; text-decoration: none; appearance: none; padding: 0; outline: none;
-    }
-    .q-icon {
-      width: 18px; height: 18px;
-      background: var(--color-5);
-      mask-size: contain; mask-repeat: no-repeat; mask-position: center;
-    }
-    .icon-home {
-      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M151.87-202.87v-355.7q0-21.63 9.58-40.9 9.57-19.27 26.72-31.94L425.3-809.26q24.11-18.39 54.7-18.39 30.59 0 54.7 18.39l237.13 177.85q17.15 12.67 26.72 31.94 9.58 19.27 9.58 40.9v355.7q0 37.78-26.61 64.39t-64.39 26.61H607.41q-19.15 0-32.32-13.17-13.18-13.18-13.18-32.33v-199.04q0-19.16-13.17-32.33-13.17-13.17-32.33-13.17h-72.82q-19.16 0-32.33 13.17-13.17 13.17-13.17 32.33v199.04q0 19.15-13.18 32.33-13.17 13.17-32.32 13.17H242.87q-37.78 0-64.39-26.61t-26.61-64.39Z'/%3E%3C/svg%3E");
-    }
-    .icon-theme {
-      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M480.24-116.41q-153.63 0-258.73-104.98Q116.41-326.37 116.41-480q0-133.93 84.74-235.43t223.31-123.05q15.39-3.43 27.54 1.35 12.15 4.78 19.83 14.02 7.91 9.24 9.72 22.2 1.82 12.95-4.75 26.11-13.89 25.04-21.31 51.65-7.42 26.61-7.42 55.5 0 91.67 64.31 155.87 64.32 64.19 156.23 64.19 28.37 0 56.48-7.44 28.11-7.45 50.91-20.58 12.91-5.8 25.13-4.11 12.22 1.7 21.22 8.13 9.76 6.44 14.54 18.23 4.78 11.8 1.59 27.95Q820.17-291 717.63-203.71q-102.54 87.3-237.39 87.3Z'/%3E%3C/svg%3E");
-    }
-    :root.dark-mode .icon-theme {
-      mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM80-434.5q-19.15 0-32.33-13.17Q34.5-460.85 34.5-480t13.17-32.33Q60.85-525.5 80-525.5h80q19.15 0 32.33 13.17Q205.5-499.15 205.5-480t-13.17 32.33Q179.15-434.5 160-434.5H80Zm720 0q-19.15 0-32.33-13.17Q754.5-460.85 754.5-480t13.17-32.33Q780.85-525.5 800-525.5h80q19.15 0 32.33 13.17Q925.5-499.15 925.5-480t-13.17 32.33Q899.15-434.5 880-434.5h-80ZM480-754.5q-19.15 0-32.33-13.17Q434.5-780.85 434.5-800v-80q0-19.15 13.17-32.33Q460.85-925.5 480-925.5t32.33 13.17Q525.5-899.15 525.5-880v80q0 19.15-13.17 32.33Q499.15-754.5 480-754.5Zm0 720q-19.15 0-32.33-13.17Q434.5-60.85 434.5-80v-80q0-19.15 13.17-32.33Q460.85-205.5 480-205.5t32.33 13.17Q525.5-179.15 525.5-160v80q0 19.15-13.17 32.33Q499.15-34.5 480-34.5Z'/%3E%3C/svg%3E");
-    }
-
-    /* ── Deck title ──────────────────────────────────────────────── */
-    .deck-title {
-      width: 100%; max-width: 560px;
-      padding: 18px 24px 4px;
-      text-align: center;
-    }
-    .deck-title h1 {
-      margin: 0; font-size: 1.3rem; font-weight: 900; color: var(--color-6);
-    }
-    .deck-title p {
-      margin: 4px 0 0; font-size: 0.82rem; color: var(--color-4);
-    }
-
-    /* ── Progress bar ────────────────────────────────────────────── */
-    .progress-wrap {
-      width: 100%; max-width: 560px;
-      padding: 14px 24px 0;
-    }
-    .progress-bar-bg {
-      height: 4px; border-radius: 99px;
-      background: var(--color-2);
-      overflow: hidden;
-    }
-    .progress-bar-fill {
-      height: 100%; border-radius: 99px;
-      background: var(--color-6);
-      transition: width 0.35s ease;
-    }
-    .progress-label {
-      margin-top: 6px; font-size: 0.78rem; color: var(--color-4); text-align: right;
-    }
-
-    /* ── Card scene ──────────────────────────────────────────────── */
-    .scene {
-      margin: 24px auto 0;
-      width: calc(100% - 48px); max-width: 512px;
-      height: 260px;
-      perspective: 900px;
-      cursor: pointer;
-    }
-    .card {
-      width: 100%; height: 100%;
-      position: relative;
-      transform-style: preserve-3d;
-      transition: transform 0.45s cubic-bezier(.4,0,.2,1);
-      border-radius: var(--radius);
-    }
-    .card.flipped { transform: rotateY(180deg); }
-
-    .card-face {
-      position: absolute; inset: 0;
-      backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
-      border-radius: var(--radius);
-      border: var(--border);
-      background: var(--color-1);
-      display: flex; flex-direction: column;
-      justify-content: center; align-items: center;
-      gap: 12px;
-      padding: 24px 28px;
-      text-align: center;
-      user-select: none;
-    }
-    .card-face.back {
-      transform: rotateY(180deg);
-    }
-
-    .card-label {
-      font-size: 0.72rem; text-transform: uppercase; letter-spacing: .08em;
-      color: var(--color-4); font-weight: 700;
-    }
-    .card-content {
-      font-size: 1.55rem; color: var(--color-5); line-height: 1.35;
-    }
-    /* KaTeX inside card */
-    .card-content .katex { font-size: 1.9rem; }
-
-    .card-hint {
-      font-size: 0.78rem; color: var(--color-3); margin-top: 4px;
-    }
-
-    /* ── Side indicator dots ─────────────────────────────────────── */
-    .side-dots {
-      display: flex; gap: 6px; justify-content: center; margin-top: 14px;
-    }
-    .side-dot {
-      width: 7px; height: 7px; border-radius: 50%;
-      background: var(--color-3);
-      transition: background 0.25s;
-    }
-    .side-dot.active { background: var(--color-6); }
-
-    /* ── Controls ────────────────────────────────────────────────── */
-    .controls {
-      display: flex; gap: 12px; justify-content: center; align-items: center;
-      margin: 22px auto 0;
-      width: calc(100% - 48px); max-width: 512px;
-    }
-    .btn {
-      flex: 1;
-      padding: 13px 0;
-      border-radius: 12px;
-      border: var(--border);
-      background: var(--color-1);
-      color: var(--color-5);
-      font-family: 'Orkney', sans-serif;
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-      appearance: none; outline: none;
-    }
-    .btn:active { transform: scale(.97); }
-    .btn-primary {
-      background: var(--color-6);
-      color: #fff;
-      border-color: transparent;
-    }
-
-    /* ── Error / loading ─────────────────────────────────────────── */
-    .status {
-      margin-top: 60px; color: var(--color-4); font-size: 0.95rem; text-align: center;
-      padding: 0 24px;
-    }
-
-    @media (hover: hover) {
-      .action-btn:hover { background: var(--color-2); }
-      .btn:hover { background: var(--color-2); }
-      .btn-primary:hover { filter: brightness(1.1); background: var(--color-6); }
-      .scene:hover .card:not(.flipped) .card-hint { color: var(--color-4); }
-    }
-  </style>
 </head>
-<body>
+<body id="flashcard-page">
 
-  <div class="topbar">
-    <div class="quick-actions">
-      <a href="/cpge/" class="action-btn" title="Accueil">
-        <span class="q-icon icon-home"></span>
-      </a>
-    </div>
-    <div class="quick-actions">
-      <button id="theme-toggle" class="action-btn" title="Changer de thème">
-        <span class="q-icon icon-theme"></span>
-      </button>
-    </div>
+  <div class="quick-actions">
+    <a href="/cpge/" class="action-btn" title="Accueil">
+      <span class="q-icon icon-home"></span>
+    </a>
+    <button id="theme-toggle" class="action-btn" title="Changer de thème">
+      <span class="q-icon icon-theme"></span>
+    </button>
   </div>
 
-  <div id="app" style="width:100%;display:flex;flex-direction:column;align-items:center;">
-    <p class="status" id="status-msg">Chargement du jeu de cartes…</p>
+  <div id="app">
+    <p class="flashcard-status" id="status-msg">Chargement du jeu de cartes…</p>
   </div>
 
-<script>
-/* ── Theme ──────────────────────────────────────────────────────── */
-(function () {
-  const saved = localStorage.getItem('theme');
-  if (saved === 'dark') {
-    document.documentElement.classList.add('dark-mode');
-    document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000');
-  }
-})();
+  <script src="script.js"></script>
+  <script>
+  (function () {
+    const params = new URLSearchParams(window.location.search);
+    const deckParam = params.get('deck');
 
-document.getElementById('theme-toggle').addEventListener('click', () => {
-  document.documentElement.classList.toggle('dark-mode');
-  const dark = document.documentElement.classList.contains('dark-mode');
-  localStorage.setItem('theme', dark ? 'dark' : 'light');
-  document.querySelector('meta[name="theme-color"]')?.setAttribute('content', dark ? '#000000' : '#ffffff');
-});
-
-/* ── Helpers ────────────────────────────────────────────────────── */
-function shuffleFY(arr) {
-  const a = [...arr];
-  for (let i = a.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [a[i], a[j]] = [a[j], a[i]];
-  }
-  return a;
-}
-
-function renderMath(el) {
-  if (window.renderMathInElement) {
-    renderMathInElement(el, {
-      delimiters: [
-        { left: '$$', right: '$$', display: true },
-        { left: '$', right: '$', display: false },
-        { left: '\\(', right: '\\)', display: false },
-        { left: '\\[', right: '\\]', display: true }
-      ],
-      throwOnError: false
-    });
-  }
-}
-
-/* ── State ──────────────────────────────────────────────────────── */
-let deck        = [];   // full cards array
-let queue       = [];   // current shuffled queue
-let queueIndex  = 0;    // position in queue
-let currentCard = null; // { formula, name }
-let frontIsFormula = true;
-let flipped     = false;
-
-/* ── DOM refs (built dynamically) ───────────────────────────────── */
-let cardEl, frontContent, backContent, progressFill, progressLabel;
-let dot0, dot1;
-
-/* ── Build UI ───────────────────────────────────────────────────── */
-function buildUI(data) {
-  document.title = `Kernel – ${data.title}`;
-  const app = document.getElementById('app');
-  app.innerHTML = '';
-
-  // Title
-  const titleDiv = document.createElement('div');
-  titleDiv.className = 'deck-title';
-  titleDiv.innerHTML = `<h1>${data.title}</h1>${data.subtitle ? `<p>${data.subtitle}</p>` : ''}`;
-  app.appendChild(titleDiv);
-
-  // Progress
-  const progWrap = document.createElement('div');
-  progWrap.className = 'progress-wrap';
-  progWrap.innerHTML = `
-    <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:0%"></div></div>
-    <div class="progress-label" id="prog-label">0 / ${deck.length}</div>`;
-  app.appendChild(progWrap);
-
-  // Scene
-  const scene = document.createElement('div');
-  scene.className = 'scene';
-  scene.innerHTML = `
-    <div class="card" id="card">
-      <div class="card-face front">
-        <span class="card-label" id="front-label">Formule</span>
-        <div class="card-content" id="front-content"></div>
-        <span class="card-hint">Appuyer pour retourner</span>
-      </div>
-      <div class="card-face back">
-        <span class="card-label" id="back-label">Nom</span>
-        <div class="card-content" id="back-content"></div>
-      </div>
-    </div>`;
-  app.appendChild(scene);
-
-  // Side dots
-  const dots = document.createElement('div');
-  dots.className = 'side-dots';
-  dots.innerHTML = `<div class="side-dot active" id="dot0"></div><div class="side-dot" id="dot1"></div>`;
-  app.appendChild(dots);
-
-  // Controls
-  const ctrl = document.createElement('div');
-  ctrl.className = 'controls';
-  ctrl.innerHTML = `
-    <button class="btn" id="btn-flip">Retourner</button>
-    <button class="btn btn-primary" id="btn-next">Suivante →</button>`;
-  app.appendChild(ctrl);
-
-  // Assign refs
-  cardEl       = document.getElementById('card');
-  frontContent = document.getElementById('front-content');
-  backContent  = document.getElementById('back-content');
-  progressFill = document.getElementById('prog-fill');
-  progressLabel= document.getElementById('prog-label');
-  dot0         = document.getElementById('dot0');
-  dot1         = document.getElementById('dot1');
-
-  // Events
-  scene.addEventListener('click', flipCard);
-  document.getElementById('btn-flip').addEventListener('click', flipCard);
-  document.getElementById('btn-next').addEventListener('click', nextCard);
-
-  // Keyboard
-  document.addEventListener('keydown', e => {
-    if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown') {
-      e.preventDefault(); flipCard();
+    if (!deckParam) {
+      document.getElementById('status-msg').textContent = "Aucun jeu de cartes spécifié.";
+      return;
     }
-    if (e.code === 'ArrowRight' || e.code === 'Enter') {
-      e.preventDefault(); nextCard();
+
+    let deck = [];
+    let queue = [];
+    let queueIndex = 0;
+    let currentCard = null;
+    let frontIsFormula = true;
+    let flipped = false;
+
+    let cardEl, frontContent, backContent, progressFill, progressLabel, dot0, dot1;
+
+    function shuffleFY(arr) {
+      const a = [...arr];
+      for (let i = a.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [a[i], a[j]] = [a[j], a[i]];
+      }
+      return a;
     }
-  });
-}
 
-/* ── Card logic ─────────────────────────────────────────────────── */
-function showCard() {
-  flipped = false;
-  cardEl.classList.remove('flipped');
-
-  // random side
-  frontIsFormula = Math.random() < 0.5;
-
-  const frontLabel = document.getElementById('front-label');
-  const backLabel  = document.getElementById('back-label');
-
-  if (frontIsFormula) {
-    frontLabel.textContent = 'Formule';
-    frontContent.textContent = `$${currentCard.formula}$`;
-    backLabel.textContent = 'Nom';
-    backContent.textContent = currentCard.name;
-  } else {
-    frontLabel.textContent = 'Nom';
-    frontContent.textContent = currentCard.name;
-    backLabel.textContent = 'Formule';
-    backContent.textContent = `$${currentCard.formula}$`;
-  }
-
-  // Render math after a tick (KaTeX needs the DOM)
-  requestAnimationFrame(() => {
-    renderMath(frontContent);
-    renderMath(backContent);
-  });
-
-  // Progress
-  const seen = queueIndex; // cards shown so far in this round
-  const pct  = Math.round((seen / deck.length) * 100);
-  progressFill.style.width = pct + '%';
-  progressLabel.textContent = `${seen} / ${deck.length}`;
-
-  // Dots
-  dot0.classList.add('active');
-  dot1.classList.remove('active');
-}
-
-function flipCard() {
-  flipped = !flipped;
-  cardEl.classList.toggle('flipped', flipped);
-  dot0.classList.toggle('active', !flipped);
-  dot1.classList.toggle('active', flipped);
-}
-
-function nextCard() {
-  if (queueIndex >= queue.length) {
-    // Reshuffle for next round
-    queue = shuffleFY(deck);
-    queueIndex = 0;
-    progressLabel.textContent = `0 / ${deck.length}`;
-    progressFill.style.width = '0%';
-  }
-  currentCard = queue[queueIndex++];
-  showCard();
-}
-
-/* ── Load ───────────────────────────────────────────────────────── */
-async function init() {
-  const params = new URLSearchParams(window.location.search);
-  const deckParam = params.get('deck');
-
-  if (!deckParam) {
-    document.getElementById('status-msg').textContent =
-      'Aucun jeu de cartes spécifié. Ajoutez ?deck=nom dans l\'URL.';
-    return;
-  }
-
-  const url = `flashcards/${deckParam}.json`;
-
-  try {
-    const res = await fetch(url);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const data = await res.json();
-
-    if (!data.cards || data.cards.length === 0) throw new Error('Jeu vide.');
-
-    deck  = data.cards;
-    queue = shuffleFY(deck);
-    queueIndex = 0;
-
-    // Wait for KaTeX to be ready
-    function tryStart() {
+    function renderMath(el) {
       if (window.renderMathInElement) {
-        buildUI(data);
-        nextCard();
-      } else {
-        setTimeout(tryStart, 50);
+        renderMathInElement(el, {
+          delimiters: [
+            { left: '$$', right: '$$', display: true },
+            { left: '$', right: '$', display: false },
+            { left: '\\(', right: '\\)', display: false },
+            { left: '\\[', right: '\\]', display: true }
+          ],
+          throwOnError: false
+        });
       }
     }
-    tryStart();
 
-  } catch (err) {
-    document.getElementById('status-msg').textContent =
-      `Impossible de charger le jeu « ${deckParam} ». (${err.message})`;
-  }
-}
+    function buildUI(title) {
+      document.title = `Kernel – ${title}`;
+      const app = document.getElementById('app');
+      app.innerHTML = '';
 
-init();
-</script>
+      const titleDiv = document.createElement('div');
+      titleDiv.className = 'deck-title';
+      titleDiv.innerHTML = `<h1>${title}</h1>`;
+      app.appendChild(titleDiv);
+
+      const progWrap = document.createElement('div');
+      progWrap.className = 'progress-wrap';
+      progWrap.innerHTML = `
+        <div class="progress-bar-bg"><div class="progress-bar-fill" id="prog-fill" style="width:0%"></div></div>
+        <div class="progress-label" id="prog-label">0 / ${deck.length}</div>`;
+      app.appendChild(progWrap);
+
+      const scene = document.createElement('div');
+      scene.className = 'scene';
+      scene.innerHTML = `
+        <div class="card" id="card">
+          <div class="card-face front">
+            <span class="card-label" id="front-label"></span>
+            <div class="card-content" id="front-content"></div>
+            <span class="card-hint">Appuyer pour retourner</span>
+          </div>
+          <div class="card-face back">
+            <span class="card-label" id="back-label"></span>
+            <div class="card-content" id="back-content"></div>
+          </div>
+        </div>`;
+      app.appendChild(scene);
+
+      const dots = document.createElement('div');
+      dots.className = 'side-dots';
+      dots.innerHTML = `<div class="side-dot active" id="dot0"></div><div class="side-dot" id="dot1"></div>`;
+      app.appendChild(dots);
+
+      const ctrl = document.createElement('div');
+      ctrl.className = 'flashcard-controls';
+      ctrl.innerHTML = `
+        <button class="btn" id="btn-flip">Retourner</button>
+        <button class="btn btn-primary" id="btn-next">Suivante →</button>`;
+      app.appendChild(ctrl);
+
+      cardEl        = document.getElementById('card');
+      frontContent  = document.getElementById('front-content');
+      backContent   = document.getElementById('back-content');
+      progressFill  = document.getElementById('prog-fill');
+      progressLabel = document.getElementById('prog-label');
+      dot0          = document.getElementById('dot0');
+      dot1          = document.getElementById('dot1');
+
+      scene.addEventListener('click', flipCard);
+      document.getElementById('btn-flip').addEventListener('click', flipCard);
+      document.getElementById('btn-next').addEventListener('click', nextCard);
+
+      document.addEventListener('keydown', e => {
+        if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown') {
+          e.preventDefault();
+          flipCard();
+        }
+        if (e.code === 'ArrowRight' || e.code === 'Enter') {
+          e.preventDefault();
+          nextCard();
+        }
+      });
+    }
+
+    function showCard() {
+      flipped = false;
+      cardEl.classList.remove('flipped');
+      frontIsFormula = Math.random() < 0.5;
+
+      if (frontIsFormula) {
+        document.getElementById('front-label').textContent = 'Formule';
+        frontContent.textContent = `$${currentCard.formula}$`;
+        document.getElementById('back-label').textContent = 'Nom';
+        backContent.textContent = currentCard.name;
+      } else {
+        document.getElementById('front-label').textContent = 'Nom';
+        frontContent.textContent = currentCard.name;
+        document.getElementById('back-label').textContent = 'Formule';
+        backContent.textContent = `$${currentCard.formula}$`;
+      }
+
+      requestAnimationFrame(() => {
+        renderMath(frontContent);
+        renderMath(backContent);
+      });
+
+      const pct = Math.round((queueIndex / deck.length) * 100);
+      progressFill.style.width = pct + '%';
+      progressLabel.textContent = `${queueIndex} / ${deck.length}`;
+
+      dot0.classList.add('active');
+      dot1.classList.remove('active');
+    }
+
+    function flipCard() {
+      flipped = !flipped;
+      cardEl.classList.toggle('flipped', flipped);
+      dot0.classList.toggle('active', !flipped);
+      dot1.classList.toggle('active', flipped);
+    }
+
+    function nextCard() {
+      if (queueIndex >= queue.length) {
+        queue = shuffleFY(deck);
+        queueIndex = 0;
+      }
+      currentCard = queue[queueIndex++];
+      showCard();
+    }
+
+    async function init() {
+      try {
+        const res = await fetch(`flashcards/${deckParam}.json`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        if (!data.cards || data.cards.length === 0) throw new Error('Jeu vide.');
+
+        deck  = data.cards;
+        queue = shuffleFY(deck);
+        queueIndex = 0;
+
+        function tryStart() {
+          if (window.renderMathInElement) {
+            buildUI(data.title);
+            nextCard();
+          } else {
+            setTimeout(tryStart, 50);
+          }
+        }
+        tryStart();
+
+      } catch (err) {
+        document.getElementById('status-msg').textContent =
+          `Impossible de charger le jeu « ${deckParam} ». (${err.message})`;
+      }
+    }
+
+    init();
+  })();
+  </script>
+
 </body>
 </html>
