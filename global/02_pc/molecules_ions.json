@@ -1,0 +1,23 @@
+{
+  "title": "Molécules et ions usuels",
+  "cards": [
+    { "formula": "\\text{NH}_3",              "name": "Ammoniac" },
+    { "formula": "\\text{NaOH}",              "name": "Hydroxyde de sodium (soude caustique)" },
+    { "formula": "\\text{H}_3\\text{O}^+",   "name": "Ion oxonium (hydronium)" },
+    { "formula": "\\text{HO}^-",             "name": "Ion hydroxyde" },
+    { "formula": "\\text{Na}^+",             "name": "Ion sodium" },
+    { "formula": "\\text{NH}_4^+",           "name": "Ion ammonium" },
+    { "formula": "\\text{SO}_4^{\\,2-}",     "name": "Ion sulfate" },
+    { "formula": "\\text{NO}_3^-",           "name": "Ion nitrate" },
+    { "formula": "\\text{MnO}_4^-",          "name": "Ion permanganate" },
+    { "formula": "\\text{PO}_4^{\\,3-}",     "name": "Ion phosphate" },
+    { "formula": "\\text{ClO}^-",            "name": "Ion hypochlorite" },
+    { "formula": "\\text{K}^+",              "name": "Ion potassium" },
+    { "formula": "\\text{Ag}^+",             "name": "Ion argent (monovalent)" },
+    { "formula": "\\text{I}^-",              "name": "Ion iodure" },
+    { "formula": "\\text{Br}^-",             "name": "Ion bromure" },
+    { "formula": "\\text{Cl}^-",             "name": "Ion chlorure" },
+    { "formula": "\\text{Pb}^{2+}",          "name": "Ion plomb" },
+    { "formula": "\\text{CO}_3^{\\,2-}",     "name": "Ion carbonate" }
+  ]
+}
