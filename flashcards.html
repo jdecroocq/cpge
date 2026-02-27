@@ -40,9 +40,20 @@
     const listEl = document.getElementById('fc-list');
 
     try {
-      const res = await fetch('flashcards/index.json');
+      const res = await fetch('list.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const decks = await res.json();
+      const categories = await res.json();
+
+      const decks = [];
+      categories.forEach(cat => {
+        (cat.subcategories || []).forEach(subcat => {
+          (subcat.files || []).forEach(entry => {
+            if (typeof entry === 'object' && entry !== null && entry.type === 'flashcard') {
+              decks.push(entry);
+            }
+          });
+        });
+      });
 
       if (!decks.length) {
         listEl.textContent = 'Aucun jeu disponible.';
@@ -51,7 +62,7 @@
 
       decks.forEach(deck => {
         const link = document.createElement('a');
-        link.href = `flashcard.html?deck=${deck.id}`;
+        link.href = deck.url;
         link.className = 'list-item';
 
         const typeIcon = document.createElement('span');
@@ -60,27 +71,19 @@
 
         const nameSpan = document.createElement('span');
         nameSpan.className = 'item-name';
-        nameSpan.textContent = deck.title;
+        nameSpan.textContent = deck.name || deck.url;
         link.appendChild(nameSpan);
 
-        const right = document.createElement('span');
-        right.className = 'item-icons';
-
-        if (deck.subject) {
-          const subjectSpan = document.createElement('span');
-          subjectSpan.className = 'fc-item-count';
-          subjectSpan.textContent = deck.subject;
-          right.appendChild(subjectSpan);
-        }
-
         if (deck.count) {
+          const right = document.createElement('span');
+          right.className = 'item-icons';
           const countSpan = document.createElement('span');
           countSpan.className = 'fc-item-count';
           countSpan.textContent = `${deck.count} cartes`;
           right.appendChild(countSpan);
+          link.appendChild(right);
         }
 
-        if (right.hasChildNodes()) link.appendChild(right);
         listEl.appendChild(link);
       });
 
