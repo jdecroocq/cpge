@@ -19,6 +19,7 @@
     </script>
 </head>
 <body>
+    <div id="page-loader"></div>
     <div class="page-404">
         <p id="funny-message">Chargement...</p>
         <p class="error-code">Erreur 404 : Cette page n'existe pas.</p>
@@ -41,5 +42,6 @@
         const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
         messageElement.textContent = `${randomPhrase}`;
     </script>
+    <script src="script.js"></script>
 </body>
 </html>
