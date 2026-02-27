@@ -710,7 +710,7 @@ button.action-btn {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.25s ease;
-    padding: 24px;
+    padding: 12px;
     box-sizing: border-box;
 }
 
@@ -724,10 +724,10 @@ button.action-btn {
     background: var(--color-0);
     border: var(--border);
     border-radius: var(--border-radius-1);
-    padding: 40px 32px 32px;
-    max-width: 999px;
+    padding: 24px;
+    margin: auto;
+    max-width: 700px;
     max-height: calc(100dvh - 48px);
-    width: 100%;
     box-sizing: border-box;
     overflow-y: auto;
     transform: translateY(12px);
