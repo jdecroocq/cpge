@@ -82,11 +82,13 @@ if ('serviceWorker' in navigator) {
         function openAbout() {
             overlay.classList.add('visible');
             overlay.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('about-open');
         }
-
+        
         function closeAbout() {
             overlay.classList.remove('visible');
             overlay.setAttribute('aria-hidden', 'true');
+            document.body.classList.remove('about-open');
         }
 
         document.getElementById('about-open').addEventListener('click', openAbout);
