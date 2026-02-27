@@ -232,7 +232,7 @@ button.action-btn {
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  padding: 8px 14px;
+  padding: 8px;
   background-color: var(--color-1);
   color: var(--color-5);
   font-size: 0.9rem;
