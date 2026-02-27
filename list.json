@@ -111,6 +111,7 @@
                     "nt_puissance_dix.pdf_s",
                     "nt_long_air_vol.pdf_s",
                     "nt_derivees.pdf",
+                    {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "type": "flashcard"},
                     "formulaire_hd.pdf_s"
                         ]
             },
@@ -148,6 +149,7 @@
                 "name": "06_lv",
                 "files": [
                     "meth_synthese.pdf_s",
+                    {"name": "Vocabulaire synthèse", "url": "flashcard.html?deck=voc_lv_synth", "type": "flashcard"},
                     "meth_colle.pdf_s"
                         ]
             },
