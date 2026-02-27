@@ -639,6 +639,53 @@ button.action-btn {
 
 
 
+
+
+#flashcards-page {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#flashcards-page > .quick-actions {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#fc-container {
+    width: 100%;
+    max-width: 560px;
+    padding: 40px 24px;
+    box-sizing: border-box;
+}
+
+#fc-container > h2 {
+    text-align: center;
+    margin: 0 0 24px;
+    font-size: 2rem;
+    font-weight: 900;
+    color: var(--color-5);
+}
+
+.fc-item-count {
+    font-size: 0.78rem;
+    color: var(--color-4);
+    white-space: nowrap;
+    flex-shrink: 0;
+    padding-left: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
 @media (hover: hover) {
   a:hover {
     text-decoration: underline;
