@@ -411,7 +411,6 @@ button.action-btn {
     align-items: center;
     justify-content: center;
     width: 100%;
-    margin-bottom: 100px;
     box-sizing: border-box;
 }
 
@@ -722,13 +721,17 @@ button.action-btn {
     border: var(--border);
     border-radius: var(--border-radius-1);
     padding: 40px 32px 32px;
-    max-width: 480px;
+    max-width: 999px;
     max-height: calc(100dvh - 48px);
     width: 100%;
     box-sizing: border-box;
     overflow-y: auto;
     transform: translateY(12px);
     transition: transform 0.25s ease;
+}
+
+#about-panel::-webkit-scrollbar {
+    display: none;
 }
 
 #about-overlay.visible #about-panel {
