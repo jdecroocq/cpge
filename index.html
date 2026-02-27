@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8LM0QRYJ18"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    
       gtag('config', 'G-8LM0QRYJ18');
     </script>
     
@@ -27,13 +25,26 @@ if ('serviceWorker' in navigator) {
 </script>
 <body id="main-page">
 
-    
     <div id="page-loader"></div>
+
+    <div id="about-overlay" aria-hidden="true">
+        <div id="about-panel">
+            <button id="about-close" class="action-btn" title="Fermer">
+                <span class="q-icon icon-close"></span>
+            </button>
+            <h2>À Propos</h2>
+            <p>Ce site constitue l’interface numérique au sein de laquelle j’ordonne, conserve et consulte le corpus de documents élaborés ou rassemblés au cours de ma scolarité en classe préparatoire aux grandes écoles. Il ne procède ni d’une ambition éditoriale, ni d’une volonté de diffusion académique structurée, mais d’une exigence personnelle de clarté, de permanence et de méthode. Pensé comme un instrument de travail avant d’être un espace de consultation, il répond d’abord à mes propres besoins d’organisation intellectuelle.</p>
+            <p>Son principe est volontairement dépouillé. Loin de toute sophistication superflue, l’architecture privilégie la lisibilité, la rapidité d’accès et la hiérarchisation rigoureuse des contenus. Cette austérité fonctionnelle ne relève pas d’un minimalisme esthétique fortuit, mais d’un choix délibéré : réduire l’interface à l’essentiel afin de laisser toute primauté aux documents eux-mêmes. Ainsi, l’outil s’efface devant la matière qu’il sert, et c’est précisément dans cette retenue qu’il trouve sa cohérence.</p>
+            <p>Les ressources proposées relèvent de deux natures distinctes. D’une part, mes productions personnelles — notes de cours, synthèses, travaux rédigés — issues d’un travail d’appropriation progressif et perfectible. D’autre part, des documents tiers, dont la consultation demeure strictement encadrée, dans le respect du droit d’auteur et des usages académiques. Les dispositifs de protection mis en place n’ont pas vocation à constituer un obstacle technique, mais à rappeler que ces contenus ne sauraient être assimilés à des fonds libres de droit.</p>
+            <p>Il importe également de souligner que ce site n’a pas été conçu selon les standards d’une ressource pédagogique universelle. Les documents qu’il héberge procèdent d’un travail d’étudiant, façonné par mes propres choix : certaines démonstrations ont été volontairement omises, des développements abrégés, des notations adaptées à ma compréhension personnelle. Ce qui pourrait apparaître comme une lacune relève souvent d’une sélection consciente, opérée en fonction de ce que je jugeais nécessaire à mon propre apprentissage.</p>
+            <p>En conséquence, malgré le soin apporté à la rédaction et à la mise en forme, ces contenus demeurent susceptibles de comporter imprécisions ou erreurs, dont j’assume l’entière responsabilité. Le lecteur éventuel est ainsi invité à faire preuve de discernement. Si ces pages peuvent, par surcroît, contribuer utilement au travail d’autrui, j’en serais honoré ; toutefois, leur raison d’être demeure essentiellement personnelle.</p>
+        </div>
+    </div>
     
     <p class="subtitle" id="greeting">Bonjour</p>
     <p id="countdown" class="countdown"></p>
 
-  <div class="quick-actions">
+    <div class="quick-actions">
         <a href="countdown" class="action-btn" rel="noopener noreferrer" title="Minuteur" data-force-external="true">
             <span class="q-icon icon-timer"></span>
         </a>
@@ -46,6 +57,9 @@ if ('serviceWorker' in navigator) {
         <button id="theme-toggle" class="action-btn" title="Changer de thème">
             <span class="q-icon icon-theme"></span>
         </button>
+        <button id="about-open" class="action-btn" title="À propos">
+            <span class="q-icon icon-info"></span>
+        </button>
     </div>
     
     <main id="content-container">
@@ -56,9 +70,37 @@ if ('serviceWorker' in navigator) {
         <span class="brand-name">Kernel</span>
         <span class="signature-text">, édité par</span>
         <a href="https://www.instagram.com/jdecroocq.3d/" target="_blank" rel="noopener noreferrer">J. Decroocq</a>
-        <span class="signature-text">.</span>
+        <span class="signature-text"> — </span>
+        <button id="about-open-footer" class="about-footer-btn">À propos</button>
     </div>
 
     <script src="script.js"></script>
+    <script>
+    (function () {
+        const overlay = document.getElementById('about-overlay');
+
+        function openAbout() {
+            overlay.classList.add('visible');
+            overlay.setAttribute('aria-hidden', 'false');
+        }
+
+        function closeAbout() {
+            overlay.classList.remove('visible');
+            overlay.setAttribute('aria-hidden', 'true');
+        }
+
+        document.getElementById('about-open').addEventListener('click', openAbout);
+        document.getElementById('about-open-footer').addEventListener('click', openAbout);
+        document.getElementById('about-close').addEventListener('click', closeAbout);
+
+        overlay.addEventListener('click', e => {
+            if (e.target === overlay) closeAbout();
+        });
+
+        document.addEventListener('keydown', e => {
+            if (e.code === 'Escape') closeAbout();
+        });
+    })();
+    </script>
 </body>
 </html>
