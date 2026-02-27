@@ -111,8 +111,9 @@ if ('serviceWorker' in navigator) {
         const fade  = document.getElementById('about-scroll-fade');
         
         function updateFade() {
-            const atBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 2;
-            fade.style.opacity = atBottom ? '0' : '1';
+            const scrollable = panel.scrollHeight > panel.clientHeight;
+            const atBottom   = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 2;
+            fade.style.opacity = (!scrollable || atBottom) ? '0' : '1';
         }
         
         panel.addEventListener('scroll', updateFade);
