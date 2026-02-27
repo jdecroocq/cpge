@@ -428,7 +428,7 @@ button.action-btn {
   color: var(--color-5);
   text-align: center;
   height: 42px;
-  width: 98px;
+  width: 100px;
   padding: 0;
   cursor: text;
   transition: color 0.2s;
