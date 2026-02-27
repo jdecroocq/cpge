@@ -283,8 +283,7 @@ button.action-btn {
 .item-icons {
     display: flex;
     align-items: center;
-    gap: 12px; 
-    padding-left: 16px;
+    gap: 8px;
 }
 
 .icon {
