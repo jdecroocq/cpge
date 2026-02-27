@@ -332,10 +332,6 @@ button.action-btn {
   margin-bottom: 0;
 }
 
-#timer-container .quick-actions {
-  margin-top: 24px;
-}
-
 .page-404 {
   display: flex;
   flex-direction: column;
