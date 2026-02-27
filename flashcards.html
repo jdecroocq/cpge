@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#ffffff">
+  <title>Kernel – Flash cards</title>
+  <link rel="icon" type="image/png" href="kernel_icon_round_32.png">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.documentElement.classList.add('dark-mode');
+        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', '#000000');
+      }
+    })();
+  </script>
+</head>
+<body id="flashcards-page">
+  <div id="page-loader"></div>
+
+  <div class="quick-actions">
+    <a href="/cpge/" class="action-btn" title="Accueil">
+      <span class="q-icon icon-home"></span>
+    </a>
+    <button id="theme-toggle" class="action-btn" title="Changer de thème">
+      <span class="q-icon icon-theme"></span>
+    </button>
+  </div>
+
+  <main id="fc-container">
+    <h2>Flash cards</h2>
+    <div id="fc-list" class="item-list"></div>
+  </main>
+
+  <script src="script.js"></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    const listEl = document.getElementById('fc-list');
+
+    try {
+      const res = await fetch('flashcards/index.json');
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const decks = await res.json();
+
+      if (!decks.length) {
+        listEl.textContent = 'Aucun jeu disponible.';
+        return;
+      }
+
+      decks.forEach(deck => {
+        const link = document.createElement('a');
+        link.href = `flashcard.html?deck=${deck.id}`;
+        link.className = 'list-item';
+
+        const typeIcon = document.createElement('span');
+        typeIcon.className = 'icon item-type-icon icon-type-flashcard';
+        link.appendChild(typeIcon);
+
+        const nameSpan = document.createElement('span');
+        nameSpan.className = 'item-name';
+        nameSpan.textContent = deck.title;
+        link.appendChild(nameSpan);
+
+        const right = document.createElement('span');
+        right.className = 'item-icons';
+
+        if (deck.subject) {
+          const subjectSpan = document.createElement('span');
+          subjectSpan.className = 'fc-item-count';
+          subjectSpan.textContent = deck.subject;
+          right.appendChild(subjectSpan);
+        }
+
+        if (deck.count) {
+          const countSpan = document.createElement('span');
+          countSpan.className = 'fc-item-count';
+          countSpan.textContent = `${deck.count} cartes`;
+          right.appendChild(countSpan);
+        }
+
+        if (right.hasChildNodes()) link.appendChild(right);
+        listEl.appendChild(link);
+      });
+
+    } catch (err) {
+      listEl.textContent = 'Impossible de charger la liste des jeux.';
+    }
+  });
+  </script>
+
+</body>
+</html>
