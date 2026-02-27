@@ -203,10 +203,14 @@ button.action-btn {
 }
 
 .site-credit {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 128px 0 64px 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 4px 0;
+    margin: 128px 0 64px 0;
+    padding: 0 24px;
+    text-align: center;
 }
 
 .site-credit svg {
