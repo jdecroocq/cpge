@@ -800,6 +800,7 @@ body.about-open {
     border-radius: 0 0 var(--border-radius-1) var(--border-radius-1);
     background: linear-gradient(to bottom, transparent, var(--color-0));
     pointer-events: none;
+    opacity: 0;
     transition: opacity 0.2s ease;
 }
 
