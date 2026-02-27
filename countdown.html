@@ -21,21 +21,23 @@
 </head>
 <body id="timer-page">
     <div id="page-loader"></div>
+
+    <div class="quick-actions">
+        <a href="/cpge/" class="action-btn" rel="noopener noreferrer" title="Revenir à l'accueil">
+            <span class="q-icon icon-home"></span>
+        </a>
+        <button id="theme-toggle" class="action-btn" title="Changer de thème">
+            <span class="q-icon icon-theme"></span>
+        </button>
+    </div>
+
     <main id="timer-container">
         <div id="timer-display">00:00:00</div>
         <div class="input-wrapper">
             <input type="text" id="target-time" placeholder="--:--" inputmode="numeric" maxlength="5" autocomplete="off">
         </div>
-        
-        <div class="quick-actions">
-            <a href="/cpge/" class="action-btn" rel="noopener noreferrer" title="Revenir à l'accueil">
-                <span class="q-icon icon-home"></span>
-            </a>
-            <button id="theme-toggle" class="action-btn" title="Changer de thème">
-                <span class="q-icon icon-theme"></span>
-            </button>
-        </div>
     </main>
+
     <script src="countdown.js"></script>
     <script src="script.js"></script>
 </body>
