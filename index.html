@@ -118,11 +118,13 @@ if ('serviceWorker' in navigator) {
         
         panel.addEventListener('scroll', updateFade);
         
+        const fadeObserver = new ResizeObserver(updateFade);
+        fadeObserver.observe(panel);
+        
         function openAbout() {
             overlay.classList.add('visible');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.classList.add('about-open');
-            setTimeout(updateFade, 260);
         }
     </script>
 </body>
