@@ -783,6 +783,22 @@ body.about-open {
     outline: none;
 }
 
+#about-panel-wrapper {
+    position: relative;
+}
+
+#about-scroll-fade {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 64px;
+    border-radius: 0 0 var(--border-radius-1) var(--border-radius-1);
+    background: linear-gradient(to bottom, transparent, var(--color-0));
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+}
+
 
 
 
