@@ -416,6 +416,7 @@ button.action-btn {
     justify-content: center;
     width: 100%;
     box-sizing: border-box;
+    margin-bottom: 90px;
 }
 
 #timer-display {
