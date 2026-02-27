@@ -89,8 +89,8 @@
                 "files": [
                     "02.01_liaisons_cine.pdf_s",
                     "03.02_compl_train_epi.pdf",
-                    "04.03_val_moy_eff.pdf_s",
-                    "04.04_fourier.pdf_s"
+                    "04.03_val_moy_eff.pdf",
+                    "04.04_fourier.pdf"
                         ]
             }
         ]
@@ -107,9 +107,9 @@
             {
                 "name": "00_global",
                 "files": [
-                    "nt_alphabet_grec.pdf_s",
-                    "nt_puissance_dix.pdf_s",
-                    "nt_long_air_vol.pdf_s",
+                    "nt_alphabet_grec.pdf",
+                    "nt_puissance_dix.pdf",
+                    "nt_long_air_vol.pdf",
                     "nt_derivees.pdf",
                     {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
                     "formulaire_hd.pdf_s"
