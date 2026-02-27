@@ -122,7 +122,7 @@ if ('serviceWorker' in navigator) {
             overlay.classList.add('visible');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.classList.add('about-open');
-            setTimeout(updateFade, 50);
+            requestAnimationFrame(() => requestAnimationFrame(updateFade));
         }
     </script>
 </body>
