@@ -28,16 +28,19 @@ if ('serviceWorker' in navigator) {
     <div id="page-loader"></div>
 
     <div id="about-overlay" aria-hidden="true">
-        <div id="about-panel">
-            <button id="about-close" class="action-btn" title="Fermer">
-                <span class="q-icon icon-close"></span>
-            </button>
-            <h2>À Propos</h2>
-            <p>Ce site constitue l’interface numérique au sein de laquelle j’ordonne, conserve et consulte le corpus de documents élaborés ou rassemblés au cours de ma scolarité en classe préparatoire aux grandes écoles. Il ne procède ni d’une ambition éditoriale, ni d’une volonté de diffusion académique structurée, mais d’une exigence personnelle de clarté, de permanence et de méthode. Pensé comme un instrument de travail avant d’être un espace de consultation, il répond d’abord à mes propres besoins d’organisation.</p>
-            <p>Son principe est volontairement dépouillé. Loin de toute sophistication superflue, l’architecture privilégie la lisibilité, la rapidité d’accès et la hiérarchisation rigoureuse des contenus. Cette austérité fonctionnelle ne relève pas d’un minimalisme esthétique fortuit, mais d’un choix délibéré : réduire l’interface à l’essentiel afin de laisser toute primauté aux documents eux-mêmes. Ainsi, l’outil s’efface devant la matière qu’il sert, et c’est précisément dans cette retenue qu’il trouve sa cohérence.</p>
-            <p>Les ressources proposées relèvent de deux natures distinctes. D’une part, mes productions personnelles issues d’un travail d’appropriation progressif et perfectible. D’autre part, des documents tiers, dont la consultation demeure strictement encadrée, dans le respect du droit d’auteur et des usages académiques. Les dispositifs de protection mis en place n’ont pas vocation à constituer un obstacle technique, mais à rappeler que ces contenus ne sauraient être assimilés à des fonds libres de droit.</p>
-            <p>Il importe également de souligner que ce site n’a pas été conçu selon les standards d’une ressource pédagogique universelle. Les documents qu’il héberge procèdent d’un travail d’étudiant, façonné par mes propres choix : certaines démonstrations ont été volontairement omises, des développements abrégés, des notations adaptées à ma compréhension personnelle. Ce qui pourrait apparaître comme une lacune relève souvent d’une sélection consciente, opérée en fonction de ce que je jugeais nécessaire à mon propre apprentissage.</p>
-            <p>En conséquence, malgré le soin apporté à la rédaction et à la mise en forme, ces contenus demeurent susceptibles de comporter imprécisions ou erreurs, dont j’assume l’entière responsabilité. Le lecteur éventuel est ainsi invité à faire preuve de discernement. Si ces pages peuvent, par surcroît, contribuer utilement au travail d’autrui, j’en serais honoré ; toutefois, leur raison d’être demeure essentiellement personnelle.</p>
+        <div id="about-panel-wrapper">
+            <div id="about-panel">
+                <button id="about-close" class="action-btn" title="Fermer">
+                    <span class="q-icon icon-close"></span>
+                </button>
+                <h2>À Propos</h2>
+                <p>Ce site constitue l’interface numérique au sein de laquelle j’ordonne, conserve et consulte le corpus de documents élaborés ou rassemblés au cours de ma scolarité en classe préparatoire aux grandes écoles. Il ne procède ni d’une ambition éditoriale, ni d’une volonté de diffusion académique structurée, mais d’une exigence personnelle de clarté, de permanence et de méthode. Pensé comme un instrument de travail avant d’être un espace de consultation, il répond d’abord à mes propres besoins d’organisation.</p>
+                <p>Son principe est volontairement dépouillé. Loin de toute sophistication superflue, l’architecture privilégie la lisibilité, la rapidité d’accès et la hiérarchisation rigoureuse des contenus. Cette austérité fonctionnelle ne relève pas d’un minimalisme esthétique fortuit, mais d’un choix délibéré : réduire l’interface à l’essentiel afin de laisser toute primauté aux documents eux-mêmes. Ainsi, l’outil s’efface devant la matière qu’il sert, et c’est précisément dans cette retenue qu’il trouve sa cohérence.</p>
+                <p>Les ressources proposées relèvent de deux natures distinctes. D’une part, mes productions personnelles issues d’un travail d’appropriation progressif et perfectible. D’autre part, des documents tiers, dont la consultation demeure strictement encadrée, dans le respect du droit d’auteur et des usages académiques. Les dispositifs de protection mis en place n’ont pas vocation à constituer un obstacle technique, mais à rappeler que ces contenus ne sauraient être assimilés à des fonds libres de droit.</p>
+                <p>Il importe également de souligner que ce site n’a pas été conçu selon les standards d’une ressource pédagogique universelle. Les documents qu’il héberge procèdent d’un travail d’étudiant, façonné par mes propres choix : certaines démonstrations ont été volontairement omises, des développements abrégés, des notations adaptées à ma compréhension personnelle. Ce qui pourrait apparaître comme une lacune relève souvent d’une sélection consciente, opérée en fonction de ce que je jugeais nécessaire à mon propre apprentissage.</p>
+                <p>En conséquence, malgré le soin apporté à la rédaction et à la mise en forme, ces contenus demeurent susceptibles de comporter imprécisions ou erreurs, dont j’assume l’entière responsabilité. Le lecteur éventuel est ainsi invité à faire preuve de discernement. Si ces pages peuvent, par surcroît, contribuer utilement au travail d’autrui, j’en serais honoré ; toutefois, leur raison d’être demeure essentiellement personnelle.</p>
+            </div>
+            <div id="about-scroll-fade"></div>
         </div>
     </div>
     
@@ -103,6 +106,23 @@ if ('serviceWorker' in navigator) {
             if (e.code === 'Escape') closeAbout();
         });
     })();
+
+        const panel = document.getElementById('about-panel');
+        const fade  = document.getElementById('about-scroll-fade');
+        
+        function updateFade() {
+            const atBottom = panel.scrollTop + panel.clientHeight >= panel.scrollHeight - 2;
+            fade.style.opacity = atBottom ? '0' : '1';
+        }
+        
+        panel.addEventListener('scroll', updateFade);
+        
+        function openAbout() {
+            overlay.classList.add('visible');
+            overlay.setAttribute('aria-hidden', 'false');
+            document.body.classList.add('about-open');
+            setTimeout(updateFade, 50);
+        }
     </script>
 </body>
 </html>
