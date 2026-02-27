@@ -15,6 +15,10 @@
         document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#000000' : '#ffffff');
       });
     }
+
+    if (document.getElementById('page-loader') && !document.getElementById('main-page')) {
+      setTimeout(() => document.body.classList.add('loaded'), 150);
+    }
   });
 })();
 
@@ -26,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const DOC_EXTENSIONS   = ['pdf','doc','docx','xls','xlsx','ppt','pptx','odt','ods','odp','epub','pages','numbers','key'];
     const CODE_EXTENSIONS  = ['py','js','ts','jsx','tsx','json','html','htm','css','c','cpp','h','hpp','java','sh','bash','txt','md','rb','go','rs','php','sql','yaml','yml','xml','csv','vue','svelte','kt','swift','r','lua','pl','scala','dart','ex','exs','hs','ml','f90','f95','asm','s','toml','ini','env','dockerfile','makefile'];
-    const PHOTO_EXTENSIONS = ['jpg','jpeg','png','gif','webp','svg','bmp','tiff','tif','avif','heic','heif','ico','raw','cr2','nef','arw','rw2','dng','exr'];
+    const PHOTO_EXTENSIONS = ['jpg','jpeg','png','gif','webp','svg','bmp','tiff','tif','avif','heic','heif','ico','raw','cr2','nef','arw'];
 
     function getExtension(name) {
         const parts = name.split('.');
@@ -140,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
                                     }
                                 }
 
-                                const isProtected   = flagsPart.includes('_s');
+                                const isProtected    = flagsPart.includes('_s');
                                 const isDownloadable = flagsPart.includes('_t');
                                 const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
 
