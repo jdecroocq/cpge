@@ -122,7 +122,7 @@ if ('serviceWorker' in navigator) {
             overlay.classList.add('visible');
             overlay.setAttribute('aria-hidden', 'false');
             document.body.classList.add('about-open');
-            panel.addEventListener('transitionend', updateFade, { once: true });
+            setTimeout(updateFade, 260);
         }
     </script>
 </body>
