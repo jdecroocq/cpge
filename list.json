@@ -149,7 +149,7 @@
                 "name": "06_lv",
                 "files": [
                     "meth_synthese.pdf_s",
-                    {"name": "Vocabulaire LV synthèse", "url": "flashcard.html?deck=voc_lv_synth", "count": 58, "type": "flashcard"},
+                    {"name": "Vocabulaire LV synthèse", "url": "flashcard.html?deck=voc_lv_synth", "type": "flashcard"},
                     "meth_colle.pdf_s"
                         ]
             },
