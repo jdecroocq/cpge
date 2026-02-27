@@ -721,15 +721,21 @@ button.action-btn {
     border: var(--border);
     border-radius: var(--border-radius-1);
     padding: 40px 32px 32px;
-    max-width: max(480px, 70%);
+    max-width: 480px;
+    max-height: calc(100dvh - 48px);
     width: 100%;
     box-sizing: border-box;
+    overflow-y: auto;
     transform: translateY(12px);
     transition: transform 0.25s ease;
 }
 
 #about-overlay.visible #about-panel {
     transform: translateY(0);
+}
+
+body.about-open {
+    overflow: hidden;
 }
 
 #about-close {
@@ -750,6 +756,7 @@ button.action-btn {
     font-size: 1rem;
     color: var(--color-4);
     line-height: 1.6;
+    text-align: justify;
 }
 
 #about-panel p:last-child {
