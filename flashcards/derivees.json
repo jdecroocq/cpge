@@ -3,7 +3,7 @@
   "labelA": "Fonction",
   "labelB": "Dérivée",
   "cards": [
-    { "a": "$C$ (constante)",            "b": "$0$" },
+    { "a": "$C$",                        "b": "$0$" },
     { "a": "$x^n$",                      "b": "$n\\,x^{n-1}$" },
     { "a": "$\\dfrac{1}{x^n}$",          "b": "$\\dfrac{-n}{x^{n+1}}$" },
     { "a": "$\\sqrt{x}$",                "b": "$\\dfrac{1}{2\\sqrt{x}}$" },
