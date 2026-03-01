@@ -39,6 +39,8 @@
 \usepackage{datetime}
 \usepackage[most]{tcolorbox}
 
+\usetikzlibrary{patterns, decorations.pathmorphing, decorations.markings, arrows.meta, shapes.geometric, positioning}
+
 \geometry{
   margin=2cm,
   top=1.2cm,
