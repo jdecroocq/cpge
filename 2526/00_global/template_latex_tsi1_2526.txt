@@ -21,6 +21,7 @@
 \usepackage{array}
 \usepackage{lastpage}
 \usepackage{soul}
+\usepackage{makecell}
 \usepackage{longtable}
 \usepackage{tabularx}
 \usepackage{multirow}
