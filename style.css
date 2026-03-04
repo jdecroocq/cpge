@@ -528,11 +528,15 @@ button.action-btn {
     transition: width 0.32s ease;
 }
 
-.progress-label {
+.progress-footer {
+    display: flex;
+    justify-content: space-between;
     margin-top: 6px;
+}
+
+.progress-label {
     font-size: 0.78rem;
     color: var(--color-4);
-    text-align: right;
 }
 
 .deck-mode-label {
