@@ -169,7 +169,6 @@
 {\large \textbf{Titre du document}} \\
 {\small \textit{Sous-titre optionnel}} % J’insiste : ce sous-titre est prévu en cas de besoin, mais en règle générale, il est parfaitement inutile ! Il ne faut donc pas chercher à le remplir inutilement.
 % Par ailleurs, si on ne fait pas usage du sous-titre, il convient de retirer toute la ligne, et non de simplement laisser la zone de texte vide {}.
-\vspace{0.3cm} % Espace à conserver dans tous les cas.
 
 \justifying
 % ===================================================================
