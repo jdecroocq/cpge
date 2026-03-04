@@ -114,15 +114,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             subcat.files.forEach(fileEntry => {
                                 const link = document.createElement('a');
                                 link.className = 'list-item';
-                                const isStandalone = window.matchMedia('(display-mode: standalone)').matches;
-                                const isAndroid = /Android/i.test(navigator.userAgent);
-                                
-                                if (isStandalone && isAndroid) {
-                                    link.setAttribute('download', cleanFileName);
-                                } else {
-                                    link.target = '_blank';
-                                    link.rel = 'noopener noreferrer';
-                                }
+                                link.target = '_blank';
+                                link.rel = 'noopener noreferrer';
 
                                 const typeIcon = document.createElement('span');
                                 typeIcon.className = `icon item-type-icon ${getTypeIconClass(fileEntry)}`;
