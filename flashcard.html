@@ -25,7 +25,7 @@
   </div>
 
   <div id="app">
-    <p class="flashcard-status" id="status-msg">Chargement du jeu de cartes…</p>
+    <p class="flashcard-status" id="status-msg">Chargement…</p>
   </div>
 
   <script src="script.js"></script>
@@ -90,7 +90,10 @@
         <div class="progress-bar-bg">
           <div class="progress-bar-fill" id="prog-fill" style="width:0%"></div>
         </div>
-        <div class="progress-label" id="prog-label">0 / ${deck.length}</div>`;
+        <div class="progress-footer">
+          <span class="progress-label">${fixedSide ? 'Sens imposé' : 'Sens aléatoire'}</span>
+          <span class="progress-label" id="prog-label">0 / ${deck.length}</span>
+        </div>`;
       app.appendChild(progWrap);
 
       const scene = document.createElement('div');
