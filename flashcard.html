@@ -46,6 +46,7 @@
     let queueIndex  = 0;
     let currentCard = null;
     let flipped     = false;
+    let fixedSide   = false;
 
     let cardEl, frontLabel, frontContent, backLabel, backContent,
         progressFill, progressLabel, dot0, dot1;
@@ -157,7 +158,7 @@
       dot0.classList.add('active');
       dot1.classList.remove('active');
 
-      const showAFront = Math.random() < 0.5;
+      const showAFront = fixedSide ? true : Math.random() < 0.5;
       if (showAFront) {
         frontLabel.textContent = labelA;
         renderContent(frontContent, currentCard.a);
@@ -201,6 +202,7 @@
         deck   = data.cards;
         labelA = data.labelA || 'Recto';
         labelB = data.labelB || 'Verso';
+        fixedSide = data.fixedSide || false;
         queue  = shuffleFY(deck);
         queueIndex = 0;
 
