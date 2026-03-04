@@ -36,7 +36,7 @@
     { "a": "Therefore",                                               "b": "Par conséquent" },
     { "a": "Thus",                                                    "b": "Ainsi" },
     { "a": "Finally",                                                 "b": "Pour terminer" },
-    { "a": "Eventually",                                              "b": "À la fin" },
+    { "a": "Eventually",                                              "b": "À la fin / finalement / après un certain temps" },
     { "a": "However",                                                 "b": "Cependant" },
     { "a": "Nevertheless",                                            "b": "Néanmoins" },
     { "a": "Otherwise",                                               "b": "Sinon" },
@@ -62,6 +62,6 @@
     { "a": "A survey / a poll",                                       "b": "Un sondage" },
     { "a": "Research has shown / Studies show",                       "b": "Les études ont montré / Les études montrent" },
     { "a": "The set of documents is composed of…",                    "b": "Le corpus de documents est composé de…" },
-    { "a": "… respectively published in 20XX",                        "b": "… publiés respectivement en 20XX" }
+    { "a": "Respectively published in 20XX",                          "b": "Publiés respectivement en 20XX" }
   ]
 }
