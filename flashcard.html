@@ -125,11 +125,6 @@
         <button class="btn btn-primary" id="btn-next">Suivante</button>`;
       app.appendChild(ctrl);
       
-      const modeLabel = document.createElement('p');
-      modeLabel.className = 'deck-mode-label';
-      modeLabel.textContent = fixedSide ? 'Sens imposé' : 'Sens aléatoire';
-      app.appendChild(modeLabel);
-
       cardEl        = document.getElementById('card');
       frontLabel    = document.getElementById('front-label');
       frontContent  = document.getElementById('front-content');
