@@ -1,0 +1,28 @@
+{
+  "title": "Réflexes – Valeurs remarquables de trigonométrie",
+  "labelA": "Expression",
+  "labelB": "Valeur",
+  "cards": [
+    { "a": "$\\cos(0)$",                          "b": "$1$" },
+    { "a": "$\\cos\\!\\left(\\dfrac{\\pi}{6}\\right)$",  "b": "$\\dfrac{\\sqrt{3}}{2}$" },
+    { "a": "$\\cos\\!\\left(\\dfrac{\\pi}{4}\\right)$",  "b": "$\\dfrac{\\sqrt{2}}{2}$" },
+    { "a": "$\\cos\\!\\left(\\dfrac{\\pi}{3}\\right)$",  "b": "$\\dfrac{1}{2}$" },
+    { "a": "$\\cos\\!\\left(\\dfrac{\\pi}{2}\\right)$",  "b": "$0$" },
+    { "a": "$\\cos\\!\\left(\\dfrac{2\\pi}{3}\\right)$", "b": "$-\\dfrac{1}{2}$" },
+    { "a": "$\\cos\\!\\left(\\dfrac{3\\pi}{4}\\right)$", "b": "$-\\dfrac{\\sqrt{2}}{2}$" },
+    { "a": "$\\cos\\!\\left(\\dfrac{5\\pi}{6}\\right)$", "b": "$-\\dfrac{\\sqrt{3}}{2}$" },
+    { "a": "$\\cos(\\pi)$",                        "b": "$-1$" },
+    { "a": "$\\sin(0)$",                           "b": "$0$" },
+    { "a": "$\\sin\\!\\left(\\dfrac{\\pi}{6}\\right)$",  "b": "$\\dfrac{1}{2}$" },
+    { "a": "$\\sin\\!\\left(\\dfrac{\\pi}{4}\\right)$",  "b": "$\\dfrac{\\sqrt{2}}{2}$" },
+    { "a": "$\\sin\\!\\left(\\dfrac{\\pi}{3}\\right)$",  "b": "$\\dfrac{\\sqrt{3}}{2}$" },
+    { "a": "$\\sin\\!\\left(\\dfrac{\\pi}{2}\\right)$",  "b": "$1$" },
+    { "a": "$\\sin\\!\\left(\\dfrac{2\\pi}{3}\\right)$", "b": "$\\dfrac{\\sqrt{3}}{2}$" },
+    { "a": "$\\sin\\!\\left(\\dfrac{3\\pi}{4}\\right)$", "b": "$\\dfrac{\\sqrt{2}}{2}$" },
+    { "a": "$\\sin\\!\\left(\\dfrac{5\\pi}{6}\\right)$", "b": "$\\dfrac{1}{2}$" },
+    { "a": "$\\sin(\\pi)$",                        "b": "$0$" },
+    { "a": "$\\tan\\!\\left(\\dfrac{\\pi}{6}\\right)$",  "b": "$\\dfrac{1}{\\sqrt{3}}$" },
+    { "a": "$\\tan\\!\\left(\\dfrac{\\pi}{4}\\right)$",  "b": "$1$" },
+    { "a": "$\\tan\\!\\left(\\dfrac{\\pi}{3}\\right)$",  "b": "$\\sqrt{3}$" }
+  ]
+}
