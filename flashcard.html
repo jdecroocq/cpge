@@ -115,17 +115,17 @@
         <div class="side-dot" id="dot1"></div>`;
       app.appendChild(dots);
 
-      const modeLabel = document.createElement('p');
-      modeLabel.className = 'deck-mode-label';
-      modeLabel.textContent = fixedSide ? 'Sens imposé' : 'Sens aléatoire';
-      app.insertBefore(modeLabel, ctrl);
-
       const ctrl = document.createElement('div');
       ctrl.className = 'flashcard-controls';
       ctrl.innerHTML = `
         <button class="btn" id="btn-flip">Retourner</button>
         <button class="btn btn-primary" id="btn-next">Suivante</button>`;
       app.appendChild(ctrl);
+      
+      const modeLabel = document.createElement('p');
+      modeLabel.className = 'deck-mode-label';
+      modeLabel.textContent = fixedSide ? 'Sens imposé' : 'Sens aléatoire';
+      app.appendChild(modeLabel);
 
       cardEl        = document.getElementById('card');
       frontLabel    = document.getElementById('front-label');
