@@ -43,7 +43,7 @@
     { "a": "$\\tan(a+b)$",                                                                   "b": "$\\dfrac{\\tan a + \\tan b}{1 - \\tan a\\tan b}$" },
     { "a": "$\\tan(a-b)$",                                                                   "b": "$\\dfrac{\\tan a - \\tan b}{1 + \\tan a\\tan b}$" },
 
-    { "a": "$\\cos 2a$",                                                                     "b": "$\\cos^2 a - \\sin^2 a = 2\\cos^2 a - 1 = 1 - 2\\sin^2 a$" },
+    { "a": "$\\cos 2a$",                                                                     "b": "$\\cos^2 a - \\sin^2 a$" },
     { "a": "$\\sin 2a$",                                                                     "b": "$2\\sin a\\cos a$" },
     { "a": "$\\tan 2a$",                                                                     "b": "$\\dfrac{2\\tan a}{1-\\tan^2 a}$" },
 
