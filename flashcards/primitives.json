@@ -1,15 +1,15 @@
 {
-  "title": "Primitives usuelles (mémo)",
+  "title": "Primitives usuelles",
   "labelA": "Fonction",
   "labelB": "Primitive",
   "cards": [
     { "a": "$k$", "b": "$kx + C$" },
 
-    { "a": "$x^n,\\ n \\neq -1$", "b": "$\\dfrac{x^{n+1}}{n+1} + C$" },
+    { "a": "$x^n,\\ n \\neq -1$", "b": "$\\dfrac{1}{n+1}x^{n+1} + C$" },
     { "a": "$\\dfrac{1}{x}$", "b": "$\\ln|x| + C$" },
 
     { "a": "$e^x$", "b": "$e^x + C$" },
-    { "a": "$a^x$", "b": "$\\dfrac{a^x}{\\ln a} + C$" },
+    { "a": "$b^x$", "b": "$\\dfrac{1}{\\ln b}\\,b^x + C$" },
 
     { "a": "$\\cos x$", "b": "$\\sin x + C$" },
     { "a": "$\\sin x$", "b": "$-\\cos x + C$" },
@@ -21,18 +21,26 @@
 
     { "a": "$\\ln x$", "b": "$x\\ln x - x + C$" },
 
-    { "a": "$u'(x)\\,u(x)^n,\\ n \\neq -1$", "b": "$\\dfrac{u(x)^{n+1}}{n+1} + C$" },
-    { "a": "$\\dfrac{u'(x)}{u(x)}$", "b": "$\\ln|u(x)| + C$" },
+    { "a": "$\\mathrm{Arcsin}\\,x$", "b": "$x\\,\\mathrm{Arcsin}\\,x + \\sqrt{1-x^2} + C$" },
+    { "a": "$\\mathrm{Arccos}\\,x$", "b": "$x\\,\\mathrm{Arccos}\\,x - \\sqrt{1-x^2} + C$" },
+    { "a": "$\\mathrm{Arctan}\\,x$", "b": "$x\\,\\mathrm{Arctan}\\,x - \\dfrac{1}{2}\\ln(1+x^2) + C$" },
 
-    { "a": "$u'(x)e^{u(x)}$", "b": "$e^{u(x)} + C$" },
-    { "a": "$u'(x)\\cos(u(x))$", "b": "$\\sin(u(x)) + C$" },
-    { "a": "$u'(x)\\sin(u(x))$", "b": "$-\\cos(u(x)) + C$" },
-    { "a": "$u'(x)\\tan(u(x))$", "b": "$-\\ln|\\cos(u(x))| + C$" },
+    { "a": "$u' \\cdot u^n,\\ n \\neq -1$", "b": "$\\dfrac{1}{n+1}\\,(u)^{n+1} + C$" },
+    { "a": "$\\dfrac{u'}{u}$", "b": "$\\ln|u| + C$" },
 
-    { "a": "$u'(x)\\mathrm{ch}(u(x))$", "b": "$\\mathrm{sh}(u(x)) + C$" },
-    { "a": "$u'(x)\\mathrm{sh}(u(x))$", "b": "$\\mathrm{ch}(u(x)) + C$" },
-    { "a": "$u'(x)\\mathrm{th}(u(x))$", "b": "$\\ln(\\mathrm{ch}(u(x))) + C$" },
+    { "a": "$u' \\cdot e^{u}$", "b": "$e^{u} + C$" },
+    { "a": "$u' \\cdot \\cos(u)$", "b": "$\\sin(u) + C$" },
+    { "a": "$u' \\cdot \\sin(u)$", "b": "$-\\cos(u) + C$" },
+    { "a": "$u' \\cdot \\tan(u)$", "b": "$-\\ln|\\cos(u)| + C$" },
 
-    { "a": "$u'(x)f(u(x))$", "b": "$F(u(x)) + C \\quad (F' = f)$" }
+    { "a": "$u' \\cdot \\mathrm{ch}(u)$", "b": "$\\mathrm{sh}(u) + C$" },
+    { "a": "$u' \\cdot \\mathrm{sh}(u)$", "b": "$\\mathrm{ch}(u) + C$" },
+    { "a": "$u' \\cdot \\mathrm{th}(u)$", "b": "$\\ln(\\mathrm{ch}(u)) + C$" },
+
+    { "a": "$u' \\cdot \\ln(u)$", "b": "$u\\ln(u) - u + C$" },
+
+    { "a": "$u' \\cdot \\mathrm{Arcsin}(u)$", "b": "$u\\,\\mathrm{Arcsin}(u) + \\sqrt{1-u^2} + C$" },
+    { "a": "$u' \\cdot \\mathrm{Arccos}(u)$", "b": "$u\\,\\mathrm{Arccos}(u) - \\sqrt{1-u^2} + C$" },
+    { "a": "$u' \\cdot \\mathrm{Arctan}(u)$", "b": "$u\\,\\mathrm{Arctan}(u) - \\dfrac{1}{2}\\ln(1+u^2) + C$" }
   ]
 }
