@@ -114,10 +114,10 @@
                     {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
                     "nt_primitives.pdf",
                     {"name": "Primitives", "url": "flashcard.html?deck=primitives", "count": 34, "type": "flashcard"},
-                    "formulaire_hd.pdf_s",
                     "nt_trigonometrie.pdf",
                     { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
-                    { "name": "Réflexes valeurs remarquables trigonométrie", "url": "flashcard.html?deck=reflexes_trigo", "type": "flashcard", "count": 18 }
+                    { "name": "Réflexes valeurs remarquables trigonométrie", "url": "flashcard.html?deck=reflexes_trigo", "type": "flashcard", "count": 18 },
+                    "formulaire_hd.pdf_s"
                         ]
             },
             {
