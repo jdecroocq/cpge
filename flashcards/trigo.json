@@ -8,6 +8,10 @@
     { "a": "$\\cos^2\\theta + \\sin^2\\theta$",                                              "b": "$1$" },
     { "a": "$1 + \\tan^2\\theta$",                                                           "b": "$\\dfrac{1}{\\cos^2\\theta}$" },
 
+    { "a": "$\\cos(x+2\\pi)$",                                                                 "b": "$\\cos x$" },
+    { "a": "$\\sin(x+2\\pi)$",                                                                 "b": "$\\sin x$" },
+    { "a": "$\\tan(x+\\pi)$",                                                                  "b": "$\\tan x$" },
+        
     { "a": "$\\cos(-x)$",                                                                    "b": "$\\cos x$" },
     { "a": "$\\sin(-x)$",                                                                    "b": "$-\\sin x$" },
     { "a": "$\\tan(-x)$",                                                                    "b": "$-\\tan x$" },
@@ -39,8 +43,6 @@
     { "a": "$\\tan(a+b)$",                                                                   "b": "$\\dfrac{\\tan a + \\tan b}{1 - \\tan a\\tan b}$" },
     { "a": "$\\tan(a-b)$",                                                                   "b": "$\\dfrac{\\tan a - \\tan b}{1 + \\tan a\\tan b}$" },
 
-    { "a": "$a\\cos\\theta + b\\sin\\theta$",                                                "b": "$R\\cos(\\theta - \\varphi),\\quad R=\\sqrt{a^2+b^2}$" },
-
     { "a": "$\\cos 2a$",                                                                     "b": "$\\cos^2 a - \\sin^2 a = 2\\cos^2 a - 1 = 1 - 2\\sin^2 a$" },
     { "a": "$\\sin 2a$",                                                                     "b": "$2\\sin a\\cos a$" },
     { "a": "$\\tan 2a$",                                                                     "b": "$\\dfrac{2\\tan a}{1-\\tan^2 a}$" },
@@ -55,7 +57,10 @@
     { "a": "$\\cos p + \\cos q$",                                                            "b": "$2\\cos\\dfrac{p+q}{2}\\cos\\dfrac{p-q}{2}$" },
     { "a": "$\\cos p - \\cos q$",                                                            "b": "$-2\\sin\\dfrac{p+q}{2}\\sin\\dfrac{p-q}{2}$" },
     { "a": "$\\sin p + \\sin q$",                                                            "b": "$2\\sin\\dfrac{p+q}{2}\\cos\\dfrac{p-q}{2}$" },
-    { "a": "$\\sin p - \\sin q$",                                                            "b": "$2\\cos\\dfrac{p+q}{2}\\sin\\dfrac{p-q}{2}$" }
+    { "a": "$\\sin p - \\sin q$",                                                            "b": "$2\\cos\\dfrac{p+q}{2}\\sin\\dfrac{p-q}{2}$" },
+
+    { "a": "$e^{ia} + e^{ib}$",                                                              "b": "$2\\cos\\!\\left(\\dfrac{a-b}{2}\\right)e^{i\\frac{a+b}{2}}$" },
+    { "a": "$e^{ia} - e^{ib}$",                                                              "b": "$2i\\sin\\!\\left(\\dfrac{a-b}{2}\\right)e^{i\\frac{a+b}{2}}$" }
 
   ]
 }
