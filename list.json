@@ -71,7 +71,6 @@
                     "nt_alphabet_grec.pdf",
                     "nt_puissance_dix.pdf",
                     "nt_long_air_vol.pdf",
-                    {"name": "Longueurs, aires et volumes", "url": "flashcard.html?deck=long_air_vol", "count": 16, "type": "flashcard"},
                     "nt_derivees.pdf",
                     {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
                     "nt_primitives.pdf",
