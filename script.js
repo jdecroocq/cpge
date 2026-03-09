@@ -22,6 +22,19 @@
   });
 })();
 
+(function () {
+  const btn = document.getElementById('back-to-top');
+  if (!btn) return;
+
+  window.addEventListener('scroll', () => {
+    btn.classList.toggle('visible', window.scrollY > 200);
+  }, { passive: true });
+
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
     const mainPageBody = document.getElementById('main-page');
     if (!mainPageBody) return;
