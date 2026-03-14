@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function getTypeIconClass(entry) {
         if (typeof entry === 'object' && entry !== null) {
             if (entry.type === 'flashcard') return 'icon-flashcard';
-            return 'icon-type-file';
+            return 'icon-file';
         }
         let cleanName = entry;
         const lastDot = entry.lastIndexOf('.');
@@ -62,10 +62,10 @@ document.addEventListener('DOMContentLoaded', () => {
             if (flagIdx > -1) cleanName = entry.substring(0, flagIdx);
         }
         const ext = getExtension(cleanName);
-        if (DOC_EXTENSIONS.includes(ext))   return 'icon-type-text';
-        if (CODE_EXTENSIONS.includes(ext))  return 'icon-type-code';
-        if (PHOTO_EXTENSIONS.includes(ext)) return 'icon-type-photo';
-        return 'icon-type-file';
+        if (DOC_EXTENSIONS.includes(ext))   return 'icon-text';
+        if (CODE_EXTENSIONS.includes(ext))  return 'icon-code';
+        if (PHOTO_EXTENSIONS.includes(ext)) return 'icon-photo';
+        return 'icon-file';
     }
 
     async function applyCacheBuster(originalUrl, linkElement) {
