@@ -222,8 +222,8 @@ button.action-btn {
 
 
 .q-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   background-color: var(--color-5);
   mask-size: contain;
   mask-repeat: no-repeat;
@@ -312,8 +312,8 @@ button.action-btn {
 }
 
 .icon {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
     background-color: var(--color-5);
     mask-size: contain;
     mask-repeat: no-repeat;
