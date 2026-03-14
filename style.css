@@ -120,8 +120,12 @@ a {
     transition: transform 0.2s ease-out;
 }
 
-.icon-file {
+.icon-text {
     mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='currentColor'%3E%3Cpath d='M140-254.62v-59.99h440v59.99H140ZM140-450v-60h680v60H140Zm0-195.39v-59.99h680v59.99H140Z'/%3E%3C/svg%3E");
+}
+
+.icon-file {
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='currentColor'%3E%3Cpath d='M180-100v-760h390l210 210v550H180Zm360-520v-180H240v640h480v-460H540ZM240-800v180-180 640-640Z'/%3E%3C/svg%3E");
 }
 
 .icon-code {
