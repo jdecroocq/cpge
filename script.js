@@ -52,8 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getTypeIconClass(entry) {
         if (typeof entry === 'object' && entry !== null) {
-            if (entry.type === 'flashcard') return 'icon-type-flashcard';
-            return 'icon-type-link';
+            if (entry.type === 'flashcard') return 'icon-flashcard';
+            return 'icon-type-file';
         }
         let cleanName = entry;
         const lastDot = entry.lastIndexOf('.');
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (flagIdx > -1) cleanName = entry.substring(0, flagIdx);
         }
         const ext = getExtension(cleanName);
-        if (DOC_EXTENSIONS.includes(ext))   return 'icon-type-file';
+        if (DOC_EXTENSIONS.includes(ext))   return 'icon-type-text';
         if (CODE_EXTENSIONS.includes(ext))  return 'icon-type-code';
         if (PHOTO_EXTENSIONS.includes(ext)) return 'icon-type-photo';
         return 'icon-type-file';
