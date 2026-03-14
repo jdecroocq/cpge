@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function getTypeIconClass(entry) {
         if (typeof entry === 'object' && entry !== null) {
-            if (entry.type === 'flashcard') return 'icon-flashcard';
+            if (entry.type === 'flashcard') return 'icon-flashcards';
             return 'icon-file';
         }
         let cleanName = entry;
