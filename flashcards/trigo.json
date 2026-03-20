@@ -2,7 +2,7 @@
   "title": "Trigonométrie",
   "labelA": "Expression",
   "labelB": "Valeur",
-  "fixedSide": false,
+  "fixedSide": true,
   "cards": [
 
     { "a": "$\\cos^2\\theta + \\sin^2\\theta$",                                              "b": "$1$" },
