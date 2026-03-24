@@ -1,4 +1,47 @@
 (function () {
+  const palette = [
+    { light: "#3D62F5", dark: "#5578FF" }, // indigo doux
+    { light: "#7C3AED", dark: "#9B5CF6" }, // violet
+    { light: "#DB2777", dark: "#EC4899" }, // rose vif
+    { light: "#E8510A", dark: "#F97316" }, // corail
+    { light: "#B45309", dark: "#D97706" }, // ambre
+    { light: "#047857", dark: "#10B981" }, // émeraude
+    { light: "#0E7490", dark: "#06B6D4" }, // cyan
+    { light: "#0F766E", dark: "#14B8A6" }, // sarcelle
+    { light: "#1D4ED8", dark: "#3B82F6" }, // cobalt
+    { light: "#6D28D9", dark: "#8B5CF6" }, // prune
+    { light: "#BE185D", dark: "#F472B6" }, // framboise
+    { light: "#166534", dark: "#22C55E" }, // forêt
+  ];
+
+  let stored = localStorage.getItem('accentIndex');
+  if (stored === null) {
+    stored = Math.floor(Math.random() * palette.length);
+    localStorage.setItem('accentIndex', stored);
+  }
+  const color = palette[parseInt(stored)];
+
+  const root = document.documentElement;
+  const isDark = root.classList.contains('dark-mode');
+  const hex = isDark ? color.dark : color.light;
+
+  root.style.setProperty('--color-6', hex);
+  root.style.setProperty('--color-6-rgb', hexToRgb(hex));
+
+  const origToggle = window._applyAccent = function(dark) {
+    root.style.setProperty('--color-6', dark ? color.dark : color.light);
+  };
+
+  function hexToRgb(hex) {
+    const r = parseInt(hex.slice(1,3),16);
+    const g = parseInt(hex.slice(3,5),16);
+    const b = parseInt(hex.slice(5,7),16);
+    return `${r}, ${g}, ${b}`;
+  }
+})();
+
+
+(function () {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     document.documentElement.classList.add('dark-mode');
@@ -13,6 +56,7 @@
         const isDark = document.documentElement.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#000000' : '#ffffff');
+        if (window._applyAccent) window._applyAccent(isDark); 
       });
     }
 
