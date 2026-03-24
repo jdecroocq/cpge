@@ -12,7 +12,6 @@
         document.documentElement.classList.toggle('dark-mode');
         const isDark = document.documentElement.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#000000' : '#ffffff');
       });
     }
 
