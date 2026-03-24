@@ -1,18 +1,9 @@
 (function () {
-  const palette = [
-    { light: "#3D62F5", dark: "#5578FF" }, // indigo doux
-    { light: "#7C3AED", dark: "#9B5CF6" }, // violet
-    { light: "#DB2777", dark: "#EC4899" }, // rose vif
-    { light: "#E8510A", dark: "#F97316" }, // corail
-    { light: "#B45309", dark: "#D97706" }, // ambre
-    { light: "#047857", dark: "#10B981" }, // émeraude
-    { light: "#0E7490", dark: "#06B6D4" }, // cyan
-    { light: "#0F766E", dark: "#14B8A6" }, // sarcelle
-    { light: "#1D4ED8", dark: "#3B82F6" }, // cobalt
-    { light: "#6D28D9", dark: "#8B5CF6" }, // prune
-    { light: "#BE185D", dark: "#F472B6" }, // framboise
-    { light: "#166534", dark: "#22C55E" }, // forêt
-  ];
+const palette = [
+  { light: "#3d62f5", dark: "#3d62f5" },
+  { light: "#21e492", dark: "#21e492" },
+  { light: "#d04343", dark: "#d04343" },
+];
 
   let stored = localStorage.getItem('accentIndex');
   if (stored === null) {
