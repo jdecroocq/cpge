@@ -58,6 +58,8 @@ body {
   color: var(--color-5);
   overflow-x: hidden;
   min-height: 100vh;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 h2 {
