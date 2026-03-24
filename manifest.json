@@ -3,7 +3,7 @@
   "short_name": "Kernel",
   "start_url": "index.html",
   "display": "standalone",
-  "background_color": "transparent",
+  "background_color": "#ffffff",
   "theme_color": "#ffffff",
   "orientation": "portrait",
   "description": "Documents CPGE TSI - Jean D.",
