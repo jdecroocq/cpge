@@ -1,38 +1,4 @@
 (function () {
-const palette = [
-  { light: "#3d62f5", dark: "#3d62f5" },
-  { light: "#21e492", dark: "#21e492" },
-  { light: "#d04343", dark: "#d04343" },
-];
-
-  let stored = localStorage.getItem('accentIndex');
-  if (stored === null) {
-    stored = Math.floor(Math.random() * palette.length);
-    localStorage.setItem('accentIndex', stored);
-  }
-  const color = palette[parseInt(stored)];
-
-  const root = document.documentElement;
-  const isDark = root.classList.contains('dark-mode');
-  const hex = isDark ? color.dark : color.light;
-
-  root.style.setProperty('--color-6', hex);
-  root.style.setProperty('--color-6-rgb', hexToRgb(hex));
-
-  const origToggle = window._applyAccent = function(dark) {
-    root.style.setProperty('--color-6', dark ? color.dark : color.light);
-  };
-
-  function hexToRgb(hex) {
-    const r = parseInt(hex.slice(1,3),16);
-    const g = parseInt(hex.slice(3,5),16);
-    const b = parseInt(hex.slice(5,7),16);
-    return `${r}, ${g}, ${b}`;
-  }
-})();
-
-
-(function () {
   const savedTheme = localStorage.getItem('theme');
   if (savedTheme === 'dark') {
     document.documentElement.classList.add('dark-mode');
@@ -47,7 +13,6 @@ const palette = [
         const isDark = document.documentElement.classList.contains('dark-mode');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
         document.querySelector('meta[name="theme-color"]')?.setAttribute('content', isDark ? '#000000' : '#ffffff');
-        if (window._applyAccent) window._applyAccent(isDark); 
       });
     }
 
