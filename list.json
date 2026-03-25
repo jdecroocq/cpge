@@ -104,10 +104,10 @@
             {
                 "name": "05_fr",
                 "files": [
-                    "methode_resume.pdf",
+                    "methode_resume.pdf_s",
                     "methode_resume_cc.pdf_s",
-                    "methode_dissertation.pdf",
-                    "methode_colle.pdf",
+                    "methode_dissertation.pdf_s",
+                    "methode_colle.pdf_s",
                     {"name": "Vocabulaire français", "url": "flashcard.html?deck=voc_fr", "type": "flashcard"}
                 ]
             },
