@@ -107,8 +107,7 @@
                     "methode_resume.pdf_s",
                     "methode_resume_cc.pdf_s",
                     "methode_dissertation.pdf_s",
-                    "methode_colle.pdf_s",
-                    {"name": "Vocabulaire français", "url": "flashcard.html?deck=voc_fr", "type": "flashcard"}
+                    "methode_colle.pdf_s"
                 ]
             },
             {
