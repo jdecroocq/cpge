@@ -72,7 +72,6 @@
             {
                 "name": "02_pc",
                 "files": [
-                    "molecules_ions.pdf",
                     {"name": "Molécules et ions usuels", "url": "flashcard.html?deck=molecules_ions","count": 18,"type": "flashcard"}
                         ]
             },
