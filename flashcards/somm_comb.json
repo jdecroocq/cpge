@@ -5,8 +5,8 @@
   "fixedSide": false,
   "cards": [
 
-    { "a": "$\\sum\\limits_{k=m}^{n}(u_0+kr)$",                          "b": "$\\dfrac{u_m+u_n}{2}(1+n-m)$" },
-    { "a": "$\\sum\\limits_{k=0}^{n} u_n\\ (arit.)$",                      "b": "$u_0\\,\\dfrac{1-q^{n+1}}{1-q}$" },
+    { "a": "$\\sum\\limits_{k=m}^{n}(u_n)\\ (arit.)$",                     "b": "$\\dfrac{u_m+u_n}{2}(1+n-m)$" },
+    { "a": "$\\sum\\limits_{k=0}^{n} u_n\\ (géom.)$",                      "b": "$u_0\\,\\dfrac{1-q^{n+1}}{1-q}$" },
     { "a": "$\\sum\\limits_{k=m}^{n} u_n\\ (géom.)$",                      "b": "$u_m\\,\\dfrac{1-q^{n-m+1}}{1-q}$" },
 
     { "a": "$\\sum\\limits_{k=0}^{n} k$",                                "b": "$\\dfrac{n(n+1)}{2}$" },
