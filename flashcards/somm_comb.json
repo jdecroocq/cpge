@@ -5,38 +5,25 @@
   "fixedSide": false,
   "cards": [
 
-    { "a": "$\\displaystyle\\sum_{k=m}^{n} u_k$ (arithmétique)",                            "b": "$\\dfrac{u_m + u_n}{2}\\,(1+n-m)$" },
-    { "a": "$\\displaystyle\\sum_{k=0}^{n} u_k$ (arithmétique)",                            "b": "$\\dfrac{u_0 + u_n}{2}\\,(n+1)$" },
+    { "a": "$\\sum_{k=m}^{n}(u_0+kr)$",                                  "b": "$\\dfrac{u_m+u_n}{2}(1+n-m)$" },
+    { "a": "$\\sum_{k=0}^{n} q^k$",                                       "b": "$\\dfrac{1-q^{n+1}}{1-q}$" },
+    { "a": "$\\sum_{k=m}^{n} g_0 q^k$",                                   "b": "$g_0\\,\\dfrac{1-q^{n-m+1}}{1-q}$" },
 
-    { "a": "$\\displaystyle\\sum_{k=m}^{n} g_k$ (géométrique, $q\\neq 1$)",                 "b": "$g_m\\,\\dfrac{1-q^{n-m+1}}{1-q}$" },
-    { "a": "$\\displaystyle\\sum_{k=0}^{n} q^k$ ($q\\neq 1$)",                              "b": "$\\dfrac{1-q^{n+1}}{1-q}$" },
+    { "a": "$\\sum_{k=0}^{n} k$",                                         "b": "$\\dfrac{n(n+1)}{2}$" },
+    { "a": "$\\sum_{k=0}^{n} k^2$",                                       "b": "$\\dfrac{n(n+1)(2n+1)}{6}$" },
+    { "a": "$\\sum_{k=0}^{n} k^3$",                                       "b": "$\\left(\\dfrac{n(n+1)}{2}\\right)^{\\!2}$" },
 
-    { "a": "$\\displaystyle\\sum_{k=0}^{n} k$",                                             "b": "$\\dfrac{n(n+1)}{2}$" },
-    { "a": "$\\displaystyle\\sum_{k=0}^{n} k^2$",                                           "b": "$\\dfrac{n(n+1)(2n+1)}{6}$" },
-    { "a": "$\\displaystyle\\sum_{k=0}^{n} k^3$",                                           "b": "$\\left(\\dfrac{n(n+1)}{2}\\right)^{\\!2}$" },
+    { "a": "$a^n - b^n$",                                                  "b": "$(a-b)(a^{n-1}+a^{n-2}b+\\cdots+b^{n-1})$" },
 
-    { "a": "$a^n - b^n$",                                                                    "b": "$(a-b)\\displaystyle\\sum_{k=0}^{n-1} a^{n-1-k}\\,b^k$" },
+    { "a": "$n!$",                                                         "b": "$1 \\times 2 \\times \\cdots \\times n$" },
 
-    { "a": "$n!$",                                                                           "b": "$\\displaystyle\\prod_{k=1}^{n} k$" },
-    { "a": "$0!$",                                                                           "b": "$1$" },
-    { "a": "$3!,\\; 4!,\\; 5!,\\; 6!$",                                                     "b": "$6,\\; 24,\\; 120,\\; 720$" },
+    { "a": "$\\binom{n}{p}$",                                              "b": "$\\dfrac{n!}{p!\\,(n-p)!} = \\dfrac{n(n-1)\\cdots(n-p+1)}{p!}$" },
+    { "a": "$\\binom{n}{n-p}$",                                            "b": "$\\binom{n}{p}$" },
+    { "a": "$\\binom{n}{p}+\\binom{n}{p+1}$",                             "b": "$\\binom{n+1}{p+1}$" },
 
-    { "a": "$\\dbinom{n}{p}$ (pour $p\\in\\llbracket 0,n\\rrbracket$)",                     "b": "$\\dfrac{n!}{p!\\,(n-p)!} = \\dfrac{n(n-1)\\cdots(n-p+1)}{p!}$" },
-    { "a": "$\\dbinom{n}{p}$ (pour $p\\notin\\llbracket 0,n\\rrbracket$)",                  "b": "$0$" },
-    { "a": "$\\dbinom{n}{0}$",                                                               "b": "$1$" },
-    { "a": "$\\dbinom{n}{1}$",                                                               "b": "$n$" },
-    { "a": "$\\dbinom{n}{p}$  (symétrie)",                                                   "b": "$\\dbinom{n}{n-p}$" },
-    { "a": "$\\dbinom{n}{p} + \\dbinom{n}{p+1}$",                                           "b": "$\\dbinom{n+1}{p+1}$" },
-
-    { "a": "$(a+b)^n$",                                                                      "b": "$\\displaystyle\\sum_{k=0}^{n} \\binom{n}{k} a^{n-k}\\,b^k$" },
-    { "a": "$\\displaystyle\\sum_{k=0}^{n} \\binom{n}{k}$",                                 "b": "$2^n$" },
-    { "a": "$\\displaystyle\\sum_{k=0}^{n} (-1)^k\\binom{n}{k}$",                           "b": "$0$" },
-
-    { "a": "Nombre de fonctions de $\\{1,\\dots,p\\}$ dans $\\{1,\\dots,n\\}$",             "b": "$n^p$" },
-    { "a": "Nombre d'injections de $\\{1,\\dots,p\\}$ dans $\\{1,\\dots,n\\}$",            "b": "$n(n-1)\\cdots(n-p+1)$" },
-    { "a": "Nombre de permutations de $n$ éléments",                                         "b": "$n!$" },
-    { "a": "Nombre de parties à $p$ éléments d'un ensemble à $n$ éléments",                 "b": "$\\dbinom{n}{p}$" },
-    { "a": "Nombre de parties d'un ensemble à $n$ éléments",                                 "b": "$2^n$" }
+    { "a": "$(a+b)^n$",                                                    "b": "$\\sum_{k=0}^{n}\\binom{n}{k}a^{n-k}b^k$" },
+    { "a": "$\\sum_{k=0}^{n}\\binom{n}{k}$",                              "b": "$2^n$" },
+    { "a": "$\\sum_{k=0}^{n}(-1)^k\\binom{n}{k}$",                       "b": "$0$" }
 
   ]
 }
