@@ -21,8 +21,7 @@
     { "a": "$\\binom{n}{p}+\\binom{n}{p+1}$",                             "b": "$\\binom{n+1}{p+1}$" },
 
     { "a": "$(a+b)^n$",                                                    "b": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}\\,a^{n-k}b^k$" },
-    { "a": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}$",                     "b": "$2^n$" },
-    { "a": "$\\sum\\limits_{k=0}^{n}(-1)^k\\binom{n}{k}$",               "b": "$0$" }
+    { "a": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}$",                     "b": "$2^n$" }
 
   ]
 }
