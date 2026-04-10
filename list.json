@@ -60,6 +60,8 @@
                     "nt_trigonometrie.pdf",
                     { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
                     { "name": "Réflexes valeurs remarquables trigonométrie", "url": "flashcard.html?deck=reflexes_trigo", "type": "flashcard", "count": 18 },
+                    "nt_somm_comb.pdf_s",
+                    { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
                     "formulaire_hd.pdf_s"
                         ]
             },
