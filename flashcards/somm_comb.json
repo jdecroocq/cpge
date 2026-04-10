@@ -5,25 +5,24 @@
   "fixedSide": false,
   "cards": [
 
-    { "a": "$\\sum_{k=m}^{n}(u_0+kr)$",                                  "b": "$\\dfrac{u_m+u_n}{2}(1+n-m)$" },
-    { "a": "$\\sum_{k=0}^{n} q^k$",                                       "b": "$\\dfrac{1-q^{n+1}}{1-q}$" },
-    { "a": "$\\sum_{k=m}^{n} g_0 q^k$",                                   "b": "$g_0\\,\\dfrac{1-q^{n-m+1}}{1-q}$" },
+    { "a": "$\\sum\\limits_{k=m}^{n}(u_0+kr)$",                          "b": "$\\dfrac{u_m+u_n}{2}(1+n-m)$" },
+    { "a": "$\\sum\\limits_{k=0}^{n} u_0\\,q^k$",                        "b": "$u_0\\,\\dfrac{1-q^{n+1}}{1-q}$" },
+    { "a": "$\\sum\\limits_{k=m}^{n} u_m\\,q^{k-m}$",                    "b": "$u_m\\,\\dfrac{1-q^{n-m+1}}{1-q}$" },
 
-    { "a": "$\\sum_{k=0}^{n} k$",                                         "b": "$\\dfrac{n(n+1)}{2}$" },
-    { "a": "$\\sum_{k=0}^{n} k^2$",                                       "b": "$\\dfrac{n(n+1)(2n+1)}{6}$" },
-    { "a": "$\\sum_{k=0}^{n} k^3$",                                       "b": "$\\left(\\dfrac{n(n+1)}{2}\\right)^{\\!2}$" },
+    { "a": "$\\sum\\limits_{k=0}^{n} k$",                                 "b": "$\\dfrac{n(n+1)}{2}$" },
+    { "a": "$\\sum\\limits_{k=0}^{n} k^2$",                              "b": "$\\dfrac{n(n+1)(2n+1)}{6}$" },
+    { "a": "$\\sum\\limits_{k=0}^{n} k^3$",                              "b": "$\\left(\\dfrac{n(n+1)}{2}\\right)^{\\!2}$" },
 
-    { "a": "$a^n - b^n$",                                                  "b": "$(a-b)(a^{n-1}+a^{n-2}b+\\cdots+b^{n-1})$" },
+    { "a": "$a^n - b^n$",                                                  "b": "$(a-b)\\sum\\limits_{k=0}^{n-1} a^{n-1-k}\\,b^k$" },
 
-    { "a": "$n!$",                                                         "b": "$1 \\times 2 \\times \\cdots \\times n$" },
+    { "a": "$n!$",                                                         "b": "$\\prod\\limits_{k=1}^{n} k$" },
 
-    { "a": "$\\binom{n}{p}$",                                              "b": "$\\dfrac{n!}{p!\\,(n-p)!} = \\dfrac{n(n-1)\\cdots(n-p+1)}{p!}$" },
-    { "a": "$\\binom{n}{n-p}$",                                            "b": "$\\binom{n}{p}$" },
+    { "a": "$\\binom{n}{p}$",                                              "b": "$\\dfrac{n!}{p!\\,(n-p)!}$" },
     { "a": "$\\binom{n}{p}+\\binom{n}{p+1}$",                             "b": "$\\binom{n+1}{p+1}$" },
 
-    { "a": "$(a+b)^n$",                                                    "b": "$\\sum_{k=0}^{n}\\binom{n}{k}a^{n-k}b^k$" },
-    { "a": "$\\sum_{k=0}^{n}\\binom{n}{k}$",                              "b": "$2^n$" },
-    { "a": "$\\sum_{k=0}^{n}(-1)^k\\binom{n}{k}$",                       "b": "$0$" }
+    { "a": "$(a+b)^n$",                                                    "b": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}\\,a^{n-k}b^k$" },
+    { "a": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}$",                     "b": "$2^n$" },
+    { "a": "$\\sum\\limits_{k=0}^{n}(-1)^k\\binom{n}{k}$",               "b": "$0$" }
 
   ]
 }
