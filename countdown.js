@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (rawValue.length !== 5 || !rawValue.includes(':')) {
             const defaultTime = "00:00:00";
             display.textContent = defaultTime;
-            document.title = "Minuteur";
+            document.title = "Kernel – Minuteur";
             return;
         }
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (isNaN(targetHours) || isNaN(targetMinutes) || targetHours > 23 || targetMinutes > 59) {
             display.textContent = "00:00:00";
-            document.title = "Minuteur";
+            document.title = "Kernel – Minuteur";
             return;
         }
 
