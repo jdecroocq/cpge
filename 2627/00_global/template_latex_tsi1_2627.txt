@@ -1,0 +1,423 @@
+% Ce template est conçu pour générer des fiches de synthèse uniformes.
+% Il repose sur des choix personnels que j’ai établis en tant qu’auteur récurrent de documents dans le cadre de ma CPGE.
+
+% Les commentaires de ce document ont pour vocation d’aider tout acteur (réel ou virtuel) à s’en servir.
+% Cependant, ils demeurent purement explicatifs en ce qui concerne l’utilisation correcte des principes établis dans ce modèle, et peuvent être retirés lors de la production du document.
+
+% ===================================================================
+% PRÉAMBULE
+% ===================================================================
+
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[french]{babel}
+\usepackage{geometry}
+\usepackage{multicol}
+\usepackage{indentfirst}
+\usepackage{fancyhdr}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{lastpage}
+\usepackage{soul}
+\usepackage{longtable}
+\usepackage{tabularx}
+\usepackage{multirow}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage[version=4]{mhchem}
+\usepackage{bm}
+\usepackage{ragged2e}
+\usepackage{dsfont}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{tkz-tab}
+\usepackage{xstring}
+\usepackage{makecell}
+\usepackage{xparse}
+\usepackage{enumitem}
+\usepackage{datetime}
+\usepackage[most]{tcolorbox}
+
+\usetikzlibrary{patterns, decorations.pathmorphing, decorations.markings, arrows.meta, shapes.geometric, positioning}
+
+\geometry{
+  margin=2cm,
+  top=1.2cm,
+  bottom=1cm,
+  includefoot
+}
+
+\setlength{\footskip}{1.2cm}
+\setlength{\columnsep}{1.2cm}
+\setlength{\columnseprule}{0.4pt}
+
+\titleformat{\section}
+  {\large\bfseries}
+  {}
+  {0em}
+  {\underline}
+
+\titleformat{\subsection}
+  {\normalfont\bfseries}
+  {}
+  {0em}
+  {}
+\titlespacing*{\subsection}{0pt}{0.5cm}{0.2cm}
+
+\setlist[itemize]{
+    label=\textbf{--},
+    topsep=0.4\baselineskip,
+    itemsep=0.4\baselineskip,
+    parsep=0pt,
+    partopsep=0pt,
+    leftmargin=*
+}
+
+\newlist{subitemize}{itemize}{1}
+
+\setlist[subitemize]{
+    label=\raisebox{0.28ex}{\scalebox{0.70}{$\bullet$}},
+    nosep, 
+    topsep=0pt,
+    leftmargin=*,
+    after=\vspace{0pt} 
+}
+
+\newcommand{\repere}{%
+  00\_global\_% Selon la matière : 00_global, 01_math, 02_pc, 03_sii, 04_info, 05_fr, 06_lv.
+  \twodigit{\numexpr\year-2000\relax}%
+  \twodigit{\month}%
+  \twodigit{\day}%
+  \twodigit{\currenthour}%
+  \twodigit{\currentminute}%
+}
+
+% Paramétrage du pied de page.
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[L]{\small 2026--2027}
+\fancyfoot[C]{\small \thepage/\pageref{LastPage}}
+\fancyfoot[R]{\small TSI2 -- Jean Decroocq}
+\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\headrulewidth}{0pt}
+
+
+% Couleurs personnelles
+\definecolor{cobalt}{HTML}{3d62f5}
+\definecolor{garnet}{HTML}{d04343}
+\definecolor{jade}{HTML}{21e492}
+
+
+\newtcbox{\code}{
+  on line,
+  colback=gray!10,
+  colframe=gray!10,
+  arc=2pt,
+  boxrule=0pt,
+  left=-1pt,
+  right=-1pt,
+  top=-1pt,
+  bottom=-1pt,
+  fontupper=\ttfamily
+}
+
+\lstset{
+    language=Python,
+    basicstyle=\ttfamily\footnotesize\color[HTML]{606060},
+    numbers=left,
+    numberstyle=\color{gray},
+    breaklines=true,
+    showstringspaces=false,
+    frame=none,
+    tabsize=4,
+    backgroundcolor=\color{gray!10},
+    identifierstyle=\color[HTML]{000000},
+    keywordstyle=\color[HTML]{3d62f5},
+    stringstyle=\color[HTML]{d04343},
+    commentstyle=\color[HTML]{15af50},
+    literate={é}{{\'e}}1
+           {è}{{\`e}}1
+           {à}{{\`a}}1
+           {ç}{{\c c}}1
+           {ù}{{\`u}}1
+           {â}{{\^a}}1
+           {ê}{{\^e}}1
+           {î}{{\^i}}1
+           {ô}{{\^o}}1
+           {û}{{\^u}}1
+}
+
+% ===================================================================
+% DÉBUT DU DOCUMENT
+% ===================================================================
+\begin{document}
+
+% --- EN-TÊTE DE LA FICHE ---
+\noindent
+\begin{minipage}[t]{0.15\textwidth}
+    \small \repere
+\end{minipage}%
+\begin{minipage}[t]{0.7\textwidth}
+    \centering
+    \small Thème principal
+\end{minipage}
+
+\noindent
+\centering
+{\large \textbf{Titre du document}} \\
+{\small \textit{Sous-titre optionnel}} % J’insiste : ce sous-titre est prévu en cas de besoin, mais en règle générale, il est parfaitement inutile ! Il ne faut donc pas chercher à le remplir inutilement.
+% Par ailleurs, si on ne fait pas usage du sous-titre, il convient de retirer toute la ligne, et non de simplement laisser la zone de texte vide {}.
+
+\justifying
+
+% ===================================================================
+% CONTENU
+% ===================================================================
+
+\section{Section typique}
+
+
+\begin{itemize}
+    \item Ceci est un item de premier niveau.
+    Un même item peut contenir plusieurs lignes de texte sans difficulté.
+    Pour revenir à la ligne, on utilise deux antislashs. \\
+    C’est ainsi qu’on effectue un retour à la ligne dans un même item, afin de compléter le propos, par exemple.
+
+    \item Ceci est un autre item. Il contient une sous-liste pour détailler certains points :
+    \begin{subitemize}
+        \item Ceci est un sous-item.
+        \item Un autre sous-item pour l’exemple.
+        \item Attention : les sous-items ne doivent être utilisés que lorsqu’il s’agit de distinguer différents cas (et qu’un tableau ne s’y prête pas).
+        Cela signifie que, pour des remarques, ajouts ou successions d’informations, on ne les utilise pas : on se contente simplement de retours à la ligne.
+    \end{subitemize}
+
+    \item L’usage d’un registre de langue soutenu me plaît particulièrement, car il favorise la rigueur et la précision dans mon apprentissage. Par ailleurs, la clarté et la concision demeurent des principes essentiels.
+    
+    \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items.
+    % J’insiste : ce point est par expérience bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
+    % En effet, on tend souvent à abuser du gras (notamment dans les productions d’IA) sous prétexte d’améliorer la clarté.
+    % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
+\end{itemize}
+
+\section{Usage des sous-sections}
+
+\subsection{Exemple de sous-section}
+\begin{itemize}
+    \item L’usage de sous-sections permet d’organiser plus finement le contenu lorsque la situation l’exige.
+    \item Cette pratique reste relativement rare, mais elle demeure préférable à l’emploi d’un simple item suivi d’une multitude de sous-items, ce qui diluerait inutilement la hiérarchie du document.
+\end{itemize}
+
+\subsection{Principes d’utilisation}
+\begin{itemize}
+    \item Une sous-section doit toujours être accompagnée d’au moins une autre sous-section au sein de la même section ; sans cela, elle perd sa raison d’être.
+    \item Il convient de rappeler qu’une sous-section constitue un espace classique pour accueillir des éléments tels que des items, des images, des tableaux ou des formules.
+    \item En ce qui concerne les conditions d’usage, un ensemble de sous-sections n’est justifié que lorsqu’il existe un parallèle explicite entre plusieurs éléments abordés successivement.
+    Chacun est alors présenté dans une sous-section dédiée. 
+    En revanche, dans la majorité des cas, lorsqu’il s’agit simplement d’énumérer des informations (propriétés, formules, notions, etc.), une liste d’items suffit dès lors qu’aucune analogie forte ne lie plusieurs groupes d'items.
+    \item En somme, un ensemble de sous-sections peut souvent s’interpréter comme un tableau conceptuel dont la structure aurait pu être matérialisée sous forme de tableau, mais dont le format serait parfois trop volumineux ou moins lisible que des sous-sections distinctes.
+    \item En vertu des règles énoncées, le présent document n’illustre pas un usage idéal des sous-sections. Ce choix vise à montrer plusieurs sous-sections à la suite, afin de servir d’exemple.
+\end{itemize}
+
+
+
+
+\section{Section avec des formules}
+
+\begin{itemize}
+    \item Une formule mathématique peut être insérée et centrée sur sa propre ligne, de cette manière :
+     \[
+    s(t) = \langle s(t) \rangle + \sum_{n=1}^{\infty} A_n \cos(n\omega t + \varphi_n).
+    \]
+    On veille toujours à la ponctuation, hautement considérée, même dans les formules. % La ponctuation constitue également un aspect à ne pas sous-estimer : elle doit être rigoureuse et conforme aux normes, tant dans un texte argumentatif que dans un développement mathématique.
+    
+    \item Il est possible de présenter plusieurs formules courtes sur une seule ligne pour économiser de l’espace :
+    \[
+    f = \frac{1}{T}; \hspace{2cm} T = \frac{1}{f}; \hspace{2cm} \omega = 2\pi f.
+    \]
+    \item Comme ci-avant, il est naturel d’employer les deux-points. En revanche, lorsqu’une expression hors texte s’inscrit dans la continuité fluide d’une phrase, il ne faut pas les utiliser.
+\end{itemize}
+
+
+\section{Tableaux et images}
+
+\begin{itemize}
+    \item Il est pertinent d’utiliser des tableaux dès que possible : leur mise en forme visuelle contribue à l'intellect. 
+
+    \item Voici un petit tableau centré, avec des en-têtes non gras :
+    \begin{center}
+    {\small
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        Atome & H & C & N \\
+        \hline
+        $\chi$ & 2,20 & 2,55 & 3,04 \\
+        \hline
+    \end{tabular}
+    }
+    \end{center}
+
+    \item Voici un tableau plus courant :
+    \begin{center}
+    {\small
+    \begin{tabular}{|>{\raggedright\arraybackslash}p{4cm}|>{\raggedright\arraybackslash}p{3cm}|>{\raggedright\arraybackslash}p{5cm}|}
+    \hline
+    \textbf{Catégorie} & \textbf{Formule} & \textbf{Nom} \\
+    \hline
+    Molécule neutre & \ce{NH3} & Ammoniac \\
+    \hline
+    \multirow{2}{*}{Cation (positif)} & \ce{H3O+} & Oxonium \\
+                                    & \ce{NH4+} & Ammonium \\
+    \hline
+    \multirow{4}{*}{Anion (négatif)} & \ce{OH-} & Hydroxyde \\
+                                    & \ce{SO4^{2-}} & Sulfate \\
+                                    & \ce{NO3-} & Nitrate \\
+                                    & \ce{MnO4-} & Permanganate \\
+    \hline
+    \end{tabular}
+    }
+    \end{center}
+    \leavevmode % Très important
+
+    \item Et voici un tableau plus conséquent, occupant toute la largeur du texte :
+
+    \begin{center}
+    \renewcommand{\arraystretch}{1.3}
+    {\small
+    \begin{tabularx}{\linewidth}{|
+        >{\noindent\justifying\arraybackslash}p{0.2\linewidth}|
+        >{\noindent\justifying\arraybackslash}X|
+        >{\noindent\justifying\arraybackslash}X|
+    }
+        \hline
+        \textbf{Colonne} &
+        \textbf{Autre colonne} &
+        \textbf{Une autre} \\
+        \hline
+        Exemple &
+        Contenu de la case &
+        Autre contenu \\
+        \hline
+        C’est un tableau &
+        En effet &
+        Un tableau de qualité \\
+        \hline
+        Pour quoi faire ? &
+        Idéal lorsqu’il y a beaucoup de contenu &
+        Pour ne pas s’y perdre… \\
+        \hline
+    \end{tabularx}
+    }
+    \renewcommand{\arraystretch}{1}
+    \end{center}
+    
+    Lorsqu’un tableau contient un contenu conséquent, il est préférable d’y appliquer les règles usuelles de ponctuation.
+
+    \item Il est également aisé d’insérer une image et de la centrer :
+    \begin{center}
+        \includegraphics[width=0.5\linewidth]{example-image-a}
+    \end{center}    
+
+\end{itemize}
+
+
+\section{Mises en page avancées}
+
+\noindent
+\begin{minipage}[c]{0.55\textwidth}
+    \begin{itemize}[itemsep=0.5\baselineskip]
+        \item L’environnement \code{minipage} permet de créer des blocs de contenu.
+        \item On peut ainsi placer une liste d’éléments à côté d’une illustration, ce qui fait à la fois gagner de la place et permet d’illustrer directement le propos.
+        \item La largeur de chaque bloc est définie en pourcentage.
+        Veillons à ce que leur somme ne dépasse pas 1 :) % Petit émoji permis
+    \end{itemize}
+\end{minipage}%
+\begin{minipage}[c]{0.45\textwidth}
+    \centering
+    \includegraphics[width=0.8\linewidth]{example-image-b} 
+\end{minipage}
+
+\begin{itemize}
+\item Pour les fiches de type formulaire, l'environnement \code{multicols} est idéal. Il permet au texte de remplir la colonne de gauche, puis de passer automatiquement en haut de la colonne de droite, économisant ainsi l'espace vertical. % C'est à dire quand il y a peu ou pas de texte par exemple, et que donc chaque ligne ne serait pas remplie jusqu'à droite.
+\end{itemize}
+
+\begin{multicols}{2}
+    \begin{itemize}
+        \item Ceci est un item dans la première colonne.
+        \item On peut se comporter ici comme dans un environnement classique (titres de section, items, tableaux...).
+        \item Et ainsi de suite, jusqu'à ce que la colonne soit pleine...
+        \item ... ou que l'on décide de passer manuellement à la suivante.
+        
+        \columnbreak % pas obligatoire du tout
+        
+        \item Nous voici dans la deuxième colonne !
+        \item C'est un outil très pratique pour les listes de définitions ou les formulaires.
+        \item La sublime ligne de séparation est définie dans le préambule.
+    \end{itemize}
+\end{multicols}
+
+
+\section{Exemple de code informatique (Python)}
+
+\begin{itemize}
+    \item On peut faire référence à des éléments de code directement dans le texte, par exemple en mentionnant la fonction \code{calculerValeur()} ou la variable \code{resultat}.
+    
+    \item Pour présenter un algorithme, on recourt à un bloc de code. Oh, en voici justement un exemple ! % Il est permis de recourir à une ponctuation, et plus généralement à un style, dynamiques et vivants pour égayer le propos.
+    
+\begin{lstlisting}
+def calculer_aire(rayon): # Calcule l'aire d'un cercle
+    if rayon < 0:
+        return "Rayon non valide."
+    else:
+        aire = 3.14 * (rayon ** 2)
+        return aire
+\end{lstlisting}
+\end{itemize}
+
+
+
+\section{Figures}
+
+\begin{itemize}
+    \item Il est bon de faire usage de figures pour illustrer certains concepts.
+    \begin{center}
+    \begin{tikzpicture}[scale=1.5]
+        \draw[->] (-1.5,0) -- (1.5,0);
+        \draw[->] (0,-1.2) -- (0,1.5);
+        \draw[thin] (0,0) circle (1);
+        \draw[very thick] (1,0) arc (0:180:1);
+        \coordinate (X) at (-0.6, 0);
+        \coordinate (M) at ({acos(-0.6)}:1);
+        \draw (X) node[below] {$x$} -- (M);
+        \draw (X) -- +(0, 0.05) -- +(0, -0.05);
+        \draw[dashed] (0,0) -- (M);
+        \fill (M) circle (1pt) node[above left] {$\text{Arccos}(x)$};
+        \node[below right] at (1,0) {\small $1$};
+        \node[below left] at (-1,0) {\small $-1$};
+    \end{tikzpicture}
+    \end{center}
+
+
+    \item En voici une autre. Pour que la vue contribue à l'intellect !
+    \begin{center}
+    \begin{tikzpicture}[scale=1]
+        \draw[->] (-1.5,0) -- (1.5,0) node[right] {$x$};
+        \draw[->] (0,-0.5) -- (0,3.5) node[above] {$y$};
+        \draw[thick] plot [domain=-1:1, samples=100] (\x, {rad(acos(\x))});
+        \draw[dashed] (-1,0) node[below] {-1} -- (-1,3.14) -- (0,3.14) node[right] {$\pi$};
+        \draw (1,0.1) -- (1,-0.1) node[below] {1};
+    \end{tikzpicture}
+    \end{center}
+
+\end{itemize}
+
+
+
+\section{Paragraphe}
+
+Ceci est un paragraphe de texte standard, non inclus dans une liste.
+Il sert principalement aux introductions ou aux explications générales, mais il est honnêtement peu utilisé dans les fiches de synthèse.
+
+
+\end{document}
