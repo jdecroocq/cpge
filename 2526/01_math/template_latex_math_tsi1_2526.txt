@@ -3,7 +3,7 @@
 % ===================================================================
 
 % DIRECTIVES :
-% - Ce template définit la forme : le fOND doit être une synthèse
+% - Ce template définit la forme : le fond doit être une synthèse
 %   rigoureuse du cours.
 % - L'objectif est de conserver toutes les notions nécessaires pour
 %   réussir TD, DS et concours.
@@ -12,8 +12,8 @@
 %   ils expliquent comment utiliser le template. Ils doivent être
 %   remplacés par le vrai cours.
 % - Il faut supprimer tous les commentaires de ce type.
-% - Les trois points "..." doivent être remplacés dans le texte par ce qui
-%   est sous-entendu lorsqu’ils ont été utilisés dans le cours par manque
+% - "..." ou "[...]" doit être remplacé dans le texte par ce qui est 
+%   sous-entendu lorsqu’ils ont été employés dans le cours par manque
 %   de temps.
 % - Le second argument (note) d’un item doit être utilisé uniquement pour
 %   préciser le contenu de l'itm (permettant ainsi de le nommer).
@@ -32,17 +32,23 @@
 % - Il est necessaire de faire usage de l'italique pour mettre en évidence
 %   un terme défini.
 % - Il est bon de faire usage d'espaces insécables lorsque nécessaire.
+% - On ponctue un bloc mathématique en dehors de ce dernier (ce qui centre
+%   verticalement cette ponctuation), au lieu de la placer sur la dernière
+%   ligne. Ceci s'applique aux environnements cases, aligned, bmatrix, etc.
+% - Il convient de respecter une notation conventionnelle des espacements
+%   au sein des propositions mathématiques, employant si besoin \, \;
+%   \quad etc.
 % ===================================================================
 
 \documentclass[a4paper,12pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage[explicit]{titlesec}
 \usepackage[french]{babel}
 \usepackage{geometry}
 \usepackage{fancyhdr}
 \usepackage{lastpage}
-\usepackage[explicit]{titlesec}
 \usepackage{enumitem}
 \usepackage{datetime}
 \usepackage{multicol}
@@ -60,6 +66,7 @@
 \usepackage{xparse}
 \usepackage{array}
 
+
 \geometry{
   margin=2cm, top=1.2cm, bottom=1cm, includefoot
 }
@@ -71,7 +78,7 @@
 \definecolor{b}{HTML}{3d62f5}
 \definecolor{n}{HTML}{000000}
 
-% --- Variable de Chapitre
+% Variable de Chapitre
 \newcommand{\numchap}{0} 
 
 \newcommand{\repere}{%
@@ -245,8 +252,8 @@
         (S) \iff & 2x + 3y = 5 \\
             \iff & \begin{cases} 
                 \text{Première équation du système} \\ 
-                \text{Seconde équation du système}.
-            \end{cases}
+                \text{Seconde équation du système}
+            \end{cases}.
     \end{align*}
     Cet alignement garantit une lisibilité optimale et évite toute ambiguïté dans le cheminement logique.
 \end{itm}
@@ -268,12 +275,12 @@
         \setlength{\jot}{0pt}
         \begin{aligned}
             f \colon \mathbb{R} &\to \mathbb{R} \\
-            x &\mapsto x^2 + \ln(x) - 1.
-        \end{aligned}
+            x &\mapsto x^2 + \ln(x) - 1
+        \end{aligned}.
     \]
     Dans le fil du texte ou pour des usages moins formels, une écriture en ligne est tolérée : $ {f \colon x \mapsto x^2} $.
     
-    Pour les phrases logiques avec quantificateurs, il faut penser à aérer la formule avec la commande \texttt{\textbackslash quad} pour séparer le sens :
+    Pour les phrases logiques avec quantificateurs, on peut aérer la formule avec la commande \texttt{\textbackslash quad} pour séparer le sens :
     \[ \forall \varepsilon > 0, \quad \exists \eta > 0, \quad |x-x_0| < \eta \implies |f(x)-f(x_0)| < \varepsilon. \]
 \end{itm}
 
