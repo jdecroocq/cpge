@@ -6,7 +6,7 @@
     { "a": "$\\text{NH}_3$",            "b": "Ammoniac" },
     { "a": "$\\text{NaOH}$",            "b": "Hydroxyde de sodium (soude caustique)" },
     { "a": "$\\text{H}_3\\text{O}^+$",  "b": "Ion oxonium (hydronium)" },
-    { "a": "$\\text{HO}^-$",            "b": "Ion hydroxyde" },
+    { "a": "$\\text{OH}^-$",            "b": "Ion hydroxyde" },
     { "a": "$\\text{Na}^+$",            "b": "Ion sodium" },
     { "a": "$\\text{NH}_4^+$",          "b": "Ion ammonium" },
     { "a": "$\\text{SO}_4^{2-}$",       "b": "Ion sulfate" },
