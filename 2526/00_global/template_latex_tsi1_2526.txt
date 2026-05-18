@@ -194,10 +194,12 @@
 
     \item L’usage d’un registre de langue soutenu me plaît particulièrement, car il favorise la rigueur et la précision dans mon apprentissage. Par ailleurs, la clarté et la concision demeurent des principes essentiels.
     
-    \item J’utilise ce dernier item pour rappeler qu’il n’est pas permis de faire usage de mises en relief (gras, italique, souligné, etc.) dans les paragraphes et les items.
+    \item Il n’est pas permis de faire usage de mises en relief (gras, souligné, etc.) dans les paragraphes et les items.
     % J’insiste : ce point est par expérience bien trop sous-estimé par les LLM, alors qu’il est pourtant fondamental (car j’en ai décidé ainsi !) DONC PAS DE GRAS !
     % En effet, on tend souvent à abuser du gras (notamment dans les productions d’IA) sous prétexte d’améliorer la clarté.
     % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
+    \item Toutefois, l’usage de l’italique est encouragé uniquement lorsqu’il s’agit de définir explicitement ou implicitement un terme (p. ex. : \og On appelle \textit{endomorphisme} une application [...] \fg{} ; ou encore \og [...] où $\epsilon_0$ représente la \textit{permittivité du vide} \fg{}).
+    Il s’ensuit qu’un terme ne peut être mis en italique à plusieurs reprises dans un même document.
 \end{itemize}
 
 \section{Usage des sous-sections}
