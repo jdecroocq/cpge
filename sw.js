@@ -6,7 +6,7 @@ const FILES_TO_CACHE = [
   './script.js',
   './manifest.json',
   './kernel_icon_round_32.png',
-  './kernel_icon_a_256.png'
+  './kernel_512_grad_l.png'
 ];
 
 self.addEventListener('install', (event) => {
