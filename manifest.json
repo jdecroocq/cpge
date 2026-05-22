@@ -9,7 +9,7 @@
   "description": "Documents CPGE TSI - Jean D.",
   "icons": [
     {
-      "src": "kernel_512_grad.png",
+      "src": "kernel_512_grad_l.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
