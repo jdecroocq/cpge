@@ -53,18 +53,18 @@
                 "name": "00_global",
                 "files": [
                     "notions_transversales_tsi_jean_decroocq.pdf_s",
-                    {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
-                    {"name": "Primitives", "url": "flashcard.html?deck=primitives", "count": 28, "type": "flashcard"},
-                    { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
-                    { "name": "Réflexes valeurs remarquables trigonométrie", "url": "flashcard.html?deck=reflexes_trigo", "type": "flashcard", "count": 18 },
-                    { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
                     "formulaire_hd.pdf_s"
                         ]
             },
             {
                 "name": "01_math",
                 "files": [
-                    "cahier_de_calcul.pdf_s"
+                    "compendium_math_tsi_jean_decroocq.pdf_s",
+                    "cahier_de_calcul.pdf_s",
+                    {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
+                    {"name": "Primitives", "url": "flashcard.html?deck=primitives", "count": 28, "type": "flashcard"},
+                    { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
+                    { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
                         ]
             },
             {
