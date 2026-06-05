@@ -19,6 +19,31 @@
         })();
     </script>
 </head>
+
+<script>
+(function () {
+    const btn = document.getElementById('fullscreen-toggle');
+    const icon = btn.querySelector('.q-icon');
+
+    function update() {
+        const isFs = !!document.fullscreenElement;
+        icon.classList.toggle('icon-fullscreen', !isFs);
+        icon.classList.toggle('icon-fullscreen-exit', isFs);
+        btn.title = isFs ? 'Quitter le plein écran' : 'Plein écran';
+    }
+
+    btn.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    });
+
+    document.addEventListener('fullscreenchange', update);
+})();
+</script>
+    
 <body id="timer-page">
     <div id="page-loader"></div>
 
@@ -28,6 +53,9 @@
         </a>
         <button id="theme-toggle" class="action-btn" title="Changer de thème">
             <span class="q-icon icon-theme"></span>
+        </button>
+        <button id="fullscreen-toggle" class="action-btn" title="Plein écran">
+            <span class="q-icon icon-fullscreen"></span>
         </button>
     </div>
 
