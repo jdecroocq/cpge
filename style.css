@@ -79,6 +79,9 @@ a {
   text-decoration: none;
 }
 
+
+/* outlined, weight 300, grade 0, optical size 24 */
+
 .icon-home {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='currentColor'%3E%3Cpath d='M240-200h133.85v-237.69h212.3V-200H720v-360L480-740.77 240-560v360Zm-60 60v-450l300-225.77L780-590v450H526.15v-237.69h-92.3V-140H180Zm300-330.38Z'/%3E%3C/svg%3E");
 }
@@ -89,6 +92,14 @@ a {
 
 .icon-timer {
   mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960' fill='currentColor'%3E%3Cpath d='M367.69-850v-60h224.62v60H367.69ZM450-407.69h60v-224.62h-60v224.62ZM348-126.77q-61.85-26.77-108.15-73.08-46.31-46.3-73.08-108.15Q140-369.85 140-440t26.77-132q26.77-61.85 73.08-108.15 46.3-46.31 108.15-73.08Q409.85-780 480-780q60.08 0 115.73 20.39 55.65 20.38 103.35 58.38l49.84-49.84 42.15 42.15-49.84 49.84q38 47.7 58.38 103.35Q820-500.08 820-440q0 70.15-26.77 132-26.77 61.85-73.08 108.15-46.3 46.31-108.15 73.08Q550.15-100 480-100t-132-26.77ZM678-242q82-82 82-198t-82-198q-82-82-198-82t-198 82q-82 82-82 198t82 198q82 82 198 82t198-82ZM480-440Z'/%3E%3C/svg%3E");
+}
+
+.icon-fullscreen {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M140-140v-188.46h60V-200h128.46v60H140Zm491.92 0v-60h128.46v-128.46h60V-140H631.92ZM140-631.54V-820h188.46v60H200v128.46h-60Zm620.38 0V-760H631.92v-60h188.46v188.46h-60Z'/%3E%3C/svg%3E");
+}
+
+.icon-fullscreen-exit {
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 -960 960 960'%3E%3Cpath d='M268.46-140v-128.46H140v-60h188.46V-140h-60Zm363.46 0v-188.46h188.46v60H691.92V-140h-60ZM140-631.54v-60h128.46V-820h60v188.46H140Zm491.92 0V-820h60v128.46h128.46v60H631.92Z'/%3E%3C/svg%3E");
 }
 
 .icon-flashcards {
