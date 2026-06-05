@@ -21,8 +21,10 @@
 </head>
 
 <script>
-(function () {
+document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('fullscreen-toggle');
+    if (!btn) return;
+
     const icon = btn.querySelector('.q-icon');
 
     function isFullscreen() {
@@ -48,7 +50,7 @@
 
     document.addEventListener('fullscreenchange', update);
     document.addEventListener('webkitfullscreenchange', update);
-})();
+});
 </script>
     
 <body id="timer-page">
