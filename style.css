@@ -877,3 +877,9 @@ body.about-open {
     color: var(--color-6);
   }
 }
+
+@media (hover: none) {
+    .fullscreen-btn {
+        display: none;
+    }
+}
