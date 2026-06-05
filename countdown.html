@@ -25,22 +25,29 @@
     const btn = document.getElementById('fullscreen-toggle');
     const icon = btn.querySelector('.q-icon');
 
+    function isFullscreen() {
+        return !!(document.fullscreenElement || document.webkitFullscreenElement);
+    }
+
     function update() {
-        const isFs = !!document.fullscreenElement;
+        const isFs = isFullscreen();
         icon.classList.toggle('icon-fullscreen', !isFs);
         icon.classList.toggle('icon-fullscreen-exit', isFs);
         btn.title = isFs ? 'Quitter le plein écran' : 'Plein écran';
     }
 
     btn.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            document.documentElement.requestFullscreen();
+        if (!isFullscreen()) {
+            const el = document.documentElement;
+            (el.requestFullscreen?.() ?? el.webkitRequestFullscreen?.())
+                ?.catch(err => console.error('Fullscreen refusé :', err));
         } else {
-            document.exitFullscreen();
+            (document.exitFullscreen?.() ?? document.webkitExitFullscreen?.());
         }
     });
 
     document.addEventListener('fullscreenchange', update);
+    document.addEventListener('webkitfullscreenchange', update);
 })();
 </script>
     
