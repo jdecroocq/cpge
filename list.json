@@ -1,4 +1,16 @@
 [    
+    {   
+        "title": "2026–2027",
+        "folder": "2627",
+        "subcategories": [
+            {
+                "name": "00_global",
+                "files": [
+                    "template_latex_tsi1_2627.txt_t"
+                        ]
+            }
+        ]
+    },
     {
         "title": "2025–2026",
         "folder": "2526",
@@ -29,18 +41,6 @@
                     "03.02_compl_train_epi.pdf",
                     "04.03_val_moy_eff.pdf",
                     "04.04_fourier.pdf"
-                        ]
-            }
-        ]
-    },
-    {   
-        "title": "2026–2027",
-        "folder": "2627",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "template_latex_tsi1_2627.txt_t"
                         ]
             }
         ]
