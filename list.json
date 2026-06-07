@@ -52,8 +52,7 @@
             {
                 "name": "00_global",
                 "files": [
-                    "notions_transversales_tsi_jean_decroocq.pdf_s",
-                    "formulaire_hd.pdf_s"
+                    "notions_transversales_tsi_jean_decroocq.pdf_s"
                         ]
             },
             {
@@ -64,7 +63,8 @@
                     {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
                     {"name": "Primitives", "url": "flashcard.html?deck=primitives", "count": 28, "type": "flashcard"},
                     { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
-                    { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"}
+                    { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
+                    "formulaire_hd.pdf_s"
                         ]
             },
             {
