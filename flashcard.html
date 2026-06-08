@@ -49,7 +49,7 @@
     let fixedSide   = false;
 
     let cardEl, frontLabel, frontContent, backLabel, backContent,
-        progressFill, progressLabel, dot0, dot1;
+        progressFill, progressLabel, dot0, dot1, btnPrev, btnNext;
 
     function shuffleFY(arr) {
       const a = [...arr];
@@ -75,7 +75,7 @@
     }
 
     function buildUI(title) {
-      document.title = `Kernel – ${title}`;
+      document.title = `Kernel – FC : ${title}`;
       const app = document.getElementById('app');
       app.innerHTML = '';
 
@@ -121,7 +121,7 @@
       const ctrl = document.createElement('div');
       ctrl.className = 'flashcard-controls';
       ctrl.innerHTML = `
-        <button class="btn" id="btn-flip">Retourner</button>
+        <button class="btn" id="btn-prev">Précédent</button>
         <button class="btn btn-primary" id="btn-next">Suivante</button>`;
       app.appendChild(ctrl);
       
@@ -134,10 +134,12 @@
       progressLabel = document.getElementById('prog-label');
       dot0          = document.getElementById('dot0');
       dot1          = document.getElementById('dot1');
+      btnPrev       = document.getElementById('btn-prev');
+      btnNext       = document.getElementById('btn-next');
 
       scene.addEventListener('click', flipCard);
-      document.getElementById('btn-flip').addEventListener('click', flipCard);
-      document.getElementById('btn-next').addEventListener('click', nextCard);
+      btnPrev.addEventListener('click', prevCard);
+      btnNext.addEventListener('click', nextCard);
 
       document.addEventListener('keydown', e => {
         if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown') {
@@ -148,7 +150,21 @@
           e.preventDefault();
           nextCard();
         }
+        if (e.code === 'ArrowLeft') {
+          e.preventDefault();
+          prevCard();
+        }
       });
+    }
+
+    function updateButtonStates() {
+      if (queueIndex <= 1) {
+        btnPrev.disabled = true;
+        btnPrev.classList.add('disabled');
+      } else {
+        btnPrev.disabled = false;
+        btnPrev.classList.remove('disabled');
+      }
     }
 
     function showCard() {
@@ -177,6 +193,8 @@
       const pct = Math.round((queueIndex / deck.length) * 100);
       progressFill.style.width  = pct + '%';
       progressLabel.textContent = `${queueIndex} / ${deck.length}`;
+
+      updateButtonStates();
     }
 
     function flipCard() {
@@ -186,12 +204,22 @@
       dot1.classList.toggle('active',  flipped);
     }
 
+    function prevCard() {
+      if (queueIndex <= 1) {
+        return;
+      }
+      queueIndex--;
+      currentCard = queue[queueIndex - 1];
+      showCard();
+    }
+
     function nextCard() {
       if (queueIndex >= queue.length) {
         queue      = shuffleFY(deck);
         queueIndex = 0;
       }
-      currentCard = queue[queueIndex++];
+      queueIndex++;
+      currentCard = queue[queueIndex - 1];
       showCard();
     }
 
