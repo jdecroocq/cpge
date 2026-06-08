@@ -11,7 +11,7 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script>
 </head>
 <body id="flashcard-page">
-
+  <div id="page-loader"></div>
   <div class="quick-actions">
     <a href="/cpge/" class="action-btn" title="Accueil">
       <span class="q-icon icon-home"></span>
@@ -75,7 +75,7 @@
     }
 
     function buildUI(title) {
-      document.title = `Kernel – ${title}`;
+      document.title = `Kernel – FC : ${title}`;
       const app = document.getElementById('app');
       app.innerHTML = '';
 
@@ -226,6 +226,10 @@
     }
 
     init();
+
+    if (document.getElementById('page-loader')) {
+      setTimeout(() => document.body.classList.add('loaded'), 150);
+    }
   })();
   </script>
 
