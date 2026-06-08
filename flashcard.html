@@ -48,8 +48,11 @@
     let flipped     = false;
     let fixedSide   = false;
 
+    let history     = [];
+    let historyIndex = -1;
+
     let cardEl, frontLabel, frontContent, backLabel, backContent,
-        progressFill, progressLabel, dot0, dot1;
+        progressFill, progressLabel, dot0, dot1, btnPrev;
 
     function shuffleFY(arr) {
       const a = [...arr];
@@ -121,7 +124,7 @@
       const ctrl = document.createElement('div');
       ctrl.className = 'flashcard-controls';
       ctrl.innerHTML = `
-        <button class="btn" id="btn-flip">Retourner</button>
+        <button class="btn" id="btn-prev" disabled>Précédente</button>
         <button class="btn btn-primary" id="btn-next">Suivante</button>`;
       app.appendChild(ctrl);
       
@@ -134,9 +137,10 @@
       progressLabel = document.getElementById('prog-label');
       dot0          = document.getElementById('dot0');
       dot1          = document.getElementById('dot1');
+      btnPrev       = document.getElementById('btn-prev');
 
       scene.addEventListener('click', flipCard);
-      document.getElementById('btn-flip').addEventListener('click', flipCard);
+      document.getElementById('btn-prev').addEventListener('click', prevCard);
       document.getElementById('btn-next').addEventListener('click', nextCard);
 
       document.addEventListener('keydown', e => {
@@ -148,10 +152,18 @@
           e.preventDefault();
           nextCard();
         }
+        if (e.code === 'ArrowLeft') {
+          e.preventDefault();
+          prevCard();
+        }
       });
     }
 
-    function showCard() {
+    function updatePrevButton() {
+      btnPrev.disabled = historyIndex <= 0;
+    }
+
+    function showCardFromEntry(entry) {
       cardEl.style.transition = 'none';
       cardEl.classList.remove('flipped');
       void cardEl.offsetWidth;
@@ -161,8 +173,9 @@
       dot0.classList.add('active');
       dot1.classList.remove('active');
 
-      const showAFront = fixedSide ? true : Math.random() < 0.5;
-      if (showAFront) {
+      currentCard = entry.card;
+
+      if (entry.showAFront) {
         frontLabel.textContent = labelA;
         renderContent(frontContent, currentCard.a);
         backLabel.textContent = labelB;
@@ -173,10 +186,12 @@
         backLabel.textContent = labelA;
         renderContent(backContent, currentCard.a);
       }
-
-      const pct = Math.round((queueIndex / deck.length) * 100);
+      
+      const pct = Math.round((Math.min(historyIndex + 1, deck.length) / deck.length) * 100);
       progressFill.style.width  = pct + '%';
-      progressLabel.textContent = `${queueIndex} / ${deck.length}`;
+      progressLabel.textContent = `${Math.min(historyIndex + 1, deck.length)} / ${deck.length}`;
+
+      updatePrevButton();
     }
 
     function flipCard() {
@@ -186,13 +201,31 @@
       dot1.classList.toggle('active',  flipped);
     }
 
+    function prevCard() {
+      if (historyIndex <= 0) return;
+      historyIndex--;
+      showCardFromEntry(history[historyIndex]);
+    }
+
     function nextCard() {
+      if (historyIndex < history.length - 1) {
+        historyIndex++;
+        showCardFromEntry(history[historyIndex]);
+        return;
+      }
+
       if (queueIndex >= queue.length) {
         queue      = shuffleFY(deck);
         queueIndex = 0;
       }
-      currentCard = queue[queueIndex++];
-      showCard();
+      const card       = queue[queueIndex++];
+      const showAFront = fixedSide ? true : Math.random() < 0.5;
+
+      const entry = { card, showAFront };
+      history.push(entry);
+      historyIndex = history.length - 1;
+
+      showCardFromEntry(entry);
     }
 
     async function init() {
@@ -202,11 +235,11 @@
         const data = await res.json();
         if (!data.cards || data.cards.length === 0) throw new Error('Jeu vide.');
 
-        deck   = data.cards;
-        labelA = data.labelA || 'Recto';
-        labelB = data.labelB || 'Verso';
+        deck      = data.cards;
+        labelA    = data.labelA || 'Recto';
+        labelB    = data.labelB || 'Verso';
         fixedSide = data.fixedSide || false;
-        queue  = shuffleFY(deck);
+        queue     = shuffleFY(deck);
         queueIndex = 0;
 
         function tryStart() {
