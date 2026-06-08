@@ -121,7 +121,7 @@
       const ctrl = document.createElement('div');
       ctrl.className = 'flashcard-controls';
       ctrl.innerHTML = `
-        <button class="btn" id="btn-flip">Retourner</button>
+        <button class="btn" id="btn-prev">Précédent</button>
         <button class="btn btn-primary" id="btn-next">Suivante</button>`;
       app.appendChild(ctrl);
       
@@ -134,11 +134,13 @@
       progressLabel = document.getElementById('prog-label');
       dot0          = document.getElementById('dot0');
       dot1          = document.getElementById('dot1');
+      btnPrev       = document.getElementById('btn-prev');
+      btnNext       = document.getElementById('btn-next');
 
       scene.addEventListener('click', flipCard);
-      document.getElementById('btn-flip').addEventListener('click', flipCard);
-      document.getElementById('btn-next').addEventListener('click', nextCard);
-
+      btnNext.addEventListener('click', nextCard);
+      btnPrev.addEventListener('click', prevCard);
+      
       document.addEventListener('keydown', e => {
         if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'ArrowDown') {
           e.preventDefault();
@@ -147,6 +149,10 @@
         if (e.code === 'ArrowRight' || e.code === 'Enter') {
           e.preventDefault();
           nextCard();
+        }
+        if (e.code === 'ArrowLeft') {
+          e.preventDefault();
+          prevCard();
         }
       });
     }
@@ -177,6 +183,7 @@
       const pct = Math.round((queueIndex / deck.length) * 100);
       progressFill.style.width  = pct + '%';
       progressLabel.textContent = `${queueIndex} / ${deck.length}`;
+      updatePrevButtonState();
     }
 
     function flipCard() {
@@ -193,6 +200,25 @@
       }
       currentCard = queue[queueIndex++];
       showCard();
+      
+      if (queueIndex === 1) {
+        updatePrevButtonState();
+      }
+    }
+
+    function prevCard() {
+      if (queueIndex <= 1) return;
+      
+      queueIndex--;
+      currentCard = queue[queueIndex - 1];
+      showCard();
+    }
+    
+    function updatePrevButtonState() {
+      const isDisabled = queueIndex <= 1;
+      btnPrev.disabled = isDisabled;
+      btnPrev.style.opacity = isDisabled ? '0.5' : '1';
+      btnPrev.style.cursor = isDisabled ? 'not-allowed' : 'pointer';
     }
 
     async function init() {
