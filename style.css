@@ -679,6 +679,12 @@ button.action-btn {
     padding: 0 24px;
 }
 
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 
 
 
