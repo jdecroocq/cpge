@@ -24,6 +24,16 @@
     </button>
   </div>
 
+  <style>
+    #app {
+      opacity: 0;
+      transition: opacity 0.45s ease;
+    }
+    #app.fc-ready {
+      opacity: 1;
+    }
+  </style>
+
   <div id="app">
     <p class="flashcard-status" id="status-msg">Chargement…</p>
   </div>
@@ -78,7 +88,7 @@
     }
 
     function buildUI(title) {
-      document.title = `Kernel – ${title}`;
+      document.title = `Kernel – FC\u00a0: ${title}`;
       const app = document.getElementById('app');
       app.innerHTML = '';
 
@@ -160,6 +170,7 @@
     }
 
     function updatePrevButton() {
+      if (!btnPrev) return;
       btnPrev.disabled = historyIndex <= 0;
     }
 
@@ -186,7 +197,7 @@
         backLabel.textContent = labelA;
         renderContent(backContent, currentCard.a);
       }
-      
+
       const pct = Math.round((Math.min(historyIndex + 1, deck.length) / deck.length) * 100);
       progressFill.style.width  = pct + '%';
       progressLabel.textContent = `${Math.min(historyIndex + 1, deck.length)} / ${deck.length}`;
@@ -246,6 +257,7 @@
           if (window.katex) {
             buildUI(data.title);
             nextCard();
+            setTimeout(() => document.getElementById('app').classList.add('fc-ready'), 150);
           } else {
             setTimeout(tryStart, 50);
           }
