@@ -11,7 +11,7 @@
     { "a": "Permittivité du vide",                        "b": "$\\varepsilon_0 = \\dfrac{1}{36\\pi \\times 10^{-9}} = 8{,}854 \\times 10^{-12}\\ \\mathrm{F \\cdot m^{-1}}$" }
     { "a": "Perméabilité du vide",                        "b": "$\\mu_0 = 4\\pi \\times 10^{-7}\\ \\mathrm{H \\cdot m^{-1}} \\approx 1{,}257 \\times 10^{-6}\\ \\mathrm{H \\cdot m^{-1}}$" },
     { "a": "Constante des gaz parfaits",                  "b": "$R = 8{,}314\\ \\mathrm{J \\cdot mol^{-1} \\cdot K^{-1}}$" },
-    { "a": "Nombre d'Avogadro",                           "b": "$N_A = 6{,}022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$" },
+    { "a": "Nombre d'Avogadro",                           "b": "$\\mathcal{N}_A = 6{,}022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$" },
     { "a": "Constante de Boltzmann",                      "b": "$k_B = 1{,}381 \\times 10^{-23}\\ \\mathrm{J \\cdot K^{-1}}$" },
     { "a": "Constante de Faraday",                        "b": "$F = N_A e = 9{,}648 \\times 10^{4}\\ \\mathrm{C \\cdot mol^{-1}}$" },
     { "a": "Constante gravitationnelle universelle",      "b": "$G = 6{,}674 \\times 10^{-11}\\ \\mathrm{N \\cdot m^{2} \\cdot kg^{-2}}$" },
