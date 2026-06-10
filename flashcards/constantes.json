@@ -15,7 +15,6 @@
     { "a": "Constante de Boltzmann",                      "b": "$k_B = 1{,}381 \\times 10^{-23}\\ \\mathrm{J \\cdot K^{-1}}$" },
     { "a": "Constante de Faraday",                        "b": "$F = N_A e = 9{,}648 \\times 10^{4}\\ \\mathrm{C \\cdot mol^{-1}}$" },
     { "a": "Constante gravitationnelle universelle",      "b": "$G = 6{,}674 \\times 10^{-11}\\ \\mathrm{N \\cdot m^{2} \\cdot kg^{-2}}$" },
-    { "a": "Accélération de la pesanteur (standard)",     "b": "$g = 9{,}81\\ \\mathrm{m \\cdot s^{-2}}$" },
     { "a": "Vitesse du son dans l'air (20 °C)",           "b": "$v_s \\approx 343\\ \\mathrm{m \\cdot s^{-1}}$" },
     { "a": "Pression atmosphérique standard",             "b": "$P_0 = 1{,}013 \\times 10^{5}\\ \\mathrm{Pa}$" },
     { "a": "Zéro absolu",                                 "b": "$0\\ \\mathrm{K} = -273{,}15\\ \\mathrm{°C}$" },
