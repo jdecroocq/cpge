@@ -1,12 +1,11 @@
 {
   "title": "Constantes physiques usuelles",
   "labelA": "Constante",
-  "labelB": "Notation = Valeur (unité)",
+  "labelB": "Valeur",
   "fixedSide": true,
   "cards": [
     { "a": "Célérité de la lumière dans le vide",        "b": "$c = 3{,}00 \\times 10^{8}\\ \\mathrm{m \\cdot s^{-1}}$" },
     { "a": "Constante de Planck",                         "b": "$h = 6{,}626 \\times 10^{-34}\\ \\mathrm{J \\cdot s}$" },
-    { "a": "Constante de Planck réduite",                 "b": "$\\hbar = \\dfrac{h}{2\\pi} \\approx 1{,}055 \\times 10^{-34}\\ \\mathrm{J \\cdot s}$" },
     { "a": "Charge élémentaire",                          "b": "$e = 1{,}602 \\times 10^{-19}\\ \\mathrm{C}$" },
     { "a": "Masse de l'électron",                         "b": "$m_e = 9{,}109 \\times 10^{-31}\\ \\mathrm{kg}$" },
     { "a": "Permittivité du vide",                        "b": "$\\varepsilon_0 = 8{,}854 \\times 10^{-12}\\ \\mathrm{F \\cdot m^{-1}}$" },
