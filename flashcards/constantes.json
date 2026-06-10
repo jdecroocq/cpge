@@ -8,7 +8,7 @@
     { "a": "Constante de Planck",                         "b": "$h = 6{,}626 \\times 10^{-34}\\ \\mathrm{J \\cdot s}$" },
     { "a": "Charge élémentaire",                          "b": "$e = 1{,}602 \\times 10^{-19}\\ \\mathrm{C}$" },
     { "a": "Masse de l'électron",                         "b": "$m_e = 9{,}109 \\times 10^{-31}\\ \\mathrm{kg}$" },
-    { "a": "Permittivité du vide",                        "b": "$\\varepsilon_0 = \\dfrac{1}{36\\pi} \\times 10^{9} = 8{,}854 \\times 10^{-12}\\ \\mathrm{F \\cdot m^{-1}}$" }
+    { "a": "Permittivité du vide",                        "b": "$\\varepsilon_0 = \\dfrac{1}{36\\pi \\times 10^{-9}} = 8{,}854 \\times 10^{-12}\\ \\mathrm{F \\cdot m^{-1}}$" }
     { "a": "Perméabilité du vide",                        "b": "$\\mu_0 = 4\\pi \\times 10^{-7}\\ \\mathrm{H \\cdot m^{-1}} \\approx 1{,}257 \\times 10^{-6}\\ \\mathrm{H \\cdot m^{-1}}$" },
     { "a": "Constante des gaz parfaits",                  "b": "$R = 8{,}314\\ \\mathrm{J \\cdot mol^{-1} \\cdot K^{-1}}$" },
     { "a": "Nombre d'Avogadro",                           "b": "$N_A = 6{,}022 \\times 10^{23}\\ \\mathrm{mol^{-1}}$" },
