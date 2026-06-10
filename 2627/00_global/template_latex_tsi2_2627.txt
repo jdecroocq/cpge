@@ -86,13 +86,13 @@
 }
 
 \newcommand{\repere}{%
-  00\_global\_% Selon la matière : 00_global, 01_math, 02_pc, 03_sii, 04_info, 05_fr, 06_lv.
+  \tiny\texttt{00\_global\_% Selon la matière : 00_global, 01_math, 02_pc, 03_sii, 04_info, 05_fr, 06_lv.
   \twodigit{\numexpr\year-2000\relax}%
   \twodigit{\month}%
   \twodigit{\day}%
   \twodigit{\currenthour}%
   \twodigit{\currentminute}%
-}
+}}
 
 % Paramétrage du pied de page.
 \pagestyle{fancy}
@@ -161,7 +161,7 @@
 \end{minipage}%
 \begin{minipage}[t]{0.7\textwidth}
     \centering
-    \small Thème principal
+    \small Thème
 \end{minipage}
 
 \noindent
@@ -201,6 +201,7 @@
     % Je m’y oppose : cela dilue l’attention et nuit à la mise en valeur des rares informations véritablement cruciales.
     \item Toutefois, l’usage de l’italique est encouragé uniquement lorsqu’il s’agit de définir explicitement ou implicitement un terme (p. ex. : \og On appelle \textit{endomorphisme} une application [...] \fg{} ; ou encore \og [...] où $\epsilon_0$ représente la \textit{permittivité du vide} \fg{}).
     Il s’ensuit qu’un terme ne peut être mis en italique à plusieurs reprises dans un même document.
+    % Et encore, dans cet exemple de la permittivité, c'est que si c'est effectivement la première fois qu'on en parle. Généralement, dans une expression maéthématiques, les termes sont connus.
 \end{itemize}
 
 \section{Usage des sous-sections}
