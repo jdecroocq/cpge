@@ -70,7 +70,8 @@
             {
                 "name": "02_pc",
                 "files": [
-                    {"name": "Molécules et ions usuels", "url": "flashcard.html?deck=molecules_ions","count": 18,"type": "flashcard"}
+                    {"name": "Molécules et ions usuels", "url": "flashcard.html?deck=molecules_ions", "type": "flashcard"},
+                    {"name": "Constantes physiques usuelles", "url": "flashcard.html?deck=constantes", "type": "flashcard"}
                         ]
             },
             {
