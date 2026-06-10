@@ -614,11 +614,11 @@ button.action-btn {
 .card-content {
     font-size: 1.55rem;
     color: var(--color-5);
-    line-height: 1.35;
+    line-height: 1.1;
 }
 
 .card-content .katex {
-    font-size: 1.9rem;
+    font-size: 1.3rem;
 }
 
 .side-dots {
