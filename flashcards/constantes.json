@@ -1,7 +1,7 @@
 {
   "title": "Constantes physiques usuelles",
-  "labelA": "Constante / Ordre de grandeur",
-  "labelB": "Valeur à connaître",
+  "labelA": "Constante",
+  "labelB": "Valeur",
   "fixedSide": true,
   "cards": [
     { "a": "Célérité de la lumière (vide)",               "b": "$c = 3 \\times 10^{8}\\ \\mathrm{m \\cdot s^{-1}}$" },
@@ -17,6 +17,6 @@
     { "a": "Vitesse du son (air)",                        "b": "$v_s \\approx 340\\ \\mathrm{m \\cdot s^{-1}}$" },
     { "a": "Masse volumique de l'air",                    "b": "$\\rho_{\\mathrm{air}} \\approx 1{,}2\\ \\mathrm{kg \\cdot m^{-3}}$" },
     { "a": "Capacité thermique massique de l'eau",        "b": "$c_{\\mathrm{eau}} \\approx 4180\\ \\mathrm{J \\cdot kg^{-1} \\cdot K^{-1}}$" },
-    { "a": "Produit ionique de l'eau (à 25 °C)",          "b": "$K_e = 10^{-14}\\ \\ (\\mathrm{p}K_e = 14)$" }
+    { "a": "Produit ionique de l'eau (25 °C)",            "b": "$K_e = 10^{-14}\\ \\ (\\mathrm{p}K_e = 14)$" }
   ]
 }
