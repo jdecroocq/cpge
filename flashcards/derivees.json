@@ -12,7 +12,7 @@
     { "a": "$b^x$",                      "b": "$(\\ln b)\\,b^x$" },
     { "a": "$\\cos x$",                  "b": "$-\\sin x$" },
     { "a": "$\\sin x$",                  "b": "$\\cos x$" },
-    { "a": "$\\tan x$",                  "b": "$\\dfrac{1}{\\cos^2 x}$" },
+    { "a": "$\\tan x$",                  "b": "$1 + \\tan^2 x = \\dfrac{1}{\\cos^2 x}$" },
     { "a": "$\\arccos x$",               "b": "$\\dfrac{-1}{\\sqrt{1-x^2}}$" },
     { "a": "$\\arcsin x$",               "b": "$\\dfrac{1}{\\sqrt{1-x^2}}$" },
     { "a": "$\\arctan x$",               "b": "$\\dfrac{1}{1+x^2}$" },
