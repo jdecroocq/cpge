@@ -8,6 +8,12 @@
                 "files": [
                     "template_latex_tsi2_2627.txt_t"
                         ]
+            },
+            {
+                "name": "01_math",
+                "files": [
+                    {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"}
+                        ]
             }
         ]
     },
