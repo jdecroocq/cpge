@@ -31,14 +31,14 @@
             {
                 "name": "01_math",
                 "files": [
-                    "cours_math_tsi1_jean_decroocq.pdf_s",
+                    "cours_math_tsi1_jean_decroocq.pdf",
                     "cours_eb.pdf_s"
                         ]
             },
             {
                 "name": "02_pc",
                 "files": [
-                    "cours_pc_tsi1_jean_decroocq.pdf_s"
+                    "cours_pc_tsi1_jean_decroocq.pdf"
                         ]
             },
             {
@@ -66,7 +66,7 @@
             {
                 "name": "01_math",
                 "files": [
-                    "compendium_math_tsi_jean_decroocq.pdf_s",
+                    "compendium_math_tsi_jean_decroocq.pdf",
                     "cahier_de_calcul.pdf_s",
                     {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
                     {"name": "Primitives", "url": "flashcard.html?deck=primitives", "count": 28, "type": "flashcard"},
