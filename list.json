@@ -15,6 +15,16 @@
                     "cours_eb.pdf_s",
                     {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"}
                         ]
+            },
+                        {
+                "name": "02_pc",
+                "files": [
+                        ]
+            },
+            {
+                "name": "03_sii",
+                "files": [
+                        ]
             }
         ]
     },
