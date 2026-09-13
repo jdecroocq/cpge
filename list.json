@@ -84,6 +84,12 @@
                         ]
             },
             {
+                "name": "03_sii",
+                "files": [
+                    "sii_hd.pdf_s",
+                        ]
+            },
+            {
                 "name": "04_info",
                 "files": [
                     "cours_python_3_tsi_jean_decroocq.pdf",
