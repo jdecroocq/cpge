@@ -93,7 +93,8 @@
             {
                 "name": "03_sii",
                 "files": [
-                    "sii_hd.pdf_s"
+                    "sii_hd.pdf_s",
+                    "diag_bode.pdf_s"
                         ]
             },
             {
