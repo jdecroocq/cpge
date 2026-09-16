@@ -16,7 +16,14 @@
                     {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"},
                     "cours_eb.pdf_s"
                         ]
+            },
+            {
+                "name": "02_pc",
+                "files": [
+                    {"name": "classroom.google.com", "url": "https://classroom.google.com/u/1/c/NzEwNTEzNjA2MDk2", "type": "link"}
+                        ]
             }
+            
         ]
     },
     {
