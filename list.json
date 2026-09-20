@@ -80,7 +80,7 @@
                     {"name": "Primitives", "url": "flashcard.html?deck=primitives", "count": 28, "type": "flashcard"},
                     { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
                     { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
-                    { "name": "Développements limités", "url": "flashcard.html?deck=dev_lim", "count": 12, "type": "flashcard" },
+                    { "name": "Développements limités", "url": "flashcard.html?deck=dev_lim", "count": 11, "type": "flashcard" },
                     { "name": "Théorèmes d'analyse", "url": "flashcard.html?deck=theo_analyse", "type": "flashcard" },
                     "formulaire_hd.pdf_s"
                         ]
