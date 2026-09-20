@@ -27,14 +27,15 @@
     { "a": "$e^u$",                      "b": "$u'\\,e^u$" },
     { "a": "$\\cos(u)$",                 "b": "$-u'\\,\\sin(u)$" },
     { "a": "$\\sin(u)$",                 "b": "$u'\\,\\cos(u)$" },
-    { "a": "$\\tan(u)$",                 "b": "$\\dfrac{u'}{\\cos^2(u)}$" },
+    { "a": "$\\tan(u)$",                 "b": "$u'\\,(1+\\tan^2(u)) = \\dfrac{u'}{\\cos^2(u)}$" },
     { "a": "$\\arccos(u)$",              "b": "$\\dfrac{-u'}{\\sqrt{1-u^2}}$" },
     { "a": "$\\arcsin(u)$",              "b": "$\\dfrac{u'}{\\sqrt{1-u^2}}$" },
     { "a": "$\\arctan(u)$",              "b": "$\\dfrac{u'}{1+u^2}$" },
     { "a": "$\\cosh(u)$",                "b": "$u'\\,\\sinh(u)$" },
     { "a": "$\\sinh(u)$",                "b": "$u'\\,\\cosh(u)$" },
-    { "a": "$\\tan(u)$",                 "b": "$u'\\,(1+\\tan^2(u)) = \\dfrac{u'}{\\cos^2(u)}$" },
+    { "a": "$\\tanh(u)$",                "b": "$u'\\,(1-\\tanh^2(u)) = \\dfrac{u'}{\\cosh^2(u)}$" },
     { "a": "$(uv)'$",                    "b": "$u'v + uv'$" },
-    { "a": "$\\left(\\dfrac{u}{v}\\right)'$", "b": "$\\dfrac{u'v - uv'}{v^2}$" }
+    { "a": "$\\left(\\dfrac{u}{v}\\right)'$", "b": "$\\dfrac{u'v - uv'}{v^2}$" },
+    { "a": "$(uv)^{(n)}$",               "b": "$\\sum\\limits_{k=0}^{n} \\binom{n}{k}\\, u^{(k)}\\, v^{(n-k)}$" }
   ]
 }
