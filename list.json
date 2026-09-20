@@ -76,12 +76,12 @@
                 "files": [
                     "compendium_math_tsi_jean_decroocq.pdf",
                     "cahier_de_calcul.pdf_s",
-                    {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "count": 33, "type": "flashcard"},
-                    {"name": "Primitives", "url": "flashcard.html?deck=primitives", "count": 28, "type": "flashcard"},
+                    {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "type": "flashcard"},
+                    {"name": "Primitives", "url": "flashcard.html?deck=primitives", "type": "flashcard"},
                     { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
                     { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
-                    { "name": "Développements limités", "url": "flashcard.html?deck=dev_lim", "count": 11, "type": "flashcard" },
-                    { "name": "Théorèmes d'analyse", "url": "flashcard.html?deck=theo_analyse", "type": "flashcard" },
+                    { "name": "Développements limités", "url": "flashcard.html?deck=dev_lim", "type": "flashcard"},
+                    { "name": "Théorèmes d'analyse", "url": "flashcard.html?deck=theo_analyse", "type": "flashcard"},
                     "formulaire_hd.pdf_s"
                         ]
             },
