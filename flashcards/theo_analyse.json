@@ -5,7 +5,7 @@
   "fixedSide": false,
   "cards": [
 
-    { "a": "Théorème des gendarmes (théorème de la limite par encadrement)",
+    { "a": "Théorème de la limite par encadrement, théorème des gendarmes",
       "b": "Une fonction encadrée par deux fonctions qui tendent vers la même limite tend aussi vers cette limite. Variante pour une limite infinie (ISE)." },
 
     { "a": "Théorème de la limite monotone",
@@ -21,19 +21,19 @@
       "b": "Une fonction continue sur un intervalle prend toutes les valeurs comprises entre deux de ses valeurs." },
 
     { "a": "Théorème de la bijection continue",
-      "b": "Une fonction continue et strictement monotone sur un intervalle I réalise une bijection de I sur f(I), et sa réciproque est continue et strictement monotone dans le même sens." },
+      "b": "Une fonction continue et strictement monotone sur un intervalle $I$ réalise une bijection de $I$ sur $f(I)$, et sa réciproque est continue et strictement monotone dans le même sens." },
 
-    { "a": "Théorème des bornes atteintes (théorème de Weierstrass)",
+    { "a": "Théorème de Weierstrass, théorème des bornes atteintes",
       "b": "Une fonction continue sur un segment est bornée et atteint son minimum et son maximum." },
 
     { "a": "Théorème de Rolle",
-      "b": "Une fonction continue sur [a,b], dérivable sur ]a,b[ et qui prend la même valeur en a et en b voit sa dérivée s'annuler au moins une fois." },
+      "b": "Une fonction continue sur $[a,b]$, dérivable sur $]a,b[$ et qui prend la même valeur en $a$ et en $b$ voit sa dérivée s'annuler au moins une fois." },
 
     { "a": "Théorème des accroissements finis (TAF)",
-      "b": "Une fonction continue sur [a,b] et dérivable sur ]a,b[ admet en au moins un point intermédiaire une dérivée égale à son taux d'accroissement global." },
+      "b": "Une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$ admet en au moins un point intermédiaire une dérivée égale à son taux d'accroissement global." },
 
     { "a": "Inégalité des accroissements finis",
-      "b": "Si la dérivée est bornée, la variation de la fonction l'est aussi, proportionnellement à la longueur de l'intervalle : si |f'(x)| ≤ M sur [a,b], alors |f(b) − f(a)| ≤ M(b − a)." },
+      "b": "Si la dérivée est bornée, la variation de la fonction l'est aussi, proportionnellement à la longueur de l'intervalle : si $|f'(x)| \\leqslant M$ sur $[a,b]$, alors $|f(b)-f(a)| \\leqslant M(b-a)$." },
 
     { "a": "Théorème de la valeur moyenne",
       "b": "Une fonction continue sur un segment atteint en au moins un point sa valeur moyenne sur ce segment." }
