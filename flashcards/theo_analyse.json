@@ -15,7 +15,7 @@
       "b": "Une suite croissante et une suite décroissante dont la différence tend vers zéro convergent toutes deux vers une même limite, comprise entre leurs termes." },
 
     { "a": "Théorème des croissances comparées (TCC)",
-      "b": "À l'infini, les exponentielles dominent les puissances, qui dominent les logarithmes." },
+      "b": "En $+\\infty$, les exponentielles dominent les puissances, qui dominent les logarithmes." },
 
     { "a": "Théorème des valeurs intermédiaires (TVI)",
       "b": "Une fonction continue sur un intervalle prend toutes les valeurs comprises entre deux de ses valeurs." },
