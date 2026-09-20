@@ -1,40 +1,26 @@
 {
   "title": "Développements limités",
-  "labelA": "Fonction ou formule",
-  "labelB": "Développement limité",
+  "labelA": "Fonction",
+  "labelB": "DL",
   "fixedSide": false,
   "cards": [
 
-    { "a": "Formule de Taylor-Young",
-      "b": "$f(x) \\underset{x \\to x_0}{=} \\sum\\limits_{k=0}^{n} \\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k + o\\!\\left((x-x_0)^n\\right)$" },
+    { "a": "$e^x$",                "b": "$1 + x + \\dfrac{x^2}{2} + \\dfrac{x^3}{6} + o(x^3)$" },
 
-    { "a": "$e^x$",
-      "b": "$1 + x + \\dfrac{x^2}{2!} + \\dots + \\dfrac{x^n}{n!} + o(x^n)$" },
+    { "a": "$\\cos x$",            "b": "$1 - \\dfrac{x^2}{2} + \\dfrac{x^4}{24} + o(x^5)$" },
+    { "a": "$\\cosh x$",           "b": "$1 + \\dfrac{x^2}{2} + \\dfrac{x^4}{24} + o(x^5)$" },
 
-    { "a": "$\\cos x$",
-      "b": "$1 - \\dfrac{x^2}{2!} + \\dfrac{x^4}{4!} + \\dots + (-1)^p \\dfrac{x^{2p}}{(2p)!} + o(x^{2p+1})$" },
-    { "a": "$\\cosh x$",
-      "b": "$1 + \\dfrac{x^2}{2!} + \\dfrac{x^4}{4!} + \\dots + \\dfrac{x^{2p}}{(2p)!} + o(x^{2p+1})$" },
+    { "a": "$\\sin x$",            "b": "$x - \\dfrac{x^3}{6} + \\dfrac{x^5}{120} + o(x^6)$" },
+    { "a": "$\\sinh x$",           "b": "$x + \\dfrac{x^3}{6} + \\dfrac{x^5}{120} + o(x^6)$" },
 
-    { "a": "$\\sin x$",
-      "b": "$x - \\dfrac{x^3}{3!} + \\dfrac{x^5}{5!} + \\dots + (-1)^p \\dfrac{x^{2p+1}}{(2p+1)!} + o(x^{2p+2})$" },
-    { "a": "$\\sinh x$",
-      "b": "$x + \\dfrac{x^3}{3!} + \\dfrac{x^5}{5!} + \\dots + \\dfrac{x^{2p+1}}{(2p+1)!} + o(x^{2p+2})$" },
+    { "a": "$\\dfrac{1}{1-x}$",    "b": "$1 + x + x^2 + x^3 + o(x^3)$" },
+    { "a": "$\\dfrac{1}{1+x}$",    "b": "$1 - x + x^2 - x^3 + o(x^3)$" },
+    { "a": "$\\ln(1+x)$",          "b": "$x - \\dfrac{x^2}{2} + \\dfrac{x^3}{3} + o(x^3)$" },
+    { "a": "$\\arctan x$",         "b": "$x - \\dfrac{x^3}{3} + \\dfrac{x^5}{5} + o(x^6)$" },
 
-    { "a": "$\\dfrac{1}{1-x}$",
-      "b": "$1 + x + x^2 + \\dots + x^n + o(x^n)$" },
-    { "a": "$\\dfrac{1}{1+x}$",
-      "b": "$1 - x + x^2 + \\dots + (-1)^n x^n + o(x^n)$" },
-    { "a": "$\\ln(1+x)$",
-      "b": "$x - \\dfrac{x^2}{2} + \\dfrac{x^3}{3} + \\dots + (-1)^{n-1}\\dfrac{x^n}{n} + o(x^n)$" },
-    { "a": "$\\arctan x$",
-      "b": "$x - \\dfrac{x^3}{3} + \\dfrac{x^5}{5} + \\dots + (-1)^p \\dfrac{x^{2p+1}}{2p+1} + o(x^{2p+2})$" },
+    { "a": "$(1+x)^{\\alpha}$",    "b": "$1 + \\alpha x + \\dfrac{\\alpha(\\alpha-1)}{2}x^2 + o(x^2)$" },
 
-    { "a": "$(1+x)^{\\alpha}$",
-      "b": "$1 + \\alpha x + \\dfrac{\\alpha(\\alpha-1)}{2!}x^2 + \\dots + \\dfrac{\\alpha(\\alpha-1)\\dots(\\alpha-n+1)}{n!}x^n + o(x^n)$" },
-
-    { "a": "$\\tan x$",
-      "b": "$x + \\dfrac{x^3}{3} + o(x^4)$" }
+    { "a": "$\\tan x$",            "b": "$x + \\dfrac{x^3}{3} + o(x^4)$" }
 
   ]
 }
