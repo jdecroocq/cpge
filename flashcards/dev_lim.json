@@ -18,7 +18,7 @@
     { "a": "$\\ln(1+x)$",          "b": "$x - \\dfrac{x^2}{2} + \\dfrac{x^3}{3} + o(x^3)$" },
     { "a": "$\\arctan x$",         "b": "$x - \\dfrac{x^3}{3} + \\dfrac{x^5}{5} + o(x^6)$" },
 
-    { "a": "$(1+x)^{\\alpha}$",    "b": "$1 + \\alpha x + \\dfrac{\\alpha(\\alpha-1)}{2}x^2 + o(x^2)$" },
+    { "a": "$(1+x)^{\\alpha}$",    "b": "$1 + \\alpha x + \\dfrac{\\alpha(\\alpha-1)}{2}x^2 + \\dfrac{\\alpha(\\alpha-1)(\\alpha-2)}{6}x^3 + o(x^3)$" },
 
     { "a": "$\\tan x$",            "b": "$x + \\dfrac{x^3}{3} + o(x^4)$" }
 
