@@ -39,6 +39,26 @@
   document.addEventListener('DOMContentLoaded', async () => {
     const listEl = document.getElementById('fc-list');
 
+    function deckSlug(url) {
+      try {
+        return new URLSearchParams(url.split('?')[1] || '').get('deck');
+      } catch (err) {
+        return null;
+      }
+    }
+
+    async function fetchCount(slug) {
+      if (!slug) return null;
+      try {
+        const res = await fetch(`flashcards/${slug}.json`);
+        if (!res.ok) return null;
+        const data = await res.json();
+        return Array.isArray(data.cards) ? data.cards.length : null;
+      } catch (err) {
+        return null;
+      }
+    }
+
     try {
       const res = await fetch('list.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -74,18 +94,28 @@
         nameSpan.textContent = deck.name || deck.url;
         link.appendChild(nameSpan);
 
-        if (deck.count) {
-          const right = document.createElement('span');
-          right.className = 'item-icons';
-          const countSpan = document.createElement('span');
-          countSpan.className = 'fc-item-count';
-          countSpan.textContent = `${deck.count} cartes`;
-          right.appendChild(countSpan);
-          link.appendChild(right);
-        }
+        const right = document.createElement('span');
+        right.className = 'item-icons';
+        const countSpan = document.createElement('span');
+        countSpan.className = 'fc-item-count is-loading';
+        countSpan.textContent = '\u2026';
+        right.appendChild(countSpan);
+        link.appendChild(right);
 
         listEl.appendChild(link);
+        deck._countEl = countSpan;
       });
+
+      await Promise.all(decks.map(async deck => {
+        const n = await fetchCount(deckSlug(deck.url));
+        const el = deck._countEl;
+        el.classList.remove('is-loading');
+        if (n === null) {
+          el.remove();
+        } else {
+          el.textContent = n > 1 ? `${n} cartes` : `${n} carte`;
+        }
+      }));
 
     } catch (err) {
       listEl.textContent = 'Impossible de charger la liste des jeux.';
