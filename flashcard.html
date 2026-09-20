@@ -64,18 +64,26 @@
 
     function renderContent(el, text) {
       const displayMatch = text.match(/^\$\$(.+)\$\$$/s);
-      const inlineMatch  = text.match(/^\$(.+)\$$/s);
       if (window.katex && displayMatch) {
         el.innerHTML = katex.renderToString(displayMatch[1], { throwOnError: false, displayMode: true });
         return;
       }
-      if (window.katex && inlineMatch) {
-        el.innerHTML = katex.renderToString(inlineMatch[1], { throwOnError: false, displayMode: false });
+      if (!window.katex || text.indexOf('$') === -1) {
+        el.textContent = text;
         return;
       }
-      el.textContent = text;
+      el.textContent = '';
+      text.split(/\$([^$]+)\$/g).forEach((part, i) => {
+        if (i % 2 === 1) {
+          const span = document.createElement('span');
+          span.innerHTML = katex.renderToString(part, { throwOnError: false, displayMode: false });
+          el.appendChild(span);
+        } else if (part) {
+          el.appendChild(document.createTextNode(part));
+        }
+      });
     }
-
+    
     function buildUI(title) {
       document.title = `Kernel – FC : ${title}`;
       const app = document.getElementById('app');
