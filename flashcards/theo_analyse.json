@@ -14,10 +14,10 @@
     { "a": "Théorème des suites adjacentes",
       "b": "Une suite croissante et une suite décroissante dont la différence tend vers zéro convergent toutes deux vers une même limite, comprise entre leurs termes." },
 
-    { "a": "Théorème des croissances comparées (TCC)",
+    { "a": "Théorème des croissances comparées",
       "b": "En $+\\infty$, les exponentielles dominent les puissances, qui dominent les logarithmes." },
 
-    { "a": "Théorème des valeurs intermédiaires (TVI)",
+    { "a": "Théorème des valeurs intermédiaires",
       "b": "Une fonction continue sur un intervalle prend toutes les valeurs comprises entre deux de ses valeurs." },
 
     { "a": "Théorème de la bijection continue",
@@ -29,7 +29,7 @@
     { "a": "Théorème de Rolle",
       "b": "Une fonction continue sur $[a,b]$, dérivable sur $]a,b[$ et qui prend la même valeur en $a$ et en $b$ voit sa dérivée s'annuler au moins une fois." },
 
-    { "a": "Théorème des accroissements finis (TAF)",
+    { "a": "Théorème des accroissements finis",
       "b": "Une fonction continue sur $[a,b]$ et dérivable sur $]a,b[$ admet en au moins un point intermédiaire une dérivée égale à son taux d'accroissement global." },
 
     { "a": "Inégalité des accroissements finis",
