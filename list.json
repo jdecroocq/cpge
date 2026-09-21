@@ -53,10 +53,7 @@
                 "name": "03_sii",
                 "files": [
                     "synt_meca_tsi1.pdf_s",
-                    "02.01_liaisons_cine.pdf_s",
-                    "03.02_compl_train_epi.pdf",
-                    "04.03_val_moy_eff.pdf",
-                    "04.04_fourier.pdf"
+                    "02.01_liaisons_cine.pdf_s"
                         ]
             }
         ]
@@ -95,6 +92,7 @@
             {
                 "name": "03_sii",
                 "files": [
+                    "compendium_sii_tsi_jean_decroocq.pdf",
                     "sii_hd.pdf_s",
                     "diag_bode.pdf_s"
                         ]
