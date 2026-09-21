@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadContent();
 
-    const concoursDate = new Date("2027-04-26");
+    const concoursDate = new Date("2027-04-19");
 
     function getDaysLeft(targetDate) {
         const now = new Date();
