@@ -2,12 +2,12 @@
     {
         "name": "01_math",
         "files": [
-            "cours_math_tsi1_jean_decroocq.pdf",
             "cours_math_tsi2_jean_decroocq.pdf",
             "compendium_math_tsi_jean_decroocq.pdf",
             "cours_eb_tsi2.pdf_s",
-            "cours_eb_tsi1.pdf_s",
             "cahier_de_calcul.pdf_s",
+            "cours_math_tsi1_jean_decroocq.pdf",
+            "cours_eb_tsi1.pdf_s",
             {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"},
             {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "type": "flashcard"},
             {"name": "Primitives", "url": "flashcard.html?deck=primitives", "type": "flashcard"},
