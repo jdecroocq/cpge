@@ -1,37 +1,29 @@
 [
     {
-        "name": "00_global",
-        "files": [
-            "notions_transversales_tsi_jean_decroocq.pdf_s",
-            "template_latex_tsi1_2526.txt_t",
-            "template_latex_tsi2_2627.txt_t"
-        ]
-    },
-    {
         "name": "01_math",
         "files": [
+            "cours_math_tsi1_jean_decroocq.pdf",
+            "cours_math_tsi2_jean_decroocq.pdf",
             "compendium_math_tsi_jean_decroocq.pdf",
+            "cours_eb_tsi2.pdf_s",
+            "cours_eb_tsi1.pdf_s",
             "cahier_de_calcul.pdf_s",
+            {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"},
             {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "type": "flashcard"},
             {"name": "Primitives", "url": "flashcard.html?deck=primitives", "type": "flashcard"},
             { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
             { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
             { "name": "Développements limités", "url": "flashcard.html?deck=dev_lim", "type": "flashcard"},
             { "name": "Théorèmes d'analyse", "url": "flashcard.html?deck=theo_analyse", "type": "flashcard"},
-            "formulaire_hd.pdf_s",
-            "cours_math_tsi1_jean_decroocq.pdf",
-            "cours_eb_tsi1.pdf_s",
-            "cours_math_tsi2_jean_decroocq.pdf",
-            {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"},
-            "cours_eb_tsi2.pdf_s"
+            "formulaire_hd.pdf_s"
         ]
     },
     {
         "name": "02_pc",
         "files": [
+            "cours_pc_tsi1_jean_decroocq.pdf",
             {"name": "Molécules et ions usuels", "url": "flashcard.html?deck=molecules_ions", "type": "flashcard"},
             {"name": "Constantes physiques usuelles", "url": "flashcard.html?deck=constantes", "type": "flashcard"},
-            "cours_pc_tsi1_jean_decroocq.pdf",
             {"name": "classroom.google.com", "url": "https://classroom.google.com/u/1/w/NzEwNTEzNjA2MDk2/t/all", "type": "link"}
         ]
     },
@@ -78,6 +70,14 @@
             "01_pres_prem_minu.pdf_s",
             "02_bibliographie.pdf_s",
             "03_pres_alpha_01.pdf_s"
+        ]
+    },
+    {
+        "name": "99_global",
+        "files": [
+            "notions_transversales_tsi_jean_decroocq.pdf_s",
+            "template_latex_tsi1_2526.txt_t",
+            "template_latex_tsi2_2627.txt_t"
         ]
     }
 ]
