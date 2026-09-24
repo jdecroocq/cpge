@@ -22,9 +22,9 @@
         "name": "02_pc",
         "files": [
             "cours_pc_tsi1_jean_decroocq.pdf",
+            {"name": "classroom.google.com", "url": "https://classroom.google.com/u/1/w/NzEwNTEzNjA2MDk2/t/all", "type": "link"},
             {"name": "Molécules et ions usuels", "url": "flashcard.html?deck=molecules_ions", "type": "flashcard"},
-            {"name": "Constantes physiques usuelles", "url": "flashcard.html?deck=constantes", "type": "flashcard"},
-            {"name": "classroom.google.com", "url": "https://classroom.google.com/u/1/w/NzEwNTEzNjA2MDk2/t/all", "type": "link"}
+            {"name": "Constantes physiques usuelles", "url": "flashcard.html?deck=constantes", "type": "flashcard"}
         ]
     },
     {
