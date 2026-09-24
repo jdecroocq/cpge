@@ -166,7 +166,7 @@ main,
 #content-container {
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 42px;
   max-width: 900px;
   margin: 0 auto;
 }
