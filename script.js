@@ -88,130 +88,113 @@ document.addEventListener('DOMContentLoaded', () => {
         try {
             const response = await fetch('list.json');
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-            const categories = await response.json();
+            const subjects = await response.json();
 
-            if (categories.length === 0) {
-                container.textContent = 'Aucune catégorie à afficher.';
+            if (subjects.length === 0) {
+                container.textContent = 'Aucune matière à afficher.';
                 return;
             }
 
-            categories.forEach(cat => {
-                const catDiv = document.createElement('div');
-                catDiv.className = 'content-category';
+            subjects.forEach(subcat => {
+                const subcatDiv = document.createElement('div');
+                subcatDiv.className = 'content-subcategory';
 
-                const catTitle = document.createElement('h2');
-                catTitle.textContent = cat.title;
-                catDiv.appendChild(catTitle);
+                const subcatTitle = document.createElement('h3');
+                subcatTitle.textContent = subcat.name;
+                subcatDiv.appendChild(subcatTitle);
 
-                if (!cat.subcategories || cat.subcategories.length === 0) {
+                if (!subcat.files || subcat.files.length === 0) {
                     const emptyMsg = document.createElement('p');
                     emptyMsg.className = 'empty-message';
-                    emptyMsg.textContent = 'Aucune section.';
-                    catDiv.appendChild(emptyMsg);
+                    emptyMsg.textContent = 'Aucun document.';
+                    subcatDiv.appendChild(emptyMsg);
                 } else {
-                    cat.subcategories.forEach(subcat => {
-                        const subcatDiv = document.createElement('div');
-                        subcatDiv.className = 'content-subcategory';
+                    const listDiv = document.createElement('div');
+                    listDiv.className = 'item-list';
 
-                        const subcatTitle = document.createElement('h3');
-                        subcatTitle.textContent = subcat.name;
-                        subcatDiv.appendChild(subcatTitle);
+                    subcat.files.forEach(fileEntry => {
+                        const link = document.createElement('a');
+                        link.className = 'list-item';
+                        link.target = '_blank';
+                        link.rel = 'noopener noreferrer';
 
-                        if (!subcat.files || subcat.files.length === 0) {
-                            const emptyMsg = document.createElement('p');
-                            emptyMsg.className = 'empty-message';
-                            emptyMsg.textContent = 'Aucun document.';
-                            subcatDiv.appendChild(emptyMsg);
-                        } else {
-                            const listDiv = document.createElement('div');
-                            listDiv.className = 'item-list';
+                        const typeIcon = document.createElement('span');
+                        typeIcon.className = `icon item-type-icon ${getTypeIconClass(fileEntry)}`;
+                        link.appendChild(typeIcon);
 
-                            subcat.files.forEach(fileEntry => {
-                                const link = document.createElement('a');
-                                link.className = 'list-item';
-                                link.target = '_blank';
-                                link.rel = 'noopener noreferrer';
+                        if (typeof fileEntry === 'object' && fileEntry !== null && fileEntry.url) {
+                            link.href = fileEntry.url;
 
-                                const typeIcon = document.createElement('span');
-                                typeIcon.className = `icon item-type-icon ${getTypeIconClass(fileEntry)}`;
-                                link.appendChild(typeIcon);
+                            const nameSpan = document.createElement('span');
+                            nameSpan.className = 'item-name';
+                            nameSpan.textContent = fileEntry.name || fileEntry.url;
+                            link.appendChild(nameSpan);
 
-                                if (typeof fileEntry === 'object' && fileEntry !== null && fileEntry.url) {
-                                    link.href = fileEntry.url;
-
-                                    const nameSpan = document.createElement('span');
-                                    nameSpan.className = 'item-name';
-                                    nameSpan.textContent = fileEntry.name || fileEntry.url;
-                                    link.appendChild(nameSpan);
-
-                                    listDiv.appendChild(link);
-                                    return;
-                                }
-
-                                let cleanFileName = fileEntry;
-                                let flagsPart = '';
-                                const lastDotIndex = fileEntry.lastIndexOf('.');
-                                if (lastDotIndex > 0) {
-                                    const firstFlagIndex = fileEntry.indexOf('_', lastDotIndex);
-                                    if (firstFlagIndex > -1) {
-                                        cleanFileName = fileEntry.substring(0, firstFlagIndex);
-                                        flagsPart = fileEntry.substring(firstFlagIndex);
-                                    }
-                                }
-
-                                const isProtected    = flagsPart.includes('_s');
-                                const isDownloadable = flagsPart.includes('_t');
-                                const filePath = `${cat.folder}/${subcat.name}/${cleanFileName}`;
-
-                                link.href = filePath;
-                                link.dataset.finalUrl = filePath;
-                                applyCacheBuster(filePath, link);
-
-                                const fileNameSpan = document.createElement('span');
-                                fileNameSpan.className = 'item-name';
-                                fileNameSpan.textContent = cleanFileName;
-                                link.appendChild(fileNameSpan);
-
-                                const iconsContainer = document.createElement('span');
-                                iconsContainer.className = 'item-icons';
-
-                                if (isDownloadable) {
-                                    const downloadIcon = document.createElement('span');
-                                    downloadIcon.className = 'icon icon-download';
-                                    downloadIcon.title = 'Télécharger le fichier';
-                                    downloadIcon.addEventListener('click', (e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        const urlToUse = link.dataset.finalUrl || link.href;
-                                        const tempLink = document.createElement('a');
-                                        tempLink.href = urlToUse;
-                                        tempLink.setAttribute('download', cleanFileName);
-                                        tempLink.style.display = 'none';
-                                        document.body.appendChild(tempLink);
-                                        tempLink.click();
-                                        document.body.removeChild(tempLink);
-                                    });
-                                    iconsContainer.appendChild(downloadIcon);
-                                }
-
-                                if (isProtected) {
-                                    const protectedIcon = document.createElement('span');
-                                    protectedIcon.className = 'icon icon-protected';
-                                    iconsContainer.appendChild(protectedIcon);
-                                }
-
-                                if (iconsContainer.hasChildNodes()) {
-                                    link.appendChild(iconsContainer);
-                                }
-
-                                listDiv.appendChild(link);
-                            });
-                            subcatDiv.appendChild(listDiv);
+                            listDiv.appendChild(link);
+                            return;
                         }
-                        catDiv.appendChild(subcatDiv);
+
+                        let cleanFileName = fileEntry;
+                        let flagsPart = '';
+                        const lastDotIndex = fileEntry.lastIndexOf('.');
+                        if (lastDotIndex > 0) {
+                            const firstFlagIndex = fileEntry.indexOf('_', lastDotIndex);
+                            if (firstFlagIndex > -1) {
+                                cleanFileName = fileEntry.substring(0, firstFlagIndex);
+                                flagsPart = fileEntry.substring(firstFlagIndex);
+                            }
+                        }
+
+                        const isProtected    = flagsPart.includes('_s');
+                        const isDownloadable = flagsPart.includes('_t');
+                        const filePath = `${subcat.name}/${cleanFileName}`;
+
+                        link.href = filePath;
+                        link.dataset.finalUrl = filePath;
+                        applyCacheBuster(filePath, link);
+
+                        const fileNameSpan = document.createElement('span');
+                        fileNameSpan.className = 'item-name';
+                        fileNameSpan.textContent = cleanFileName;
+                        link.appendChild(fileNameSpan);
+
+                        const iconsContainer = document.createElement('span');
+                        iconsContainer.className = 'item-icons';
+
+                        if (isDownloadable) {
+                            const downloadIcon = document.createElement('span');
+                            downloadIcon.className = 'icon icon-download';
+                            downloadIcon.title = 'Télécharger le fichier';
+                            downloadIcon.addEventListener('click', (e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                const urlToUse = link.dataset.finalUrl || link.href;
+                                const tempLink = document.createElement('a');
+                                tempLink.href = urlToUse;
+                                tempLink.setAttribute('download', cleanFileName);
+                                tempLink.style.display = 'none';
+                                document.body.appendChild(tempLink);
+                                tempLink.click();
+                                document.body.removeChild(tempLink);
+                            });
+                            iconsContainer.appendChild(downloadIcon);
+                        }
+
+                        if (isProtected) {
+                            const protectedIcon = document.createElement('span');
+                            protectedIcon.className = 'icon icon-protected';
+                            iconsContainer.appendChild(protectedIcon);
+                        }
+
+                        if (iconsContainer.hasChildNodes()) {
+                            link.appendChild(iconsContainer);
+                        }
+
+                        listDiv.appendChild(link);
                     });
+                    subcatDiv.appendChild(listDiv);
                 }
-                container.appendChild(catDiv);
+                container.appendChild(subcatDiv);
             });
 
         } catch (err) {
