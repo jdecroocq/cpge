@@ -1,137 +1,83 @@
-[    
-    {   
-        "title": "2026–2027",
-        "folder": "2627",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "template_latex_tsi2_2627.txt_t"
-                        ]
-            },
-            {
-                "name": "01_math",
-                "files": [
-                    "cours_math_tsi2_jean_decroocq.pdf",
-                    {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"},
-                    "cours_eb.pdf_s"
-                        ]
-            },
-            {
-                "name": "02_pc",
-                "files": [
-                    {"name": "classroom.google.com", "url": "https://classroom.google.com/u/1/w/NzEwNTEzNjA2MDk2/t/all", "type": "link"}
-                        ]
-            }
-            
+[
+    {
+        "name": "00_global",
+        "files": [
+            "notions_transversales_tsi_jean_decroocq.pdf_s",
+            "template_latex_tsi1_2526.txt_t",
+            "template_latex_tsi2_2627.txt_t"
         ]
     },
     {
-        "title": "2025–2026",
-        "folder": "2526",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "template_latex_tsi1_2526.txt_t"
-                        ]
-            },
-            {
-                "name": "01_math",
-                "files": [
-                    "cours_math_tsi1_jean_decroocq.pdf",
-                    "cours_eb.pdf_s"
-                        ]
-            },
-            {
-                "name": "02_pc",
-                "files": [
-                    "cours_pc_tsi1_jean_decroocq.pdf"
-                        ]
-            },
-            {
-                "name": "03_sii",
-                "files": [
-                    "synt_meca_tsi1.pdf_s",
-                    "02.01_liaisons_cine.pdf_s"
-                        ]
-            }
+        "name": "01_math",
+        "files": [
+            "compendium_math_tsi_jean_decroocq.pdf",
+            "cahier_de_calcul.pdf_s",
+            {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "type": "flashcard"},
+            {"name": "Primitives", "url": "flashcard.html?deck=primitives", "type": "flashcard"},
+            { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
+            { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
+            { "name": "Développements limités", "url": "flashcard.html?deck=dev_lim", "type": "flashcard"},
+            { "name": "Théorèmes d'analyse", "url": "flashcard.html?deck=theo_analyse", "type": "flashcard"},
+            "formulaire_hd.pdf_s",
+            "cours_math_tsi1_jean_decroocq.pdf",
+            "cours_eb_tsi1.pdf_s",
+            "cours_math_tsi2_jean_decroocq.pdf",
+            {"name": "besson-math.fr", "url": "https://besson-math.fr/", "type": "link"},
+            "cours_eb_tsi2.pdf_s"
         ]
     },
     {
-        "title": "Global",
-        "folder": "global",
-        "subcategories": [
-            {
-                "name": "00_global",
-                "files": [
-                    "notions_transversales_tsi_jean_decroocq.pdf_s"
-                        ]
-            },
-            {
-                "name": "01_math",
-                "files": [
-                    "compendium_math_tsi_jean_decroocq.pdf",
-                    "cahier_de_calcul.pdf_s",
-                    {"name": "Dérivées", "url": "flashcard.html?deck=derivees", "type": "flashcard"},
-                    {"name": "Primitives", "url": "flashcard.html?deck=primitives", "type": "flashcard"},
-                    { "name": "Trigonométrie", "url": "flashcard.html?deck=trigo", "type": "flashcard" },
-                    { "name": "Somme et combinatoire", "url": "flashcard.html?deck=somm_comb", "type": "flashcard"},
-                    { "name": "Développements limités", "url": "flashcard.html?deck=dev_lim", "type": "flashcard"},
-                    { "name": "Théorèmes d'analyse", "url": "flashcard.html?deck=theo_analyse", "type": "flashcard"},
-                    "formulaire_hd.pdf_s"
-                        ]
-            },
-            {
-                "name": "02_pc",
-                "files": [
-                    {"name": "Molécules et ions usuels", "url": "flashcard.html?deck=molecules_ions", "type": "flashcard"},
-                    {"name": "Constantes physiques usuelles", "url": "flashcard.html?deck=constantes", "type": "flashcard"}
-                        ]
-            },
-            {
-                "name": "03_sii",
-                "files": [
-                    "compendium_sii_tsi_jean_decroocq.pdf",
-                    "sii_hd.pdf_s",
-                    "diag_bode.pdf_s"
-                        ]
-            },
-            {
-                "name": "04_info",
-                "files": [
-                    "cours_python_3_tsi_jean_decroocq.pdf",
-                    "memento_python_3.pdf"
-                ]
-            },
-            {
-                "name": "05_fr",
-                "files": [
-                    "methode_resume.pdf_s",
-                    "methode_resume_cc.pdf_s",
-                    "methode_dissertation.pdf_s",
-                    "methode_colle.pdf_s"
-                ]
-            },
-            {
-                "name": "06_lv",
-                "files": [
-                    "meth_synthese.pdf_s",
-                    {"name": "Vocabulaire anglais synthèse", "url": "flashcard.html?deck=voc_lv_synth", "type": "flashcard"},
-                    "meth_colle.pdf_s",
-                    "ccinp_rapport_ecrit_2025.pdf"
-                        ]
-            },
-            {
-                "name": "07_tipe",
-                "files": [
-                    "support_presentation.pdf_s",
-                    "decroocq_jean_tipe_2027_cpge_tsi_optimisation_aeroacoustique_drone_multirotor.pdf_s",
-                    "01_pres_prem_minu.pdf_s",
-                    "02_bibliographie.pdf_s",
-                    "03_pres_alpha_01.pdf_s"
-                ]
-            }
+        "name": "02_pc",
+        "files": [
+            {"name": "Molécules et ions usuels", "url": "flashcard.html?deck=molecules_ions", "type": "flashcard"},
+            {"name": "Constantes physiques usuelles", "url": "flashcard.html?deck=constantes", "type": "flashcard"},
+            "cours_pc_tsi1_jean_decroocq.pdf",
+            {"name": "classroom.google.com", "url": "https://classroom.google.com/u/1/w/NzEwNTEzNjA2MDk2/t/all", "type": "link"}
+        ]
+    },
+    {
+        "name": "03_sii",
+        "files": [
+            "compendium_sii_tsi_jean_decroocq.pdf",
+            "sii_hd.pdf_s",
+            "diag_bode.pdf_s",
+            "synt_meca_tsi1.pdf_s",
+            "02.01_liaisons_cine.pdf_s"
+        ]
+    },
+    {
+        "name": "04_info",
+        "files": [
+            "cours_python_3_tsi_jean_decroocq.pdf",
+            "memento_python_3.pdf"
+        ]
+    },
+    {
+        "name": "05_fr",
+        "files": [
+            "methode_resume.pdf_s",
+            "methode_resume_cc.pdf_s",
+            "methode_dissertation.pdf_s",
+            "methode_colle.pdf_s"
+        ]
+    },
+    {
+        "name": "06_lv",
+        "files": [
+            "meth_synthese.pdf_s",
+            {"name": "Vocabulaire anglais synthèse", "url": "flashcard.html?deck=voc_lv_synth", "type": "flashcard"},
+            "meth_colle.pdf_s",
+            "ccinp_rapport_ecrit_2025.pdf"
+        ]
+    },
+    {
+        "name": "07_tipe",
+        "files": [
+            "support_presentation.pdf_s",
+            "decroocq_jean_tipe_2027_cpge_tsi_optimisation_aeroacoustique_drone_multirotor.pdf_s",
+            "01_pres_prem_minu.pdf_s",
+            "02_bibliographie.pdf_s",
+            "03_pres_alpha_01.pdf_s"
         ]
     }
 ]
