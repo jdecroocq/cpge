@@ -62,16 +62,14 @@
     try {
       const res = await fetch('list.json');
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const categories = await res.json();
+      const subjects = await res.json();
 
       const decks = [];
-      categories.forEach(cat => {
-        (cat.subcategories || []).forEach(subcat => {
-          (subcat.files || []).forEach(entry => {
-            if (typeof entry === 'object' && entry !== null && entry.type === 'flashcard') {
-              decks.push(entry);
-            }
-          });
+      subjects.forEach(subcat => {
+        (subcat.files || []).forEach(entry => {
+          if (typeof entry === 'object' && entry !== null && entry.type === 'flashcard') {
+            decks.push(entry);
+          }
         });
       });
 
