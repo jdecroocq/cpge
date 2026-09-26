@@ -36,7 +36,10 @@
       "b": "Si la dérivée est bornée, la variation de la fonction l'est aussi, proportionnellement à la longueur de l'intervalle : si $|f'(x)| \\leqslant M$ sur $[a,b]$, alors $|f(b)-f(a)| \\leqslant M(b-a)$." },
 
     { "a": "Théorème de la valeur moyenne",
-      "b": "Une fonction continue sur un segment atteint en au moins un point sa valeur moyenne sur ce segment." }
+      "b": "Une fonction continue sur un segment atteint en au moins un point sa valeur moyenne sur ce segment." },
+
+    { "a": "Théorème de Schwarz, théorème de Clairaut",
+      "b": "Si $f$ est de classe $\\mathcal{C}^2$ sur un ouvert, l'ordre de dérivation partielle n'importe pas : $\\dfrac{\\partial^2 f}{\\partial x \\partial y} = \\dfrac{\\partial^2 f}{\\partial y \\partial x}$." }
 
   ]
 }
