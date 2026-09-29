@@ -41,10 +41,6 @@
   --color-5-rgb: 235, 235, 235;
 }
 
-body::-webkit-scrollbar {
-  display: none;
-}
-
 html {
   scroll-behavior: smooth;
   background-color: var(--color-0);
