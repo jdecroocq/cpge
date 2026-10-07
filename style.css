@@ -34,9 +34,9 @@
 
 :root.dark-mode {
   --color-0-rgb: 0, 0, 0;
-  --color-1-rgb: 12, 12, 12;
-  --color-2-rgb: 24, 24, 24;
-  --color-3-rgb: 32, 32, 32;
+  --color-1-rgb: 2, 2, 2;
+  --color-2-rgb: 8, 8, 8;
+  --color-3-rgb: 12, 12, 12;
   --color-4-rgb: 194, 194, 194;
   --color-5-rgb: 235, 235, 235;
 }
