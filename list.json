@@ -57,6 +57,7 @@
     {
         "name": "06_lv",
         "files": [
+            "themes_oral_commentaire.pdf_s",
             "meth_synthese.pdf_s",
             {"name": "Vocabulaire anglais synthèse", "url": "flashcard.html?deck=voc_lv_synth", "type": "flashcard"},
             "meth_colle.pdf_s",
