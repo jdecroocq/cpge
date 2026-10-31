@@ -49,6 +49,7 @@
             "methode_resume.pdf_s",
             "methode_resume_cc.pdf_s",
             "methode_dissertation.pdf",
+            "colle_2_fr_txt_4_decroocq.pdf_s",
             "methode_colle.pdf_s"
         ]
     },
@@ -81,7 +82,8 @@
         "files": [
             "notions_transversales_tsi_jean_decroocq.pdf_s",
             "template_latex_tsi1_2526.txt_t",
-            "template_latex_tsi2_2627.txt_t"
+            "template_latex_tsi2_2627.txt_t",
+            "cc_rapports_jury_2025_tsi.pdf"
         ]
     }
 ]
