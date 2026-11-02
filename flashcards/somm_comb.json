@@ -5,9 +5,9 @@
   "fixedSide": false,
   "cards": [
 
-    { "a": "$\\sum\\limits_{k=m}^{n}(u_n)\\ (arit.)$",                     "b": "$\\dfrac{u_m+u_n}{2}(1+n-m)$" },
-    { "a": "$\\sum\\limits_{k=0}^{n} u_n\\ (géom.)$",                      "b": "$u_0\\,\\dfrac{1-q^{n+1}}{1-q}$" },
-    { "a": "$\\sum\\limits_{k=m}^{n} u_n\\ (géom.)$",                      "b": "$u_m\\,\\dfrac{1-q^{n-m+1}}{1-q}$" },
+    { "a": "$\\sum\\limits_{k=m}^{n}(u_k)\\ (arit.)$",                     "b": "$\\dfrac{u_m+u_n}{2}(1+n-m)$" },
+    { "a": "$\\sum\\limits_{k=0}^{n} u_k\\ (géom.)$",                      "b": "$u_0\\,\\dfrac{1-q^{n+1}}{1-q}$" },
+    { "a": "$\\sum\\limits_{k=m}^{n} u_k\\ (géom.)$",                      "b": "$u_m\\,\\dfrac{1-q^{n-m+1}}{1-q}$" },
 
     { "a": "$\\sum\\limits_{k=0}^{n} k$",                                "b": "$\\dfrac{n(n+1)}{2}$" },
     { "a": "$\\sum\\limits_{k=0}^{n} k^2$",                              "b": "$\\dfrac{n(n+1)(2n+1)}{6}$" },
@@ -21,7 +21,12 @@
     { "a": "$\\binom{n}{p}+\\binom{n}{p+1}$",                             "b": "$\\binom{n+1}{p+1}$" },
 
     { "a": "$(a+b)^n$",                                                    "b": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}\\,a^{n-k}b^k$" },
-    { "a": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}$",                     "b": "$2^n$" }
+    { "a": "$\\sum\\limits_{k=0}^{n}\\binom{n}{k}$",                     "b": "$2^n$" },
+
+    { "a": "$\\sum\\limits_{k=0}^{+\\infty} q^k\\ (|q|<1)$", "b": "$\\dfrac{1}{1-q}$" },
+    { "a": "$\\sum\\limits_{k=1}^{+\\infty} k\\,q^{k-1}\\ (|q|<1)$", "b": "$\\dfrac{1}{(1-q)^2}$" },
+    { "a": "$\\sum\\limits_{k=2}^{+\\infty} k(k-1)\\,q^{k-2}\\ (|q|<1)$", "b": "$\\dfrac{2}{(1-q)^3}$" },
+    { "a": "$\\sum\\limits_{k=0}^{+\\infty} \\dfrac{x^k}{k!}$", "b": "$e^x$" }
 
   ]
 }
